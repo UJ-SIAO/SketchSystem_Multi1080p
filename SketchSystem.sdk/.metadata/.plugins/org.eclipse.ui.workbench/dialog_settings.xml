@@ -1,9 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
-	<section name="WorkbenchPreferenceDialogSettings">
-		<item value="482" key="DIALOG_X_ORIGIN"/>
-		<item value="74" key="DIALOG_Y_ORIGIN"/>
-	</section>
 	<section name="org.eclipse.ui.internal.QuickAccess">
 		<item value="-1" key="dialogHeight"/>
 		<item value="-1" key="dialogWidth"/>
@@ -26,10 +22,7 @@
 		<item value="false" key="WizardFileSystemResourceImportPage1.STORE_CREATE_CONTAINER_STRUCTURE_ID"/>
 		<item value="false" key="WizardFileSystemResourceImportPage1.STORE_OVERWRITE_EXISTING_RESOURCES_ID"/>
 		<list key="WizardFileSystemResourceImportPage1.STORE_SOURCE_NAMES_ID">
-			<item value="G:\My Drive\NTUST\專題\BmpHeaderFile"/>
-			<item value="G:\My Drive"/>
-			<item value="D:\GitCode\Sketch_IP_1080p"/>
-			<item value="D:\imageProcessingVideoOut-master\sw"/>
+			<item value="C:\Users\JIE\Desktop\src"/>
 		</list>
 	</section>
 </section>

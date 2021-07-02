@@ -85,6 +85,7 @@ int initImgProcessSystem(imgProcess *imgProcessInstance, u32 axiDmaBaseAddress,X
 	}
 	imgProcessInstance->DmaCtrlPointer = &myDma;
 	XAxiDma_IntrEnable(&myDma, XAXIDMA_IRQ_IOC_MASK, XAXIDMA_DEVICE_TO_DMA);
+
 	XScuGic_SetPriorityTriggerType(Intc,XPAR_FABRIC_SKETCHIP_1080P_0_O_INTR_INTR,0xA0,3);
 	status = XScuGic_Connect(Intc,XPAR_FABRIC_SKETCHIP_1080P_0_O_INTR_INTR,(Xil_InterruptHandler)imageProcISR,(void *)imgProcessInstance);
 
@@ -175,10 +176,27 @@ u32 checkIdle(u32 baseAddress,u32 offset){
 static void imageProcISR(void *CallBackRef){
 	//static int row= 4;
 	int status;
+	int status2;
 	XScuGic_Disable(((imgProcess*)CallBackRef)->IntrCtrlPointer,XPAR_FABRIC_SKETCHIP_1080P_0_O_INTR_INTR);
+	if(((imgProcess*)CallBackRef)->done == 1){
+		xil_printf("row = %d \r\n",((imgProcess*)CallBackRef)->row);
+	    XAxiDma_Reset(((imgProcess*)CallBackRef)->DmaCtrlPointer);
+	    status2 = XAxiDma_ResetIsDone(((imgProcess*)CallBackRef)->DmaCtrlPointer);
+	    while(status2 == 0){
+	    	status2 = XAxiDma_ResetIsDone(((imgProcess*)CallBackRef)->DmaCtrlPointer);
+	    	xil_printf("processing \r\n");
+		}
+	    xil_printf("status2 = %d \r\n",status2);
+	}
 	status = checkIdle(XPAR_AXI_DMA_0_BASEADDR,0x4);
-	while(status == 0)
+
+	/*if(((imgProcess*)CallBackRef)->row > 1080)
+		xil_printf("row = %d \r\n",((imgProcess*)CallBackRef)->row);*/
+
+	while(status == 0){
+		xil_printf("row = %d \r\n",((imgProcess*)CallBackRef)->row);
 		status = checkIdle(XPAR_AXI_DMA_0_BASEADDR,0x4);
+	}
 	if(((imgProcess*)CallBackRef)->row<1082){
 		//print("ccc\n");
 		if(((imgProcess*)CallBackRef)->row < 1082 && ((imgProcess*)CallBackRef)->done == 0)
@@ -204,13 +222,12 @@ static void imageProcISR(void *CallBackRef){
 		}
 		if(status != XST_SUCCESS){
 			xil_printf("DMA Receive Failed with Status %d    done = %d \n",status,((imgProcess*)CallBackRef)->done);
-			return -1;
 		}
 
 		//xil_printf("row = %d done = %d \n",((imgProcess*)CallBackRef)->row,((imgProcess*)CallBackRef)->done);
 
 		((imgProcess*)CallBackRef)->row++;
-		//printf("row = %d \n",((imgProcess*)CallBackRef)->row);
+		printf("row = %d \n",((imgProcess*)CallBackRef)->row);
 	}
 	/*if(row == 1082)
 		row=4;*/

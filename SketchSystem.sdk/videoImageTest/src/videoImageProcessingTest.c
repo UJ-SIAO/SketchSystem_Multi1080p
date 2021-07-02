@@ -6,6 +6,7 @@
  */
 #include "xparameters.h"
 #include "xaxivdma.h"
+#include "xaxidma.h"
 #include "xscugic.h"
 #include <stdlib.h>
 #include <stdio.h>
@@ -27,7 +28,7 @@
 
 
 //char imageData[] = {
-
+//static void imageProcISR2(void *CallBackRef);
 int initIntrController(XScuGic *Intc);
 static int SetupVideoIntrSystem(XAxiVdma *AxiVdmaPtr, u16 ReadIntrId, XScuGic *Intc);
 
@@ -61,21 +62,36 @@ int main(){
     while(myImgProcess.done == 0){
     	//print("fff\n");
     }
+   // print("aaa\n");
     myImgProcess.row = 4;
-    //XAxiDma_IntrEnable(myImgProcess.DmaCtrlPointer, XAXIDMA_IRQ_IOC_MASK, XAXIDMA_DEVICE_TO_DMA);
-    XScuGic_Enable(myImgProcess.IntrCtrlPointer,XPAR_FABRIC_SKETCHIP_1080P_0_O_INTR_INTR);
+
+	/*XScuGic_SetPriorityTriggerType(myImgProcess.IntrCtrlPointer,XPAR_FABRIC_SKETCHIP_1080P_0_O_INTR_INTR,0xA0,3);
+	status = XScuGic_Connect(myImgProcess.IntrCtrlPointer,XPAR_FABRIC_SKETCHIP_1080P_0_O_INTR_INTR,(Xil_InterruptHandler)imageProcISR2,(void *)&myImgProcess);
+
+	if(status != XST_SUCCESS){
+		xil_printf("Interrupt connection failed");
+		return -2;
+	}
+	XScuGic_Enable(myImgProcess.IntrCtrlPointer,XPAR_FABRIC_SKETCHIP_1080P_0_O_INTR_INTR);*/
+
+    /*XAxiDma_Reset(myImgProcess.DmaCtrlPointer);
+    status = XAxiDma_ResetIsDone(myImgProcess.DmaCtrlPointer);
+    while(status != 1){
+
+	}*/
+
     status=XAxiDma_SimpleTransfer(myImgProcess.DmaCtrlPointer,(u32)myImgProcess.filteredImageDataPointer2,(1920*1080),XAXIDMA_DEVICE_TO_DMA);
     if(status != XST_SUCCESS){
 		xil_printf("DMA Receive Failed with Status %d\n",status);
 		return -1;
 	}
-    status=XAxiDma_SimpleTransfer(myImgProcess.DmaCtrlPointer,(u32)myImgProcess.imageDataPointer2, 4*1920,XAXIDMA_DMA_TO_DEVICE);
+    status=XAxiDma_SimpleTransfer(myImgProcess.DmaCtrlPointer,(u32)myImgProcess.imageDataPointer2, 3*1920,XAXIDMA_DMA_TO_DEVICE);
     if(status != XST_SUCCESS){
 		xil_printf("DMA Receive Failed with Status %d\n",status);
 		return -1;
 	}
     while(myImgProcess.done == 1){
-    	xil_printf("row = %d \n",myImgProcess.row);
+    	//xil_printf("row = %d \r\n",myImgProcess.row);
     }
 
 	int Index;
@@ -121,17 +137,13 @@ int main(){
 	XAxiVdma_IntrEnable(&myVDMA, XAXIVDMA_IXR_COMPLETION_MASK, XAXIVDMA_READ);
 	SetupVideoIntrSystem(&myVDMA, XPAR_FABRIC_AXI_VDMA_0_MM2S_INTROUT_INTR,&Intc);
 
-	//print("eee\n");
-	//printf("done = %d \n",myImgProcess.done);
-
-    //print("ggg\n");
 	status = XAxiVdma_DmaStart(&myVDMA,XAXIVDMA_READ);
 	if (status != XST_SUCCESS) {
 		if(status == XST_VDMA_MISMATCH_ERROR)
 			xil_printf("DMA Mismatch Error\r\n");
 		return XST_FAILURE;
 	}
-	// print("h\n");
+	//print("h\n");
 	choice=0;
     while(1){
     	// print("i\n"); ///改成幻燈片形式??
@@ -245,3 +257,5 @@ static int SetupVideoIntrSystem(XAxiVdma *AxiVdmaPtr, u16 ReadIntrId, XScuGic *I
 
 	return XST_SUCCESS;
 }
+
+

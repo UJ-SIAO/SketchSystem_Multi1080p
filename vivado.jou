@@ -1,0 +1,25 @@
+#-----------------------------------------------------------
+# Vivado v2017.4 (64-bit)
+# SW Build 2086221 on Fri Dec 15 20:55:39 MST 2017
+# IP Build 2085800 on Fri Dec 15 22:25:07 MST 2017
+# Start of session at: Thu Jul  1 19:10:26 2021
+# Process ID: 14280
+# Current directory: D:/GitCode/SketchSystem_Multi1080p
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent13448 D:\GitCode\SketchSystem_Multi1080p\SketchSystem.xpr
+# Log file: D:/GitCode/SketchSystem_Multi1080p/vivado.log
+# Journal file: D:/GitCode/SketchSystem_Multi1080p\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project D:/GitCode/SketchSystem_Multi1080p/SketchSystem.xpr
+update_compile_order -fileset sources_1
+launch_sdk -workspace D:/GitCode/SketchSystem_Multi1080p/SketchSystem.sdk -hwspec D:/GitCode/SketchSystem_Multi1080p/SketchSystem.sdk/system_wrapper.hdf
+file copy -force D:/GitCode/SketchSystem_Multi1080p/SketchSystem.runs/impl_1/system_wrapper.sysdef D:/GitCode/SketchSystem_Multi1080p/SketchSystem.sdk/system_wrapper.hdf
+
+launch_sdk -workspace D:/GitCode/SketchSystem_Multi1080p/SketchSystem.sdk -hwspec D:/GitCode/SketchSystem_Multi1080p/SketchSystem.sdk/system_wrapper.hdf
+file copy -force D:/GitCode/SketchSystem_Multi1080p/SketchSystem.runs/impl_1/system_wrapper.sysdef D:/GitCode/SketchSystem_Multi1080p/SketchSystem.sdk/system_wrapper.hdf
+
+launch_sdk -workspace D:/GitCode/SketchSystem_Multi1080p/SketchSystem.sdk -hwspec D:/GitCode/SketchSystem_Multi1080p/SketchSystem.sdk/system_wrapper.hdf
+file mkdir D:/GitCode/SketchSystem_Multi1080p/SketchSystem.sdk
+file copy -force D:/GitCode/SketchSystem_Multi1080p/SketchSystem.runs/impl_1/system_wrapper.sysdef D:/GitCode/SketchSystem_Multi1080p/SketchSystem.sdk/system_wrapper.hdf
+
+launch_sdk -workspace D:/GitCode/SketchSystem_Multi1080p/SketchSystem.sdk -hwspec D:/GitCode/SketchSystem_Multi1080p/SketchSystem.sdk/system_wrapper.hdf
