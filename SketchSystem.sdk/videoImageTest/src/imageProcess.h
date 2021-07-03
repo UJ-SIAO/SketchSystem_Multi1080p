@@ -28,6 +28,8 @@ int startImageProcessing(imgProcess *imgProcessInstance);
 
 u32 checkIdle(u32 baseAddress,u32 offset);
 
+void resetDMA(u32 baseAddress);
+
 //Function for copying image from one buffer to another buffer
 int drawImage(u32 displayHSize,u32 displayVSize,u32 imageHSize,u32 imageVSize,u32 hOffset, u32 vOffset,int numColors,char *imagePointer,char *videoFramePointer);
 

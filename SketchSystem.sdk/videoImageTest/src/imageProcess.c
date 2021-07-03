@@ -6,7 +6,7 @@
  */
 
 #include "imageProcess.h"
-
+#include "sleep.h"
 static void imageProcISR(void *CallBackRef);
 static void dmaReceiveISR(void *CallBackRef);
 
@@ -145,9 +145,17 @@ int startImageProcessing(imgProcess *imgProcessInstance){
 static void dmaReceiveISR(void *CallBackRef){
 	XAxiDma_IntrDisable((XAxiDma *)(((imgProcess*)CallBackRef)->DmaCtrlPointer), XAXIDMA_IRQ_IOC_MASK, XAXIDMA_DEVICE_TO_DMA);
 	XAxiDma_IntrAckIrq((XAxiDma *)(((imgProcess*)CallBackRef)->DmaCtrlPointer), XAXIDMA_IRQ_IOC_MASK, XAXIDMA_DEVICE_TO_DMA);
-	((imgProcess*)CallBackRef)->done++;;
+
+	if(((imgProcess*)CallBackRef)->done == 0)
+		((imgProcess*)CallBackRef)->done =1;
+	else if (((imgProcess*)CallBackRef)->done ==1)
+		((imgProcess*)CallBackRef)->done =2;
+
+	//((imgProcess*)CallBackRef)->done++;
 	//printf("done = %d \n",((imgProcess*)CallBackRef)->done);
 	XAxiDma_IntrEnable((XAxiDma *)(((imgProcess*)CallBackRef)->DmaCtrlPointer), XAXIDMA_IRQ_IOC_MASK, XAXIDMA_DEVICE_TO_DMA);
+	resetDMA(XPAR_AXI_DMA_0_BASEADDR);
+    //sleep(1);
 	//printf("done = %d \n",((imgProcess*)CallBackRef)->done);
 }
 
@@ -167,6 +175,18 @@ u32 checkIdle(u32 baseAddress,u32 offset){
 
 /*****************************************************************************/
 /**
+ * This function reset  DMA engine
+ *
+ * @param	baseAddress is the baseAddress of DMA Controller
+ * @param   offset is the offset of Status register
+ *
+ *****************************************************************************/
+void resetDMA(u32 baseAddress){
+	 XAxiDma_WriteReg(baseAddress,0x00,XAXIDMA_CR_RESET_MASK);
+}
+
+/*****************************************************************************/
+/**
  * This function is the interrupt service routine for the image processing IP
  *
  * @param	CallBackRef is a pointer to the initialized imgProcess instance
@@ -176,9 +196,9 @@ u32 checkIdle(u32 baseAddress,u32 offset){
 static void imageProcISR(void *CallBackRef){
 	//static int row= 4;
 	int status;
-	int status2;
+	//int status2;
 	XScuGic_Disable(((imgProcess*)CallBackRef)->IntrCtrlPointer,XPAR_FABRIC_SKETCHIP_1080P_0_O_INTR_INTR);
-	if(((imgProcess*)CallBackRef)->done == 1){
+	/*if(((imgProcess*)CallBackRef)->done == 1){
 		xil_printf("row = %d \r\n",((imgProcess*)CallBackRef)->row);
 	    XAxiDma_Reset(((imgProcess*)CallBackRef)->DmaCtrlPointer);
 	    status2 = XAxiDma_ResetIsDone(((imgProcess*)CallBackRef)->DmaCtrlPointer);
@@ -187,20 +207,26 @@ static void imageProcISR(void *CallBackRef){
 	    	xil_printf("processing \r\n");
 		}
 	    xil_printf("status2 = %d \r\n",status2);
-	}
+	}*/
 	status = checkIdle(XPAR_AXI_DMA_0_BASEADDR,0x4);
 
 	/*if(((imgProcess*)CallBackRef)->row > 1080)
 		xil_printf("row = %d \r\n",((imgProcess*)CallBackRef)->row);*/
 
-	while(status == 0){
-		xil_printf("row = %d \r\n",((imgProcess*)CallBackRef)->row);
+	while(status == 0 && ((imgProcess*)CallBackRef)->row != 1082){
+		/*if(((imgProcess*)CallBackRef)->done == 1)
+			xil_printf("row = %d \r\n",((imgProcess*)CallBackRef)->row);*/
 		status = checkIdle(XPAR_AXI_DMA_0_BASEADDR,0x4);
 	}
-	if(((imgProcess*)CallBackRef)->row<1082){
+	if(((imgProcess*)CallBackRef)->row<1084){
 		//print("ccc\n");
-		if(((imgProcess*)CallBackRef)->row < 1082 && ((imgProcess*)CallBackRef)->done == 0)
+		if(((imgProcess*)CallBackRef)->row < 1082 && ((imgProcess*)CallBackRef)->done == 0){
 			status = XAxiDma_SimpleTransfer(((imgProcess*)CallBackRef)->DmaCtrlPointer,(u32)(((imgProcess*)CallBackRef)->imageDataPointer1)+(((imgProcess*)CallBackRef)->row)*((imgProcess*)CallBackRef)->imageHSize,((imgProcess*)CallBackRef)->imageHSize,XAXIDMA_DMA_TO_DEVICE);
+			((imgProcess*)CallBackRef)->row++;
+			if(status != XST_SUCCESS){
+				xil_printf("DMA Receive Failed with Status %d    done = %d \r\n",status,((imgProcess*)CallBackRef)->done);
+			}
+		}
 		/*else if(2164 > ((imgProcess*)CallBackRef)->row &&((imgProcess*)CallBackRef)->row >= 1082){
 			status = XAxiDma_SimpleTransfer(((imgProcess*)CallBackRef)->DmaCtrlPointer,(u32)(((imgProcess*)CallBackRef)->imageDataPointer2)+((((imgProcess*)CallBackRef)->row) - 1082)*((imgProcess*)CallBackRef)->imageHSize,((imgProcess*)CallBackRef)->imageHSize,XAXIDMA_DMA_TO_DEVICE);
 			//printf("row = %d \n",((imgProcess*)CallBackRef)->row);
@@ -217,17 +243,18 @@ static void imageProcISR(void *CallBackRef){
 			status = XAxiDma_SimpleTransfer(((imgProcess*)CallBackRef)->DmaCtrlPointer,(u32)(((imgProcess*)CallBackRef)->imageDataPointer5)+((((imgProcess*)CallBackRef)->row) - 5409)*((imgProcess*)CallBackRef)->imageHSize,((imgProcess*)CallBackRef)->imageHSize,XAXIDMA_DMA_TO_DEVICE);
 							//printf("row = %d \n",((imgProcess*)CallBackRef)->row);
 		}*/
-		if(((imgProcess*)CallBackRef)->row < 1082 && ((imgProcess*)CallBackRef)->done == 1){
+		if(((imgProcess*)CallBackRef)->row < 1084 && ((imgProcess*)CallBackRef)->done == 1){
 			status = XAxiDma_SimpleTransfer(((imgProcess*)CallBackRef)->DmaCtrlPointer,(u32)(((imgProcess*)CallBackRef)->imageDataPointer2)+(((imgProcess*)CallBackRef)->row)*((imgProcess*)CallBackRef)->imageHSize,((imgProcess*)CallBackRef)->imageHSize,XAXIDMA_DMA_TO_DEVICE);
+			((imgProcess*)CallBackRef)->row++;
+			xil_printf("row1 = %d \r\n",((imgProcess*)CallBackRef)->row);
+			if(status != XST_SUCCESS){
+				xil_printf("DMA Receive Failed with Status %d    done = %d \r\n",status,((imgProcess*)CallBackRef)->done);
+			}
 		}
-		if(status != XST_SUCCESS){
-			xil_printf("DMA Receive Failed with Status %d    done = %d \n",status,((imgProcess*)CallBackRef)->done);
-		}
-
 		//xil_printf("row = %d done = %d \n",((imgProcess*)CallBackRef)->row,((imgProcess*)CallBackRef)->done);
 
-		((imgProcess*)CallBackRef)->row++;
-		printf("row = %d \n",((imgProcess*)CallBackRef)->row);
+
+		//printf("row1 = %d \n",((imgProcess*)CallBackRef)->row);
 	}
 	/*if(row == 1082)
 		row=4;*/

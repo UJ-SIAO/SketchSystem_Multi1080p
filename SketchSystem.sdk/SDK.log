@@ -1483,3 +1483,1489 @@ con
 
 21:59:23 INFO  : Launch script is exported to file 'D:\GitCode\SketchSystem_Multi1080p\SketchSystem.sdk\.sdk\launch_scripts\xilinx_c-c++_application_(system_debugger)\system_debugger_on_local.tcl'
 22:00:14 INFO  : Disconnected from the channel tcfchan#22.
+19:25:31 INFO  : Registering command handlers for SDK TCF services
+19:25:31 INFO  : Launching XSCT server: xsct.bat -interactive D:\GitCode\SketchSystem_Multi1080p\SketchSystem.sdk\temp_xsdb_launch_script.tcl
+19:25:37 INFO  : XSCT server has started successfully.
+19:25:44 INFO  : Successfully done setting XSCT server connection channel  
+19:25:44 INFO  : Successfully done setting SDK workspace  
+19:25:44 INFO  : Processing command line option -hwspec D:/GitCode/SketchSystem_Multi1080p/SketchSystem.sdk/system_wrapper.hdf.
+19:25:45 INFO  : Checking for hwspec changes in the project system_wrapper_hw_platform_0.
+20:16:24 INFO  : Registering command handlers for SDK TCF services
+20:16:25 INFO  : Launching XSCT server: xsct.bat -interactive D:\GitCode\SketchSystem_Multi1080p\SketchSystem.sdk\temp_xsdb_launch_script.tcl
+20:16:29 INFO  : XSCT server has started successfully.
+20:16:29 INFO  : Successfully done setting XSCT server connection channel  
+20:16:30 INFO  : Successfully done setting SDK workspace  
+20:16:30 INFO  : Processing command line option -hwspec D:/GitCode/SketchSystem_Multi1080p/SketchSystem.sdk/system_wrapper.hdf.
+20:16:30 INFO  : Checking for hwspec changes in the project system_wrapper_hw_platform_0.
+20:27:36 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+20:27:37 INFO  : Jtag cable 'Digilent Zed 210248585775' is selected.
+20:27:37 INFO  : 'jtag frequency' command is executed.
+20:27:37 INFO  : Sourcing of 'D:/GitCode/SketchSystem_Multi1080p/SketchSystem.sdk/system_wrapper_hw_platform_0/ps7_init.tcl' is done.
+20:27:37 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Zed 210248585775" && level==0} -index 1' command is executed.
+20:27:39 INFO  : FPGA configured successfully with bitstream "D:/GitCode/SketchSystem_Multi1080p/SketchSystem.sdk/system_wrapper_hw_platform_0/system_wrapper.bit"
+20:27:39 INFO  : Context for 'APU' is selected.
+20:27:40 INFO  : Hardware design information is loaded from 'D:/GitCode/SketchSystem_Multi1080p/SketchSystem.sdk/system_wrapper_hw_platform_0/system.hdf'.
+20:27:40 INFO  : 'configparams force-mem-access 1' command is executed.
+20:27:40 INFO  : Context for 'APU' is selected.
+20:27:40 INFO  : 'stop' command is executed.
+20:27:40 INFO  : 'ps7_init' command is executed.
+20:27:40 INFO  : 'ps7_post_config' command is executed.
+20:27:40 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+20:27:40 INFO  : Processor reset is completed for 'ps7_cortexa9_0'.
+20:27:40 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+20:27:58 INFO  : The application 'D:/GitCode/SketchSystem_Multi1080p/SketchSystem.sdk/videoImageTest/Debug/videoImageTest.elf' is downloaded to processor 'ps7_cortexa9_0'.
+20:27:58 INFO  : 'configparams force-mem-access 0' command is executed.
+20:27:58 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+source D:/GitCode/SketchSystem_Multi1080p/SketchSystem.sdk/system_wrapper_hw_platform_0/ps7_init.tcl
+targets -set -filter {jtag_cable_name =~ "Digilent Zed 210248585775" && level==0} -index 1
+fpga -file D:/GitCode/SketchSystem_Multi1080p/SketchSystem.sdk/system_wrapper_hw_platform_0/system_wrapper.bit
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Zed 210248585775"} -index 0
+loadhw -hw D:/GitCode/SketchSystem_Multi1080p/SketchSystem.sdk/system_wrapper_hw_platform_0/system.hdf -mem-ranges [list {0x40000000 0xbfffffff}]
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Zed 210248585775"} -index 0
+stop
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248585775"} -index 0
+rst -processor
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248585775"} -index 0
+dow D:/GitCode/SketchSystem_Multi1080p/SketchSystem.sdk/videoImageTest/Debug/videoImageTest.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+20:27:59 INFO  : Memory regions updated for context APU
+20:27:59 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+20:27:59 INFO  : 'con' command is executed.
+20:27:59 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248585775"} -index 0
+con
+----------------End of Script----------------
+
+20:27:59 INFO  : Launch script is exported to file 'D:\GitCode\SketchSystem_Multi1080p\SketchSystem.sdk\.sdk\launch_scripts\xilinx_c-c++_application_(system_debugger)\system_debugger_on_local.tcl'
+20:36:34 INFO  : Disconnected from the channel tcfchan#1.
+20:36:35 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+20:36:35 INFO  : Jtag cable 'Digilent Zed 210248585775' is selected.
+20:36:35 INFO  : 'jtag frequency' command is executed.
+20:36:35 INFO  : Sourcing of 'D:/GitCode/SketchSystem_Multi1080p/SketchSystem.sdk/system_wrapper_hw_platform_0/ps7_init.tcl' is done.
+20:36:35 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Zed 210248585775" && level==0} -index 1' command is executed.
+20:36:38 INFO  : FPGA configured successfully with bitstream "D:/GitCode/SketchSystem_Multi1080p/SketchSystem.sdk/system_wrapper_hw_platform_0/system_wrapper.bit"
+20:36:38 INFO  : Context for 'APU' is selected.
+20:36:41 INFO  : Hardware design information is loaded from 'D:/GitCode/SketchSystem_Multi1080p/SketchSystem.sdk/system_wrapper_hw_platform_0/system.hdf'.
+20:36:41 INFO  : 'configparams force-mem-access 1' command is executed.
+20:36:41 INFO  : Context for 'APU' is selected.
+20:36:41 INFO  : 'stop' command is executed.
+20:36:42 INFO  : 'ps7_init' command is executed.
+20:36:42 INFO  : 'ps7_post_config' command is executed.
+20:36:42 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+20:36:42 INFO  : Processor reset is completed for 'ps7_cortexa9_0'.
+20:36:42 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+20:37:00 INFO  : The application 'D:/GitCode/SketchSystem_Multi1080p/SketchSystem.sdk/videoImageTest/Debug/videoImageTest.elf' is downloaded to processor 'ps7_cortexa9_0'.
+20:37:00 INFO  : 'configparams force-mem-access 0' command is executed.
+20:37:00 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+source D:/GitCode/SketchSystem_Multi1080p/SketchSystem.sdk/system_wrapper_hw_platform_0/ps7_init.tcl
+targets -set -filter {jtag_cable_name =~ "Digilent Zed 210248585775" && level==0} -index 1
+fpga -file D:/GitCode/SketchSystem_Multi1080p/SketchSystem.sdk/system_wrapper_hw_platform_0/system_wrapper.bit
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Zed 210248585775"} -index 0
+loadhw -hw D:/GitCode/SketchSystem_Multi1080p/SketchSystem.sdk/system_wrapper_hw_platform_0/system.hdf -mem-ranges [list {0x40000000 0xbfffffff}]
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Zed 210248585775"} -index 0
+stop
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248585775"} -index 0
+rst -processor
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248585775"} -index 0
+dow D:/GitCode/SketchSystem_Multi1080p/SketchSystem.sdk/videoImageTest/Debug/videoImageTest.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+20:37:00 INFO  : Memory regions updated for context APU
+20:37:00 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+20:37:00 INFO  : 'con' command is executed.
+20:37:00 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248585775"} -index 0
+con
+----------------End of Script----------------
+
+20:37:00 INFO  : Launch script is exported to file 'D:\GitCode\SketchSystem_Multi1080p\SketchSystem.sdk\.sdk\launch_scripts\xilinx_c-c++_application_(system_debugger)\system_debugger_on_local.tcl'
+20:41:20 INFO  : Disconnected from the channel tcfchan#2.
+20:41:21 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+20:41:21 INFO  : Jtag cable 'Digilent Zed 210248585775' is selected.
+20:41:21 INFO  : 'jtag frequency' command is executed.
+20:41:21 INFO  : Sourcing of 'D:/GitCode/SketchSystem_Multi1080p/SketchSystem.sdk/system_wrapper_hw_platform_0/ps7_init.tcl' is done.
+20:41:21 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Zed 210248585775" && level==0} -index 1' command is executed.
+20:41:24 INFO  : FPGA configured successfully with bitstream "D:/GitCode/SketchSystem_Multi1080p/SketchSystem.sdk/system_wrapper_hw_platform_0/system_wrapper.bit"
+20:41:24 INFO  : Context for 'APU' is selected.
+20:41:30 INFO  : Hardware design information is loaded from 'D:/GitCode/SketchSystem_Multi1080p/SketchSystem.sdk/system_wrapper_hw_platform_0/system.hdf'.
+20:41:30 INFO  : 'configparams force-mem-access 1' command is executed.
+20:41:30 INFO  : Context for 'APU' is selected.
+20:41:30 INFO  : 'stop' command is executed.
+20:41:30 INFO  : 'ps7_init' command is executed.
+20:41:30 INFO  : 'ps7_post_config' command is executed.
+20:41:30 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+20:41:31 INFO  : Processor reset is completed for 'ps7_cortexa9_0'.
+20:41:31 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+20:41:49 INFO  : The application 'D:/GitCode/SketchSystem_Multi1080p/SketchSystem.sdk/videoImageTest/Debug/videoImageTest.elf' is downloaded to processor 'ps7_cortexa9_0'.
+20:41:49 INFO  : 'configparams force-mem-access 0' command is executed.
+20:41:49 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+source D:/GitCode/SketchSystem_Multi1080p/SketchSystem.sdk/system_wrapper_hw_platform_0/ps7_init.tcl
+targets -set -filter {jtag_cable_name =~ "Digilent Zed 210248585775" && level==0} -index 1
+fpga -file D:/GitCode/SketchSystem_Multi1080p/SketchSystem.sdk/system_wrapper_hw_platform_0/system_wrapper.bit
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Zed 210248585775"} -index 0
+loadhw -hw D:/GitCode/SketchSystem_Multi1080p/SketchSystem.sdk/system_wrapper_hw_platform_0/system.hdf -mem-ranges [list {0x40000000 0xbfffffff}]
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Zed 210248585775"} -index 0
+stop
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248585775"} -index 0
+rst -processor
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248585775"} -index 0
+dow D:/GitCode/SketchSystem_Multi1080p/SketchSystem.sdk/videoImageTest/Debug/videoImageTest.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+20:41:49 INFO  : Memory regions updated for context APU
+20:41:49 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+20:41:49 INFO  : 'con' command is executed.
+20:41:49 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248585775"} -index 0
+con
+----------------End of Script----------------
+
+20:41:49 INFO  : Launch script is exported to file 'D:\GitCode\SketchSystem_Multi1080p\SketchSystem.sdk\.sdk\launch_scripts\xilinx_c-c++_application_(system_debugger)\system_debugger_on_local.tcl'
+20:42:46 INFO  : Disconnected from the channel tcfchan#3.
+20:42:47 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+20:42:47 INFO  : Jtag cable 'Digilent Zed 210248585775' is selected.
+20:42:47 INFO  : 'jtag frequency' command is executed.
+20:42:47 INFO  : Sourcing of 'D:/GitCode/SketchSystem_Multi1080p/SketchSystem.sdk/system_wrapper_hw_platform_0/ps7_init.tcl' is done.
+20:42:47 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Zed 210248585775" && level==0} -index 1' command is executed.
+20:42:50 INFO  : FPGA configured successfully with bitstream "D:/GitCode/SketchSystem_Multi1080p/SketchSystem.sdk/system_wrapper_hw_platform_0/system_wrapper.bit"
+20:42:50 INFO  : Context for 'APU' is selected.
+20:42:52 INFO  : Hardware design information is loaded from 'D:/GitCode/SketchSystem_Multi1080p/SketchSystem.sdk/system_wrapper_hw_platform_0/system.hdf'.
+20:42:52 INFO  : 'configparams force-mem-access 1' command is executed.
+20:42:52 INFO  : Context for 'APU' is selected.
+20:42:52 INFO  : 'stop' command is executed.
+20:42:53 INFO  : 'ps7_init' command is executed.
+20:42:53 INFO  : 'ps7_post_config' command is executed.
+20:42:53 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+20:42:53 INFO  : Processor reset is completed for 'ps7_cortexa9_0'.
+20:42:53 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+20:43:11 INFO  : The application 'D:/GitCode/SketchSystem_Multi1080p/SketchSystem.sdk/videoImageTest/Debug/videoImageTest.elf' is downloaded to processor 'ps7_cortexa9_0'.
+20:43:11 INFO  : 'configparams force-mem-access 0' command is executed.
+20:43:11 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+source D:/GitCode/SketchSystem_Multi1080p/SketchSystem.sdk/system_wrapper_hw_platform_0/ps7_init.tcl
+targets -set -filter {jtag_cable_name =~ "Digilent Zed 210248585775" && level==0} -index 1
+fpga -file D:/GitCode/SketchSystem_Multi1080p/SketchSystem.sdk/system_wrapper_hw_platform_0/system_wrapper.bit
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Zed 210248585775"} -index 0
+loadhw -hw D:/GitCode/SketchSystem_Multi1080p/SketchSystem.sdk/system_wrapper_hw_platform_0/system.hdf -mem-ranges [list {0x40000000 0xbfffffff}]
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Zed 210248585775"} -index 0
+stop
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248585775"} -index 0
+rst -processor
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248585775"} -index 0
+dow D:/GitCode/SketchSystem_Multi1080p/SketchSystem.sdk/videoImageTest/Debug/videoImageTest.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+20:43:11 INFO  : Memory regions updated for context APU
+20:43:11 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+20:43:11 INFO  : 'con' command is executed.
+20:43:11 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248585775"} -index 0
+con
+----------------End of Script----------------
+
+20:43:11 INFO  : Launch script is exported to file 'D:\GitCode\SketchSystem_Multi1080p\SketchSystem.sdk\.sdk\launch_scripts\xilinx_c-c++_application_(system_debugger)\system_debugger_on_local.tcl'
+20:46:24 INFO  : Disconnected from the channel tcfchan#4.
+20:46:25 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+20:46:26 INFO  : Jtag cable 'Digilent Zed 210248585775' is selected.
+20:46:26 INFO  : 'jtag frequency' command is executed.
+20:46:26 INFO  : Sourcing of 'D:/GitCode/SketchSystem_Multi1080p/SketchSystem.sdk/system_wrapper_hw_platform_0/ps7_init.tcl' is done.
+20:46:26 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Zed 210248585775" && level==0} -index 1' command is executed.
+20:46:28 INFO  : FPGA configured successfully with bitstream "D:/GitCode/SketchSystem_Multi1080p/SketchSystem.sdk/system_wrapper_hw_platform_0/system_wrapper.bit"
+20:46:28 INFO  : Context for 'APU' is selected.
+20:46:31 INFO  : Hardware design information is loaded from 'D:/GitCode/SketchSystem_Multi1080p/SketchSystem.sdk/system_wrapper_hw_platform_0/system.hdf'.
+20:46:31 INFO  : 'configparams force-mem-access 1' command is executed.
+20:46:31 INFO  : Context for 'APU' is selected.
+20:46:31 INFO  : 'stop' command is executed.
+20:46:31 INFO  : 'ps7_init' command is executed.
+20:46:31 INFO  : 'ps7_post_config' command is executed.
+20:46:31 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+20:46:32 INFO  : Processor reset is completed for 'ps7_cortexa9_0'.
+20:46:32 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+20:46:50 INFO  : The application 'D:/GitCode/SketchSystem_Multi1080p/SketchSystem.sdk/videoImageTest/Debug/videoImageTest.elf' is downloaded to processor 'ps7_cortexa9_0'.
+20:46:50 INFO  : 'configparams force-mem-access 0' command is executed.
+20:46:50 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+source D:/GitCode/SketchSystem_Multi1080p/SketchSystem.sdk/system_wrapper_hw_platform_0/ps7_init.tcl
+targets -set -filter {jtag_cable_name =~ "Digilent Zed 210248585775" && level==0} -index 1
+fpga -file D:/GitCode/SketchSystem_Multi1080p/SketchSystem.sdk/system_wrapper_hw_platform_0/system_wrapper.bit
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Zed 210248585775"} -index 0
+loadhw -hw D:/GitCode/SketchSystem_Multi1080p/SketchSystem.sdk/system_wrapper_hw_platform_0/system.hdf -mem-ranges [list {0x40000000 0xbfffffff}]
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Zed 210248585775"} -index 0
+stop
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248585775"} -index 0
+rst -processor
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248585775"} -index 0
+dow D:/GitCode/SketchSystem_Multi1080p/SketchSystem.sdk/videoImageTest/Debug/videoImageTest.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+20:46:50 INFO  : Memory regions updated for context APU
+20:46:50 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+20:46:50 INFO  : 'con' command is executed.
+20:46:50 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248585775"} -index 0
+con
+----------------End of Script----------------
+
+20:46:50 INFO  : Launch script is exported to file 'D:\GitCode\SketchSystem_Multi1080p\SketchSystem.sdk\.sdk\launch_scripts\xilinx_c-c++_application_(system_debugger)\system_debugger_on_local.tcl'
+20:47:41 INFO  : Disconnected from the channel tcfchan#5.
+20:47:42 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+20:47:43 INFO  : Jtag cable 'Digilent Zed 210248585775' is selected.
+20:47:43 INFO  : 'jtag frequency' command is executed.
+20:47:43 INFO  : Sourcing of 'D:/GitCode/SketchSystem_Multi1080p/SketchSystem.sdk/system_wrapper_hw_platform_0/ps7_init.tcl' is done.
+20:47:43 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Zed 210248585775" && level==0} -index 1' command is executed.
+20:47:45 INFO  : FPGA configured successfully with bitstream "D:/GitCode/SketchSystem_Multi1080p/SketchSystem.sdk/system_wrapper_hw_platform_0/system_wrapper.bit"
+20:47:45 INFO  : Context for 'APU' is selected.
+20:47:50 INFO  : Hardware design information is loaded from 'D:/GitCode/SketchSystem_Multi1080p/SketchSystem.sdk/system_wrapper_hw_platform_0/system.hdf'.
+20:47:50 INFO  : 'configparams force-mem-access 1' command is executed.
+20:47:50 INFO  : Context for 'APU' is selected.
+20:47:50 INFO  : 'stop' command is executed.
+20:47:51 INFO  : 'ps7_init' command is executed.
+20:47:51 INFO  : 'ps7_post_config' command is executed.
+20:47:51 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+20:47:51 INFO  : Processor reset is completed for 'ps7_cortexa9_0'.
+20:47:51 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+20:48:09 INFO  : The application 'D:/GitCode/SketchSystem_Multi1080p/SketchSystem.sdk/videoImageTest/Debug/videoImageTest.elf' is downloaded to processor 'ps7_cortexa9_0'.
+20:48:09 INFO  : 'configparams force-mem-access 0' command is executed.
+20:48:09 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+source D:/GitCode/SketchSystem_Multi1080p/SketchSystem.sdk/system_wrapper_hw_platform_0/ps7_init.tcl
+targets -set -filter {jtag_cable_name =~ "Digilent Zed 210248585775" && level==0} -index 1
+fpga -file D:/GitCode/SketchSystem_Multi1080p/SketchSystem.sdk/system_wrapper_hw_platform_0/system_wrapper.bit
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Zed 210248585775"} -index 0
+loadhw -hw D:/GitCode/SketchSystem_Multi1080p/SketchSystem.sdk/system_wrapper_hw_platform_0/system.hdf -mem-ranges [list {0x40000000 0xbfffffff}]
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Zed 210248585775"} -index 0
+stop
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248585775"} -index 0
+rst -processor
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248585775"} -index 0
+dow D:/GitCode/SketchSystem_Multi1080p/SketchSystem.sdk/videoImageTest/Debug/videoImageTest.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+20:48:10 INFO  : Memory regions updated for context APU
+20:48:10 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+20:48:10 INFO  : 'con' command is executed.
+20:48:10 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248585775"} -index 0
+con
+----------------End of Script----------------
+
+20:48:10 INFO  : Launch script is exported to file 'D:\GitCode\SketchSystem_Multi1080p\SketchSystem.sdk\.sdk\launch_scripts\xilinx_c-c++_application_(system_debugger)\system_debugger_on_local.tcl'
+20:48:34 INFO  : Disconnected from the channel tcfchan#6.
+20:48:35 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+20:48:37 INFO  : Jtag cable 'Digilent Zed 210248585775' is selected.
+20:48:37 INFO  : 'jtag frequency' command is executed.
+20:48:37 INFO  : Sourcing of 'D:/GitCode/SketchSystem_Multi1080p/SketchSystem.sdk/system_wrapper_hw_platform_0/ps7_init.tcl' is done.
+20:48:37 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Zed 210248585775" && level==0} -index 1' command is executed.
+20:48:39 INFO  : FPGA configured successfully with bitstream "D:/GitCode/SketchSystem_Multi1080p/SketchSystem.sdk/system_wrapper_hw_platform_0/system_wrapper.bit"
+20:48:39 INFO  : Context for 'APU' is selected.
+20:48:42 INFO  : Hardware design information is loaded from 'D:/GitCode/SketchSystem_Multi1080p/SketchSystem.sdk/system_wrapper_hw_platform_0/system.hdf'.
+20:48:42 INFO  : 'configparams force-mem-access 1' command is executed.
+20:48:42 INFO  : Context for 'APU' is selected.
+20:48:42 INFO  : 'stop' command is executed.
+20:48:43 INFO  : 'ps7_init' command is executed.
+20:48:43 INFO  : 'ps7_post_config' command is executed.
+20:48:43 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+20:48:43 INFO  : Processor reset is completed for 'ps7_cortexa9_0'.
+20:48:43 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+20:49:01 INFO  : The application 'D:/GitCode/SketchSystem_Multi1080p/SketchSystem.sdk/videoImageTest/Debug/videoImageTest.elf' is downloaded to processor 'ps7_cortexa9_0'.
+20:49:01 INFO  : 'configparams force-mem-access 0' command is executed.
+20:49:01 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+source D:/GitCode/SketchSystem_Multi1080p/SketchSystem.sdk/system_wrapper_hw_platform_0/ps7_init.tcl
+targets -set -filter {jtag_cable_name =~ "Digilent Zed 210248585775" && level==0} -index 1
+fpga -file D:/GitCode/SketchSystem_Multi1080p/SketchSystem.sdk/system_wrapper_hw_platform_0/system_wrapper.bit
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Zed 210248585775"} -index 0
+loadhw -hw D:/GitCode/SketchSystem_Multi1080p/SketchSystem.sdk/system_wrapper_hw_platform_0/system.hdf -mem-ranges [list {0x40000000 0xbfffffff}]
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Zed 210248585775"} -index 0
+stop
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248585775"} -index 0
+rst -processor
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248585775"} -index 0
+dow D:/GitCode/SketchSystem_Multi1080p/SketchSystem.sdk/videoImageTest/Debug/videoImageTest.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+20:49:01 INFO  : Memory regions updated for context APU
+20:49:01 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+20:49:01 INFO  : 'con' command is executed.
+20:49:01 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248585775"} -index 0
+con
+----------------End of Script----------------
+
+20:49:01 INFO  : Launch script is exported to file 'D:\GitCode\SketchSystem_Multi1080p\SketchSystem.sdk\.sdk\launch_scripts\xilinx_c-c++_application_(system_debugger)\system_debugger_on_local.tcl'
+20:50:03 INFO  : Disconnected from the channel tcfchan#7.
+20:50:04 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+20:50:06 INFO  : Jtag cable 'Digilent Zed 210248585775' is selected.
+20:50:06 INFO  : 'jtag frequency' command is executed.
+20:50:06 INFO  : Sourcing of 'D:/GitCode/SketchSystem_Multi1080p/SketchSystem.sdk/system_wrapper_hw_platform_0/ps7_init.tcl' is done.
+20:50:07 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Zed 210248585775" && level==0} -index 1' command is executed.
+20:50:09 INFO  : FPGA configured successfully with bitstream "D:/GitCode/SketchSystem_Multi1080p/SketchSystem.sdk/system_wrapper_hw_platform_0/system_wrapper.bit"
+20:50:09 INFO  : Context for 'APU' is selected.
+20:50:12 INFO  : Hardware design information is loaded from 'D:/GitCode/SketchSystem_Multi1080p/SketchSystem.sdk/system_wrapper_hw_platform_0/system.hdf'.
+20:50:12 INFO  : 'configparams force-mem-access 1' command is executed.
+20:50:12 INFO  : Context for 'APU' is selected.
+20:50:12 INFO  : 'stop' command is executed.
+20:50:12 INFO  : 'ps7_init' command is executed.
+20:50:12 INFO  : 'ps7_post_config' command is executed.
+20:50:12 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+20:50:12 INFO  : Processor reset is completed for 'ps7_cortexa9_0'.
+20:50:12 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+20:50:31 INFO  : The application 'D:/GitCode/SketchSystem_Multi1080p/SketchSystem.sdk/videoImageTest/Debug/videoImageTest.elf' is downloaded to processor 'ps7_cortexa9_0'.
+20:50:31 INFO  : 'configparams force-mem-access 0' command is executed.
+20:50:31 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+source D:/GitCode/SketchSystem_Multi1080p/SketchSystem.sdk/system_wrapper_hw_platform_0/ps7_init.tcl
+targets -set -filter {jtag_cable_name =~ "Digilent Zed 210248585775" && level==0} -index 1
+fpga -file D:/GitCode/SketchSystem_Multi1080p/SketchSystem.sdk/system_wrapper_hw_platform_0/system_wrapper.bit
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Zed 210248585775"} -index 0
+loadhw -hw D:/GitCode/SketchSystem_Multi1080p/SketchSystem.sdk/system_wrapper_hw_platform_0/system.hdf -mem-ranges [list {0x40000000 0xbfffffff}]
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Zed 210248585775"} -index 0
+stop
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248585775"} -index 0
+rst -processor
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248585775"} -index 0
+dow D:/GitCode/SketchSystem_Multi1080p/SketchSystem.sdk/videoImageTest/Debug/videoImageTest.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+20:50:31 INFO  : Memory regions updated for context APU
+20:50:31 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+20:50:31 INFO  : 'con' command is executed.
+20:50:31 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248585775"} -index 0
+con
+----------------End of Script----------------
+
+20:50:31 INFO  : Launch script is exported to file 'D:\GitCode\SketchSystem_Multi1080p\SketchSystem.sdk\.sdk\launch_scripts\xilinx_c-c++_application_(system_debugger)\system_debugger_on_local.tcl'
+20:54:14 INFO  : Disconnected from the channel tcfchan#8.
+20:54:16 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+20:54:19 INFO  : Jtag cable 'Digilent Zed 210248585775' is selected.
+20:54:19 INFO  : 'jtag frequency' command is executed.
+20:54:19 INFO  : Sourcing of 'D:/GitCode/SketchSystem_Multi1080p/SketchSystem.sdk/system_wrapper_hw_platform_0/ps7_init.tcl' is done.
+20:54:19 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Zed 210248585775" && level==0} -index 1' command is executed.
+20:54:21 INFO  : FPGA configured successfully with bitstream "D:/GitCode/SketchSystem_Multi1080p/SketchSystem.sdk/system_wrapper_hw_platform_0/system_wrapper.bit"
+20:54:22 INFO  : Context for 'APU' is selected.
+20:54:24 INFO  : Hardware design information is loaded from 'D:/GitCode/SketchSystem_Multi1080p/SketchSystem.sdk/system_wrapper_hw_platform_0/system.hdf'.
+20:54:24 INFO  : 'configparams force-mem-access 1' command is executed.
+20:54:24 INFO  : Context for 'APU' is selected.
+20:54:24 INFO  : 'stop' command is executed.
+20:54:25 INFO  : 'ps7_init' command is executed.
+20:54:25 INFO  : 'ps7_post_config' command is executed.
+20:54:25 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+20:54:25 INFO  : Processor reset is completed for 'ps7_cortexa9_0'.
+20:54:25 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+20:54:43 INFO  : The application 'D:/GitCode/SketchSystem_Multi1080p/SketchSystem.sdk/videoImageTest/Debug/videoImageTest.elf' is downloaded to processor 'ps7_cortexa9_0'.
+20:54:43 INFO  : 'configparams force-mem-access 0' command is executed.
+20:54:43 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+source D:/GitCode/SketchSystem_Multi1080p/SketchSystem.sdk/system_wrapper_hw_platform_0/ps7_init.tcl
+targets -set -filter {jtag_cable_name =~ "Digilent Zed 210248585775" && level==0} -index 1
+fpga -file D:/GitCode/SketchSystem_Multi1080p/SketchSystem.sdk/system_wrapper_hw_platform_0/system_wrapper.bit
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Zed 210248585775"} -index 0
+loadhw -hw D:/GitCode/SketchSystem_Multi1080p/SketchSystem.sdk/system_wrapper_hw_platform_0/system.hdf -mem-ranges [list {0x40000000 0xbfffffff}]
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Zed 210248585775"} -index 0
+stop
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248585775"} -index 0
+rst -processor
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248585775"} -index 0
+dow D:/GitCode/SketchSystem_Multi1080p/SketchSystem.sdk/videoImageTest/Debug/videoImageTest.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+20:54:43 INFO  : Memory regions updated for context APU
+20:54:44 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+20:54:44 INFO  : 'con' command is executed.
+20:54:44 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248585775"} -index 0
+con
+----------------End of Script----------------
+
+20:54:44 INFO  : Launch script is exported to file 'D:\GitCode\SketchSystem_Multi1080p\SketchSystem.sdk\.sdk\launch_scripts\xilinx_c-c++_application_(system_debugger)\system_debugger_on_local.tcl'
+21:00:50 INFO  : Disconnected from the channel tcfchan#9.
+21:00:51 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+21:00:52 INFO  : Jtag cable 'Digilent Zed 210248585775' is selected.
+21:00:52 INFO  : 'jtag frequency' command is executed.
+21:00:52 INFO  : Sourcing of 'D:/GitCode/SketchSystem_Multi1080p/SketchSystem.sdk/system_wrapper_hw_platform_0/ps7_init.tcl' is done.
+21:00:52 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Zed 210248585775" && level==0} -index 1' command is executed.
+21:00:54 INFO  : FPGA configured successfully with bitstream "D:/GitCode/SketchSystem_Multi1080p/SketchSystem.sdk/system_wrapper_hw_platform_0/system_wrapper.bit"
+21:00:54 INFO  : Context for 'APU' is selected.
+21:00:57 INFO  : Hardware design information is loaded from 'D:/GitCode/SketchSystem_Multi1080p/SketchSystem.sdk/system_wrapper_hw_platform_0/system.hdf'.
+21:00:57 INFO  : 'configparams force-mem-access 1' command is executed.
+21:00:57 INFO  : Context for 'APU' is selected.
+21:00:57 INFO  : 'stop' command is executed.
+21:00:57 INFO  : 'ps7_init' command is executed.
+21:00:57 INFO  : 'ps7_post_config' command is executed.
+21:00:57 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+21:00:58 INFO  : Processor reset is completed for 'ps7_cortexa9_0'.
+21:00:58 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+21:01:16 INFO  : The application 'D:/GitCode/SketchSystem_Multi1080p/SketchSystem.sdk/videoImageTest/Debug/videoImageTest.elf' is downloaded to processor 'ps7_cortexa9_0'.
+21:01:16 INFO  : 'configparams force-mem-access 0' command is executed.
+21:01:16 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+source D:/GitCode/SketchSystem_Multi1080p/SketchSystem.sdk/system_wrapper_hw_platform_0/ps7_init.tcl
+targets -set -filter {jtag_cable_name =~ "Digilent Zed 210248585775" && level==0} -index 1
+fpga -file D:/GitCode/SketchSystem_Multi1080p/SketchSystem.sdk/system_wrapper_hw_platform_0/system_wrapper.bit
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Zed 210248585775"} -index 0
+loadhw -hw D:/GitCode/SketchSystem_Multi1080p/SketchSystem.sdk/system_wrapper_hw_platform_0/system.hdf -mem-ranges [list {0x40000000 0xbfffffff}]
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Zed 210248585775"} -index 0
+stop
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248585775"} -index 0
+rst -processor
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248585775"} -index 0
+dow D:/GitCode/SketchSystem_Multi1080p/SketchSystem.sdk/videoImageTest/Debug/videoImageTest.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+21:01:16 INFO  : Memory regions updated for context APU
+21:01:16 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+21:01:16 INFO  : 'con' command is executed.
+21:01:16 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248585775"} -index 0
+con
+----------------End of Script----------------
+
+21:01:16 INFO  : Launch script is exported to file 'D:\GitCode\SketchSystem_Multi1080p\SketchSystem.sdk\.sdk\launch_scripts\xilinx_c-c++_application_(system_debugger)\system_debugger_on_local.tcl'
+21:01:56 INFO  : Disconnected from the channel tcfchan#10.
+21:01:57 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+21:01:57 INFO  : Jtag cable 'Digilent Zed 210248585775' is selected.
+21:01:57 INFO  : 'jtag frequency' command is executed.
+21:01:57 INFO  : Sourcing of 'D:/GitCode/SketchSystem_Multi1080p/SketchSystem.sdk/system_wrapper_hw_platform_0/ps7_init.tcl' is done.
+21:01:57 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Zed 210248585775" && level==0} -index 1' command is executed.
+21:02:00 INFO  : FPGA configured successfully with bitstream "D:/GitCode/SketchSystem_Multi1080p/SketchSystem.sdk/system_wrapper_hw_platform_0/system_wrapper.bit"
+21:02:00 INFO  : Context for 'APU' is selected.
+21:02:03 INFO  : Hardware design information is loaded from 'D:/GitCode/SketchSystem_Multi1080p/SketchSystem.sdk/system_wrapper_hw_platform_0/system.hdf'.
+21:02:03 INFO  : 'configparams force-mem-access 1' command is executed.
+21:02:03 INFO  : Context for 'APU' is selected.
+21:02:03 INFO  : 'stop' command is executed.
+21:02:03 INFO  : 'ps7_init' command is executed.
+21:02:03 INFO  : 'ps7_post_config' command is executed.
+21:02:03 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+21:02:03 INFO  : Processor reset is completed for 'ps7_cortexa9_0'.
+21:02:03 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+21:02:21 INFO  : The application 'D:/GitCode/SketchSystem_Multi1080p/SketchSystem.sdk/videoImageTest/Debug/videoImageTest.elf' is downloaded to processor 'ps7_cortexa9_0'.
+21:02:21 INFO  : 'configparams force-mem-access 0' command is executed.
+21:02:21 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+source D:/GitCode/SketchSystem_Multi1080p/SketchSystem.sdk/system_wrapper_hw_platform_0/ps7_init.tcl
+targets -set -filter {jtag_cable_name =~ "Digilent Zed 210248585775" && level==0} -index 1
+fpga -file D:/GitCode/SketchSystem_Multi1080p/SketchSystem.sdk/system_wrapper_hw_platform_0/system_wrapper.bit
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Zed 210248585775"} -index 0
+loadhw -hw D:/GitCode/SketchSystem_Multi1080p/SketchSystem.sdk/system_wrapper_hw_platform_0/system.hdf -mem-ranges [list {0x40000000 0xbfffffff}]
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Zed 210248585775"} -index 0
+stop
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248585775"} -index 0
+rst -processor
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248585775"} -index 0
+dow D:/GitCode/SketchSystem_Multi1080p/SketchSystem.sdk/videoImageTest/Debug/videoImageTest.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+21:02:21 INFO  : Memory regions updated for context APU
+21:02:22 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+21:02:22 INFO  : 'con' command is executed.
+21:02:22 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248585775"} -index 0
+con
+----------------End of Script----------------
+
+21:02:22 INFO  : Launch script is exported to file 'D:\GitCode\SketchSystem_Multi1080p\SketchSystem.sdk\.sdk\launch_scripts\xilinx_c-c++_application_(system_debugger)\system_debugger_on_local.tcl'
+21:05:58 INFO  : Disconnected from the channel tcfchan#11.
+21:05:58 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+21:05:59 INFO  : Jtag cable 'Digilent Zed 210248585775' is selected.
+21:05:59 INFO  : 'jtag frequency' command is executed.
+21:05:59 INFO  : Sourcing of 'D:/GitCode/SketchSystem_Multi1080p/SketchSystem.sdk/system_wrapper_hw_platform_0/ps7_init.tcl' is done.
+21:05:59 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Zed 210248585775" && level==0} -index 1' command is executed.
+21:06:02 INFO  : FPGA configured successfully with bitstream "D:/GitCode/SketchSystem_Multi1080p/SketchSystem.sdk/system_wrapper_hw_platform_0/system_wrapper.bit"
+21:06:02 INFO  : Context for 'APU' is selected.
+21:06:05 INFO  : Hardware design information is loaded from 'D:/GitCode/SketchSystem_Multi1080p/SketchSystem.sdk/system_wrapper_hw_platform_0/system.hdf'.
+21:06:05 INFO  : 'configparams force-mem-access 1' command is executed.
+21:06:05 INFO  : Context for 'APU' is selected.
+21:06:05 INFO  : 'stop' command is executed.
+21:06:05 INFO  : 'ps7_init' command is executed.
+21:06:05 INFO  : 'ps7_post_config' command is executed.
+21:06:05 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+21:06:06 INFO  : Processor reset is completed for 'ps7_cortexa9_0'.
+21:06:06 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+21:06:24 INFO  : The application 'D:/GitCode/SketchSystem_Multi1080p/SketchSystem.sdk/videoImageTest/Debug/videoImageTest.elf' is downloaded to processor 'ps7_cortexa9_0'.
+21:06:24 INFO  : 'configparams force-mem-access 0' command is executed.
+21:06:24 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+source D:/GitCode/SketchSystem_Multi1080p/SketchSystem.sdk/system_wrapper_hw_platform_0/ps7_init.tcl
+targets -set -filter {jtag_cable_name =~ "Digilent Zed 210248585775" && level==0} -index 1
+fpga -file D:/GitCode/SketchSystem_Multi1080p/SketchSystem.sdk/system_wrapper_hw_platform_0/system_wrapper.bit
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Zed 210248585775"} -index 0
+loadhw -hw D:/GitCode/SketchSystem_Multi1080p/SketchSystem.sdk/system_wrapper_hw_platform_0/system.hdf -mem-ranges [list {0x40000000 0xbfffffff}]
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Zed 210248585775"} -index 0
+stop
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248585775"} -index 0
+rst -processor
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248585775"} -index 0
+dow D:/GitCode/SketchSystem_Multi1080p/SketchSystem.sdk/videoImageTest/Debug/videoImageTest.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+21:06:24 INFO  : Memory regions updated for context APU
+21:06:24 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+21:06:24 INFO  : 'con' command is executed.
+21:06:24 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248585775"} -index 0
+con
+----------------End of Script----------------
+
+21:06:24 INFO  : Launch script is exported to file 'D:\GitCode\SketchSystem_Multi1080p\SketchSystem.sdk\.sdk\launch_scripts\xilinx_c-c++_application_(system_debugger)\system_debugger_on_local.tcl'
+21:09:57 INFO  : Disconnected from the channel tcfchan#12.
+21:09:57 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+21:09:58 INFO  : Jtag cable 'Digilent Zed 210248585775' is selected.
+21:09:58 INFO  : 'jtag frequency' command is executed.
+21:09:58 INFO  : Sourcing of 'D:/GitCode/SketchSystem_Multi1080p/SketchSystem.sdk/system_wrapper_hw_platform_0/ps7_init.tcl' is done.
+21:09:58 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Zed 210248585775" && level==0} -index 1' command is executed.
+21:10:00 INFO  : FPGA configured successfully with bitstream "D:/GitCode/SketchSystem_Multi1080p/SketchSystem.sdk/system_wrapper_hw_platform_0/system_wrapper.bit"
+21:10:00 INFO  : Context for 'APU' is selected.
+21:10:03 INFO  : Hardware design information is loaded from 'D:/GitCode/SketchSystem_Multi1080p/SketchSystem.sdk/system_wrapper_hw_platform_0/system.hdf'.
+21:10:03 INFO  : 'configparams force-mem-access 1' command is executed.
+21:10:03 INFO  : Context for 'APU' is selected.
+21:10:03 INFO  : 'stop' command is executed.
+21:10:04 INFO  : 'ps7_init' command is executed.
+21:10:04 INFO  : 'ps7_post_config' command is executed.
+21:10:04 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+21:10:04 INFO  : Processor reset is completed for 'ps7_cortexa9_0'.
+21:10:04 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+21:10:22 INFO  : The application 'D:/GitCode/SketchSystem_Multi1080p/SketchSystem.sdk/videoImageTest/Debug/videoImageTest.elf' is downloaded to processor 'ps7_cortexa9_0'.
+21:10:22 INFO  : 'configparams force-mem-access 0' command is executed.
+21:10:22 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+source D:/GitCode/SketchSystem_Multi1080p/SketchSystem.sdk/system_wrapper_hw_platform_0/ps7_init.tcl
+targets -set -filter {jtag_cable_name =~ "Digilent Zed 210248585775" && level==0} -index 1
+fpga -file D:/GitCode/SketchSystem_Multi1080p/SketchSystem.sdk/system_wrapper_hw_platform_0/system_wrapper.bit
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Zed 210248585775"} -index 0
+loadhw -hw D:/GitCode/SketchSystem_Multi1080p/SketchSystem.sdk/system_wrapper_hw_platform_0/system.hdf -mem-ranges [list {0x40000000 0xbfffffff}]
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Zed 210248585775"} -index 0
+stop
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248585775"} -index 0
+rst -processor
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248585775"} -index 0
+dow D:/GitCode/SketchSystem_Multi1080p/SketchSystem.sdk/videoImageTest/Debug/videoImageTest.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+21:10:22 INFO  : Memory regions updated for context APU
+21:10:22 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+21:10:22 INFO  : 'con' command is executed.
+21:10:22 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248585775"} -index 0
+con
+----------------End of Script----------------
+
+21:10:22 INFO  : Launch script is exported to file 'D:\GitCode\SketchSystem_Multi1080p\SketchSystem.sdk\.sdk\launch_scripts\xilinx_c-c++_application_(system_debugger)\system_debugger_on_local.tcl'
+21:11:01 INFO  : Disconnected from the channel tcfchan#13.
+21:11:02 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+21:11:03 INFO  : Jtag cable 'Digilent Zed 210248585775' is selected.
+21:11:03 INFO  : 'jtag frequency' command is executed.
+21:11:03 INFO  : Sourcing of 'D:/GitCode/SketchSystem_Multi1080p/SketchSystem.sdk/system_wrapper_hw_platform_0/ps7_init.tcl' is done.
+21:11:03 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Zed 210248585775" && level==0} -index 1' command is executed.
+21:11:05 INFO  : FPGA configured successfully with bitstream "D:/GitCode/SketchSystem_Multi1080p/SketchSystem.sdk/system_wrapper_hw_platform_0/system_wrapper.bit"
+21:11:06 INFO  : Context for 'APU' is selected.
+21:11:09 INFO  : Hardware design information is loaded from 'D:/GitCode/SketchSystem_Multi1080p/SketchSystem.sdk/system_wrapper_hw_platform_0/system.hdf'.
+21:11:09 INFO  : 'configparams force-mem-access 1' command is executed.
+21:11:09 INFO  : Context for 'APU' is selected.
+21:11:09 INFO  : 'stop' command is executed.
+21:11:09 INFO  : 'ps7_init' command is executed.
+21:11:09 INFO  : 'ps7_post_config' command is executed.
+21:11:09 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+21:11:09 INFO  : Processor reset is completed for 'ps7_cortexa9_0'.
+21:11:09 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+21:11:27 INFO  : The application 'D:/GitCode/SketchSystem_Multi1080p/SketchSystem.sdk/videoImageTest/Debug/videoImageTest.elf' is downloaded to processor 'ps7_cortexa9_0'.
+21:11:27 INFO  : 'configparams force-mem-access 0' command is executed.
+21:11:27 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+source D:/GitCode/SketchSystem_Multi1080p/SketchSystem.sdk/system_wrapper_hw_platform_0/ps7_init.tcl
+targets -set -filter {jtag_cable_name =~ "Digilent Zed 210248585775" && level==0} -index 1
+fpga -file D:/GitCode/SketchSystem_Multi1080p/SketchSystem.sdk/system_wrapper_hw_platform_0/system_wrapper.bit
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Zed 210248585775"} -index 0
+loadhw -hw D:/GitCode/SketchSystem_Multi1080p/SketchSystem.sdk/system_wrapper_hw_platform_0/system.hdf -mem-ranges [list {0x40000000 0xbfffffff}]
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Zed 210248585775"} -index 0
+stop
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248585775"} -index 0
+rst -processor
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248585775"} -index 0
+dow D:/GitCode/SketchSystem_Multi1080p/SketchSystem.sdk/videoImageTest/Debug/videoImageTest.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+21:11:27 INFO  : Memory regions updated for context APU
+21:11:28 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+21:11:28 INFO  : 'con' command is executed.
+21:11:28 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248585775"} -index 0
+con
+----------------End of Script----------------
+
+21:11:28 INFO  : Launch script is exported to file 'D:\GitCode\SketchSystem_Multi1080p\SketchSystem.sdk\.sdk\launch_scripts\xilinx_c-c++_application_(system_debugger)\system_debugger_on_local.tcl'
+21:14:03 INFO  : Disconnected from the channel tcfchan#14.
+21:14:04 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+21:14:04 INFO  : Jtag cable 'Digilent Zed 210248585775' is selected.
+21:14:04 INFO  : 'jtag frequency' command is executed.
+21:14:04 INFO  : Sourcing of 'D:/GitCode/SketchSystem_Multi1080p/SketchSystem.sdk/system_wrapper_hw_platform_0/ps7_init.tcl' is done.
+21:14:04 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Zed 210248585775" && level==0} -index 1' command is executed.
+21:14:07 INFO  : FPGA configured successfully with bitstream "D:/GitCode/SketchSystem_Multi1080p/SketchSystem.sdk/system_wrapper_hw_platform_0/system_wrapper.bit"
+21:14:07 INFO  : Context for 'APU' is selected.
+21:14:10 INFO  : Hardware design information is loaded from 'D:/GitCode/SketchSystem_Multi1080p/SketchSystem.sdk/system_wrapper_hw_platform_0/system.hdf'.
+21:14:10 INFO  : 'configparams force-mem-access 1' command is executed.
+21:14:10 INFO  : Context for 'APU' is selected.
+21:14:10 INFO  : 'stop' command is executed.
+21:14:11 INFO  : 'ps7_init' command is executed.
+21:14:11 INFO  : 'ps7_post_config' command is executed.
+21:14:11 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+21:14:11 INFO  : Processor reset is completed for 'ps7_cortexa9_0'.
+21:14:11 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+21:14:29 INFO  : The application 'D:/GitCode/SketchSystem_Multi1080p/SketchSystem.sdk/videoImageTest/Debug/videoImageTest.elf' is downloaded to processor 'ps7_cortexa9_0'.
+21:14:29 INFO  : 'configparams force-mem-access 0' command is executed.
+21:14:29 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+source D:/GitCode/SketchSystem_Multi1080p/SketchSystem.sdk/system_wrapper_hw_platform_0/ps7_init.tcl
+targets -set -filter {jtag_cable_name =~ "Digilent Zed 210248585775" && level==0} -index 1
+fpga -file D:/GitCode/SketchSystem_Multi1080p/SketchSystem.sdk/system_wrapper_hw_platform_0/system_wrapper.bit
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Zed 210248585775"} -index 0
+loadhw -hw D:/GitCode/SketchSystem_Multi1080p/SketchSystem.sdk/system_wrapper_hw_platform_0/system.hdf -mem-ranges [list {0x40000000 0xbfffffff}]
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Zed 210248585775"} -index 0
+stop
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248585775"} -index 0
+rst -processor
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248585775"} -index 0
+dow D:/GitCode/SketchSystem_Multi1080p/SketchSystem.sdk/videoImageTest/Debug/videoImageTest.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+21:14:29 INFO  : Memory regions updated for context APU
+21:14:29 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+21:14:29 INFO  : 'con' command is executed.
+21:14:29 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248585775"} -index 0
+con
+----------------End of Script----------------
+
+21:14:29 INFO  : Launch script is exported to file 'D:\GitCode\SketchSystem_Multi1080p\SketchSystem.sdk\.sdk\launch_scripts\xilinx_c-c++_application_(system_debugger)\system_debugger_on_local.tcl'
+21:16:23 INFO  : Disconnected from the channel tcfchan#15.
+21:16:24 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+21:16:24 INFO  : Jtag cable 'Digilent Zed 210248585775' is selected.
+21:16:24 INFO  : 'jtag frequency' command is executed.
+21:16:24 INFO  : Sourcing of 'D:/GitCode/SketchSystem_Multi1080p/SketchSystem.sdk/system_wrapper_hw_platform_0/ps7_init.tcl' is done.
+21:16:24 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Zed 210248585775" && level==0} -index 1' command is executed.
+21:16:27 INFO  : FPGA configured successfully with bitstream "D:/GitCode/SketchSystem_Multi1080p/SketchSystem.sdk/system_wrapper_hw_platform_0/system_wrapper.bit"
+21:16:27 INFO  : Context for 'APU' is selected.
+21:16:30 INFO  : Hardware design information is loaded from 'D:/GitCode/SketchSystem_Multi1080p/SketchSystem.sdk/system_wrapper_hw_platform_0/system.hdf'.
+21:16:30 INFO  : 'configparams force-mem-access 1' command is executed.
+21:16:30 INFO  : Context for 'APU' is selected.
+21:16:30 INFO  : 'stop' command is executed.
+21:16:30 INFO  : 'ps7_init' command is executed.
+21:16:30 INFO  : 'ps7_post_config' command is executed.
+21:16:30 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+21:16:31 INFO  : Processor reset is completed for 'ps7_cortexa9_0'.
+21:16:31 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+21:16:49 INFO  : The application 'D:/GitCode/SketchSystem_Multi1080p/SketchSystem.sdk/videoImageTest/Debug/videoImageTest.elf' is downloaded to processor 'ps7_cortexa9_0'.
+21:16:49 INFO  : 'configparams force-mem-access 0' command is executed.
+21:16:49 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+source D:/GitCode/SketchSystem_Multi1080p/SketchSystem.sdk/system_wrapper_hw_platform_0/ps7_init.tcl
+targets -set -filter {jtag_cable_name =~ "Digilent Zed 210248585775" && level==0} -index 1
+fpga -file D:/GitCode/SketchSystem_Multi1080p/SketchSystem.sdk/system_wrapper_hw_platform_0/system_wrapper.bit
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Zed 210248585775"} -index 0
+loadhw -hw D:/GitCode/SketchSystem_Multi1080p/SketchSystem.sdk/system_wrapper_hw_platform_0/system.hdf -mem-ranges [list {0x40000000 0xbfffffff}]
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Zed 210248585775"} -index 0
+stop
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248585775"} -index 0
+rst -processor
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248585775"} -index 0
+dow D:/GitCode/SketchSystem_Multi1080p/SketchSystem.sdk/videoImageTest/Debug/videoImageTest.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+21:16:49 INFO  : Memory regions updated for context APU
+21:16:49 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+21:16:49 INFO  : 'con' command is executed.
+21:16:49 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248585775"} -index 0
+con
+----------------End of Script----------------
+
+21:16:49 INFO  : Launch script is exported to file 'D:\GitCode\SketchSystem_Multi1080p\SketchSystem.sdk\.sdk\launch_scripts\xilinx_c-c++_application_(system_debugger)\system_debugger_on_local.tcl'
+21:18:14 INFO  : Disconnected from the channel tcfchan#16.
+21:18:15 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+21:18:33 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+----------------End of Script----------------
+
+21:18:40 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+21:18:42 INFO  : Jtag cable 'Digilent Zed 210248585775' is selected.
+21:18:42 INFO  : 'jtag frequency' command is executed.
+21:18:42 INFO  : Sourcing of 'D:/GitCode/SketchSystem_Multi1080p/SketchSystem.sdk/system_wrapper_hw_platform_0/ps7_init.tcl' is done.
+21:18:43 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Zed 210248585775" && level==0} -index 1' command is executed.
+21:18:45 INFO  : FPGA configured successfully with bitstream "D:/GitCode/SketchSystem_Multi1080p/SketchSystem.sdk/system_wrapper_hw_platform_0/system_wrapper.bit"
+21:18:45 INFO  : Context for 'APU' is selected.
+21:18:48 INFO  : Hardware design information is loaded from 'D:/GitCode/SketchSystem_Multi1080p/SketchSystem.sdk/system_wrapper_hw_platform_0/system.hdf'.
+21:18:48 INFO  : 'configparams force-mem-access 1' command is executed.
+21:18:48 INFO  : Context for 'APU' is selected.
+21:18:48 INFO  : 'stop' command is executed.
+21:18:48 INFO  : 'ps7_init' command is executed.
+21:18:48 INFO  : 'ps7_post_config' command is executed.
+21:18:48 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+21:18:49 INFO  : Processor reset is completed for 'ps7_cortexa9_0'.
+21:18:49 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+21:19:07 INFO  : The application 'D:/GitCode/SketchSystem_Multi1080p/SketchSystem.sdk/videoImageTest/Debug/videoImageTest.elf' is downloaded to processor 'ps7_cortexa9_0'.
+21:19:07 INFO  : 'configparams force-mem-access 0' command is executed.
+21:19:07 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+source D:/GitCode/SketchSystem_Multi1080p/SketchSystem.sdk/system_wrapper_hw_platform_0/ps7_init.tcl
+targets -set -filter {jtag_cable_name =~ "Digilent Zed 210248585775" && level==0} -index 1
+fpga -file D:/GitCode/SketchSystem_Multi1080p/SketchSystem.sdk/system_wrapper_hw_platform_0/system_wrapper.bit
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Zed 210248585775"} -index 0
+loadhw -hw D:/GitCode/SketchSystem_Multi1080p/SketchSystem.sdk/system_wrapper_hw_platform_0/system.hdf -mem-ranges [list {0x40000000 0xbfffffff}]
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Zed 210248585775"} -index 0
+stop
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248585775"} -index 0
+rst -processor
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248585775"} -index 0
+dow D:/GitCode/SketchSystem_Multi1080p/SketchSystem.sdk/videoImageTest/Debug/videoImageTest.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+21:19:07 INFO  : Memory regions updated for context APU
+21:19:07 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+21:19:07 INFO  : 'con' command is executed.
+21:19:07 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248585775"} -index 0
+con
+----------------End of Script----------------
+
+21:19:07 INFO  : Launch script is exported to file 'D:\GitCode\SketchSystem_Multi1080p\SketchSystem.sdk\.sdk\launch_scripts\xilinx_c-c++_application_(system_debugger)\system_debugger_on_local.tcl'
+21:24:12 INFO  : Disconnected from the channel tcfchan#17.
+21:24:13 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+21:24:13 INFO  : Jtag cable 'Digilent Zed 210248585775' is selected.
+21:24:13 INFO  : 'jtag frequency' command is executed.
+21:24:13 INFO  : Sourcing of 'D:/GitCode/SketchSystem_Multi1080p/SketchSystem.sdk/system_wrapper_hw_platform_0/ps7_init.tcl' is done.
+21:24:13 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Zed 210248585775" && level==0} -index 1' command is executed.
+21:24:15 INFO  : FPGA configured successfully with bitstream "D:/GitCode/SketchSystem_Multi1080p/SketchSystem.sdk/system_wrapper_hw_platform_0/system_wrapper.bit"
+21:24:16 INFO  : Context for 'APU' is selected.
+21:24:18 INFO  : Hardware design information is loaded from 'D:/GitCode/SketchSystem_Multi1080p/SketchSystem.sdk/system_wrapper_hw_platform_0/system.hdf'.
+21:24:18 INFO  : 'configparams force-mem-access 1' command is executed.
+21:24:18 INFO  : Context for 'APU' is selected.
+21:24:18 INFO  : 'stop' command is executed.
+21:24:19 INFO  : 'ps7_init' command is executed.
+21:24:19 INFO  : 'ps7_post_config' command is executed.
+21:24:19 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+21:24:19 INFO  : Processor reset is completed for 'ps7_cortexa9_0'.
+21:24:19 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+21:24:37 INFO  : The application 'D:/GitCode/SketchSystem_Multi1080p/SketchSystem.sdk/videoImageTest/Debug/videoImageTest.elf' is downloaded to processor 'ps7_cortexa9_0'.
+21:24:37 INFO  : 'configparams force-mem-access 0' command is executed.
+21:24:37 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+source D:/GitCode/SketchSystem_Multi1080p/SketchSystem.sdk/system_wrapper_hw_platform_0/ps7_init.tcl
+targets -set -filter {jtag_cable_name =~ "Digilent Zed 210248585775" && level==0} -index 1
+fpga -file D:/GitCode/SketchSystem_Multi1080p/SketchSystem.sdk/system_wrapper_hw_platform_0/system_wrapper.bit
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Zed 210248585775"} -index 0
+loadhw -hw D:/GitCode/SketchSystem_Multi1080p/SketchSystem.sdk/system_wrapper_hw_platform_0/system.hdf -mem-ranges [list {0x40000000 0xbfffffff}]
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Zed 210248585775"} -index 0
+stop
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248585775"} -index 0
+rst -processor
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248585775"} -index 0
+dow D:/GitCode/SketchSystem_Multi1080p/SketchSystem.sdk/videoImageTest/Debug/videoImageTest.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+21:24:37 INFO  : Memory regions updated for context APU
+21:24:37 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+21:24:37 INFO  : 'con' command is executed.
+21:24:37 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248585775"} -index 0
+con
+----------------End of Script----------------
+
+21:24:37 INFO  : Launch script is exported to file 'D:\GitCode\SketchSystem_Multi1080p\SketchSystem.sdk\.sdk\launch_scripts\xilinx_c-c++_application_(system_debugger)\system_debugger_on_local.tcl'
+21:26:02 INFO  : Disconnected from the channel tcfchan#18.
+21:26:03 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+21:26:10 INFO  : Jtag cable 'Digilent Zed 210248585775' is selected.
+21:26:10 INFO  : 'jtag frequency' command is executed.
+21:26:10 INFO  : Sourcing of 'D:/GitCode/SketchSystem_Multi1080p/SketchSystem.sdk/system_wrapper_hw_platform_0/ps7_init.tcl' is done.
+21:26:11 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Zed 210248585775" && level==0} -index 1' command is executed.
+21:26:13 INFO  : FPGA configured successfully with bitstream "D:/GitCode/SketchSystem_Multi1080p/SketchSystem.sdk/system_wrapper_hw_platform_0/system_wrapper.bit"
+21:26:13 INFO  : Context for 'APU' is selected.
+21:26:16 INFO  : Hardware design information is loaded from 'D:/GitCode/SketchSystem_Multi1080p/SketchSystem.sdk/system_wrapper_hw_platform_0/system.hdf'.
+21:26:16 INFO  : 'configparams force-mem-access 1' command is executed.
+21:26:16 INFO  : Context for 'APU' is selected.
+21:26:16 INFO  : 'stop' command is executed.
+21:26:16 INFO  : 'ps7_init' command is executed.
+21:26:16 INFO  : 'ps7_post_config' command is executed.
+21:26:16 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+21:26:16 INFO  : Processor reset is completed for 'ps7_cortexa9_0'.
+21:26:16 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+21:26:34 INFO  : The application 'D:/GitCode/SketchSystem_Multi1080p/SketchSystem.sdk/videoImageTest/Debug/videoImageTest.elf' is downloaded to processor 'ps7_cortexa9_0'.
+21:26:34 INFO  : 'configparams force-mem-access 0' command is executed.
+21:26:34 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+source D:/GitCode/SketchSystem_Multi1080p/SketchSystem.sdk/system_wrapper_hw_platform_0/ps7_init.tcl
+targets -set -filter {jtag_cable_name =~ "Digilent Zed 210248585775" && level==0} -index 1
+fpga -file D:/GitCode/SketchSystem_Multi1080p/SketchSystem.sdk/system_wrapper_hw_platform_0/system_wrapper.bit
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Zed 210248585775"} -index 0
+loadhw -hw D:/GitCode/SketchSystem_Multi1080p/SketchSystem.sdk/system_wrapper_hw_platform_0/system.hdf -mem-ranges [list {0x40000000 0xbfffffff}]
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Zed 210248585775"} -index 0
+stop
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248585775"} -index 0
+rst -processor
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248585775"} -index 0
+dow D:/GitCode/SketchSystem_Multi1080p/SketchSystem.sdk/videoImageTest/Debug/videoImageTest.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+21:26:34 INFO  : Memory regions updated for context APU
+21:26:34 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+21:26:34 INFO  : 'con' command is executed.
+21:26:34 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248585775"} -index 0
+con
+----------------End of Script----------------
+
+21:26:34 INFO  : Launch script is exported to file 'D:\GitCode\SketchSystem_Multi1080p\SketchSystem.sdk\.sdk\launch_scripts\xilinx_c-c++_application_(system_debugger)\system_debugger_on_local.tcl'
+21:28:06 INFO  : Disconnected from the channel tcfchan#19.
+21:28:08 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+21:28:26 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+----------------End of Script----------------
+
+21:28:31 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+21:28:34 INFO  : Jtag cable 'Digilent Zed 210248585775' is selected.
+21:28:34 INFO  : 'jtag frequency' command is executed.
+21:28:34 INFO  : Sourcing of 'D:/GitCode/SketchSystem_Multi1080p/SketchSystem.sdk/system_wrapper_hw_platform_0/ps7_init.tcl' is done.
+21:28:34 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Zed 210248585775" && level==0} -index 1' command is executed.
+21:28:36 INFO  : FPGA configured successfully with bitstream "D:/GitCode/SketchSystem_Multi1080p/SketchSystem.sdk/system_wrapper_hw_platform_0/system_wrapper.bit"
+21:28:36 INFO  : Context for 'APU' is selected.
+21:28:39 INFO  : Hardware design information is loaded from 'D:/GitCode/SketchSystem_Multi1080p/SketchSystem.sdk/system_wrapper_hw_platform_0/system.hdf'.
+21:28:39 INFO  : 'configparams force-mem-access 1' command is executed.
+21:28:39 INFO  : Context for 'APU' is selected.
+21:28:39 INFO  : 'stop' command is executed.
+21:28:39 INFO  : 'ps7_init' command is executed.
+21:28:39 INFO  : 'ps7_post_config' command is executed.
+21:28:39 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+21:28:40 INFO  : Processor reset is completed for 'ps7_cortexa9_0'.
+21:28:40 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+21:28:58 INFO  : The application 'D:/GitCode/SketchSystem_Multi1080p/SketchSystem.sdk/videoImageTest/Debug/videoImageTest.elf' is downloaded to processor 'ps7_cortexa9_0'.
+21:28:58 INFO  : 'configparams force-mem-access 0' command is executed.
+21:28:58 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+source D:/GitCode/SketchSystem_Multi1080p/SketchSystem.sdk/system_wrapper_hw_platform_0/ps7_init.tcl
+targets -set -filter {jtag_cable_name =~ "Digilent Zed 210248585775" && level==0} -index 1
+fpga -file D:/GitCode/SketchSystem_Multi1080p/SketchSystem.sdk/system_wrapper_hw_platform_0/system_wrapper.bit
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Zed 210248585775"} -index 0
+loadhw -hw D:/GitCode/SketchSystem_Multi1080p/SketchSystem.sdk/system_wrapper_hw_platform_0/system.hdf -mem-ranges [list {0x40000000 0xbfffffff}]
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Zed 210248585775"} -index 0
+stop
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248585775"} -index 0
+rst -processor
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248585775"} -index 0
+dow D:/GitCode/SketchSystem_Multi1080p/SketchSystem.sdk/videoImageTest/Debug/videoImageTest.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+21:28:58 INFO  : Memory regions updated for context APU
+21:28:58 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+21:28:58 INFO  : 'con' command is executed.
+21:28:58 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248585775"} -index 0
+con
+----------------End of Script----------------
+
+21:28:58 INFO  : Launch script is exported to file 'D:\GitCode\SketchSystem_Multi1080p\SketchSystem.sdk\.sdk\launch_scripts\xilinx_c-c++_application_(system_debugger)\system_debugger_on_local.tcl'
+21:29:57 INFO  : Disconnected from the channel tcfchan#20.
+21:29:58 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+21:29:58 INFO  : Jtag cable 'Digilent Zed 210248585775' is selected.
+21:29:58 INFO  : 'jtag frequency' command is executed.
+21:29:58 INFO  : Sourcing of 'D:/GitCode/SketchSystem_Multi1080p/SketchSystem.sdk/system_wrapper_hw_platform_0/ps7_init.tcl' is done.
+21:29:58 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Zed 210248585775" && level==0} -index 1' command is executed.
+21:30:01 INFO  : FPGA configured successfully with bitstream "D:/GitCode/SketchSystem_Multi1080p/SketchSystem.sdk/system_wrapper_hw_platform_0/system_wrapper.bit"
+21:30:01 INFO  : Context for 'APU' is selected.
+21:30:04 INFO  : Hardware design information is loaded from 'D:/GitCode/SketchSystem_Multi1080p/SketchSystem.sdk/system_wrapper_hw_platform_0/system.hdf'.
+21:30:04 INFO  : 'configparams force-mem-access 1' command is executed.
+21:30:04 INFO  : Context for 'APU' is selected.
+21:30:04 INFO  : 'stop' command is executed.
+21:30:05 INFO  : 'ps7_init' command is executed.
+21:30:05 INFO  : 'ps7_post_config' command is executed.
+21:30:05 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+21:30:05 INFO  : Processor reset is completed for 'ps7_cortexa9_0'.
+21:30:05 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+21:30:23 INFO  : The application 'D:/GitCode/SketchSystem_Multi1080p/SketchSystem.sdk/videoImageTest/Debug/videoImageTest.elf' is downloaded to processor 'ps7_cortexa9_0'.
+21:30:23 INFO  : 'configparams force-mem-access 0' command is executed.
+21:30:23 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+source D:/GitCode/SketchSystem_Multi1080p/SketchSystem.sdk/system_wrapper_hw_platform_0/ps7_init.tcl
+targets -set -filter {jtag_cable_name =~ "Digilent Zed 210248585775" && level==0} -index 1
+fpga -file D:/GitCode/SketchSystem_Multi1080p/SketchSystem.sdk/system_wrapper_hw_platform_0/system_wrapper.bit
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Zed 210248585775"} -index 0
+loadhw -hw D:/GitCode/SketchSystem_Multi1080p/SketchSystem.sdk/system_wrapper_hw_platform_0/system.hdf -mem-ranges [list {0x40000000 0xbfffffff}]
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Zed 210248585775"} -index 0
+stop
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248585775"} -index 0
+rst -processor
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248585775"} -index 0
+dow D:/GitCode/SketchSystem_Multi1080p/SketchSystem.sdk/videoImageTest/Debug/videoImageTest.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+21:30:23 INFO  : Memory regions updated for context APU
+21:30:23 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+21:30:23 INFO  : 'con' command is executed.
+21:30:23 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248585775"} -index 0
+con
+----------------End of Script----------------
+
+21:30:23 INFO  : Launch script is exported to file 'D:\GitCode\SketchSystem_Multi1080p\SketchSystem.sdk\.sdk\launch_scripts\xilinx_c-c++_application_(system_debugger)\system_debugger_on_local.tcl'
+21:34:45 INFO  : Disconnected from the channel tcfchan#21.
+21:34:46 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+21:34:48 INFO  : Jtag cable 'Digilent Zed 210248585775' is selected.
+21:34:48 INFO  : 'jtag frequency' command is executed.
+21:34:48 INFO  : Sourcing of 'D:/GitCode/SketchSystem_Multi1080p/SketchSystem.sdk/system_wrapper_hw_platform_0/ps7_init.tcl' is done.
+21:34:48 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Zed 210248585775" && level==0} -index 1' command is executed.
+21:34:50 INFO  : FPGA configured successfully with bitstream "D:/GitCode/SketchSystem_Multi1080p/SketchSystem.sdk/system_wrapper_hw_platform_0/system_wrapper.bit"
+21:34:50 INFO  : Context for 'APU' is selected.
+21:34:54 INFO  : Hardware design information is loaded from 'D:/GitCode/SketchSystem_Multi1080p/SketchSystem.sdk/system_wrapper_hw_platform_0/system.hdf'.
+21:34:54 INFO  : 'configparams force-mem-access 1' command is executed.
+21:34:54 INFO  : Context for 'APU' is selected.
+21:34:54 INFO  : 'stop' command is executed.
+21:34:54 INFO  : 'ps7_init' command is executed.
+21:34:54 INFO  : 'ps7_post_config' command is executed.
+21:34:54 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+21:34:54 INFO  : Processor reset is completed for 'ps7_cortexa9_0'.
+21:34:54 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+21:35:12 INFO  : The application 'D:/GitCode/SketchSystem_Multi1080p/SketchSystem.sdk/videoImageTest/Debug/videoImageTest.elf' is downloaded to processor 'ps7_cortexa9_0'.
+21:35:12 INFO  : 'configparams force-mem-access 0' command is executed.
+21:35:12 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+source D:/GitCode/SketchSystem_Multi1080p/SketchSystem.sdk/system_wrapper_hw_platform_0/ps7_init.tcl
+targets -set -filter {jtag_cable_name =~ "Digilent Zed 210248585775" && level==0} -index 1
+fpga -file D:/GitCode/SketchSystem_Multi1080p/SketchSystem.sdk/system_wrapper_hw_platform_0/system_wrapper.bit
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Zed 210248585775"} -index 0
+loadhw -hw D:/GitCode/SketchSystem_Multi1080p/SketchSystem.sdk/system_wrapper_hw_platform_0/system.hdf -mem-ranges [list {0x40000000 0xbfffffff}]
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Zed 210248585775"} -index 0
+stop
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248585775"} -index 0
+rst -processor
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248585775"} -index 0
+dow D:/GitCode/SketchSystem_Multi1080p/SketchSystem.sdk/videoImageTest/Debug/videoImageTest.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+21:35:12 INFO  : Memory regions updated for context APU
+21:35:13 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+21:35:13 INFO  : 'con' command is executed.
+21:35:13 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248585775"} -index 0
+con
+----------------End of Script----------------
+
+21:35:13 INFO  : Launch script is exported to file 'D:\GitCode\SketchSystem_Multi1080p\SketchSystem.sdk\.sdk\launch_scripts\xilinx_c-c++_application_(system_debugger)\system_debugger_on_local.tcl'
+21:37:20 INFO  : Disconnected from the channel tcfchan#22.
+21:37:21 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+21:37:21 INFO  : Jtag cable 'Digilent Zed 210248585775' is selected.
+21:37:21 INFO  : 'jtag frequency' command is executed.
+21:37:21 INFO  : Sourcing of 'D:/GitCode/SketchSystem_Multi1080p/SketchSystem.sdk/system_wrapper_hw_platform_0/ps7_init.tcl' is done.
+21:37:21 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Zed 210248585775" && level==0} -index 1' command is executed.
+21:37:24 INFO  : FPGA configured successfully with bitstream "D:/GitCode/SketchSystem_Multi1080p/SketchSystem.sdk/system_wrapper_hw_platform_0/system_wrapper.bit"
+21:37:24 INFO  : Context for 'APU' is selected.
+21:37:28 INFO  : Hardware design information is loaded from 'D:/GitCode/SketchSystem_Multi1080p/SketchSystem.sdk/system_wrapper_hw_platform_0/system.hdf'.
+21:37:28 INFO  : 'configparams force-mem-access 1' command is executed.
+21:37:28 INFO  : Context for 'APU' is selected.
+21:37:28 INFO  : 'stop' command is executed.
+21:37:29 INFO  : 'ps7_init' command is executed.
+21:37:29 INFO  : 'ps7_post_config' command is executed.
+21:37:29 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+21:37:29 INFO  : Processor reset is completed for 'ps7_cortexa9_0'.
+21:37:29 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+21:37:47 INFO  : The application 'D:/GitCode/SketchSystem_Multi1080p/SketchSystem.sdk/videoImageTest/Debug/videoImageTest.elf' is downloaded to processor 'ps7_cortexa9_0'.
+21:37:47 INFO  : 'configparams force-mem-access 0' command is executed.
+21:37:47 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+source D:/GitCode/SketchSystem_Multi1080p/SketchSystem.sdk/system_wrapper_hw_platform_0/ps7_init.tcl
+targets -set -filter {jtag_cable_name =~ "Digilent Zed 210248585775" && level==0} -index 1
+fpga -file D:/GitCode/SketchSystem_Multi1080p/SketchSystem.sdk/system_wrapper_hw_platform_0/system_wrapper.bit
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Zed 210248585775"} -index 0
+loadhw -hw D:/GitCode/SketchSystem_Multi1080p/SketchSystem.sdk/system_wrapper_hw_platform_0/system.hdf -mem-ranges [list {0x40000000 0xbfffffff}]
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Zed 210248585775"} -index 0
+stop
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248585775"} -index 0
+rst -processor
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248585775"} -index 0
+dow D:/GitCode/SketchSystem_Multi1080p/SketchSystem.sdk/videoImageTest/Debug/videoImageTest.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+21:37:47 INFO  : Memory regions updated for context APU
+21:37:47 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+21:37:47 INFO  : 'con' command is executed.
+21:37:47 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248585775"} -index 0
+con
+----------------End of Script----------------
+
+21:37:47 INFO  : Launch script is exported to file 'D:\GitCode\SketchSystem_Multi1080p\SketchSystem.sdk\.sdk\launch_scripts\xilinx_c-c++_application_(system_debugger)\system_debugger_on_local.tcl'
+21:41:19 INFO  : Disconnected from the channel tcfchan#23.
+21:41:19 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+21:41:19 INFO  : Jtag cable 'Digilent Zed 210248585775' is selected.
+21:41:19 INFO  : 'jtag frequency' command is executed.
+21:41:19 INFO  : Sourcing of 'D:/GitCode/SketchSystem_Multi1080p/SketchSystem.sdk/system_wrapper_hw_platform_0/ps7_init.tcl' is done.
+21:41:20 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Zed 210248585775" && level==0} -index 1' command is executed.
+21:41:22 INFO  : FPGA configured successfully with bitstream "D:/GitCode/SketchSystem_Multi1080p/SketchSystem.sdk/system_wrapper_hw_platform_0/system_wrapper.bit"
+21:41:22 INFO  : Context for 'APU' is selected.
+21:41:26 INFO  : Hardware design information is loaded from 'D:/GitCode/SketchSystem_Multi1080p/SketchSystem.sdk/system_wrapper_hw_platform_0/system.hdf'.
+21:41:26 INFO  : 'configparams force-mem-access 1' command is executed.
+21:41:26 INFO  : Context for 'APU' is selected.
+21:41:26 INFO  : 'stop' command is executed.
+21:41:26 INFO  : 'ps7_init' command is executed.
+21:41:26 INFO  : 'ps7_post_config' command is executed.
+21:41:27 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+21:41:27 INFO  : Processor reset is completed for 'ps7_cortexa9_0'.
+21:41:27 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+21:41:45 INFO  : The application 'D:/GitCode/SketchSystem_Multi1080p/SketchSystem.sdk/videoImageTest/Debug/videoImageTest.elf' is downloaded to processor 'ps7_cortexa9_0'.
+21:41:45 INFO  : 'configparams force-mem-access 0' command is executed.
+21:41:45 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+source D:/GitCode/SketchSystem_Multi1080p/SketchSystem.sdk/system_wrapper_hw_platform_0/ps7_init.tcl
+targets -set -filter {jtag_cable_name =~ "Digilent Zed 210248585775" && level==0} -index 1
+fpga -file D:/GitCode/SketchSystem_Multi1080p/SketchSystem.sdk/system_wrapper_hw_platform_0/system_wrapper.bit
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Zed 210248585775"} -index 0
+loadhw -hw D:/GitCode/SketchSystem_Multi1080p/SketchSystem.sdk/system_wrapper_hw_platform_0/system.hdf -mem-ranges [list {0x40000000 0xbfffffff}]
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Zed 210248585775"} -index 0
+stop
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248585775"} -index 0
+rst -processor
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248585775"} -index 0
+dow D:/GitCode/SketchSystem_Multi1080p/SketchSystem.sdk/videoImageTest/Debug/videoImageTest.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+21:41:45 INFO  : Memory regions updated for context APU
+21:41:45 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+21:41:45 INFO  : 'con' command is executed.
+21:41:45 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248585775"} -index 0
+con
+----------------End of Script----------------
+
+21:41:45 INFO  : Launch script is exported to file 'D:\GitCode\SketchSystem_Multi1080p\SketchSystem.sdk\.sdk\launch_scripts\xilinx_c-c++_application_(system_debugger)\system_debugger_on_local.tcl'
+21:44:44 INFO  : Disconnected from the channel tcfchan#24.
+21:44:45 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+21:44:46 INFO  : Jtag cable 'Digilent Zed 210248585775' is selected.
+21:44:46 INFO  : 'jtag frequency' command is executed.
+21:44:46 INFO  : Sourcing of 'D:/GitCode/SketchSystem_Multi1080p/SketchSystem.sdk/system_wrapper_hw_platform_0/ps7_init.tcl' is done.
+21:44:46 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Zed 210248585775" && level==0} -index 1' command is executed.
+21:44:48 INFO  : FPGA configured successfully with bitstream "D:/GitCode/SketchSystem_Multi1080p/SketchSystem.sdk/system_wrapper_hw_platform_0/system_wrapper.bit"
+21:44:48 INFO  : Context for 'APU' is selected.
+21:44:51 INFO  : Hardware design information is loaded from 'D:/GitCode/SketchSystem_Multi1080p/SketchSystem.sdk/system_wrapper_hw_platform_0/system.hdf'.
+21:44:51 INFO  : 'configparams force-mem-access 1' command is executed.
+21:44:51 INFO  : Context for 'APU' is selected.
+21:44:51 INFO  : 'stop' command is executed.
+21:44:52 INFO  : 'ps7_init' command is executed.
+21:44:52 INFO  : 'ps7_post_config' command is executed.
+21:44:52 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+21:44:52 INFO  : Processor reset is completed for 'ps7_cortexa9_0'.
+21:44:52 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+21:45:10 INFO  : The application 'D:/GitCode/SketchSystem_Multi1080p/SketchSystem.sdk/videoImageTest/Debug/videoImageTest.elf' is downloaded to processor 'ps7_cortexa9_0'.
+21:45:10 INFO  : 'configparams force-mem-access 0' command is executed.
+21:45:10 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+source D:/GitCode/SketchSystem_Multi1080p/SketchSystem.sdk/system_wrapper_hw_platform_0/ps7_init.tcl
+targets -set -filter {jtag_cable_name =~ "Digilent Zed 210248585775" && level==0} -index 1
+fpga -file D:/GitCode/SketchSystem_Multi1080p/SketchSystem.sdk/system_wrapper_hw_platform_0/system_wrapper.bit
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Zed 210248585775"} -index 0
+loadhw -hw D:/GitCode/SketchSystem_Multi1080p/SketchSystem.sdk/system_wrapper_hw_platform_0/system.hdf -mem-ranges [list {0x40000000 0xbfffffff}]
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Zed 210248585775"} -index 0
+stop
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248585775"} -index 0
+rst -processor
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248585775"} -index 0
+dow D:/GitCode/SketchSystem_Multi1080p/SketchSystem.sdk/videoImageTest/Debug/videoImageTest.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+21:45:10 INFO  : Memory regions updated for context APU
+21:45:10 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+21:45:10 INFO  : 'con' command is executed.
+21:45:10 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248585775"} -index 0
+con
+----------------End of Script----------------
+
+21:45:10 INFO  : Launch script is exported to file 'D:\GitCode\SketchSystem_Multi1080p\SketchSystem.sdk\.sdk\launch_scripts\xilinx_c-c++_application_(system_debugger)\system_debugger_on_local.tcl'
+21:47:06 INFO  : Disconnected from the channel tcfchan#25.
+21:47:07 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+21:47:08 INFO  : Jtag cable 'Digilent Zed 210248585775' is selected.
+21:47:08 INFO  : 'jtag frequency' command is executed.
+21:47:08 INFO  : Sourcing of 'D:/GitCode/SketchSystem_Multi1080p/SketchSystem.sdk/system_wrapper_hw_platform_0/ps7_init.tcl' is done.
+21:47:08 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Zed 210248585775" && level==0} -index 1' command is executed.
+21:47:10 INFO  : FPGA configured successfully with bitstream "D:/GitCode/SketchSystem_Multi1080p/SketchSystem.sdk/system_wrapper_hw_platform_0/system_wrapper.bit"
+21:47:10 INFO  : Context for 'APU' is selected.
+21:47:13 INFO  : Hardware design information is loaded from 'D:/GitCode/SketchSystem_Multi1080p/SketchSystem.sdk/system_wrapper_hw_platform_0/system.hdf'.
+21:47:13 INFO  : 'configparams force-mem-access 1' command is executed.
+21:47:13 INFO  : Context for 'APU' is selected.
+21:47:13 INFO  : 'stop' command is executed.
+21:47:14 INFO  : 'ps7_init' command is executed.
+21:47:14 INFO  : 'ps7_post_config' command is executed.
+21:47:14 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+21:47:14 INFO  : Processor reset is completed for 'ps7_cortexa9_0'.
+21:47:14 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+21:47:32 INFO  : The application 'D:/GitCode/SketchSystem_Multi1080p/SketchSystem.sdk/videoImageTest/Debug/videoImageTest.elf' is downloaded to processor 'ps7_cortexa9_0'.
+21:47:32 INFO  : 'configparams force-mem-access 0' command is executed.
+21:47:32 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+source D:/GitCode/SketchSystem_Multi1080p/SketchSystem.sdk/system_wrapper_hw_platform_0/ps7_init.tcl
+targets -set -filter {jtag_cable_name =~ "Digilent Zed 210248585775" && level==0} -index 1
+fpga -file D:/GitCode/SketchSystem_Multi1080p/SketchSystem.sdk/system_wrapper_hw_platform_0/system_wrapper.bit
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Zed 210248585775"} -index 0
+loadhw -hw D:/GitCode/SketchSystem_Multi1080p/SketchSystem.sdk/system_wrapper_hw_platform_0/system.hdf -mem-ranges [list {0x40000000 0xbfffffff}]
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Zed 210248585775"} -index 0
+stop
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248585775"} -index 0
+rst -processor
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248585775"} -index 0
+dow D:/GitCode/SketchSystem_Multi1080p/SketchSystem.sdk/videoImageTest/Debug/videoImageTest.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+21:47:32 INFO  : Memory regions updated for context APU
+21:47:33 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+21:47:33 INFO  : 'con' command is executed.
+21:47:33 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248585775"} -index 0
+con
+----------------End of Script----------------
+
+21:47:33 INFO  : Launch script is exported to file 'D:\GitCode\SketchSystem_Multi1080p\SketchSystem.sdk\.sdk\launch_scripts\xilinx_c-c++_application_(system_debugger)\system_debugger_on_local.tcl'
+21:48:34 INFO  : Disconnected from the channel tcfchan#26.
+21:48:35 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+21:48:35 INFO  : Jtag cable 'Digilent Zed 210248585775' is selected.
+21:48:35 INFO  : 'jtag frequency' command is executed.
+21:48:35 INFO  : Sourcing of 'D:/GitCode/SketchSystem_Multi1080p/SketchSystem.sdk/system_wrapper_hw_platform_0/ps7_init.tcl' is done.
+21:48:35 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Zed 210248585775" && level==0} -index 1' command is executed.
+21:48:37 INFO  : FPGA configured successfully with bitstream "D:/GitCode/SketchSystem_Multi1080p/SketchSystem.sdk/system_wrapper_hw_platform_0/system_wrapper.bit"
+21:48:37 INFO  : Context for 'APU' is selected.
+21:48:40 INFO  : Hardware design information is loaded from 'D:/GitCode/SketchSystem_Multi1080p/SketchSystem.sdk/system_wrapper_hw_platform_0/system.hdf'.
+21:48:40 INFO  : 'configparams force-mem-access 1' command is executed.
+21:48:40 INFO  : Context for 'APU' is selected.
+21:48:40 INFO  : 'stop' command is executed.
+21:48:41 INFO  : 'ps7_init' command is executed.
+21:48:41 INFO  : 'ps7_post_config' command is executed.
+21:48:41 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+21:48:41 INFO  : Processor reset is completed for 'ps7_cortexa9_0'.
+21:48:41 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+21:48:59 INFO  : The application 'D:/GitCode/SketchSystem_Multi1080p/SketchSystem.sdk/videoImageTest/Debug/videoImageTest.elf' is downloaded to processor 'ps7_cortexa9_0'.
+21:48:59 INFO  : 'configparams force-mem-access 0' command is executed.
+21:48:59 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+source D:/GitCode/SketchSystem_Multi1080p/SketchSystem.sdk/system_wrapper_hw_platform_0/ps7_init.tcl
+targets -set -filter {jtag_cable_name =~ "Digilent Zed 210248585775" && level==0} -index 1
+fpga -file D:/GitCode/SketchSystem_Multi1080p/SketchSystem.sdk/system_wrapper_hw_platform_0/system_wrapper.bit
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Zed 210248585775"} -index 0
+loadhw -hw D:/GitCode/SketchSystem_Multi1080p/SketchSystem.sdk/system_wrapper_hw_platform_0/system.hdf -mem-ranges [list {0x40000000 0xbfffffff}]
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Zed 210248585775"} -index 0
+stop
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248585775"} -index 0
+rst -processor
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248585775"} -index 0
+dow D:/GitCode/SketchSystem_Multi1080p/SketchSystem.sdk/videoImageTest/Debug/videoImageTest.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+21:48:59 INFO  : Memory regions updated for context APU
+21:48:59 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+21:48:59 INFO  : 'con' command is executed.
+21:48:59 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248585775"} -index 0
+con
+----------------End of Script----------------
+
+21:48:59 INFO  : Launch script is exported to file 'D:\GitCode\SketchSystem_Multi1080p\SketchSystem.sdk\.sdk\launch_scripts\xilinx_c-c++_application_(system_debugger)\system_debugger_on_local.tcl'
+21:54:25 INFO  : Disconnected from the channel tcfchan#27.
+21:54:26 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+21:54:26 INFO  : Jtag cable 'Digilent Zed 210248585775' is selected.
+21:54:26 INFO  : 'jtag frequency' command is executed.
+21:54:26 INFO  : Sourcing of 'D:/GitCode/SketchSystem_Multi1080p/SketchSystem.sdk/system_wrapper_hw_platform_0/ps7_init.tcl' is done.
+21:54:26 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Zed 210248585775" && level==0} -index 1' command is executed.
+21:54:28 INFO  : FPGA configured successfully with bitstream "D:/GitCode/SketchSystem_Multi1080p/SketchSystem.sdk/system_wrapper_hw_platform_0/system_wrapper.bit"
+21:54:28 INFO  : Context for 'APU' is selected.
+21:54:31 INFO  : Hardware design information is loaded from 'D:/GitCode/SketchSystem_Multi1080p/SketchSystem.sdk/system_wrapper_hw_platform_0/system.hdf'.
+21:54:31 INFO  : 'configparams force-mem-access 1' command is executed.
+21:54:31 INFO  : Context for 'APU' is selected.
+21:54:31 INFO  : 'stop' command is executed.
+21:54:32 INFO  : 'ps7_init' command is executed.
+21:54:32 INFO  : 'ps7_post_config' command is executed.
+21:54:32 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+21:54:32 INFO  : Processor reset is completed for 'ps7_cortexa9_0'.
+21:54:32 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+21:54:50 INFO  : The application 'D:/GitCode/SketchSystem_Multi1080p/SketchSystem.sdk/videoImageTest/Debug/videoImageTest.elf' is downloaded to processor 'ps7_cortexa9_0'.
+21:54:50 INFO  : 'configparams force-mem-access 0' command is executed.
+21:54:50 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+source D:/GitCode/SketchSystem_Multi1080p/SketchSystem.sdk/system_wrapper_hw_platform_0/ps7_init.tcl
+targets -set -filter {jtag_cable_name =~ "Digilent Zed 210248585775" && level==0} -index 1
+fpga -file D:/GitCode/SketchSystem_Multi1080p/SketchSystem.sdk/system_wrapper_hw_platform_0/system_wrapper.bit
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Zed 210248585775"} -index 0
+loadhw -hw D:/GitCode/SketchSystem_Multi1080p/SketchSystem.sdk/system_wrapper_hw_platform_0/system.hdf -mem-ranges [list {0x40000000 0xbfffffff}]
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Zed 210248585775"} -index 0
+stop
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248585775"} -index 0
+rst -processor
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248585775"} -index 0
+dow D:/GitCode/SketchSystem_Multi1080p/SketchSystem.sdk/videoImageTest/Debug/videoImageTest.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+21:54:50 INFO  : Memory regions updated for context APU
+21:54:51 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+21:54:51 INFO  : 'con' command is executed.
+21:54:51 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248585775"} -index 0
+con
+----------------End of Script----------------
+
+21:54:51 INFO  : Launch script is exported to file 'D:\GitCode\SketchSystem_Multi1080p\SketchSystem.sdk\.sdk\launch_scripts\xilinx_c-c++_application_(system_debugger)\system_debugger_on_local.tcl'
+21:55:45 INFO  : Disconnected from the channel tcfchan#28.
+21:55:46 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+21:55:46 INFO  : Jtag cable 'Digilent Zed 210248585775' is selected.
+21:55:46 INFO  : 'jtag frequency' command is executed.
+21:55:46 INFO  : Sourcing of 'D:/GitCode/SketchSystem_Multi1080p/SketchSystem.sdk/system_wrapper_hw_platform_0/ps7_init.tcl' is done.
+21:55:46 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Zed 210248585775" && level==0} -index 1' command is executed.
+21:55:49 INFO  : FPGA configured successfully with bitstream "D:/GitCode/SketchSystem_Multi1080p/SketchSystem.sdk/system_wrapper_hw_platform_0/system_wrapper.bit"
+21:55:49 INFO  : Context for 'APU' is selected.
+21:55:52 INFO  : Hardware design information is loaded from 'D:/GitCode/SketchSystem_Multi1080p/SketchSystem.sdk/system_wrapper_hw_platform_0/system.hdf'.
+21:55:52 INFO  : 'configparams force-mem-access 1' command is executed.
+21:55:52 INFO  : Context for 'APU' is selected.
+21:55:52 INFO  : 'stop' command is executed.
+21:55:53 INFO  : 'ps7_init' command is executed.
+21:55:53 INFO  : 'ps7_post_config' command is executed.
+21:55:53 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+21:55:53 INFO  : Processor reset is completed for 'ps7_cortexa9_0'.
+21:55:53 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+21:56:11 INFO  : The application 'D:/GitCode/SketchSystem_Multi1080p/SketchSystem.sdk/videoImageTest/Debug/videoImageTest.elf' is downloaded to processor 'ps7_cortexa9_0'.
+21:56:11 INFO  : 'configparams force-mem-access 0' command is executed.
+21:56:11 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+source D:/GitCode/SketchSystem_Multi1080p/SketchSystem.sdk/system_wrapper_hw_platform_0/ps7_init.tcl
+targets -set -filter {jtag_cable_name =~ "Digilent Zed 210248585775" && level==0} -index 1
+fpga -file D:/GitCode/SketchSystem_Multi1080p/SketchSystem.sdk/system_wrapper_hw_platform_0/system_wrapper.bit
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Zed 210248585775"} -index 0
+loadhw -hw D:/GitCode/SketchSystem_Multi1080p/SketchSystem.sdk/system_wrapper_hw_platform_0/system.hdf -mem-ranges [list {0x40000000 0xbfffffff}]
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Zed 210248585775"} -index 0
+stop
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248585775"} -index 0
+rst -processor
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248585775"} -index 0
+dow D:/GitCode/SketchSystem_Multi1080p/SketchSystem.sdk/videoImageTest/Debug/videoImageTest.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+21:56:11 INFO  : Memory regions updated for context APU
+21:56:12 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+21:56:12 INFO  : 'con' command is executed.
+21:56:12 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248585775"} -index 0
+con
+----------------End of Script----------------
+
+21:56:12 INFO  : Launch script is exported to file 'D:\GitCode\SketchSystem_Multi1080p\SketchSystem.sdk\.sdk\launch_scripts\xilinx_c-c++_application_(system_debugger)\system_debugger_on_local.tcl'
+21:59:35 INFO  : Disconnected from the channel tcfchan#29.
+21:59:36 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+21:59:37 INFO  : Jtag cable 'Digilent Zed 210248585775' is selected.
+21:59:37 INFO  : 'jtag frequency' command is executed.
+21:59:37 INFO  : Sourcing of 'D:/GitCode/SketchSystem_Multi1080p/SketchSystem.sdk/system_wrapper_hw_platform_0/ps7_init.tcl' is done.
+21:59:37 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Zed 210248585775" && level==0} -index 1' command is executed.
+21:59:39 INFO  : FPGA configured successfully with bitstream "D:/GitCode/SketchSystem_Multi1080p/SketchSystem.sdk/system_wrapper_hw_platform_0/system_wrapper.bit"
+21:59:39 INFO  : Context for 'APU' is selected.
+21:59:42 INFO  : Hardware design information is loaded from 'D:/GitCode/SketchSystem_Multi1080p/SketchSystem.sdk/system_wrapper_hw_platform_0/system.hdf'.
+21:59:42 INFO  : 'configparams force-mem-access 1' command is executed.
+21:59:42 INFO  : Context for 'APU' is selected.
+21:59:42 INFO  : 'stop' command is executed.
+21:59:43 INFO  : 'ps7_init' command is executed.
+21:59:43 INFO  : 'ps7_post_config' command is executed.
+21:59:43 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+21:59:43 INFO  : Processor reset is completed for 'ps7_cortexa9_0'.
+21:59:43 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+22:00:01 INFO  : The application 'D:/GitCode/SketchSystem_Multi1080p/SketchSystem.sdk/videoImageTest/Debug/videoImageTest.elf' is downloaded to processor 'ps7_cortexa9_0'.
+22:00:01 INFO  : 'configparams force-mem-access 0' command is executed.
+22:00:01 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+source D:/GitCode/SketchSystem_Multi1080p/SketchSystem.sdk/system_wrapper_hw_platform_0/ps7_init.tcl
+targets -set -filter {jtag_cable_name =~ "Digilent Zed 210248585775" && level==0} -index 1
+fpga -file D:/GitCode/SketchSystem_Multi1080p/SketchSystem.sdk/system_wrapper_hw_platform_0/system_wrapper.bit
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Zed 210248585775"} -index 0
+loadhw -hw D:/GitCode/SketchSystem_Multi1080p/SketchSystem.sdk/system_wrapper_hw_platform_0/system.hdf -mem-ranges [list {0x40000000 0xbfffffff}]
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Zed 210248585775"} -index 0
+stop
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248585775"} -index 0
+rst -processor
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248585775"} -index 0
+dow D:/GitCode/SketchSystem_Multi1080p/SketchSystem.sdk/videoImageTest/Debug/videoImageTest.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+22:00:02 INFO  : Memory regions updated for context APU
+22:00:02 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+22:00:02 INFO  : 'con' command is executed.
+22:00:02 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248585775"} -index 0
+con
+----------------End of Script----------------
+
+22:00:02 INFO  : Launch script is exported to file 'D:\GitCode\SketchSystem_Multi1080p\SketchSystem.sdk\.sdk\launch_scripts\xilinx_c-c++_application_(system_debugger)\system_debugger_on_local.tcl'
+22:00:55 INFO  : Disconnected from the channel tcfchan#30.
+22:00:56 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+22:01:14 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+----------------End of Script----------------
+
+22:02:03 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+22:02:09 INFO  : Jtag cable 'Digilent Zed 210248585775' is selected.
+22:02:09 INFO  : 'jtag frequency' command is executed.
+22:02:09 INFO  : Sourcing of 'D:/GitCode/SketchSystem_Multi1080p/SketchSystem.sdk/system_wrapper_hw_platform_0/ps7_init.tcl' is done.
+22:02:09 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Zed 210248585775" && level==0} -index 1' command is executed.
+22:02:11 INFO  : FPGA configured successfully with bitstream "D:/GitCode/SketchSystem_Multi1080p/SketchSystem.sdk/system_wrapper_hw_platform_0/system_wrapper.bit"
+22:02:12 INFO  : Context for 'APU' is selected.
+22:02:14 INFO  : Hardware design information is loaded from 'D:/GitCode/SketchSystem_Multi1080p/SketchSystem.sdk/system_wrapper_hw_platform_0/system.hdf'.
+22:02:14 INFO  : 'configparams force-mem-access 1' command is executed.
+22:02:14 INFO  : Context for 'APU' is selected.
+22:02:14 INFO  : 'stop' command is executed.
+22:02:15 INFO  : 'ps7_init' command is executed.
+22:02:15 INFO  : 'ps7_post_config' command is executed.
+22:02:15 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+22:02:15 INFO  : Processor reset is completed for 'ps7_cortexa9_0'.
+22:02:15 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+22:02:33 INFO  : The application 'D:/GitCode/SketchSystem_Multi1080p/SketchSystem.sdk/videoImageTest/Debug/videoImageTest.elf' is downloaded to processor 'ps7_cortexa9_0'.
+22:02:33 INFO  : 'configparams force-mem-access 0' command is executed.
+22:02:33 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+source D:/GitCode/SketchSystem_Multi1080p/SketchSystem.sdk/system_wrapper_hw_platform_0/ps7_init.tcl
+targets -set -filter {jtag_cable_name =~ "Digilent Zed 210248585775" && level==0} -index 1
+fpga -file D:/GitCode/SketchSystem_Multi1080p/SketchSystem.sdk/system_wrapper_hw_platform_0/system_wrapper.bit
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Zed 210248585775"} -index 0
+loadhw -hw D:/GitCode/SketchSystem_Multi1080p/SketchSystem.sdk/system_wrapper_hw_platform_0/system.hdf -mem-ranges [list {0x40000000 0xbfffffff}]
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Zed 210248585775"} -index 0
+stop
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248585775"} -index 0
+rst -processor
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248585775"} -index 0
+dow D:/GitCode/SketchSystem_Multi1080p/SketchSystem.sdk/videoImageTest/Debug/videoImageTest.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+22:02:33 INFO  : Memory regions updated for context APU
+22:02:33 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+22:02:33 INFO  : 'con' command is executed.
+22:02:33 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zed 210248585775"} -index 0
+con
+----------------End of Script----------------
+
+22:02:33 INFO  : Launch script is exported to file 'D:\GitCode\SketchSystem_Multi1080p\SketchSystem.sdk\.sdk\launch_scripts\xilinx_c-c++_application_(system_debugger)\system_debugger_on_local.tcl'
+22:03:30 INFO  : Disconnected from the channel tcfchan#31.

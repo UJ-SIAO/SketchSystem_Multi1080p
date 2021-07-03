@@ -63,7 +63,8 @@ int main(){
     	//print("fff\n");
     }
    // print("aaa\n");
-    myImgProcess.row = 4;
+    sleep(1);
+    myImgProcess.row =4;
 
 	/*XScuGic_SetPriorityTriggerType(myImgProcess.IntrCtrlPointer,XPAR_FABRIC_SKETCHIP_1080P_0_O_INTR_INTR,0xA0,3);
 	status = XScuGic_Connect(myImgProcess.IntrCtrlPointer,XPAR_FABRIC_SKETCHIP_1080P_0_O_INTR_INTR,(Xil_InterruptHandler)imageProcISR2,(void *)&myImgProcess);
@@ -85,13 +86,14 @@ int main(){
 		xil_printf("DMA Receive Failed with Status %d\n",status);
 		return -1;
 	}
-    status=XAxiDma_SimpleTransfer(myImgProcess.DmaCtrlPointer,(u32)myImgProcess.imageDataPointer2, 3*1920,XAXIDMA_DMA_TO_DEVICE);
+    status=XAxiDma_SimpleTransfer(myImgProcess.DmaCtrlPointer,(u32)myImgProcess.imageDataPointer2, 4*1920,XAXIDMA_DMA_TO_DEVICE);
     if(status != XST_SUCCESS){
 		xil_printf("DMA Receive Failed with Status %d\n",status);
 		return -1;
 	}
     while(myImgProcess.done == 1){
     	//xil_printf("row = %d \r\n",myImgProcess.row);
+    	//xil_printf("done = %d \r\n",myImgProcess.done);
     }
 
 	int Index;
@@ -143,7 +145,7 @@ int main(){
 			xil_printf("DMA Mismatch Error\r\n");
 		return XST_FAILURE;
 	}
-	//print("h\n");
+	print("h\r\n");
 	choice=0;
     while(1){
     	// print("i\n"); ///改成幻燈片形式??

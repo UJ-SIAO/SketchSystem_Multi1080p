@@ -2341,3 +2341,1428 @@ make pre-build main-build
 a9-linaro-pre-build-step
 ' '
 make: Nothing to be done for `main-build'.
+19:52:20 **** Auto Build of configuration Debug for project videoImageTest ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/imageProcess.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/imageProcess.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../videoImageTest_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/imageProcess.d" -MT"src/imageProcess.o" -o "src/imageProcess.o" "../src/imageProcess.c"
+../src/imageProcess.c: In function 'imageProcISR':
+../src/imageProcess.c:230:3: warning: implicit declaration of function 'printf' [-Wimplicit-function-declaration]
+   printf("row = %d \n",((imgProcess*)CallBackRef)->row);
+   ^~~~~~
+../src/imageProcess.c:230:3: warning: incompatible implicit declaration of built-in function 'printf'
+../src/imageProcess.c:230:3: note: include '<stdio.h>' or provide a declaration of 'printf'
+../src/imageProcess.c:230:18: warning: format '%d' expects argument of type 'int', but argument 2 has type 'u32 {aka long unsigned int}' [-Wformat=]
+   printf("row = %d \n",((imgProcess*)CallBackRef)->row);
+                  ^
+'Finished building: ../src/imageProcess.c'
+' '
+'Building file: ../src/videoImageProcessingTest.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/videoImageProcessingTest.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../videoImageTest_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/videoImageProcessingTest.d" -MT"src/videoImageProcessingTest.o" -o "src/videoImageProcessingTest.o" "../src/videoImageProcessingTest.c"
+'Finished building: ../src/videoImageProcessingTest.c'
+' '
+'Building target: videoImageTest.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../videoImageTest_bsp/ps7_cortexa9_0/lib -o "videoImageTest.elf"  ./src/imageProcess.o ./src/videoImageProcessingTest.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: videoImageTest.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size videoImageTest.elf  |tee "videoImageTest.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  95784	10372348	39790384	50258516	2fee254	videoImageTest.elf
+'Finished building: videoImageTest.elf.size'
+' '
+19:56:29 **** Auto Build of configuration Debug for project videoImageTest ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/imageProcess.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/imageProcess.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../videoImageTest_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/imageProcess.d" -MT"src/imageProcess.o" -o "src/imageProcess.o" "../src/imageProcess.c"
+../src/imageProcess.c: In function 'imageProcISR':
+../src/imageProcess.c:230:3: warning: implicit declaration of function 'printf' [-Wimplicit-function-declaration]
+   printf("row = %d \n",((imgProcess*)CallBackRef)->row);
+   ^~~~~~
+../src/imageProcess.c:230:3: warning: incompatible implicit declaration of built-in function 'printf'
+../src/imageProcess.c:230:3: note: include '<stdio.h>' or provide a declaration of 'printf'
+../src/imageProcess.c:230:18: warning: format '%d' expects argument of type 'int', but argument 2 has type 'u32 {aka long unsigned int}' [-Wformat=]
+   printf("row = %d \n",((imgProcess*)CallBackRef)->row);
+                  ^
+'Finished building: ../src/imageProcess.c'
+' '
+'Building file: ../src/videoImageProcessingTest.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/videoImageProcessingTest.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../videoImageTest_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/videoImageProcessingTest.d" -MT"src/videoImageProcessingTest.o" -o "src/videoImageProcessingTest.o" "../src/videoImageProcessingTest.c"
+'Finished building: ../src/videoImageProcessingTest.c'
+' '
+'Building target: videoImageTest.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../videoImageTest_bsp/ps7_cortexa9_0/lib -o "videoImageTest.elf"  ./src/imageProcess.o ./src/videoImageProcessingTest.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: videoImageTest.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size videoImageTest.elf  |tee "videoImageTest.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  95784	10372348	39790384	50258516	2fee254	videoImageTest.elf
+'Finished building: videoImageTest.elf.size'
+' '
+19:57:45 **** Auto Build of configuration Debug for project videoImageTest ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/imageProcess.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/imageProcess.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../videoImageTest_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/imageProcess.d" -MT"src/imageProcess.o" -o "src/imageProcess.o" "../src/imageProcess.c"
+../src/imageProcess.c: In function 'resetDMA':
+../src/imageProcess.c:179:9: error: void value not ignored as it ought to be
+  status = XAxiDma_WriteReg(baseAddress,0x00,XAXIDMA_CR_RESET_MASK);
+         ^
+../src/imageProcess.c: In function 'imageProcISR':
+../src/imageProcess.c:245:3: warning: implicit declaration of function 'printf' [-Wimplicit-function-declaration]
+   printf("row = %d \n",((imgProcess*)CallBackRef)->row);
+   ^~~~~~
+../src/imageProcess.c:245:3: warning: incompatible implicit declaration of built-in function 'printf'
+../src/imageProcess.c:245:3: note: include '<stdio.h>' or provide a declaration of 'printf'
+../src/imageProcess.c:245:18: warning: format '%d' expects argument of type 'int', but argument 2 has type 'u32 {aka long unsigned int}' [-Wformat=]
+   printf("row = %d \n",((imgProcess*)CallBackRef)->row);
+                  ^
+make: *** [src/imageProcess.o] Error 1
+19:59:25 **** Auto Build of configuration Debug for project videoImageTest ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/imageProcess.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/imageProcess.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../videoImageTest_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/imageProcess.d" -MT"src/imageProcess.o" -o "src/imageProcess.o" "../src/imageProcess.c"
+../src/imageProcess.c: In function 'resetDMA':
+../src/imageProcess.c:178:6: warning: unused variable 'status' [-Wunused-variable]
+  u32 status;
+      ^~~~~~
+../src/imageProcess.c: In function 'imageProcISR':
+../src/imageProcess.c:244:3: warning: implicit declaration of function 'printf' [-Wimplicit-function-declaration]
+   printf("row = %d \n",((imgProcess*)CallBackRef)->row);
+   ^~~~~~
+../src/imageProcess.c:244:3: warning: incompatible implicit declaration of built-in function 'printf'
+../src/imageProcess.c:244:3: note: include '<stdio.h>' or provide a declaration of 'printf'
+../src/imageProcess.c:244:18: warning: format '%d' expects argument of type 'int', but argument 2 has type 'u32 {aka long unsigned int}' [-Wformat=]
+   printf("row = %d \n",((imgProcess*)CallBackRef)->row);
+                  ^
+../src/imageProcess.c: In function 'resetDMA':
+../src/imageProcess.c:180:1: warning: control reaches end of non-void function [-Wreturn-type]
+ }
+ ^
+'Finished building: ../src/imageProcess.c'
+' '
+'Building target: videoImageTest.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../videoImageTest_bsp/ps7_cortexa9_0/lib -o "videoImageTest.elf"  ./src/imageProcess.o ./src/videoImageProcessingTest.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: videoImageTest.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size videoImageTest.elf  |tee "videoImageTest.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  95848	10372348	39790384	50258580	2fee294	videoImageTest.elf
+'Finished building: videoImageTest.elf.size'
+' '
+20:11:12 **** Auto Build of configuration Debug for project videoImageTest ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/imageProcess.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/imageProcess.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../videoImageTest_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/imageProcess.d" -MT"src/imageProcess.o" -o "src/imageProcess.o" "../src/imageProcess.c"
+../src/imageProcess.c:177:5: error: conflicting types for 'resetDMA'
+ u32 resetDMA(u32 baseAddress){
+     ^~~~~~~~
+In file included from ../src/imageProcess.c:8:0:
+../src/imageProcess.h:31:6: note: previous declaration of 'resetDMA' was here
+ void resetDMA(u32 baseAddress);
+      ^~~~~~~~
+../src/imageProcess.c: In function 'resetDMA':
+../src/imageProcess.c:178:6: warning: unused variable 'status' [-Wunused-variable]
+  u32 status;
+      ^~~~~~
+../src/imageProcess.c: In function 'imageProcISR':
+../src/imageProcess.c:244:3: warning: implicit declaration of function 'printf' [-Wimplicit-function-declaration]
+   printf("row = %d \n",((imgProcess*)CallBackRef)->row);
+   ^~~~~~
+../src/imageProcess.c:244:3: warning: incompatible implicit declaration of built-in function 'printf'
+../src/imageProcess.c:244:3: note: include '<stdio.h>' or provide a declaration of 'printf'
+../src/imageProcess.c:244:18: warning: format '%d' expects argument of type 'int', but argument 2 has type 'u32 {aka long unsigned int}' [-Wformat=]
+   printf("row = %d \n",((imgProcess*)CallBackRef)->row);
+                  ^
+../src/imageProcess.c: In function 'resetDMA':
+../src/imageProcess.c:180:1: warning: control reaches end of non-void function [-Wreturn-type]
+ }
+ ^
+make: *** [src/imageProcess.o] Error 1
+20:11:17 **** Auto Build of configuration Debug for project videoImageTest ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/imageProcess.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/imageProcess.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../videoImageTest_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/imageProcess.d" -MT"src/imageProcess.o" -o "src/imageProcess.o" "../src/imageProcess.c"
+../src/imageProcess.c: In function 'resetDMA':
+../src/imageProcess.c:178:6: warning: unused variable 'status' [-Wunused-variable]
+  u32 status;
+      ^~~~~~
+../src/imageProcess.c: In function 'imageProcISR':
+../src/imageProcess.c:244:3: warning: implicit declaration of function 'printf' [-Wimplicit-function-declaration]
+   printf("row = %d \n",((imgProcess*)CallBackRef)->row);
+   ^~~~~~
+../src/imageProcess.c:244:3: warning: incompatible implicit declaration of built-in function 'printf'
+../src/imageProcess.c:244:3: note: include '<stdio.h>' or provide a declaration of 'printf'
+../src/imageProcess.c:244:18: warning: format '%d' expects argument of type 'int', but argument 2 has type 'u32 {aka long unsigned int}' [-Wformat=]
+   printf("row = %d \n",((imgProcess*)CallBackRef)->row);
+                  ^
+'Finished building: ../src/imageProcess.c'
+' '
+'Building file: ../src/videoImageProcessingTest.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/videoImageProcessingTest.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../videoImageTest_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/videoImageProcessingTest.d" -MT"src/videoImageProcessingTest.o" -o "src/videoImageProcessingTest.o" "../src/videoImageProcessingTest.c"
+'Finished building: ../src/videoImageProcessingTest.c'
+' '
+'Building target: videoImageTest.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../videoImageTest_bsp/ps7_cortexa9_0/lib -o "videoImageTest.elf"  ./src/imageProcess.o ./src/videoImageProcessingTest.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: videoImageTest.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size videoImageTest.elf  |tee "videoImageTest.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  95848	10372348	39790384	50258580	2fee294	videoImageTest.elf
+'Finished building: videoImageTest.elf.size'
+' '
+20:13:28 **** Auto Build of configuration Debug for project videoImageTest ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/imageProcess.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/imageProcess.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../videoImageTest_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/imageProcess.d" -MT"src/imageProcess.o" -o "src/imageProcess.o" "../src/imageProcess.c"
+'Finished building: ../src/imageProcess.c'
+' '
+'Building target: videoImageTest.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../videoImageTest_bsp/ps7_cortexa9_0/lib -o "videoImageTest.elf"  ./src/imageProcess.o ./src/videoImageProcessingTest.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: videoImageTest.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size videoImageTest.elf  |tee "videoImageTest.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  48840	10371956	39789688	50210484	2fe26b4	videoImageTest.elf
+'Finished building: videoImageTest.elf.size'
+' '
+20:13:32 **** Incremental Build of configuration Debug for project videoImageTest ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Nothing to be done for `main-build'.
+20:15:53 **** Incremental Build of configuration Debug for project videoImageTest ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Nothing to be done for `main-build'.
+20:20:39 **** Incremental Build of configuration Debug for project videoImageTest ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Nothing to be done for `main-build'.
+20:21:16 **** Auto Build of configuration Debug for project videoImageTest ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/videoImageProcessingTest.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/videoImageProcessingTest.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../videoImageTest_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/videoImageProcessingTest.d" -MT"src/videoImageProcessingTest.o" -o "src/videoImageProcessingTest.o" "../src/videoImageProcessingTest.c"
+'Finished building: ../src/videoImageProcessingTest.c'
+' '
+'Building target: videoImageTest.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../videoImageTest_bsp/ps7_cortexa9_0/lib -o "videoImageTest.elf"  ./src/imageProcess.o ./src/videoImageProcessingTest.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: videoImageTest.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size videoImageTest.elf  |tee "videoImageTest.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  48904	10371956	39789688	50210548	2fe26f4	videoImageTest.elf
+'Finished building: videoImageTest.elf.size'
+' '
+20:25:57 **** Auto Build of configuration Debug for project videoImageTest ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/videoImageProcessingTest.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/videoImageProcessingTest.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../videoImageTest_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/videoImageProcessingTest.d" -MT"src/videoImageProcessingTest.o" -o "src/videoImageProcessingTest.o" "../src/videoImageProcessingTest.c"
+'Finished building: ../src/videoImageProcessingTest.c'
+' '
+'Building target: videoImageTest.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../videoImageTest_bsp/ps7_cortexa9_0/lib -o "videoImageTest.elf"  ./src/imageProcess.o ./src/videoImageProcessingTest.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: videoImageTest.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size videoImageTest.elf  |tee "videoImageTest.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  48904	10371956	39789688	50210548	2fe26f4	videoImageTest.elf
+'Finished building: videoImageTest.elf.size'
+' '
+20:27:32 **** Incremental Build of configuration Debug for project videoImageTest ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Nothing to be done for `main-build'.
+20:29:18 **** Auto Build of configuration Debug for project videoImageTest ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/imageProcess.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/imageProcess.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../videoImageTest_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/imageProcess.d" -MT"src/imageProcess.o" -o "src/imageProcess.o" "../src/imageProcess.c"
+../src/imageProcess.c: In function 'imageProcISR':
+../src/imageProcess.c:192:6: warning: unused variable 'status2' [-Wunused-variable]
+  int status2;
+      ^~~~~~~
+'Finished building: ../src/imageProcess.c'
+' '
+'Building target: videoImageTest.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../videoImageTest_bsp/ps7_cortexa9_0/lib -o "videoImageTest.elf"  ./src/imageProcess.o ./src/videoImageProcessingTest.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: videoImageTest.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size videoImageTest.elf  |tee "videoImageTest.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  48680	10371956	39789688	50210324	2fe2614	videoImageTest.elf
+'Finished building: videoImageTest.elf.size'
+' '
+20:32:22 **** Auto Build of configuration Debug for project videoImageTest ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/imageProcess.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/imageProcess.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../videoImageTest_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/imageProcess.d" -MT"src/imageProcess.o" -o "src/imageProcess.o" "../src/imageProcess.c"
+../src/imageProcess.c: In function 'dmaReceiveISR':
+../src/imageProcess.c:152:5: warning: implicit declaration of function 'sleep' [-Wimplicit-function-declaration]
+     sleep(1);
+     ^~~~~
+../src/imageProcess.c: In function 'imageProcISR':
+../src/imageProcess.c:193:6: warning: unused variable 'status2' [-Wunused-variable]
+  int status2;
+      ^~~~~~~
+'Finished building: ../src/imageProcess.c'
+' '
+'Building target: videoImageTest.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../videoImageTest_bsp/ps7_cortexa9_0/lib -o "videoImageTest.elf"  ./src/imageProcess.o ./src/videoImageProcessingTest.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: videoImageTest.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size videoImageTest.elf  |tee "videoImageTest.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  48680	10371956	39789688	50210324	2fe2614	videoImageTest.elf
+'Finished building: videoImageTest.elf.size'
+' '
+20:32:36 **** Auto Build of configuration Debug for project videoImageTest ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/imageProcess.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/imageProcess.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../videoImageTest_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/imageProcess.d" -MT"src/imageProcess.o" -o "src/imageProcess.o" "../src/imageProcess.c"
+../src/imageProcess.c: In function 'imageProcISR':
+../src/imageProcess.c:193:6: warning: unused variable 'status2' [-Wunused-variable]
+  int status2;
+      ^~~~~~~
+'Finished building: ../src/imageProcess.c'
+' '
+'Building target: videoImageTest.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../videoImageTest_bsp/ps7_cortexa9_0/lib -o "videoImageTest.elf"  ./src/imageProcess.o ./src/videoImageProcessingTest.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: videoImageTest.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size videoImageTest.elf  |tee "videoImageTest.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  48680	10371956	39789688	50210324	2fe2614	videoImageTest.elf
+'Finished building: videoImageTest.elf.size'
+' '
+20:32:42 **** Auto Build of configuration Debug for project videoImageTest ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/videoImageProcessingTest.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/videoImageProcessingTest.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../videoImageTest_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/videoImageProcessingTest.d" -MT"src/videoImageProcessingTest.o" -o "src/videoImageProcessingTest.o" "../src/videoImageProcessingTest.c"
+'Finished building: ../src/videoImageProcessingTest.c'
+' '
+'Building target: videoImageTest.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../videoImageTest_bsp/ps7_cortexa9_0/lib -o "videoImageTest.elf"  ./src/imageProcess.o ./src/videoImageProcessingTest.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: videoImageTest.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size videoImageTest.elf  |tee "videoImageTest.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  48680	10371956	39789688	50210324	2fe2614	videoImageTest.elf
+'Finished building: videoImageTest.elf.size'
+' '
+20:36:32 **** Incremental Build of configuration Debug for project videoImageTest ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Nothing to be done for `main-build'.
+20:40:27 **** Auto Build of configuration Debug for project videoImageTest ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/imageProcess.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/imageProcess.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../videoImageTest_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/imageProcess.d" -MT"src/imageProcess.o" -o "src/imageProcess.o" "../src/imageProcess.c"
+../src/imageProcess.c: In function 'imageProcISR':
+../src/imageProcess.c:210:23: error: 'row' undeclared (first use in this function)
+  while(status == 0 && row != 1082){
+                       ^~~
+../src/imageProcess.c:210:23: note: each undeclared identifier is reported only once for each function it appears in
+../src/imageProcess.c:193:6: warning: unused variable 'status2' [-Wunused-variable]
+  int status2;
+      ^~~~~~~
+make: *** [src/imageProcess.o] Error 1
+20:41:17 **** Incremental Build of configuration Debug for project videoImageTest ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/imageProcess.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/imageProcess.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../videoImageTest_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/imageProcess.d" -MT"src/imageProcess.o" -o "src/imageProcess.o" "../src/imageProcess.c"
+../src/imageProcess.c: In function 'imageProcISR':
+../src/imageProcess.c:210:23: error: 'row' undeclared (first use in this function)
+  while(status == 0 && row != 1082){
+                       ^~~
+../src/imageProcess.c:210:23: note: each undeclared identifier is reported only once for each function it appears in
+../src/imageProcess.c:193:6: warning: unused variable 'status2' [-Wunused-variable]
+  int status2;
+      ^~~~~~~
+make: *** [src/imageProcess.o] Error 1
+20:42:20 **** Auto Build of configuration Debug for project videoImageTest ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/imageProcess.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/imageProcess.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../videoImageTest_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/imageProcess.d" -MT"src/imageProcess.o" -o "src/imageProcess.o" "../src/imageProcess.c"
+../src/imageProcess.c: In function 'imageProcISR':
+../src/imageProcess.c:193:6: warning: unused variable 'status2' [-Wunused-variable]
+  int status2;
+      ^~~~~~~
+'Finished building: ../src/imageProcess.c'
+' '
+'Building target: videoImageTest.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../videoImageTest_bsp/ps7_cortexa9_0/lib -o "videoImageTest.elf"  ./src/imageProcess.o ./src/videoImageProcessingTest.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: videoImageTest.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size videoImageTest.elf  |tee "videoImageTest.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  48744	10371956	39789688	50210388	2fe2654	videoImageTest.elf
+'Finished building: videoImageTest.elf.size'
+' '
+20:42:44 **** Incremental Build of configuration Debug for project videoImageTest ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Nothing to be done for `main-build'.
+20:44:28 **** Auto Build of configuration Debug for project videoImageTest ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/videoImageProcessingTest.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/videoImageProcessingTest.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../videoImageTest_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/videoImageProcessingTest.d" -MT"src/videoImageProcessingTest.o" -o "src/videoImageProcessingTest.o" "../src/videoImageProcessingTest.c"
+'Finished building: ../src/videoImageProcessingTest.c'
+' '
+'Building target: videoImageTest.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../videoImageTest_bsp/ps7_cortexa9_0/lib -o "videoImageTest.elf"  ./src/imageProcess.o ./src/videoImageProcessingTest.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: videoImageTest.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size videoImageTest.elf  |tee "videoImageTest.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  48744	10371956	39789688	50210388	2fe2654	videoImageTest.elf
+'Finished building: videoImageTest.elf.size'
+' '
+20:46:13 **** Auto Build of configuration Debug for project videoImageTest ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/imageProcess.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/imageProcess.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../videoImageTest_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/imageProcess.d" -MT"src/imageProcess.o" -o "src/imageProcess.o" "../src/imageProcess.c"
+../src/imageProcess.c: In function 'imageProcISR':
+../src/imageProcess.c:244:3: warning: implicit declaration of function 'printf' [-Wimplicit-function-declaration]
+   printf("row = %d \n",((imgProcess*)CallBackRef)->row);
+   ^~~~~~
+../src/imageProcess.c:244:3: warning: incompatible implicit declaration of built-in function 'printf'
+../src/imageProcess.c:244:3: note: include '<stdio.h>' or provide a declaration of 'printf'
+../src/imageProcess.c:244:18: warning: format '%d' expects argument of type 'int', but argument 2 has type 'u32 {aka long unsigned int}' [-Wformat=]
+   printf("row = %d \n",((imgProcess*)CallBackRef)->row);
+                  ^
+../src/imageProcess.c:193:6: warning: unused variable 'status2' [-Wunused-variable]
+  int status2;
+      ^~~~~~~
+'Finished building: ../src/imageProcess.c'
+' '
+'Building target: videoImageTest.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../videoImageTest_bsp/ps7_cortexa9_0/lib -o "videoImageTest.elf"  ./src/imageProcess.o ./src/videoImageProcessingTest.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: videoImageTest.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size videoImageTest.elf  |tee "videoImageTest.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  95688	10372348	39790384	50258420	2fee1f4	videoImageTest.elf
+'Finished building: videoImageTest.elf.size'
+' '
+20:46:22 **** Incremental Build of configuration Debug for project videoImageTest ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Nothing to be done for `main-build'.
+20:47:30 **** Auto Build of configuration Debug for project videoImageTest ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/imageProcess.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/imageProcess.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../videoImageTest_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/imageProcess.d" -MT"src/imageProcess.o" -o "src/imageProcess.o" "../src/imageProcess.c"
+../src/imageProcess.c: In function 'imageProcISR':
+../src/imageProcess.c:244:3: warning: implicit declaration of function 'printf' [-Wimplicit-function-declaration]
+   printf("row1 = %d \n",((imgProcess*)CallBackRef)->row);
+   ^~~~~~
+../src/imageProcess.c:244:3: warning: incompatible implicit declaration of built-in function 'printf'
+../src/imageProcess.c:244:3: note: include '<stdio.h>' or provide a declaration of 'printf'
+../src/imageProcess.c:244:19: warning: format '%d' expects argument of type 'int', but argument 2 has type 'u32 {aka long unsigned int}' [-Wformat=]
+   printf("row1 = %d \n",((imgProcess*)CallBackRef)->row);
+                   ^
+../src/imageProcess.c:193:6: warning: unused variable 'status2' [-Wunused-variable]
+  int status2;
+      ^~~~~~~
+'Finished building: ../src/imageProcess.c'
+' '
+'Building target: videoImageTest.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../videoImageTest_bsp/ps7_cortexa9_0/lib -o "videoImageTest.elf"  ./src/imageProcess.o ./src/videoImageProcessingTest.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: videoImageTest.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size videoImageTest.elf  |tee "videoImageTest.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  95688	10372348	39790384	50258420	2fee1f4	videoImageTest.elf
+'Finished building: videoImageTest.elf.size'
+' '
+20:47:39 **** Incremental Build of configuration Debug for project videoImageTest ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Nothing to be done for `main-build'.
+20:48:31 **** Incremental Build of configuration Debug for project videoImageTest ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Nothing to be done for `main-build'.
+20:49:43 **** Auto Build of configuration Debug for project videoImageTest ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/imageProcess.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/imageProcess.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../videoImageTest_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/imageProcess.d" -MT"src/imageProcess.o" -o "src/imageProcess.o" "../src/imageProcess.c"
+../src/imageProcess.c: In function 'imageProcISR':
+../src/imageProcess.c:193:6: warning: unused variable 'status2' [-Wunused-variable]
+  int status2;
+      ^~~~~~~
+'Finished building: ../src/imageProcess.c'
+' '
+'Building target: videoImageTest.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../videoImageTest_bsp/ps7_cortexa9_0/lib -o "videoImageTest.elf"  ./src/imageProcess.o ./src/videoImageProcessingTest.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: videoImageTest.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size videoImageTest.elf  |tee "videoImageTest.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  48668	10371956	39789688	50210312	2fe2608	videoImageTest.elf
+'Finished building: videoImageTest.elf.size'
+' '
+20:50:00 **** Incremental Build of configuration Debug for project videoImageTest ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Nothing to be done for `main-build'.
+20:51:18 **** Auto Build of configuration Debug for project videoImageTest ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/videoImageProcessingTest.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/videoImageProcessingTest.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../videoImageTest_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/videoImageProcessingTest.d" -MT"src/videoImageProcessingTest.o" -o "src/videoImageProcessingTest.o" "../src/videoImageProcessingTest.c"
+'Finished building: ../src/videoImageProcessingTest.c'
+' '
+'Building target: videoImageTest.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../videoImageTest_bsp/ps7_cortexa9_0/lib -o "videoImageTest.elf"  ./src/imageProcess.o ./src/videoImageProcessingTest.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: videoImageTest.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size videoImageTest.elf  |tee "videoImageTest.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  48744	10371956	39789688	50210388	2fe2654	videoImageTest.elf
+'Finished building: videoImageTest.elf.size'
+' '
+20:54:10 **** Incremental Build of configuration Debug for project videoImageTest ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Nothing to be done for `main-build'.
+20:58:03 **** Auto Build of configuration Debug for project videoImageTest ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/videoImageProcessingTest.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/videoImageProcessingTest.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../videoImageTest_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/videoImageProcessingTest.d" -MT"src/videoImageProcessingTest.o" -o "src/videoImageProcessingTest.o" "../src/videoImageProcessingTest.c"
+'Finished building: ../src/videoImageProcessingTest.c'
+' '
+'Building target: videoImageTest.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../videoImageTest_bsp/ps7_cortexa9_0/lib -o "videoImageTest.elf"  ./src/imageProcess.o ./src/videoImageProcessingTest.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: videoImageTest.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size videoImageTest.elf  |tee "videoImageTest.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  48744	10371956	39789688	50210388	2fe2654	videoImageTest.elf
+'Finished building: videoImageTest.elf.size'
+' '
+20:59:22 **** Auto Build of configuration Debug for project videoImageTest ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/videoImageProcessingTest.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/videoImageProcessingTest.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../videoImageTest_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/videoImageProcessingTest.d" -MT"src/videoImageProcessingTest.o" -o "src/videoImageProcessingTest.o" "../src/videoImageProcessingTest.c"
+'Finished building: ../src/videoImageProcessingTest.c'
+' '
+'Building target: videoImageTest.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../videoImageTest_bsp/ps7_cortexa9_0/lib -o "videoImageTest.elf"  ./src/imageProcess.o ./src/videoImageProcessingTest.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: videoImageTest.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size videoImageTest.elf  |tee "videoImageTest.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  48744	10371956	39789688	50210388	2fe2654	videoImageTest.elf
+'Finished building: videoImageTest.elf.size'
+' '
+21:00:48 **** Incremental Build of configuration Debug for project videoImageTest ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Nothing to be done for `main-build'.
+21:01:30 **** Incremental Build of configuration Debug for project videoImageTest ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Nothing to be done for `main-build'.
+21:03:12 **** Auto Build of configuration Debug for project videoImageTest ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/videoImageProcessingTest.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/videoImageProcessingTest.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../videoImageTest_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/videoImageProcessingTest.d" -MT"src/videoImageProcessingTest.o" -o "src/videoImageProcessingTest.o" "../src/videoImageProcessingTest.c"
+'Finished building: ../src/videoImageProcessingTest.c'
+' '
+'Building target: videoImageTest.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../videoImageTest_bsp/ps7_cortexa9_0/lib -o "videoImageTest.elf"  ./src/imageProcess.o ./src/videoImageProcessingTest.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: videoImageTest.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size videoImageTest.elf  |tee "videoImageTest.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  48744	10371956	39789688	50210388	2fe2654	videoImageTest.elf
+'Finished building: videoImageTest.elf.size'
+' '
+21:05:55 **** Incremental Build of configuration Debug for project videoImageTest ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Nothing to be done for `main-build'.
+21:07:24 **** Auto Build of configuration Debug for project videoImageTest ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/videoImageProcessingTest.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/videoImageProcessingTest.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../videoImageTest_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/videoImageProcessingTest.d" -MT"src/videoImageProcessingTest.o" -o "src/videoImageProcessingTest.o" "../src/videoImageProcessingTest.c"
+'Finished building: ../src/videoImageProcessingTest.c'
+' '
+'Building target: videoImageTest.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../videoImageTest_bsp/ps7_cortexa9_0/lib -o "videoImageTest.elf"  ./src/imageProcess.o ./src/videoImageProcessingTest.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: videoImageTest.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size videoImageTest.elf  |tee "videoImageTest.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  48760	10371956	39789688	50210404	2fe2664	videoImageTest.elf
+'Finished building: videoImageTest.elf.size'
+' '
+21:09:54 **** Incremental Build of configuration Debug for project videoImageTest ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Nothing to be done for `main-build'.
+21:11:00 **** Incremental Build of configuration Debug for project videoImageTest ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Nothing to be done for `main-build'.
+21:12:16 **** Auto Build of configuration Debug for project videoImageTest ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/videoImageProcessingTest.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/videoImageProcessingTest.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../videoImageTest_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/videoImageProcessingTest.d" -MT"src/videoImageProcessingTest.o" -o "src/videoImageProcessingTest.o" "../src/videoImageProcessingTest.c"
+'Finished building: ../src/videoImageProcessingTest.c'
+' '
+'Building target: videoImageTest.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../videoImageTest_bsp/ps7_cortexa9_0/lib -o "videoImageTest.elf"  ./src/imageProcess.o ./src/videoImageProcessingTest.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: videoImageTest.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size videoImageTest.elf  |tee "videoImageTest.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  48744	10371956	39789688	50210388	2fe2654	videoImageTest.elf
+'Finished building: videoImageTest.elf.size'
+' '
+21:13:47 **** Auto Build of configuration Debug for project videoImageTest ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/imageProcess.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/imageProcess.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../videoImageTest_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/imageProcess.d" -MT"src/imageProcess.o" -o "src/imageProcess.o" "../src/imageProcess.c"
+../src/imageProcess.c: In function 'imageProcISR':
+../src/imageProcess.c:193:6: warning: unused variable 'status2' [-Wunused-variable]
+  int status2;
+      ^~~~~~~
+'Finished building: ../src/imageProcess.c'
+' '
+'Building target: videoImageTest.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../videoImageTest_bsp/ps7_cortexa9_0/lib -o "videoImageTest.elf"  ./src/imageProcess.o ./src/videoImageProcessingTest.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: videoImageTest.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size videoImageTest.elf  |tee "videoImageTest.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  48744	10371956	39789688	50210388	2fe2654	videoImageTest.elf
+'Finished building: videoImageTest.elf.size'
+' '
+21:14:00 **** Incremental Build of configuration Debug for project videoImageTest ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Nothing to be done for `main-build'.
+21:16:19 **** Incremental Build of configuration Debug for project videoImageTest ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Nothing to be done for `main-build'.
+21:18:12 **** Incremental Build of configuration Debug for project videoImageTest ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Nothing to be done for `main-build'.
+21:18:39 **** Incremental Build of configuration Debug for project videoImageTest ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Nothing to be done for `main-build'.
+21:20:49 **** Auto Build of configuration Debug for project videoImageTest ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/imageProcess.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/imageProcess.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../videoImageTest_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/imageProcess.d" -MT"src/imageProcess.o" -o "src/imageProcess.o" "../src/imageProcess.c"
+../src/imageProcess.c: In function 'imageProcISR':
+../src/imageProcess.c:193:6: warning: unused variable 'status2' [-Wunused-variable]
+  int status2;
+      ^~~~~~~
+'Finished building: ../src/imageProcess.c'
+' '
+'Building target: videoImageTest.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../videoImageTest_bsp/ps7_cortexa9_0/lib -o "videoImageTest.elf"  ./src/imageProcess.o ./src/videoImageProcessingTest.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: videoImageTest.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size videoImageTest.elf  |tee "videoImageTest.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  48744	10371956	39789688	50210388	2fe2654	videoImageTest.elf
+'Finished building: videoImageTest.elf.size'
+' '
+21:20:55 **** Auto Build of configuration Debug for project videoImageTest ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/imageProcess.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/imageProcess.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../videoImageTest_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/imageProcess.d" -MT"src/imageProcess.o" -o "src/imageProcess.o" "../src/imageProcess.c"
+../src/imageProcess.c: In function 'imageProcISR':
+../src/imageProcess.c:193:6: warning: unused variable 'status2' [-Wunused-variable]
+  int status2;
+      ^~~~~~~
+'Finished building: ../src/imageProcess.c'
+' '
+'Building target: videoImageTest.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../videoImageTest_bsp/ps7_cortexa9_0/lib -o "videoImageTest.elf"  ./src/imageProcess.o ./src/videoImageProcessingTest.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: videoImageTest.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size videoImageTest.elf  |tee "videoImageTest.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  48744	10371956	39789688	50210388	2fe2654	videoImageTest.elf
+'Finished building: videoImageTest.elf.size'
+' '
+21:21:16 **** Auto Build of configuration Debug for project videoImageTest ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/videoImageProcessingTest.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/videoImageProcessingTest.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../videoImageTest_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/videoImageProcessingTest.d" -MT"src/videoImageProcessingTest.o" -o "src/videoImageProcessingTest.o" "../src/videoImageProcessingTest.c"
+'Finished building: ../src/videoImageProcessingTest.c'
+' '
+'Building target: videoImageTest.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../videoImageTest_bsp/ps7_cortexa9_0/lib -o "videoImageTest.elf"  ./src/imageProcess.o ./src/videoImageProcessingTest.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: videoImageTest.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size videoImageTest.elf  |tee "videoImageTest.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  48748	10371956	39789688	50210392	2fe2658	videoImageTest.elf
+'Finished building: videoImageTest.elf.size'
+' '
+21:24:10 **** Incremental Build of configuration Debug for project videoImageTest ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Nothing to be done for `main-build'.
+21:25:16 **** Auto Build of configuration Debug for project videoImageTest ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/imageProcess.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/imageProcess.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../videoImageTest_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/imageProcess.d" -MT"src/imageProcess.o" -o "src/imageProcess.o" "../src/imageProcess.c"
+../src/imageProcess.c: In function 'imageProcISR':
+../src/imageProcess.c:193:6: warning: unused variable 'status2' [-Wunused-variable]
+  int status2;
+      ^~~~~~~
+'Finished building: ../src/imageProcess.c'
+' '
+'Building target: videoImageTest.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../videoImageTest_bsp/ps7_cortexa9_0/lib -o "videoImageTest.elf"  ./src/imageProcess.o ./src/videoImageProcessingTest.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: videoImageTest.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size videoImageTest.elf  |tee "videoImageTest.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  48812	10371956	39789688	50210456	2fe2698	videoImageTest.elf
+'Finished building: videoImageTest.elf.size'
+' '
+21:25:37 **** Auto Build of configuration Debug for project videoImageTest ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/imageProcess.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/imageProcess.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../videoImageTest_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/imageProcess.d" -MT"src/imageProcess.o" -o "src/imageProcess.o" "../src/imageProcess.c"
+../src/imageProcess.c: In function 'imageProcISR':
+../src/imageProcess.c:193:6: warning: unused variable 'status2' [-Wunused-variable]
+  int status2;
+      ^~~~~~~
+'Finished building: ../src/imageProcess.c'
+' '
+'Building target: videoImageTest.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../videoImageTest_bsp/ps7_cortexa9_0/lib -o "videoImageTest.elf"  ./src/imageProcess.o ./src/videoImageProcessingTest.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: videoImageTest.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size videoImageTest.elf  |tee "videoImageTest.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  48812	10371956	39789688	50210456	2fe2698	videoImageTest.elf
+'Finished building: videoImageTest.elf.size'
+' '
+21:25:53 **** Auto Build of configuration Debug for project videoImageTest ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/imageProcess.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/imageProcess.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../videoImageTest_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/imageProcess.d" -MT"src/imageProcess.o" -o "src/imageProcess.o" "../src/imageProcess.c"
+../src/imageProcess.c: In function 'imageProcISR':
+../src/imageProcess.c:193:6: warning: unused variable 'status2' [-Wunused-variable]
+  int status2;
+      ^~~~~~~
+'Finished building: ../src/imageProcess.c'
+' '
+'Building target: videoImageTest.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../videoImageTest_bsp/ps7_cortexa9_0/lib -o "videoImageTest.elf"  ./src/imageProcess.o ./src/videoImageProcessingTest.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: videoImageTest.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size videoImageTest.elf  |tee "videoImageTest.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  48812	10371956	39789688	50210456	2fe2698	videoImageTest.elf
+'Finished building: videoImageTest.elf.size'
+' '
+21:26:00 **** Incremental Build of configuration Debug for project videoImageTest ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Nothing to be done for `main-build'.
+21:27:43 **** Auto Build of configuration Debug for project videoImageTest ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/imageProcess.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/imageProcess.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../videoImageTest_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/imageProcess.d" -MT"src/imageProcess.o" -o "src/imageProcess.o" "../src/imageProcess.c"
+../src/imageProcess.c: In function 'imageProcISR':
+../src/imageProcess.c:193:6: warning: unused variable 'status2' [-Wunused-variable]
+  int status2;
+      ^~~~~~~
+'Finished building: ../src/imageProcess.c'
+' '
+'Building target: videoImageTest.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../videoImageTest_bsp/ps7_cortexa9_0/lib -o "videoImageTest.elf"  ./src/imageProcess.o ./src/videoImageProcessingTest.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: videoImageTest.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size videoImageTest.elf  |tee "videoImageTest.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  48812	10371956	39789688	50210456	2fe2698	videoImageTest.elf
+'Finished building: videoImageTest.elf.size'
+' '
+21:27:56 **** Auto Build of configuration Debug for project videoImageTest ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/imageProcess.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/imageProcess.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../videoImageTest_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/imageProcess.d" -MT"src/imageProcess.o" -o "src/imageProcess.o" "../src/imageProcess.c"
+../src/imageProcess.c: In function 'imageProcISR':
+../src/imageProcess.c:193:6: warning: unused variable 'status2' [-Wunused-variable]
+  int status2;
+      ^~~~~~~
+'Finished building: ../src/imageProcess.c'
+' '
+'Building target: videoImageTest.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../videoImageTest_bsp/ps7_cortexa9_0/lib -o "videoImageTest.elf"  ./src/imageProcess.o ./src/videoImageProcessingTest.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: videoImageTest.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size videoImageTest.elf  |tee "videoImageTest.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  48812	10371956	39789688	50210456	2fe2698	videoImageTest.elf
+'Finished building: videoImageTest.elf.size'
+' '
+21:28:01 **** Auto Build of configuration Debug for project videoImageTest ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/imageProcess.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/imageProcess.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../videoImageTest_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/imageProcess.d" -MT"src/imageProcess.o" -o "src/imageProcess.o" "../src/imageProcess.c"
+../src/imageProcess.c: In function 'imageProcISR':
+../src/imageProcess.c:193:6: warning: unused variable 'status2' [-Wunused-variable]
+  int status2;
+      ^~~~~~~
+'Finished building: ../src/imageProcess.c'
+' '
+'Building target: videoImageTest.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../videoImageTest_bsp/ps7_cortexa9_0/lib -o "videoImageTest.elf"  ./src/imageProcess.o ./src/videoImageProcessingTest.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: videoImageTest.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size videoImageTest.elf  |tee "videoImageTest.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  48812	10371956	39789688	50210456	2fe2698	videoImageTest.elf
+'Finished building: videoImageTest.elf.size'
+' '
+21:28:04 **** Incremental Build of configuration Debug for project videoImageTest ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Nothing to be done for `main-build'.
+21:28:30 **** Incremental Build of configuration Debug for project videoImageTest ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Nothing to be done for `main-build'.
+21:29:37 **** Auto Build of configuration Debug for project videoImageTest ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/imageProcess.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/imageProcess.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../videoImageTest_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/imageProcess.d" -MT"src/imageProcess.o" -o "src/imageProcess.o" "../src/imageProcess.c"
+../src/imageProcess.c: In function 'imageProcISR':
+../src/imageProcess.c:193:6: warning: unused variable 'status2' [-Wunused-variable]
+  int status2;
+      ^~~~~~~
+'Finished building: ../src/imageProcess.c'
+' '
+'Building target: videoImageTest.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../videoImageTest_bsp/ps7_cortexa9_0/lib -o "videoImageTest.elf"  ./src/imageProcess.o ./src/videoImageProcessingTest.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: videoImageTest.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size videoImageTest.elf  |tee "videoImageTest.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  48812	10371956	39789688	50210456	2fe2698	videoImageTest.elf
+'Finished building: videoImageTest.elf.size'
+' '
+21:29:53 **** Incremental Build of configuration Debug for project videoImageTest ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Nothing to be done for `main-build'.
+21:32:30 **** Auto Build of configuration Debug for project videoImageTest ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/videoImageProcessingTest.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/videoImageProcessingTest.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../videoImageTest_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/videoImageProcessingTest.d" -MT"src/videoImageProcessingTest.o" -o "src/videoImageProcessingTest.o" "../src/videoImageProcessingTest.c"
+'Finished building: ../src/videoImageProcessingTest.c'
+' '
+'Building target: videoImageTest.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../videoImageTest_bsp/ps7_cortexa9_0/lib -o "videoImageTest.elf"  ./src/imageProcess.o ./src/videoImageProcessingTest.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: videoImageTest.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size videoImageTest.elf  |tee "videoImageTest.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  48812	10371956	39789688	50210456	2fe2698	videoImageTest.elf
+'Finished building: videoImageTest.elf.size'
+' '
+21:34:41 **** Incremental Build of configuration Debug for project videoImageTest ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Nothing to be done for `main-build'.
+21:35:54 **** Auto Build of configuration Debug for project videoImageTest ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/videoImageProcessingTest.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/videoImageProcessingTest.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../videoImageTest_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/videoImageProcessingTest.d" -MT"src/videoImageProcessingTest.o" -o "src/videoImageProcessingTest.o" "../src/videoImageProcessingTest.c"
+'Finished building: ../src/videoImageProcessingTest.c'
+' '
+'Building target: videoImageTest.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../videoImageTest_bsp/ps7_cortexa9_0/lib -o "videoImageTest.elf"  ./src/imageProcess.o ./src/videoImageProcessingTest.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: videoImageTest.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size videoImageTest.elf  |tee "videoImageTest.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  48812	10371956	39789688	50210456	2fe2698	videoImageTest.elf
+'Finished building: videoImageTest.elf.size'
+' '
+21:37:17 **** Incremental Build of configuration Debug for project videoImageTest ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Nothing to be done for `main-build'.
+21:38:51 **** Auto Build of configuration Debug for project videoImageTest ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/videoImageProcessingTest.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/videoImageProcessingTest.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../videoImageTest_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/videoImageProcessingTest.d" -MT"src/videoImageProcessingTest.o" -o "src/videoImageProcessingTest.o" "../src/videoImageProcessingTest.c"
+'Finished building: ../src/videoImageProcessingTest.c'
+' '
+'Building target: videoImageTest.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../videoImageTest_bsp/ps7_cortexa9_0/lib -o "videoImageTest.elf"  ./src/imageProcess.o ./src/videoImageProcessingTest.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: videoImageTest.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size videoImageTest.elf  |tee "videoImageTest.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  48812	10371956	39789688	50210456	2fe2698	videoImageTest.elf
+'Finished building: videoImageTest.elf.size'
+' '
+21:41:16 **** Incremental Build of configuration Debug for project videoImageTest ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Nothing to be done for `main-build'.
+21:43:01 **** Auto Build of configuration Debug for project videoImageTest ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/videoImageProcessingTest.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/videoImageProcessingTest.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../videoImageTest_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/videoImageProcessingTest.d" -MT"src/videoImageProcessingTest.o" -o "src/videoImageProcessingTest.o" "../src/videoImageProcessingTest.c"
+'Finished building: ../src/videoImageProcessingTest.c'
+' '
+'Building target: videoImageTest.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../videoImageTest_bsp/ps7_cortexa9_0/lib -o "videoImageTest.elf"  ./src/imageProcess.o ./src/videoImageProcessingTest.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: videoImageTest.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size videoImageTest.elf  |tee "videoImageTest.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  48812	10371956	39789688	50210456	2fe2698	videoImageTest.elf
+'Finished building: videoImageTest.elf.size'
+' '
+21:44:42 **** Incremental Build of configuration Debug for project videoImageTest ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Nothing to be done for `main-build'.
+21:45:44 **** Auto Build of configuration Debug for project videoImageTest ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/imageProcess.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/imageProcess.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../videoImageTest_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/imageProcess.d" -MT"src/imageProcess.o" -o "src/imageProcess.o" "../src/imageProcess.c"
+../src/imageProcess.c: In function 'imageProcISR':
+../src/imageProcess.c:193:6: warning: unused variable 'status2' [-Wunused-variable]
+  int status2;
+      ^~~~~~~
+'Finished building: ../src/imageProcess.c'
+' '
+'Building target: videoImageTest.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../videoImageTest_bsp/ps7_cortexa9_0/lib -o "videoImageTest.elf"  ./src/imageProcess.o ./src/videoImageProcessingTest.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: videoImageTest.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size videoImageTest.elf  |tee "videoImageTest.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  48812	10371956	39789688	50210456	2fe2698	videoImageTest.elf
+'Finished building: videoImageTest.elf.size'
+' '
+21:46:32 **** Auto Build of configuration Debug for project videoImageTest ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/imageProcess.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/imageProcess.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../videoImageTest_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/imageProcess.d" -MT"src/imageProcess.o" -o "src/imageProcess.o" "../src/imageProcess.c"
+../src/imageProcess.c: In function 'imageProcISR':
+../src/imageProcess.c:199:6: warning: unused variable 'status2' [-Wunused-variable]
+  int status2;
+      ^~~~~~~
+'Finished building: ../src/imageProcess.c'
+' '
+'Building target: videoImageTest.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../videoImageTest_bsp/ps7_cortexa9_0/lib -o "videoImageTest.elf"  ./src/imageProcess.o ./src/videoImageProcessingTest.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: videoImageTest.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size videoImageTest.elf  |tee "videoImageTest.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  48876	10371956	39789688	50210520	2fe26d8	videoImageTest.elf
+'Finished building: videoImageTest.elf.size'
+' '
+21:46:47 **** Auto Build of configuration Debug for project videoImageTest ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/imageProcess.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/imageProcess.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../videoImageTest_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/imageProcess.d" -MT"src/imageProcess.o" -o "src/imageProcess.o" "../src/imageProcess.c"
+../src/imageProcess.c: In function 'imageProcISR':
+../src/imageProcess.c:199:6: warning: unused variable 'status2' [-Wunused-variable]
+  int status2;
+      ^~~~~~~
+'Finished building: ../src/imageProcess.c'
+' '
+'Building target: videoImageTest.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../videoImageTest_bsp/ps7_cortexa9_0/lib -o "videoImageTest.elf"  ./src/imageProcess.o ./src/videoImageProcessingTest.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: videoImageTest.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size videoImageTest.elf  |tee "videoImageTest.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  48876	10371956	39789688	50210520	2fe26d8	videoImageTest.elf
+'Finished building: videoImageTest.elf.size'
+' '
+21:47:04 **** Incremental Build of configuration Debug for project videoImageTest ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Nothing to be done for `main-build'.
+21:48:14 **** Auto Build of configuration Debug for project videoImageTest ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/imageProcess.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/imageProcess.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../videoImageTest_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/imageProcess.d" -MT"src/imageProcess.o" -o "src/imageProcess.o" "../src/imageProcess.c"
+../src/imageProcess.c: In function 'imageProcISR':
+../src/imageProcess.c:199:6: warning: unused variable 'status2' [-Wunused-variable]
+  int status2;
+      ^~~~~~~
+'Finished building: ../src/imageProcess.c'
+' '
+'Building target: videoImageTest.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../videoImageTest_bsp/ps7_cortexa9_0/lib -o "videoImageTest.elf"  ./src/imageProcess.o ./src/videoImageProcessingTest.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: videoImageTest.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size videoImageTest.elf  |tee "videoImageTest.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  48876	10371956	39789688	50210520	2fe26d8	videoImageTest.elf
+'Finished building: videoImageTest.elf.size'
+' '
+21:48:30 **** Incremental Build of configuration Debug for project videoImageTest ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Nothing to be done for `main-build'.
+21:50:09 **** Auto Build of configuration Debug for project videoImageTest ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/imageProcess.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/imageProcess.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../videoImageTest_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/imageProcess.d" -MT"src/imageProcess.o" -o "src/imageProcess.o" "../src/imageProcess.c"
+../src/imageProcess.c: In function 'imageProcISR':
+../src/imageProcess.c:199:6: warning: unused variable 'status2' [-Wunused-variable]
+  int status2;
+      ^~~~~~~
+'Finished building: ../src/imageProcess.c'
+' '
+'Building target: videoImageTest.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../videoImageTest_bsp/ps7_cortexa9_0/lib -o "videoImageTest.elf"  ./src/imageProcess.o ./src/videoImageProcessingTest.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: videoImageTest.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size videoImageTest.elf  |tee "videoImageTest.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  48952	10371956	39789688	50210596	2fe2724	videoImageTest.elf
+'Finished building: videoImageTest.elf.size'
+' '
+21:50:22 **** Auto Build of configuration Debug for project videoImageTest ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/imageProcess.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/imageProcess.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../videoImageTest_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/imageProcess.d" -MT"src/imageProcess.o" -o "src/imageProcess.o" "../src/imageProcess.c"
+'Finished building: ../src/imageProcess.c'
+' '
+'Building target: videoImageTest.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../videoImageTest_bsp/ps7_cortexa9_0/lib -o "videoImageTest.elf"  ./src/imageProcess.o ./src/videoImageProcessingTest.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: videoImageTest.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size videoImageTest.elf  |tee "videoImageTest.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  48952	10371956	39789688	50210596	2fe2724	videoImageTest.elf
+'Finished building: videoImageTest.elf.size'
+' '
+21:50:34 **** Auto Build of configuration Debug for project videoImageTest ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/videoImageProcessingTest.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/videoImageProcessingTest.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../videoImageTest_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/videoImageProcessingTest.d" -MT"src/videoImageProcessingTest.o" -o "src/videoImageProcessingTest.o" "../src/videoImageProcessingTest.c"
+'Finished building: ../src/videoImageProcessingTest.c'
+' '
+'Building target: videoImageTest.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../videoImageTest_bsp/ps7_cortexa9_0/lib -o "videoImageTest.elf"  ./src/imageProcess.o ./src/videoImageProcessingTest.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: videoImageTest.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size videoImageTest.elf  |tee "videoImageTest.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  48876	10371956	39789688	50210520	2fe26d8	videoImageTest.elf
+'Finished building: videoImageTest.elf.size'
+' '
+21:54:22 **** Incremental Build of configuration Debug for project videoImageTest ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Nothing to be done for `main-build'.
+21:55:32 **** Auto Build of configuration Debug for project videoImageTest ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/imageProcess.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/imageProcess.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../videoImageTest_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/imageProcess.d" -MT"src/imageProcess.o" -o "src/imageProcess.o" "../src/imageProcess.c"
+../src/imageProcess.c: In function 'imageProcISR':
+../src/imageProcess.c:249:4: warning: implicit declaration of function 'printf' [-Wimplicit-function-declaration]
+    printf("row1 = %d \n",((imgProcess*)CallBackRef)->row);
+    ^~~~~~
+../src/imageProcess.c:249:4: warning: incompatible implicit declaration of built-in function 'printf'
+../src/imageProcess.c:249:4: note: include '<stdio.h>' or provide a declaration of 'printf'
+../src/imageProcess.c:249:20: warning: format '%d' expects argument of type 'int', but argument 2 has type 'u32 {aka long unsigned int}' [-Wformat=]
+    printf("row1 = %d \n",((imgProcess*)CallBackRef)->row);
+                    ^
+'Finished building: ../src/imageProcess.c'
+' '
+'Building target: videoImageTest.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../videoImageTest_bsp/ps7_cortexa9_0/lib -o "videoImageTest.elf"  ./src/imageProcess.o ./src/videoImageProcessingTest.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: videoImageTest.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size videoImageTest.elf  |tee "videoImageTest.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  95816	10372348	39790384	50258548	2fee274	videoImageTest.elf
+'Finished building: videoImageTest.elf.size'
+' '
+21:55:43 **** Incremental Build of configuration Debug for project videoImageTest ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Nothing to be done for `main-build'.
+21:56:59 **** Auto Build of configuration Debug for project videoImageTest ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/videoImageProcessingTest.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/videoImageProcessingTest.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../videoImageTest_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/videoImageProcessingTest.d" -MT"src/videoImageProcessingTest.o" -o "src/videoImageProcessingTest.o" "../src/videoImageProcessingTest.c"
+'Finished building: ../src/videoImageProcessingTest.c'
+' '
+'Building target: videoImageTest.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../videoImageTest_bsp/ps7_cortexa9_0/lib -o "videoImageTest.elf"  ./src/imageProcess.o ./src/videoImageProcessingTest.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: videoImageTest.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size videoImageTest.elf  |tee "videoImageTest.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  95816	10372348	39790384	50258548	2fee274	videoImageTest.elf
+'Finished building: videoImageTest.elf.size'
+' '
+21:58:21 **** Auto Build of configuration Debug for project videoImageTest ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/imageProcess.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/imageProcess.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../videoImageTest_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/imageProcess.d" -MT"src/imageProcess.o" -o "src/imageProcess.o" "../src/imageProcess.c"
+'Finished building: ../src/imageProcess.c'
+' '
+'Building target: videoImageTest.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../videoImageTest_bsp/ps7_cortexa9_0/lib -o "videoImageTest.elf"  ./src/imageProcess.o ./src/videoImageProcessingTest.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: videoImageTest.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size videoImageTest.elf  |tee "videoImageTest.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  48952	10371956	39789688	50210596	2fe2724	videoImageTest.elf
+'Finished building: videoImageTest.elf.size'
+' '
+21:59:32 **** Incremental Build of configuration Debug for project videoImageTest ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Nothing to be done for `main-build'.
+22:00:34 **** Auto Build of configuration Debug for project videoImageTest ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/imageProcess.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/imageProcess.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../videoImageTest_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/imageProcess.d" -MT"src/imageProcess.o" -o "src/imageProcess.o" "../src/imageProcess.c"
+'Finished building: ../src/imageProcess.c'
+' '
+'Building target: videoImageTest.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../videoImageTest_bsp/ps7_cortexa9_0/lib -o "videoImageTest.elf"  ./src/imageProcess.o ./src/videoImageProcessingTest.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: videoImageTest.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size videoImageTest.elf  |tee "videoImageTest.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  48956	10371956	39789688	50210600	2fe2728	videoImageTest.elf
+'Finished building: videoImageTest.elf.size'
+' '
+22:00:43 **** Auto Build of configuration Debug for project videoImageTest ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/imageProcess.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/imageProcess.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../videoImageTest_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/imageProcess.d" -MT"src/imageProcess.o" -o "src/imageProcess.o" "../src/imageProcess.c"
+'Finished building: ../src/imageProcess.c'
+' '
+'Building target: videoImageTest.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../videoImageTest_bsp/ps7_cortexa9_0/lib -o "videoImageTest.elf"  ./src/imageProcess.o ./src/videoImageProcessingTest.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: videoImageTest.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size videoImageTest.elf  |tee "videoImageTest.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  48880	10371956	39789688	50210524	2fe26dc	videoImageTest.elf
+'Finished building: videoImageTest.elf.size'
+' '
+22:00:53 **** Incremental Build of configuration Debug for project videoImageTest ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Nothing to be done for `main-build'.
+22:02:02 **** Incremental Build of configuration Debug for project videoImageTest ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Nothing to be done for `main-build'.
