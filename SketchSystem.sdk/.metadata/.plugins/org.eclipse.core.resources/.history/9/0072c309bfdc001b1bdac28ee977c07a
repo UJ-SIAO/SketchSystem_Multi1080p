@@ -150,11 +150,9 @@ static void dmaReceiveISR(void *CallBackRef){
 		((imgProcess*)CallBackRef)->done =1;
 	else if (((imgProcess*)CallBackRef)->done ==1)
 		((imgProcess*)CallBackRef)->done =2;
-	else if (((imgProcess*)CallBackRef)->done ==2)
-			((imgProcess*)CallBackRef)->done =3;
 
 	//((imgProcess*)CallBackRef)->done++;
-	xil_printf("done = %d \r\n",((imgProcess*)CallBackRef)->done);
+	//xil_printf("done = %d \n",((imgProcess*)CallBackRef)->done);
 	resetDMA(XPAR_AXI_DMA_0_BASEADDR);
 	XAxiDma_IntrEnable((XAxiDma *)(((imgProcess*)CallBackRef)->DmaCtrlPointer), XAXIDMA_IRQ_IOC_MASK, XAXIDMA_DEVICE_TO_DMA);
 
@@ -216,9 +214,9 @@ static void imageProcISR(void *CallBackRef){
 	/*if(((imgProcess*)CallBackRef)->row > 1080)
 		xil_printf("row = %d \r\n",((imgProcess*)CallBackRef)->row);*/
 
-	while(status == 0 && ((imgProcess*)CallBackRef)->row != 1084){
-		if(((imgProcess*)CallBackRef)->done == 2)
-			xil_printf("row = %d \r\n",((imgProcess*)CallBackRef)->row);
+	while(status == 0 && ((imgProcess*)CallBackRef)->row != 1082){
+		/*if(((imgProcess*)CallBackRef)->done == 1)
+			xil_printf("row = %d \r\n",((imgProcess*)CallBackRef)->row);*/
 		status = checkIdle(XPAR_AXI_DMA_0_BASEADDR,0x4);
 	}
 	if(((imgProcess*)CallBackRef)->row<1084){
@@ -250,14 +248,6 @@ static void imageProcISR(void *CallBackRef){
 			status = XAxiDma_SimpleTransfer(((imgProcess*)CallBackRef)->DmaCtrlPointer,(u32)(((imgProcess*)CallBackRef)->imageDataPointer2)+(((imgProcess*)CallBackRef)->row)*((imgProcess*)CallBackRef)->imageHSize,((imgProcess*)CallBackRef)->imageHSize,XAXIDMA_DMA_TO_DEVICE);
 			((imgProcess*)CallBackRef)->row++;
 			//xil_printf("row1 = %d \r\n",((imgProcess*)CallBackRef)->row);
-			if(status != XST_SUCCESS){
-				xil_printf("DMA Receive Failed with Status %d    done = %d \r\n",status,((imgProcess*)CallBackRef)->done);
-			}
-		}
-		if(((imgProcess*)CallBackRef)->row < 1084 && ((imgProcess*)CallBackRef)->done == 2){
-			status = XAxiDma_SimpleTransfer(((imgProcess*)CallBackRef)->DmaCtrlPointer,(u32)(((imgProcess*)CallBackRef)->imageDataPointer3)+(((imgProcess*)CallBackRef)->row)*((imgProcess*)CallBackRef)->imageHSize,((imgProcess*)CallBackRef)->imageHSize,XAXIDMA_DMA_TO_DEVICE);
-			((imgProcess*)CallBackRef)->row++;
-			//xil_printf("row2 = %d \r\n",((imgProcess*)CallBackRef)->row);
 			if(status != XST_SUCCESS){
 				xil_printf("DMA Receive Failed with Status %d    done = %d \r\n",status,((imgProcess*)CallBackRef)->done);
 			}

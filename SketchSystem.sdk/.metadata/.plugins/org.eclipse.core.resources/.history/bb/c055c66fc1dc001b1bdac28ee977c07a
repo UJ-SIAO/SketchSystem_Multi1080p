@@ -41,10 +41,9 @@ int main(){
 	imgProcess myImgProcess;
 	char *filteredImage;
 	char *filteredImage2;
-	char *filteredImage2;
 	filteredImage = malloc(sizeof(char)*(imageSize));
 	filteredImage2 = malloc(sizeof(char)*(imageSize));
-	filteredImage3 = malloc(sizeof(char)*(imageSize));
+
 	myImgProcess.imageDataPointer1 = imageDataA;
 	myImgProcess.imageDataPointer2 = imageDataC;
 	myImgProcess.imageDataPointer3 = imageDataD;
@@ -54,7 +53,7 @@ int main(){
 	myImgProcess.imageVSize = imgVSize;
 	myImgProcess.filteredImageDataPointer  = filteredImage;
 	myImgProcess.filteredImageDataPointer2 = filteredImage2;
-	myImgProcess.filteredImageDataPointer3 = filteredImage3;
+
 	initImgProcessSystem(&myImgProcess, (u32)XPAR_AXI_DMA_0_BASEADDR, &Intc);
 	//print("aaa\n");
 	startImageProcessing(&myImgProcess);
@@ -97,8 +96,7 @@ int main(){
     	//xil_printf("done = %d \r\n",myImgProcess.done);
     }
 
-    sleep(1);
-    myImgProcess.row =4;
+
     status=XAxiDma_SimpleTransfer(myImgProcess.DmaCtrlPointer,(u32)myImgProcess.filteredImageDataPointer3,(1920*1080),XAXIDMA_DEVICE_TO_DMA);
 	if(status != XST_SUCCESS){
 		xil_printf("DMA Receive Failed with Status %d\n",status);

@@ -254,14 +254,6 @@ static void imageProcISR(void *CallBackRef){
 				xil_printf("DMA Receive Failed with Status %d    done = %d \r\n",status,((imgProcess*)CallBackRef)->done);
 			}
 		}
-		if(((imgProcess*)CallBackRef)->row < 1084 && ((imgProcess*)CallBackRef)->done == 2){
-			status = XAxiDma_SimpleTransfer(((imgProcess*)CallBackRef)->DmaCtrlPointer,(u32)(((imgProcess*)CallBackRef)->imageDataPointer3)+(((imgProcess*)CallBackRef)->row)*((imgProcess*)CallBackRef)->imageHSize,((imgProcess*)CallBackRef)->imageHSize,XAXIDMA_DMA_TO_DEVICE);
-			((imgProcess*)CallBackRef)->row++;
-			//xil_printf("row2 = %d \r\n",((imgProcess*)CallBackRef)->row);
-			if(status != XST_SUCCESS){
-				xil_printf("DMA Receive Failed with Status %d    done = %d \r\n",status,((imgProcess*)CallBackRef)->done);
-			}
-		}
 		//xil_printf("row = %d done = %d \n",((imgProcess*)CallBackRef)->row,((imgProcess*)CallBackRef)->done);
 
 
