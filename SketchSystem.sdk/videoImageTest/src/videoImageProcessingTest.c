@@ -41,8 +41,8 @@ int main(){
 	imgProcess myImgProcess;
 	char *filteredImage;
 	char *filteredImage2;
-	char *filteredImage2;
-	filteredImage = malloc(sizeof(char)*(imageSize));
+	char *filteredImage3;
+	filteredImage  = malloc(sizeof(char)*(imageSize));
 	filteredImage2 = malloc(sizeof(char)*(imageSize));
 	filteredImage3 = malloc(sizeof(char)*(imageSize));
 	myImgProcess.imageDataPointer1 = imageDataA;
@@ -63,33 +63,17 @@ int main(){
     while(myImgProcess.done == 0){
     	//print("fff\n");
     }
-   // print("aaa\n");
+
     sleep(1);
     myImgProcess.row =4;
-
-	/*XScuGic_SetPriorityTriggerType(myImgProcess.IntrCtrlPointer,XPAR_FABRIC_SKETCHIP_1080P_0_O_INTR_INTR,0xA0,3);
-	status = XScuGic_Connect(myImgProcess.IntrCtrlPointer,XPAR_FABRIC_SKETCHIP_1080P_0_O_INTR_INTR,(Xil_InterruptHandler)imageProcISR2,(void *)&myImgProcess);
-
-	if(status != XST_SUCCESS){
-		xil_printf("Interrupt connection failed");
-		return -2;
-	}
-	XScuGic_Enable(myImgProcess.IntrCtrlPointer,XPAR_FABRIC_SKETCHIP_1080P_0_O_INTR_INTR);*/
-
-    /*XAxiDma_Reset(myImgProcess.DmaCtrlPointer);
-    status = XAxiDma_ResetIsDone(myImgProcess.DmaCtrlPointer);
-    while(status != 1){
-
-	}*/
-
     status=XAxiDma_SimpleTransfer(myImgProcess.DmaCtrlPointer,(u32)myImgProcess.filteredImageDataPointer2,(1920*1080),XAXIDMA_DEVICE_TO_DMA);
     if(status != XST_SUCCESS){
-		xil_printf("DMA Receive Failed with Status %d\n",status);
+		xil_printf("DMA Receive Failed with Status0 %d\n",status);
 		return -1;
 	}
     status=XAxiDma_SimpleTransfer(myImgProcess.DmaCtrlPointer,(u32)myImgProcess.imageDataPointer2, 4*1920,XAXIDMA_DMA_TO_DEVICE);
     if(status != XST_SUCCESS){
-		xil_printf("DMA Receive Failed with Status %d\n",status);
+		xil_printf("DMA Transfer Failed with Status0 %d\n",status);
 		return -1;
 	}
     while(myImgProcess.done == 1){
@@ -98,22 +82,23 @@ int main(){
     }
 
     sleep(1);
-    myImgProcess.row =4;
+    myImgProcess.row =1;
     status=XAxiDma_SimpleTransfer(myImgProcess.DmaCtrlPointer,(u32)myImgProcess.filteredImageDataPointer3,(1920*1080),XAXIDMA_DEVICE_TO_DMA);
+    if(status != XST_SUCCESS){
+		xil_printf("DMA Receive Failed with Status %d\n",status);
+		return -1;
+	}
+	status=XAxiDma_SimpleTransfer(myImgProcess.DmaCtrlPointer,(u32)myImgProcess.imageDataPointer4, 1*1920,XAXIDMA_DMA_TO_DEVICE);
 	if(status != XST_SUCCESS){
 		xil_printf("DMA Receive Failed with Status %d\n",status);
 		return -1;
 	}
-	status=XAxiDma_SimpleTransfer(myImgProcess.DmaCtrlPointer,(u32)myImgProcess.imageDataPointer3, 4*1920,XAXIDMA_DMA_TO_DEVICE);
-	if(status != XST_SUCCESS){
-		xil_printf("DMA Receive Failed with Status %d\n",status);
-		return -1;
-	}
+	//xil_printf("hh\r\n");
 	while(myImgProcess.done == 2){
-		//xil_printf("row = %d \r\n",myImgProcess.row);
+		//xil_printf("row2 = %d \r\n",myImgProcess.row);
 		//xil_printf("done = %d \r\n",myImgProcess.done);
 	}
-
+	//xil_printf("hh\r\n");
 	int Index;
 	int choice;
 	u32 Addr;
@@ -166,12 +151,11 @@ int main(){
 	//print("h\r\n");
 	choice=0;
     while(1){
-    	//xil_printf("i\r\n"); ///改成幻燈片形式??
     	/*xil_printf("Enter your choice\n\r1.Original Image\n\r2.Sketched image\n\r");
-    	xil_printf("3.Original Image\n\r4.Sketched image\n\r");*/
-    	//scanf("%d",&choice);
+    	xil_printf("3.Original Image\n\r4.Sketched image\n\r");
+    	scanf("%d",&choice);*/
     	sleep(1);
-    	if(choice<4)
+    	if(choice<6)
     		choice++;
     	else
     		choice=1;
@@ -189,10 +173,10 @@ int main(){
     		drawImage(HSize,VSize,imgHSize,imgVSize,(HSize-imgHSize)/2,(VSize-imgVSize)/2,1,filteredImage2,Buffer);
 			break;
     	case 5:
-    		drawImage(HSize,VSize,imgHSize,imgVSize,(HSize-imgHSize)/2,(VSize-imgVSize)/2,1,imageDataD,Buffer);
+    		drawImage(HSize,VSize,imgHSize,imgVSize,(HSize-imgHSize)/2,(VSize-imgVSize)/2,1,imageDataE,Buffer);
 			break;
     	case 6:
-    		drawImage(HSize,VSize,imgHSize,imgVSize,(HSize-imgHSize)/2,(VSize-imgVSize)/2,1,filteredImage+(imageSize*2),Buffer);
+    		drawImage(HSize,VSize,imgHSize,imgVSize,(HSize-imgHSize)/2,(VSize-imgVSize)/2,1,filteredImage3,Buffer);
 			break;
     	/*case 7:
     		drawImage(HSize,VSize,imgHSize,imgVSize,(HSize-imgHSize)/2,(VSize-imgVSize)/2,1,imageDataE,Buffer);
