@@ -69,18 +69,18 @@ set rc [catch {
   set_property board_part em.avnet.com:zed:part0:1.3 [current_project]
   set_property design_mode GateLvl [current_fileset]
   set_param project.singleFileAddWarning.threshold 0
-  set_property webtalk.parent_dir D:/GitCode/SketchSystem_1080p/sketchSystem1080.cache/wt [current_project]
-  set_property parent.project_path D:/GitCode/SketchSystem_1080p/sketchSystem1080.xpr [current_project]
+  set_property webtalk.parent_dir D:/GitCode/SketchSystem_Multi1080p/SketchSystem.cache/wt [current_project]
+  set_property parent.project_path D:/GitCode/SketchSystem_Multi1080p/SketchSystem.xpr [current_project]
   set_property ip_repo_paths D:/GitCode/Sketch_IP_1080p [current_project]
-  set_property ip_output_repo D:/GitCode/SketchSystem_1080p/sketchSystem1080.cache/ip [current_project]
+  set_property ip_output_repo D:/GitCode/SketchSystem_Multi1080p/SketchSystem.cache/ip [current_project]
   set_property ip_cache_permissions {read write} [current_project]
   set_property XPM_LIBRARIES {XPM_CDC XPM_FIFO XPM_MEMORY} [current_project]
-  add_files -quiet D:/GitCode/SketchSystem_1080p/sketchSystem1080.runs/synth_1/system_wrapper.dcp
+  add_files -quiet D:/GitCode/SketchSystem_Multi1080p/SketchSystem.runs/synth_1/system_wrapper.dcp
   set_msg_config -source 4 -id {BD 41-1661} -limit 0
   set_param project.isImplRun true
-  add_files D:/GitCode/SketchSystem_1080p/sketchSystem1080.srcs/sources_1/bd/system/system.bd
+  add_files D:/GitCode/SketchSystem_Multi1080p/SketchSystem.srcs/sources_1/bd/system/system.bd
   set_param project.isImplRun false
-  read_xdc D:/GitCode/SketchSystem_1080p/sketchSystem1080.srcs/constrs_1/new/system.xdc
+  read_xdc D:/GitCode/SketchSystem_Multi1080p/SketchSystem.srcs/constrs_1/new/system.xdc
   set_param project.isImplRun true
   link_design -top system_wrapper -part xc7z020clg484-1
   set_param project.isImplRun false

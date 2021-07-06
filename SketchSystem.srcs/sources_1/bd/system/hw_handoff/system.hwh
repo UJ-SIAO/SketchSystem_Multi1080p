@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Tue Jun 29 19:23:06 2021" VIVADOVERSION="2017.4">
+<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Tue Jul  6 20:21:16 2021" VIVADOVERSION="2017.4">
 
   <SYSTEMINFO ARCH="zynq" BOARD="em.avnet.com:zed:part0:1.3" DEVICE="7z020" NAME="system" PACKAGE="clg484" SPEEDGRADE="-1"/>
 
@@ -3937,7 +3937,7 @@
         <PARAMETER NAME="C_PRMRY_IS_ACLK_ASYNC" VALUE="0"/>
         <PARAMETER NAME="C_ENABLE_VIDPRMTR_READS" VALUE="1"/>
         <PARAMETER NAME="C_DYNAMIC_RESOLUTION" VALUE="1"/>
-        <PARAMETER NAME="C_NUM_FSTORES" VALUE="1"/>
+        <PARAMETER NAME="C_NUM_FSTORES" VALUE="3"/>
         <PARAMETER NAME="C_USE_FSYNC" VALUE="1"/>
         <PARAMETER NAME="C_USE_MM2S_FSYNC" VALUE="0"/>
         <PARAMETER NAME="C_USE_S2MM_FSYNC" VALUE="2"/>
@@ -4004,7 +4004,7 @@
         <PARAMETER NAME="c_include_s2mm_sf" VALUE="1"/>
         <PARAMETER NAME="c_include_mm2s_sf" VALUE="0"/>
         <PARAMETER NAME="c_enable_vidprmtr_reads" VALUE="1"/>
-        <PARAMETER NAME="c_num_fstores" VALUE="1"/>
+        <PARAMETER NAME="c_num_fstores" VALUE="3"/>
         <PARAMETER NAME="c_use_fsync" VALUE="1"/>
         <PARAMETER NAME="c_use_mm2s_fsync" VALUE="0"/>
         <PARAMETER NAME="c_use_s2mm_fsync" VALUE="2"/>
@@ -6642,10 +6642,10 @@
             <CONNECTION INSTANCE="axi_smc" PORT="aclk"/>
             <CONNECTION INSTANCE="processing_system7_0" PORT="S_AXI_HP0_ACLK"/>
             <CONNECTION INSTANCE="axi_dma_0" PORT="m_axi_s2mm_aclk"/>
+            <CONNECTION INSTANCE="SketchIP_1080p_0" PORT="axi_clk"/>
             <CONNECTION INSTANCE="ps7_0_axi_periph" PORT="S00_ACLK"/>
             <CONNECTION INSTANCE="ps7_0_axi_periph" PORT="M00_ACLK"/>
             <CONNECTION INSTANCE="ps7_0_axi_periph" PORT="ACLK"/>
-            <CONNECTION INSTANCE="SketchIP_1080p_0" PORT="axi_clk"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" NAME="FCLK_RESET0_N" SIGIS="rst" SIGNAME="processing_system7_0_FCLK_RESET0_N">
@@ -7874,9 +7874,9 @@
           <CONNECTIONS>
             <CONNECTION INSTANCE="axi_dma_0" PORT="axi_resetn"/>
             <CONNECTION INSTANCE="axi_smc" PORT="aresetn"/>
+            <CONNECTION INSTANCE="SketchIP_1080p_0" PORT="axi_reset_n"/>
             <CONNECTION INSTANCE="ps7_0_axi_periph" PORT="S00_ARESETN"/>
             <CONNECTION INSTANCE="ps7_0_axi_periph" PORT="M00_ARESETN"/>
-            <CONNECTION INSTANCE="SketchIP_1080p_0" PORT="axi_reset_n"/>
           </CONNECTIONS>
         </PORT>
       </PORTS>

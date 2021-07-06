@@ -32,7 +32,7 @@
 int initIntrController(XScuGic *Intc);
 static int SetupVideoIntrSystem(XAxiVdma *AxiVdmaPtr, u16 ReadIntrId, XScuGic *Intc);
 
-char Buffer[FrameSize];
+char Buffer[FrameSize*3];
 
 int main(){
 	XScuGic Intc;
@@ -101,7 +101,9 @@ int main(){
 	//xil_printf("hh\r\n");
 	int Index;
 	int choice;
-	u32 Addr;
+	u32 Addr1;
+	u32 Addr2;
+	u32 Addr3;
 
 	XAxiVdma myVDMA;
 	XAxiVdma_Config *config = XAxiVdma_LookupConfig(XPAR_AXI_VDMA_0_DEVICE_ID);
@@ -119,19 +121,25 @@ int main(){
     ReadCfg.PointNum = 0;
     ReadCfg.EnableFrameCounter = 0;
     ReadCfg.FixedFrameStoreAddr = 0;
+
     status = XAxiVdma_DmaConfig(&myVDMA, XAXIVDMA_READ, &ReadCfg);
     if (status != XST_SUCCESS) {
     	xil_printf("Write channel config failed %d\r\n", status);
     	return status;
     }
 
-    Addr = (u32)&(Buffer[0]);
+    xil_printf("MaxNumFrames = %d \r\n",myVDMA.MaxNumFrames);
+
+    Addr1 = (u32)&(Buffer[0]);
 
 
 	for(Index = 0; Index < myVDMA.MaxNumFrames; Index++) {
-		ReadCfg.FrameStoreStartAddr[Index] = Addr;
-		Addr +=  FrameSize;
+		ReadCfg.FrameStoreStartAddr[Index] = Addr1;
+		Addr1 +=  FrameSize;
 	}
+
+	Addr1 = ReadCfg.FrameStoreStartAddr[1];
+	Addr2 = ReadCfg.FrameStoreStartAddr[2];
 
 	status = XAxiVdma_DmaSetBufferAddr(&myVDMA, XAXIVDMA_READ,ReadCfg.FrameStoreStartAddr);
 	if (status != XST_SUCCESS) {

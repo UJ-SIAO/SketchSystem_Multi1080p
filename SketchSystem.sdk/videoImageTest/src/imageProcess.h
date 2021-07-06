@@ -15,8 +15,8 @@ typedef struct{
 	char *filteredImageDataPointer;
 	char *filteredImageDataPointer2;
 	char *filteredImageDataPointer3;
-	XAxiDma *DmaCtrlPointer;
-	XScuGic *IntrCtrlPointer;
+	XAxiDma  *DmaCtrlPointer;
+	XScuGic  *IntrCtrlPointer;
 	u32 imageHSize;
 	u32 imageVSize;
 	u32 done;

@@ -24,7 +24,7 @@ else
 fi
 export LD_LIBRARY_PATH
 
-HD_PWD='D:/GitCode/SketchSystem_1080p/sketchSystem1080.runs/synth_1'
+HD_PWD='D:/GitCode/SketchSystem_Multi1080p/SketchSystem.runs/synth_1'
 cd "$HD_PWD"
 
 HD_LOG=runme.log

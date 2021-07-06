@@ -24,7 +24,7 @@ else
 fi
 export LD_LIBRARY_PATH
 
-HD_PWD='D:/GitCode/SketchSystem/imageProcessingSystem.runs/system_axi_vdma_0_0_synth_1'
+HD_PWD='D:/GitCode/SketchSystem_Multi1080p/SketchSystem.runs/system_axi_vdma_0_0_synth_1'
 cd "$HD_PWD"
 
 HD_LOG=runme.log
