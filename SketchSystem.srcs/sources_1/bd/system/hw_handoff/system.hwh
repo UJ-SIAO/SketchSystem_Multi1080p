@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Tue Jul  6 20:21:16 2021" VIVADOVERSION="2017.4">
+<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Wed Jul  7 19:53:34 2021" VIVADOVERSION="2017.4">
 
   <SYSTEMINFO ARCH="zynq" BOARD="em.avnet.com:zed:part0:1.3" DEVICE="7z020" NAME="system" PACKAGE="clg484" SPEEDGRADE="-1"/>
 
@@ -3937,7 +3937,7 @@
         <PARAMETER NAME="C_PRMRY_IS_ACLK_ASYNC" VALUE="0"/>
         <PARAMETER NAME="C_ENABLE_VIDPRMTR_READS" VALUE="1"/>
         <PARAMETER NAME="C_DYNAMIC_RESOLUTION" VALUE="1"/>
-        <PARAMETER NAME="C_NUM_FSTORES" VALUE="3"/>
+        <PARAMETER NAME="C_NUM_FSTORES" VALUE="4"/>
         <PARAMETER NAME="C_USE_FSYNC" VALUE="1"/>
         <PARAMETER NAME="C_USE_MM2S_FSYNC" VALUE="0"/>
         <PARAMETER NAME="C_USE_S2MM_FSYNC" VALUE="2"/>
@@ -3953,7 +3953,7 @@
         <PARAMETER NAME="C_MM2S_SOF_ENABLE" VALUE="1"/>
         <PARAMETER NAME="C_INCLUDE_MM2S_DRE" VALUE="1"/>
         <PARAMETER NAME="C_INCLUDE_MM2S_SF" VALUE="0"/>
-        <PARAMETER NAME="C_MM2S_LINEBUFFER_DEPTH" VALUE="512"/>
+        <PARAMETER NAME="C_MM2S_LINEBUFFER_DEPTH" VALUE="16384"/>
         <PARAMETER NAME="C_MM2S_LINEBUFFER_THRESH" VALUE="4"/>
         <PARAMETER NAME="C_MM2S_MAX_BURST_LENGTH" VALUE="8"/>
         <PARAMETER NAME="C_M_AXI_MM2S_ADDR_WIDTH" VALUE="32"/>
@@ -4004,7 +4004,7 @@
         <PARAMETER NAME="c_include_s2mm_sf" VALUE="1"/>
         <PARAMETER NAME="c_include_mm2s_sf" VALUE="0"/>
         <PARAMETER NAME="c_enable_vidprmtr_reads" VALUE="1"/>
-        <PARAMETER NAME="c_num_fstores" VALUE="3"/>
+        <PARAMETER NAME="c_num_fstores" VALUE="4"/>
         <PARAMETER NAME="c_use_fsync" VALUE="1"/>
         <PARAMETER NAME="c_use_mm2s_fsync" VALUE="0"/>
         <PARAMETER NAME="c_use_s2mm_fsync" VALUE="2"/>
@@ -4015,7 +4015,7 @@
         <PARAMETER NAME="c_mm2s_genlock_num_masters" VALUE="1"/>
         <PARAMETER NAME="c_s2mm_genlock_mode" VALUE="0"/>
         <PARAMETER NAME="c_s2mm_genlock_num_masters" VALUE="1"/>
-        <PARAMETER NAME="c_mm2s_linebuffer_depth" VALUE="512"/>
+        <PARAMETER NAME="c_mm2s_linebuffer_depth" VALUE="16384"/>
         <PARAMETER NAME="c_mm2s_linebuffer_thresh" VALUE="4"/>
         <PARAMETER NAME="c_s2mm_linebuffer_depth" VALUE="512"/>
         <PARAMETER NAME="c_s2mm_linebuffer_thresh" VALUE="4"/>

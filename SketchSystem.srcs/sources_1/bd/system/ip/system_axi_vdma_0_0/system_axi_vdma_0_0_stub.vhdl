@@ -1,7 +1,7 @@
 -- Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2017.4 (win64) Build 2086221 Fri Dec 15 20:55:39 MST 2017
--- Date        : Tue Jul  6 20:31:35 2021
+-- Date        : Wed Jul  7 20:03:08 2021
 -- Host        : DESKTOP-RE08DTS running 64-bit major release  (build 9200)
 -- Command     : write_vhdl -force -mode synth_stub
 --               D:/GitCode/SketchSystem_Multi1080p/SketchSystem.srcs/sources_1/bd/system/ip/system_axi_vdma_0_0/system_axi_vdma_0_0_stub.vhdl

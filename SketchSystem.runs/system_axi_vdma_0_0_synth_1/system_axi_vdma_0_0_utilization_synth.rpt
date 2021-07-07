@@ -1,7 +1,7 @@
 Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2017.4 (win64) Build 2086221 Fri Dec 15 20:55:39 MST 2017
-| Date         : Tue Jul  6 20:31:35 2021
+| Date         : Wed Jul  7 20:03:08 2021
 | Host         : DESKTOP-RE08DTS running 64-bit major release  (build 9200)
 | Command      : report_utilization -file system_axi_vdma_0_0_utilization_synth.rpt -pb system_axi_vdma_0_0_utilization_synth.pb
 | Design       : system_axi_vdma_0_0
@@ -30,13 +30,13 @@ Table of Contents
 +----------------------------+------+-------+-----------+-------+
 |          Site Type         | Used | Fixed | Available | Util% |
 +----------------------------+------+-------+-----------+-------+
-| Slice LUTs*                | 1622 |     0 |     53200 |  3.05 |
-|   LUT as Logic             | 1500 |     0 |     53200 |  2.82 |
+| Slice LUTs*                | 1680 |     0 |     53200 |  3.16 |
+|   LUT as Logic             | 1558 |     0 |     53200 |  2.93 |
 |   LUT as Memory            |  122 |     0 |     17400 |  0.70 |
 |     LUT as Distributed RAM |    0 |     0 |           |       |
 |     LUT as Shift Register  |  122 |     0 |           |       |
-| Slice Registers            | 1922 |     0 |    106400 |  1.81 |
-|   Register as Flip Flop    | 1922 |     0 |    106400 |  1.81 |
+| Slice Registers            | 2008 |     0 |    106400 |  1.89 |
+|   Register as Flip Flop    | 2008 |     0 |    106400 |  1.89 |
 |   Register as Latch        |    0 |     0 |    106400 |  0.00 |
 | F7 Muxes                   |    6 |     0 |     26600 |  0.02 |
 | F8 Muxes                   |    0 |     0 |     13300 |  0.00 |
@@ -58,8 +58,8 @@ Table of Contents
 | 0     |          Yes |           - |            - |
 | 0     |          Yes |           - |          Set |
 | 0     |          Yes |           - |        Reset |
-| 58    |          Yes |         Set |            - |
-| 1864  |          Yes |       Reset |            - |
+| 59    |          Yes |         Set |            - |
+| 1949  |          Yes |       Reset |            - |
 +-------+--------------+-------------+--------------+
 
 
@@ -69,9 +69,9 @@ Table of Contents
 +-------------------+------+-------+-----------+-------+
 |     Site Type     | Used | Fixed | Available | Util% |
 +-------------------+------+-------+-----------+-------+
-| Block RAM Tile    |  2.5 |     0 |       140 |  1.79 |
-|   RAMB36/FIFO*    |    2 |     0 |       140 |  1.43 |
-|     RAMB36E1 only |    2 |       |           |       |
+| Block RAM Tile    | 18.5 |     0 |       140 | 13.21 |
+|   RAMB36/FIFO*    |   18 |     0 |       140 | 12.86 |
+|     RAMB36E1 only |   18 |       |           |       |
 |   RAMB18          |    1 |     0 |       280 |  0.36 |
 |     RAMB18E1 only |    1 |       |           |       |
 +-------------------+------+-------+-----------+-------+
@@ -150,18 +150,18 @@ Table of Contents
 +----------+------+---------------------+
 | Ref Name | Used | Functional Category |
 +----------+------+---------------------+
-| FDRE     | 1864 |        Flop & Latch |
-| LUT6     |  377 |                 LUT |
-| LUT5     |  370 |                 LUT |
-| LUT1     |  270 |                 LUT |
-| LUT4     |  246 |                 LUT |
-| LUT3     |  242 |                 LUT |
-| LUT2     |  201 |                 LUT |
+| FDRE     | 1949 |        Flop & Latch |
+| LUT6     |  456 |                 LUT |
+| LUT5     |  336 |                 LUT |
+| LUT1     |  279 |                 LUT |
+| LUT4     |  252 |                 LUT |
+| LUT3     |  244 |                 LUT |
+| LUT2     |  194 |                 LUT |
 | SRL16E   |  122 |  Distributed Memory |
-| FDSE     |   58 |        Flop & Latch |
-| CARRY4   |   46 |          CarryLogic |
+| FDSE     |   59 |        Flop & Latch |
+| CARRY4   |   54 |          CarryLogic |
+| RAMB36E1 |   18 |        Block Memory |
 | MUXF7    |    6 |               MuxFx |
-| RAMB36E1 |    2 |        Block Memory |
 | RAMB18E1 |    1 |        Block Memory |
 +----------+------+---------------------+
 
