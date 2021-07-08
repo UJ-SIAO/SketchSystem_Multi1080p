@@ -1,7 +1,7 @@
 // Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2017.4 (win64) Build 2086221 Fri Dec 15 20:55:39 MST 2017
-// Date        : Wed Jul  7 20:03:08 2021
+// Date        : Thu Jul  8 19:33:20 2021
 // Host        : DESKTOP-RE08DTS running 64-bit major release  (build 9200)
 // Command     : write_verilog -force -mode funcsim
 //               D:/GitCode/SketchSystem_Multi1080p/SketchSystem.srcs/sources_1/bd/system/ip/system_axi_vdma_0_0/system_axi_vdma_0_0_sim_netlist.v
@@ -212,7 +212,7 @@ module system_axi_vdma_0_0
   (* C_MM2S_GENLOCK_MODE = "3" *) 
   (* C_MM2S_GENLOCK_NUM_MASTERS = "1" *) 
   (* C_MM2S_GENLOCK_REPEAT_EN = "0" *) 
-  (* C_MM2S_LINEBUFFER_DEPTH = "16384" *) 
+  (* C_MM2S_LINEBUFFER_DEPTH = "512" *) 
   (* C_MM2S_LINEBUFFER_THRESH = "4" *) 
   (* C_MM2S_MAX_BURST_LENGTH = "8" *) 
   (* C_MM2S_SOF_ENABLE = "1" *) 
@@ -351,7 +351,7 @@ module system_axi_vdma_0_0_axi_datamover
     mm2s_halt_cmplt,
     sig_rst2all_stop_request,
     dm2linebuf_mm2s_tvalid,
-    DIADI,
+    DIBDI,
     s_axis_cmd_tvalid_reg,
     Q,
     m_axi_mm2s_rready,
@@ -386,7 +386,7 @@ module system_axi_vdma_0_0_axi_datamover
   output mm2s_halt_cmplt;
   output sig_rst2all_stop_request;
   output dm2linebuf_mm2s_tvalid;
-  output [4:0]DIADI;
+  output [4:0]DIBDI;
   output [0:0]s_axis_cmd_tvalid_reg;
   output [0:0]Q;
   output m_axi_mm2s_rready;
@@ -417,7 +417,7 @@ module system_axi_vdma_0_0_axi_datamover
   input m_axi_mm2s_arready;
   input [48:0]in;
 
-  wire [4:0]DIADI;
+  wire [4:0]DIBDI;
   wire [0:0]Q;
   wire cmnd_wr;
   wire decerr_i_reg;
@@ -454,7 +454,7 @@ module system_axi_vdma_0_0_axi_datamover
   wire sts_tready_reg;
 
   system_axi_vdma_0_0_axi_datamover_mm2s_full_wrap \GEN_MM2S_FULL.I_MM2S_FULL_WRAPPER 
-       (.DIADI(DIADI),
+       (.DIBDI(DIBDI),
         .\GEN_OUTPUT_REG[3].sig_output_data_reg_reg[3][8] (dm2linebuf_mm2s_tvalid),
         .Q(Q),
         .cmnd_wr(cmnd_wr),
@@ -1675,7 +1675,7 @@ endmodule
 module system_axi_vdma_0_0_axi_datamover_mm2s_dre
    (\GEN_OUTPUT_REG[3].sig_output_data_reg_reg[3][8]_0 ,
     sig_flush_db1,
-    DIADI,
+    DIBDI,
     \GEN_MUXFARM_32.sig_shift_case_reg_reg[0]_0 ,
     \guf.underflow_i_reg ,
     sig_flush_db1_reg_0,
@@ -1710,7 +1710,7 @@ module system_axi_vdma_0_0_axi_datamover_mm2s_dre
     p_7_out);
   output \GEN_OUTPUT_REG[3].sig_output_data_reg_reg[3][8]_0 ;
   output sig_flush_db1;
-  output [4:0]DIADI;
+  output [4:0]DIBDI;
   output \GEN_MUXFARM_32.sig_shift_case_reg_reg[0]_0 ;
   output \guf.underflow_i_reg ;
   output sig_flush_db1_reg_0;
@@ -1745,7 +1745,7 @@ module system_axi_vdma_0_0_axi_datamover_mm2s_dre
   input p_7_out;
 
   wire [9:0]D;
-  wire [4:0]DIADI;
+  wire [4:0]DIBDI;
   wire [0:0]E;
   wire \GEN_DELAY_REG[0].sig_delay_data_reg[0][9]_i_1_n_0 ;
   wire [9:0]\GEN_DELAY_REG[0].sig_delay_data_reg_reg[0]_15 ;
@@ -1908,7 +1908,7 @@ module system_axi_vdma_0_0_axi_datamover_mm2s_dre
         .I3(sig_shift_case_reg[1]),
         .I4(\GEN_INPUT_REG[2].sig_input_data_reg_reg[2]_12 [7]),
         .O(\sig_delay_mux_bus[0]_6 [7]));
-  (* SOFT_HLUTNM = "soft_lutpair59" *) 
+  (* SOFT_HLUTNM = "soft_lutpair64" *) 
   LUT5 #(
     .INIT(32'hAFC0A0C0)) 
     \GEN_DELAY_REG[0].sig_delay_data_reg[0][8]_i_1 
@@ -2014,7 +2014,7 @@ module system_axi_vdma_0_0_axi_datamover_mm2s_dre
         .D(\sig_delay_mux_bus[0]_6 [9]),
         .Q(\GEN_DELAY_REG[0].sig_delay_data_reg_reg[0]_15 [9]),
         .R(\GEN_DELAY_REG[0].sig_delay_data_reg[0][9]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair62" *) 
+  (* SOFT_HLUTNM = "soft_lutpair67" *) 
   LUT3 #(
     .INIT(8'hAC)) 
     \GEN_DELAY_REG[1].sig_delay_data_reg[1][0]_i_1 
@@ -2022,7 +2022,7 @@ module system_axi_vdma_0_0_axi_datamover_mm2s_dre
         .I1(\GEN_INPUT_REG[3].sig_input_data_reg_reg_n_0_[3][0] ),
         .I2(sig_shift_case_reg[0]),
         .O(\sig_delay_mux_bus[1]_8 [0]));
-  (* SOFT_HLUTNM = "soft_lutpair63" *) 
+  (* SOFT_HLUTNM = "soft_lutpair68" *) 
   LUT3 #(
     .INIT(8'hAC)) 
     \GEN_DELAY_REG[1].sig_delay_data_reg[1][1]_i_1 
@@ -2030,7 +2030,7 @@ module system_axi_vdma_0_0_axi_datamover_mm2s_dre
         .I1(\GEN_INPUT_REG[3].sig_input_data_reg_reg_n_0_[3][1] ),
         .I2(sig_shift_case_reg[0]),
         .O(\sig_delay_mux_bus[1]_8 [1]));
-  (* SOFT_HLUTNM = "soft_lutpair64" *) 
+  (* SOFT_HLUTNM = "soft_lutpair69" *) 
   LUT3 #(
     .INIT(8'hAC)) 
     \GEN_DELAY_REG[1].sig_delay_data_reg[1][2]_i_1 
@@ -2038,7 +2038,7 @@ module system_axi_vdma_0_0_axi_datamover_mm2s_dre
         .I1(\GEN_INPUT_REG[3].sig_input_data_reg_reg_n_0_[3][2] ),
         .I2(sig_shift_case_reg[0]),
         .O(\sig_delay_mux_bus[1]_8 [2]));
-  (* SOFT_HLUTNM = "soft_lutpair65" *) 
+  (* SOFT_HLUTNM = "soft_lutpair70" *) 
   LUT3 #(
     .INIT(8'hAC)) 
     \GEN_DELAY_REG[1].sig_delay_data_reg[1][3]_i_1 
@@ -2053,7 +2053,7 @@ module system_axi_vdma_0_0_axi_datamover_mm2s_dre
         .I1(\GEN_INPUT_REG[3].sig_input_data_reg_reg_n_0_[3][4] ),
         .I2(sig_shift_case_reg[0]),
         .O(\sig_delay_mux_bus[1]_8 [4]));
-  (* SOFT_HLUTNM = "soft_lutpair65" *) 
+  (* SOFT_HLUTNM = "soft_lutpair70" *) 
   LUT3 #(
     .INIT(8'hAC)) 
     \GEN_DELAY_REG[1].sig_delay_data_reg[1][5]_i_1 
@@ -2061,7 +2061,7 @@ module system_axi_vdma_0_0_axi_datamover_mm2s_dre
         .I1(\GEN_INPUT_REG[3].sig_input_data_reg_reg_n_0_[3][5] ),
         .I2(sig_shift_case_reg[0]),
         .O(\sig_delay_mux_bus[1]_8 [5]));
-  (* SOFT_HLUTNM = "soft_lutpair64" *) 
+  (* SOFT_HLUTNM = "soft_lutpair69" *) 
   LUT3 #(
     .INIT(8'hAC)) 
     \GEN_DELAY_REG[1].sig_delay_data_reg[1][6]_i_1 
@@ -2069,7 +2069,7 @@ module system_axi_vdma_0_0_axi_datamover_mm2s_dre
         .I1(\GEN_INPUT_REG[3].sig_input_data_reg_reg_n_0_[3][6] ),
         .I2(sig_shift_case_reg[0]),
         .O(\sig_delay_mux_bus[1]_8 [6]));
-  (* SOFT_HLUTNM = "soft_lutpair63" *) 
+  (* SOFT_HLUTNM = "soft_lutpair68" *) 
   LUT3 #(
     .INIT(8'hAC)) 
     \GEN_DELAY_REG[1].sig_delay_data_reg[1][7]_i_1 
@@ -2077,7 +2077,7 @@ module system_axi_vdma_0_0_axi_datamover_mm2s_dre
         .I1(\GEN_INPUT_REG[3].sig_input_data_reg_reg_n_0_[3][7] ),
         .I2(sig_shift_case_reg[0]),
         .O(\sig_delay_mux_bus[1]_8 [7]));
-  (* SOFT_HLUTNM = "soft_lutpair59" *) 
+  (* SOFT_HLUTNM = "soft_lutpair64" *) 
   LUT3 #(
     .INIT(8'hAC)) 
     \GEN_DELAY_REG[1].sig_delay_data_reg[1][8]_i_1 
@@ -2102,7 +2102,7 @@ module system_axi_vdma_0_0_axi_datamover_mm2s_dre
         .I2(p_0_in31_in),
         .I3(\GEN_INPUT_REG[2].sig_input_data_reg_reg[2]_12 [8]),
         .O(p_36_out));
-  (* SOFT_HLUTNM = "soft_lutpair62" *) 
+  (* SOFT_HLUTNM = "soft_lutpair67" *) 
   LUT3 #(
     .INIT(8'hAC)) 
     \GEN_DELAY_REG[1].sig_delay_data_reg[1][9]_i_3 
@@ -2512,24 +2512,24 @@ module system_axi_vdma_0_0_axi_datamover_mm2s_dre
         .I4(\INCLUDE_DRE_CNTL.sig_dre_align_valid_reg_reg ),
         .I5(sig_shift_case_reg[1]),
         .O(\GEN_MUXFARM_32.sig_shift_case_reg[1]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair60" *) 
+  (* SOFT_HLUTNM = "soft_lutpair65" *) 
   LUT5 #(
     .INIT(32'h00A000A8)) 
     \GEN_MUXFARM_32.sig_shift_case_reg[1]_i_2 
        (.I0(p_7_out),
-        .I1(DIADI[0]),
-        .I2(DIADI[2]),
-        .I3(DIADI[3]),
-        .I4(DIADI[1]),
+        .I1(DIBDI[0]),
+        .I2(DIBDI[2]),
+        .I3(DIBDI[3]),
+        .I4(DIBDI[1]),
         .O(sig_dest_align_i[0]));
-  (* SOFT_HLUTNM = "soft_lutpair60" *) 
+  (* SOFT_HLUTNM = "soft_lutpair65" *) 
   LUT4 #(
     .INIT(16'h0A08)) 
     \GEN_MUXFARM_32.sig_shift_case_reg[1]_i_3 
        (.I0(p_7_out),
-        .I1(DIADI[1]),
-        .I2(DIADI[3]),
-        .I3(DIADI[2]),
+        .I1(DIBDI[1]),
+        .I2(DIBDI[3]),
+        .I3(DIBDI[2]),
         .O(sig_dest_align_i[1]));
   FDRE \GEN_MUXFARM_32.sig_shift_case_reg_reg[0] 
        (.C(m_axi_mm2s_aclk),
@@ -2686,7 +2686,7 @@ module system_axi_vdma_0_0_axi_datamover_mm2s_dre
        (.C(m_axi_mm2s_aclk),
         .CE(p_28_out),
         .D(\sig_final_mux_bus[0]_5 ),
-        .Q(DIADI[0]),
+        .Q(DIBDI[0]),
         .R(\GEN_OUTPUT_REG[0].sig_output_data_reg[0][8]_i_1_n_0 ));
   LUT5 #(
     .INIT(32'hEB2BE828)) 
@@ -2841,7 +2841,7 @@ module system_axi_vdma_0_0_axi_datamover_mm2s_dre
        (.C(m_axi_mm2s_aclk),
         .CE(p_24_out),
         .D(\sig_final_mux_bus[1]_1 ),
-        .Q(DIADI[1]),
+        .Q(DIBDI[1]),
         .R(\GEN_OUTPUT_REG[1].sig_output_data_reg[1][8]_i_1_n_0 ));
   LUT6 #(
     .INIT(64'hFB3BCB0BF838C808)) 
@@ -3001,7 +3001,7 @@ module system_axi_vdma_0_0_axi_datamover_mm2s_dre
        (.C(m_axi_mm2s_aclk),
         .CE(p_20_out),
         .D(\sig_final_mux_bus[2]_11 ),
-        .Q(DIADI[2]),
+        .Q(DIBDI[2]),
         .R(\GEN_OUTPUT_REG[2].sig_output_data_reg[2][8]_i_1_n_0 ));
   LUT6 #(
     .INIT(64'hF0AAFFCCF0AA00CC)) 
@@ -3161,7 +3161,7 @@ module system_axi_vdma_0_0_axi_datamover_mm2s_dre
        (.C(m_axi_mm2s_aclk),
         .CE(p_16_out),
         .D(\sig_pass_mux_bus[3]_2 ),
-        .Q(DIADI[3]),
+        .Q(DIBDI[3]),
         .R(\GEN_OUTPUT_REG[3].sig_output_data_reg[3][8]_i_1_n_0 ));
   LUT6 #(
     .INIT(64'hFFFFFFEFFFFFFFFF)) 
@@ -3257,7 +3257,7 @@ module system_axi_vdma_0_0_axi_datamover_mm2s_dre
         .D(\gen_wr_a.gen_word_narrow.mem_reg_1 ),
         .Q(sig_flush_db1),
         .R(1'b0));
-  (* SOFT_HLUTNM = "soft_lutpair61" *) 
+  (* SOFT_HLUTNM = "soft_lutpair66" *) 
   LUT4 #(
     .INIT(16'hC008)) 
     sig_flush_db2_i_1
@@ -3277,7 +3277,7 @@ module system_axi_vdma_0_0_axi_datamover_mm2s_dre
   LUT5 #(
     .INIT(32'hC0C000A0)) 
     sig_tlast_out_i_1
-       (.I0(DIADI[4]),
+       (.I0(DIBDI[4]),
         .I1(sig_final_mux_has_tlast),
         .I2(sig_cmd_stat_rst_user_reg_n_cdc_from_reg),
         .I3(sig_output_xfer57_out__0),
@@ -3289,9 +3289,9 @@ module system_axi_vdma_0_0_axi_datamover_mm2s_dre
        (.C(m_axi_mm2s_aclk),
         .CE(1'b1),
         .D(sig_tlast_out_i_1_n_0),
-        .Q(DIADI[4]),
+        .Q(DIBDI[4]),
         .R(1'b0));
-  (* SOFT_HLUTNM = "soft_lutpair61" *) 
+  (* SOFT_HLUTNM = "soft_lutpair66" *) 
   LUT4 #(
     .INIT(16'h0004)) 
     xpm_fifo_base_inst_i_16
@@ -3309,7 +3309,7 @@ module system_axi_vdma_0_0_axi_datamover_mm2s_full_wrap
     mm2s_halt_cmplt,
     sig_rst2all_stop_request,
     \GEN_OUTPUT_REG[3].sig_output_data_reg_reg[3][8] ,
-    DIADI,
+    DIBDI,
     s_axis_cmd_tvalid_reg,
     Q,
     m_axi_mm2s_rready,
@@ -3344,7 +3344,7 @@ module system_axi_vdma_0_0_axi_datamover_mm2s_full_wrap
   output mm2s_halt_cmplt;
   output sig_rst2all_stop_request;
   output \GEN_OUTPUT_REG[3].sig_output_data_reg_reg[3][8] ;
-  output [4:0]DIADI;
+  output [4:0]DIBDI;
   output [0:0]s_axis_cmd_tvalid_reg;
   output [0:0]Q;
   output m_axi_mm2s_rready;
@@ -3375,7 +3375,7 @@ module system_axi_vdma_0_0_axi_datamover_mm2s_full_wrap
   input m_axi_mm2s_arready;
   input [48:0]in;
 
-  wire [4:0]DIADI;
+  wire [4:0]DIBDI;
   wire \GEN_ADDR_FIFO.I_ADDR_QUAL_FIFO/sig_wr_fifo ;
   wire \GEN_DATA_CNTL_FIFO.I_DATA_CNTL_FIFO/sig_init_done ;
   wire \GEN_DATA_CNTL_FIFO.I_DATA_CNTL_FIFO/sig_wr_fifo ;
@@ -3499,7 +3499,7 @@ module system_axi_vdma_0_0_axi_datamover_mm2s_full_wrap
 
   system_axi_vdma_0_0_axi_datamover_mm2s_dre \GEN_INCLUDE_MM2S_DRE.I_DRE_16_to_64 
        (.D({sig_tlast_enables[2],p_1_out[2],sig_sf2sout_tdata[23:16]}),
-        .DIADI(DIADI),
+        .DIBDI(DIBDI),
         .E(\GEN_INCLUDE_MM2S_SF.I_RD_SF_n_55 ),
         .\GEN_INPUT_REG[0].sig_input_data_reg_reg[0][9]_0 (\GEN_INCLUDE_MM2S_DRE.I_DRE_16_to_64_n_10 ),
         .\GEN_MUXFARM_32.sig_shift_case_reg_reg[0]_0 (\GEN_INCLUDE_MM2S_DRE.I_DRE_16_to_64_n_7 ),
@@ -4115,7 +4115,7 @@ module system_axi_vdma_0_0_axi_datamover_pcc
         .I4(sig_pcc_sm_state[2]),
         .I5(sig_push_input_reg11_out),
         .O(\FSM_sequential_sig_pcc_sm_state[0]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair135" *) 
+  (* SOFT_HLUTNM = "soft_lutpair140" *) 
   LUT2 #(
     .INIT(4'h1)) 
     \FSM_sequential_sig_pcc_sm_state[0]_i_2 
@@ -4182,7 +4182,7 @@ module system_axi_vdma_0_0_axi_datamover_pcc
         .D(\FSM_sequential_sig_pcc_sm_state[2]_i_1_n_0 ),
         .Q(sig_pcc_sm_state[2]),
         .R(sig_init_reg));
-  (* SOFT_HLUTNM = "soft_lutpair135" *) 
+  (* SOFT_HLUTNM = "soft_lutpair140" *) 
   LUT4 #(
     .INIT(16'h0004)) 
     \INFERRED_GEN.cnt_i[2]_i_2 
@@ -4191,7 +4191,7 @@ module system_axi_vdma_0_0_axi_datamover_pcc
         .I2(sig_sm_halt_reg),
         .I3(Q),
         .O(FIFO_Full_reg));
-  (* SOFT_HLUTNM = "soft_lutpair120" *) 
+  (* SOFT_HLUTNM = "soft_lutpair125" *) 
   LUT5 #(
     .INIT(32'hBF80BFBF)) 
     \INFERRED_GEN.data_reg[3][10]_srl4_i_1 
@@ -4201,7 +4201,7 @@ module system_axi_vdma_0_0_axi_datamover_pcc
         .I3(sig_xfer_end_strb_ireg3[6]),
         .I4(sig_last_xfer_valid_im1),
         .O(sig_next_cmd_cmplt_reg_reg[14]));
-  (* SOFT_HLUTNM = "soft_lutpair121" *) 
+  (* SOFT_HLUTNM = "soft_lutpair126" *) 
   LUT5 #(
     .INIT(32'hBF80BFBF)) 
     \INFERRED_GEN.data_reg[3][11]_srl4_i_1 
@@ -4211,7 +4211,7 @@ module system_axi_vdma_0_0_axi_datamover_pcc
         .I3(sig_xfer_end_strb_ireg3[5]),
         .I4(sig_last_xfer_valid_im1),
         .O(sig_next_cmd_cmplt_reg_reg[13]));
-  (* SOFT_HLUTNM = "soft_lutpair122" *) 
+  (* SOFT_HLUTNM = "soft_lutpair127" *) 
   LUT5 #(
     .INIT(32'hBF80BFBF)) 
     \INFERRED_GEN.data_reg[3][12]_srl4_i_1 
@@ -4221,7 +4221,7 @@ module system_axi_vdma_0_0_axi_datamover_pcc
         .I3(sig_xfer_end_strb_ireg3[4]),
         .I4(sig_last_xfer_valid_im1),
         .O(sig_next_cmd_cmplt_reg_reg[12]));
-  (* SOFT_HLUTNM = "soft_lutpair123" *) 
+  (* SOFT_HLUTNM = "soft_lutpair128" *) 
   LUT5 #(
     .INIT(32'hBF80BFBF)) 
     \INFERRED_GEN.data_reg[3][13]_srl4_i_1 
@@ -4231,7 +4231,7 @@ module system_axi_vdma_0_0_axi_datamover_pcc
         .I3(sig_xfer_end_strb_ireg3[3]),
         .I4(sig_last_xfer_valid_im1),
         .O(sig_next_cmd_cmplt_reg_reg[11]));
-  (* SOFT_HLUTNM = "soft_lutpair116" *) 
+  (* SOFT_HLUTNM = "soft_lutpair121" *) 
   LUT5 #(
     .INIT(32'hBF80BFBF)) 
     \INFERRED_GEN.data_reg[3][14]_srl4_i_1 
@@ -4241,7 +4241,7 @@ module system_axi_vdma_0_0_axi_datamover_pcc
         .I3(sig_xfer_end_strb_ireg3[2]),
         .I4(sig_last_xfer_valid_im1),
         .O(sig_next_cmd_cmplt_reg_reg[10]));
-  (* SOFT_HLUTNM = "soft_lutpair117" *) 
+  (* SOFT_HLUTNM = "soft_lutpair122" *) 
   LUT5 #(
     .INIT(32'hBF80BFBF)) 
     \INFERRED_GEN.data_reg[3][15]_srl4_i_1 
@@ -4251,7 +4251,7 @@ module system_axi_vdma_0_0_axi_datamover_pcc
         .I3(sig_xfer_end_strb_ireg3[1]),
         .I4(sig_last_xfer_valid_im1),
         .O(sig_next_cmd_cmplt_reg_reg[9]));
-  (* SOFT_HLUTNM = "soft_lutpair124" *) 
+  (* SOFT_HLUTNM = "soft_lutpair129" *) 
   LUT5 #(
     .INIT(32'hBF80BFBF)) 
     \INFERRED_GEN.data_reg[3][16]_srl4_i_1 
@@ -4271,28 +4271,28 @@ module system_axi_vdma_0_0_axi_datamover_pcc
         .I4(sig_btt_eq_b2mbaa_ireg1),
         .I5(sig_btt_lt_b2mbaa_ireg1),
         .O(sig_last_xfer_valid_im1));
-  (* SOFT_HLUTNM = "soft_lutpair119" *) 
+  (* SOFT_HLUTNM = "soft_lutpair124" *) 
   LUT2 #(
     .INIT(4'hB)) 
     \INFERRED_GEN.data_reg[3][17]_srl4_i_1 
        (.I0(sig_xfer_strt_strb_ireg3[7]),
         .I1(sig_first_xfer_im0),
         .O(sig_next_cmd_cmplt_reg_reg[7]));
-  (* SOFT_HLUTNM = "soft_lutpair120" *) 
+  (* SOFT_HLUTNM = "soft_lutpair125" *) 
   LUT2 #(
     .INIT(4'hB)) 
     \INFERRED_GEN.data_reg[3][18]_srl4_i_1 
        (.I0(sig_xfer_strt_strb_ireg3[6]),
         .I1(sig_first_xfer_im0),
         .O(sig_next_cmd_cmplt_reg_reg[6]));
-  (* SOFT_HLUTNM = "soft_lutpair121" *) 
+  (* SOFT_HLUTNM = "soft_lutpair126" *) 
   LUT2 #(
     .INIT(4'hB)) 
     \INFERRED_GEN.data_reg[3][19]_srl4_i_1 
        (.I0(sig_xfer_strt_strb_ireg3[5]),
         .I1(sig_first_xfer_im0),
         .O(sig_next_cmd_cmplt_reg_reg[5]));
-  (* SOFT_HLUTNM = "soft_lutpair122" *) 
+  (* SOFT_HLUTNM = "soft_lutpair127" *) 
   LUT2 #(
     .INIT(4'hB)) 
     \INFERRED_GEN.data_reg[3][20]_srl4_i_1 
@@ -4309,14 +4309,14 @@ module system_axi_vdma_0_0_axi_datamover_pcc
         .I4(\sig_adjusted_addr_incr_ireg2_reg_n_0_[2] ),
         .I5(\sig_adjusted_addr_incr_ireg2_reg_n_0_[4] ),
         .O(in[34]));
-  (* SOFT_HLUTNM = "soft_lutpair123" *) 
+  (* SOFT_HLUTNM = "soft_lutpair128" *) 
   LUT2 #(
     .INIT(4'hB)) 
     \INFERRED_GEN.data_reg[3][21]_srl4_i_1 
        (.I0(sig_xfer_strt_strb_ireg3[3]),
         .I1(sig_first_xfer_im0),
         .O(sig_next_cmd_cmplt_reg_reg[3]));
-  (* SOFT_HLUTNM = "soft_lutpair127" *) 
+  (* SOFT_HLUTNM = "soft_lutpair132" *) 
   LUT5 #(
     .INIT(32'hAAAAAAA9)) 
     \INFERRED_GEN.data_reg[3][21]_srl4_i_1__0 
@@ -4326,14 +4326,14 @@ module system_axi_vdma_0_0_axi_datamover_pcc
         .I3(\sig_adjusted_addr_incr_ireg2_reg_n_0_[1] ),
         .I4(\sig_adjusted_addr_incr_ireg2_reg_n_0_[3] ),
         .O(in[33]));
-  (* SOFT_HLUTNM = "soft_lutpair116" *) 
+  (* SOFT_HLUTNM = "soft_lutpair121" *) 
   LUT2 #(
     .INIT(4'hB)) 
     \INFERRED_GEN.data_reg[3][22]_srl4_i_1 
        (.I0(sig_xfer_strt_strb_ireg3[2]),
         .I1(sig_first_xfer_im0),
         .O(sig_next_cmd_cmplt_reg_reg[2]));
-  (* SOFT_HLUTNM = "soft_lutpair127" *) 
+  (* SOFT_HLUTNM = "soft_lutpair132" *) 
   LUT4 #(
     .INIT(16'hAAA9)) 
     \INFERRED_GEN.data_reg[3][22]_srl4_i_1__0 
@@ -4342,14 +4342,14 @@ module system_axi_vdma_0_0_axi_datamover_pcc
         .I2(\sig_adjusted_addr_incr_ireg2_reg_n_0_[0] ),
         .I3(\sig_adjusted_addr_incr_ireg2_reg_n_0_[2] ),
         .O(in[32]));
-  (* SOFT_HLUTNM = "soft_lutpair117" *) 
+  (* SOFT_HLUTNM = "soft_lutpair122" *) 
   LUT2 #(
     .INIT(4'hB)) 
     \INFERRED_GEN.data_reg[3][23]_srl4_i_1 
        (.I0(sig_xfer_strt_strb_ireg3[1]),
         .I1(sig_first_xfer_im0),
         .O(sig_next_cmd_cmplt_reg_reg[1]));
-  (* SOFT_HLUTNM = "soft_lutpair140" *) 
+  (* SOFT_HLUTNM = "soft_lutpair145" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \INFERRED_GEN.data_reg[3][23]_srl4_i_1__0 
@@ -4357,14 +4357,14 @@ module system_axi_vdma_0_0_axi_datamover_pcc
         .I1(in[35]),
         .I2(sig_addr_cntr_lsh_kh[31]),
         .O(in[31]));
-  (* SOFT_HLUTNM = "soft_lutpair124" *) 
+  (* SOFT_HLUTNM = "soft_lutpair129" *) 
   LUT2 #(
     .INIT(4'hB)) 
     \INFERRED_GEN.data_reg[3][24]_srl4_i_1 
        (.I0(sig_xfer_strt_strb_ireg3[0]),
         .I1(sig_first_xfer_im0),
         .O(sig_next_cmd_cmplt_reg_reg[0]));
-  (* SOFT_HLUTNM = "soft_lutpair143" *) 
+  (* SOFT_HLUTNM = "soft_lutpair148" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \INFERRED_GEN.data_reg[3][24]_srl4_i_1__0 
@@ -4372,7 +4372,7 @@ module system_axi_vdma_0_0_axi_datamover_pcc
         .I1(in[35]),
         .I2(sig_addr_cntr_lsh_kh[30]),
         .O(in[30]));
-  (* SOFT_HLUTNM = "soft_lutpair141" *) 
+  (* SOFT_HLUTNM = "soft_lutpair146" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \INFERRED_GEN.data_reg[3][25]_srl4_i_1 
@@ -4380,7 +4380,7 @@ module system_axi_vdma_0_0_axi_datamover_pcc
         .I1(in[35]),
         .I2(sig_addr_cntr_lsh_kh[29]),
         .O(in[29]));
-  (* SOFT_HLUTNM = "soft_lutpair138" *) 
+  (* SOFT_HLUTNM = "soft_lutpair143" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \INFERRED_GEN.data_reg[3][26]_srl4_i_1 
@@ -4388,7 +4388,7 @@ module system_axi_vdma_0_0_axi_datamover_pcc
         .I1(in[35]),
         .I2(sig_addr_cntr_lsh_kh[28]),
         .O(in[28]));
-  (* SOFT_HLUTNM = "soft_lutpair145" *) 
+  (* SOFT_HLUTNM = "soft_lutpair150" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \INFERRED_GEN.data_reg[3][27]_srl4_i_1 
@@ -4396,7 +4396,7 @@ module system_axi_vdma_0_0_axi_datamover_pcc
         .I1(in[35]),
         .I2(sig_addr_cntr_lsh_kh[27]),
         .O(in[27]));
-  (* SOFT_HLUTNM = "soft_lutpair146" *) 
+  (* SOFT_HLUTNM = "soft_lutpair151" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \INFERRED_GEN.data_reg[3][28]_srl4_i_1 
@@ -4404,7 +4404,7 @@ module system_axi_vdma_0_0_axi_datamover_pcc
         .I1(in[35]),
         .I2(sig_addr_cntr_lsh_kh[26]),
         .O(in[26]));
-  (* SOFT_HLUTNM = "soft_lutpair147" *) 
+  (* SOFT_HLUTNM = "soft_lutpair152" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \INFERRED_GEN.data_reg[3][29]_srl4_i_1 
@@ -4412,7 +4412,7 @@ module system_axi_vdma_0_0_axi_datamover_pcc
         .I1(in[35]),
         .I2(sig_addr_cntr_lsh_kh[25]),
         .O(in[25]));
-  (* SOFT_HLUTNM = "soft_lutpair148" *) 
+  (* SOFT_HLUTNM = "soft_lutpair153" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \INFERRED_GEN.data_reg[3][30]_srl4_i_1 
@@ -4420,7 +4420,7 @@ module system_axi_vdma_0_0_axi_datamover_pcc
         .I1(in[35]),
         .I2(sig_addr_cntr_lsh_kh[24]),
         .O(in[24]));
-  (* SOFT_HLUTNM = "soft_lutpair149" *) 
+  (* SOFT_HLUTNM = "soft_lutpair154" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \INFERRED_GEN.data_reg[3][31]_srl4_i_1 
@@ -4428,7 +4428,7 @@ module system_axi_vdma_0_0_axi_datamover_pcc
         .I1(in[35]),
         .I2(sig_addr_cntr_lsh_kh[23]),
         .O(in[23]));
-  (* SOFT_HLUTNM = "soft_lutpair150" *) 
+  (* SOFT_HLUTNM = "soft_lutpair155" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \INFERRED_GEN.data_reg[3][32]_srl4_i_1__0 
@@ -4436,7 +4436,7 @@ module system_axi_vdma_0_0_axi_datamover_pcc
         .I1(in[35]),
         .I2(sig_addr_cntr_lsh_kh[22]),
         .O(in[22]));
-  (* SOFT_HLUTNM = "soft_lutpair151" *) 
+  (* SOFT_HLUTNM = "soft_lutpair156" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \INFERRED_GEN.data_reg[3][33]_srl4_i_1 
@@ -4444,7 +4444,7 @@ module system_axi_vdma_0_0_axi_datamover_pcc
         .I1(in[35]),
         .I2(sig_addr_cntr_lsh_kh[21]),
         .O(in[21]));
-  (* SOFT_HLUTNM = "soft_lutpair144" *) 
+  (* SOFT_HLUTNM = "soft_lutpair149" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \INFERRED_GEN.data_reg[3][34]_srl4_i_1 
@@ -4452,7 +4452,7 @@ module system_axi_vdma_0_0_axi_datamover_pcc
         .I1(in[35]),
         .I2(sig_addr_cntr_lsh_kh[20]),
         .O(in[20]));
-  (* SOFT_HLUTNM = "soft_lutpair152" *) 
+  (* SOFT_HLUTNM = "soft_lutpair157" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \INFERRED_GEN.data_reg[3][35]_srl4_i_1 
@@ -4460,7 +4460,7 @@ module system_axi_vdma_0_0_axi_datamover_pcc
         .I1(in[35]),
         .I2(sig_addr_cntr_lsh_kh[19]),
         .O(in[19]));
-  (* SOFT_HLUTNM = "soft_lutpair152" *) 
+  (* SOFT_HLUTNM = "soft_lutpair157" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \INFERRED_GEN.data_reg[3][36]_srl4_i_1 
@@ -4468,7 +4468,7 @@ module system_axi_vdma_0_0_axi_datamover_pcc
         .I1(in[35]),
         .I2(sig_addr_cntr_lsh_kh[18]),
         .O(in[18]));
-  (* SOFT_HLUTNM = "soft_lutpair151" *) 
+  (* SOFT_HLUTNM = "soft_lutpair156" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \INFERRED_GEN.data_reg[3][37]_srl4_i_1 
@@ -4476,7 +4476,7 @@ module system_axi_vdma_0_0_axi_datamover_pcc
         .I1(in[35]),
         .I2(sig_addr_cntr_lsh_kh[17]),
         .O(in[17]));
-  (* SOFT_HLUTNM = "soft_lutpair150" *) 
+  (* SOFT_HLUTNM = "soft_lutpair155" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \INFERRED_GEN.data_reg[3][38]_srl4_i_1 
@@ -4484,7 +4484,7 @@ module system_axi_vdma_0_0_axi_datamover_pcc
         .I1(in[35]),
         .I2(sig_addr_cntr_lsh_kh[16]),
         .O(in[16]));
-  (* SOFT_HLUTNM = "soft_lutpair149" *) 
+  (* SOFT_HLUTNM = "soft_lutpair154" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \INFERRED_GEN.data_reg[3][39]_srl4_i_1 
@@ -4492,14 +4492,14 @@ module system_axi_vdma_0_0_axi_datamover_pcc
         .I1(in[35]),
         .I2(sig_addr_cntr_lsh_kh[15]),
         .O(in[15]));
-  (* SOFT_HLUTNM = "soft_lutpair130" *) 
+  (* SOFT_HLUTNM = "soft_lutpair135" *) 
   LUT2 #(
     .INIT(4'h8)) 
     \INFERRED_GEN.data_reg[3][3]_srl4_i_1 
        (.I0(sig_input_drr_reg),
         .I1(sig_first_xfer_im0),
         .O(\INCLUDE_DRE_CNTL.sig_dre_use_autodest_reg_reg ));
-  (* SOFT_HLUTNM = "soft_lutpair148" *) 
+  (* SOFT_HLUTNM = "soft_lutpair153" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \INFERRED_GEN.data_reg[3][40]_srl4_i_1 
@@ -4507,7 +4507,7 @@ module system_axi_vdma_0_0_axi_datamover_pcc
         .I1(in[35]),
         .I2(sig_addr_cntr_lsh_kh[14]),
         .O(in[14]));
-  (* SOFT_HLUTNM = "soft_lutpair147" *) 
+  (* SOFT_HLUTNM = "soft_lutpair152" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \INFERRED_GEN.data_reg[3][41]_srl4_i_1 
@@ -4515,7 +4515,7 @@ module system_axi_vdma_0_0_axi_datamover_pcc
         .I1(in[35]),
         .I2(sig_addr_cntr_lsh_kh[13]),
         .O(in[13]));
-  (* SOFT_HLUTNM = "soft_lutpair139" *) 
+  (* SOFT_HLUTNM = "soft_lutpair144" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \INFERRED_GEN.data_reg[3][42]_srl4_i_1 
@@ -4523,7 +4523,7 @@ module system_axi_vdma_0_0_axi_datamover_pcc
         .I1(in[35]),
         .I2(sig_addr_cntr_lsh_kh[12]),
         .O(in[12]));
-  (* SOFT_HLUTNM = "soft_lutpair146" *) 
+  (* SOFT_HLUTNM = "soft_lutpair151" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \INFERRED_GEN.data_reg[3][43]_srl4_i_1 
@@ -4531,7 +4531,7 @@ module system_axi_vdma_0_0_axi_datamover_pcc
         .I1(in[35]),
         .I2(sig_addr_cntr_lsh_kh[11]),
         .O(in[11]));
-  (* SOFT_HLUTNM = "soft_lutpair145" *) 
+  (* SOFT_HLUTNM = "soft_lutpair150" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \INFERRED_GEN.data_reg[3][44]_srl4_i_1 
@@ -4539,7 +4539,7 @@ module system_axi_vdma_0_0_axi_datamover_pcc
         .I1(in[35]),
         .I2(sig_addr_cntr_lsh_kh[10]),
         .O(in[10]));
-  (* SOFT_HLUTNM = "soft_lutpair142" *) 
+  (* SOFT_HLUTNM = "soft_lutpair147" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \INFERRED_GEN.data_reg[3][45]_srl4_i_1 
@@ -4547,7 +4547,7 @@ module system_axi_vdma_0_0_axi_datamover_pcc
         .I1(in[35]),
         .I2(sig_addr_cntr_lsh_kh[9]),
         .O(in[9]));
-  (* SOFT_HLUTNM = "soft_lutpair144" *) 
+  (* SOFT_HLUTNM = "soft_lutpair149" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \INFERRED_GEN.data_reg[3][46]_srl4_i_1 
@@ -4555,7 +4555,7 @@ module system_axi_vdma_0_0_axi_datamover_pcc
         .I1(in[35]),
         .I2(sig_addr_cntr_lsh_kh[8]),
         .O(in[8]));
-  (* SOFT_HLUTNM = "soft_lutpair143" *) 
+  (* SOFT_HLUTNM = "soft_lutpair148" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \INFERRED_GEN.data_reg[3][47]_srl4_i_1 
@@ -4563,7 +4563,7 @@ module system_axi_vdma_0_0_axi_datamover_pcc
         .I1(in[35]),
         .I2(sig_addr_cntr_lsh_kh[7]),
         .O(in[7]));
-  (* SOFT_HLUTNM = "soft_lutpair142" *) 
+  (* SOFT_HLUTNM = "soft_lutpair147" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \INFERRED_GEN.data_reg[3][48]_srl4_i_1 
@@ -4571,7 +4571,7 @@ module system_axi_vdma_0_0_axi_datamover_pcc
         .I1(in[35]),
         .I2(sig_addr_cntr_lsh_kh[6]),
         .O(in[6]));
-  (* SOFT_HLUTNM = "soft_lutpair141" *) 
+  (* SOFT_HLUTNM = "soft_lutpair146" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \INFERRED_GEN.data_reg[3][49]_srl4_i_1 
@@ -4579,7 +4579,7 @@ module system_axi_vdma_0_0_axi_datamover_pcc
         .I1(in[35]),
         .I2(sig_addr_cntr_lsh_kh[5]),
         .O(in[5]));
-  (* SOFT_HLUTNM = "soft_lutpair140" *) 
+  (* SOFT_HLUTNM = "soft_lutpair145" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \INFERRED_GEN.data_reg[3][50]_srl4_i_1 
@@ -4587,7 +4587,7 @@ module system_axi_vdma_0_0_axi_datamover_pcc
         .I1(in[35]),
         .I2(sig_addr_cntr_lsh_kh[4]),
         .O(in[4]));
-  (* SOFT_HLUTNM = "soft_lutpair137" *) 
+  (* SOFT_HLUTNM = "soft_lutpair142" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \INFERRED_GEN.data_reg[3][51]_srl4_i_1 
@@ -4595,7 +4595,7 @@ module system_axi_vdma_0_0_axi_datamover_pcc
         .I1(in[35]),
         .I2(sig_addr_cntr_lsh_kh[3]),
         .O(in[3]));
-  (* SOFT_HLUTNM = "soft_lutpair139" *) 
+  (* SOFT_HLUTNM = "soft_lutpair144" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \INFERRED_GEN.data_reg[3][52]_srl4_i_1 
@@ -4603,7 +4603,7 @@ module system_axi_vdma_0_0_axi_datamover_pcc
         .I1(in[35]),
         .I2(sig_addr_cntr_lsh_kh[2]),
         .O(in[2]));
-  (* SOFT_HLUTNM = "soft_lutpair138" *) 
+  (* SOFT_HLUTNM = "soft_lutpair143" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \INFERRED_GEN.data_reg[3][53]_srl4_i_1 
@@ -4611,7 +4611,7 @@ module system_axi_vdma_0_0_axi_datamover_pcc
         .I1(in[35]),
         .I2(sig_addr_cntr_lsh_kh[1]),
         .O(in[1]));
-  (* SOFT_HLUTNM = "soft_lutpair137" *) 
+  (* SOFT_HLUTNM = "soft_lutpair142" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \INFERRED_GEN.data_reg[3][54]_srl4_i_2 
@@ -4619,7 +4619,7 @@ module system_axi_vdma_0_0_axi_datamover_pcc
         .I1(in[35]),
         .I2(sig_addr_cntr_lsh_kh[0]),
         .O(in[0]));
-  (* SOFT_HLUTNM = "soft_lutpair128" *) 
+  (* SOFT_HLUTNM = "soft_lutpair133" *) 
   LUT2 #(
     .INIT(4'hE)) 
     \INFERRED_GEN.data_reg[3][5]_srl4_i_1 
@@ -4642,7 +4642,7 @@ module system_axi_vdma_0_0_axi_datamover_pcc
        (.I0(sig_mstr2sf_eof),
         .I1(sig_last_xfer_valid_im1),
         .O(sig_next_cmd_cmplt_reg_reg[16]));
-  (* SOFT_HLUTNM = "soft_lutpair119" *) 
+  (* SOFT_HLUTNM = "soft_lutpair124" *) 
   LUT5 #(
     .INIT(32'hBF80BFBF)) 
     \INFERRED_GEN.data_reg[3][9]_srl4_i_1 
@@ -5020,7 +5020,7 @@ module system_axi_vdma_0_0_axi_datamover_pcc
         .I2(sig_first_xfer_im0),
         .I3(sig_bytes_to_mbaa_ireg1[1]),
         .O(\sig_addr_cntr_incr_ireg2[1]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair133" *) 
+  (* SOFT_HLUTNM = "soft_lutpair138" *) 
   LUT4 #(
     .INIT(16'hB888)) 
     \sig_addr_cntr_incr_ireg2[2]_i_1 
@@ -5029,7 +5029,7 @@ module system_axi_vdma_0_0_axi_datamover_pcc
         .I2(sig_first_xfer_im0),
         .I3(sig_bytes_to_mbaa_ireg1[2]),
         .O(\sig_addr_cntr_incr_ireg2[2]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair126" *) 
+  (* SOFT_HLUTNM = "soft_lutpair131" *) 
   LUT4 #(
     .INIT(16'hB888)) 
     \sig_addr_cntr_incr_ireg2[3]_i_1 
@@ -5038,7 +5038,7 @@ module system_axi_vdma_0_0_axi_datamover_pcc
         .I2(sig_first_xfer_im0),
         .I3(sig_bytes_to_mbaa_ireg1[3]),
         .O(\sig_addr_cntr_incr_ireg2[3]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair125" *) 
+  (* SOFT_HLUTNM = "soft_lutpair130" *) 
   LUT4 #(
     .INIT(16'hB888)) 
     \sig_addr_cntr_incr_ireg2[4]_i_1 
@@ -5055,7 +5055,7 @@ module system_axi_vdma_0_0_axi_datamover_pcc
         .I2(sig_first_xfer_im0),
         .I3(sig_bytes_to_mbaa_ireg1[5]),
         .O(\sig_addr_cntr_incr_ireg2[5]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair133" *) 
+  (* SOFT_HLUTNM = "soft_lutpair138" *) 
   LUT3 #(
     .INIT(8'h0D)) 
     \sig_addr_cntr_incr_ireg2[6]_i_1 
@@ -5672,7 +5672,7 @@ module system_axi_vdma_0_0_axi_datamover_pcc
         .D(out[28]),
         .Q(sig_addr_cntr_lsh_kh[9]),
         .R(sig_init_reg));
-  (* SOFT_HLUTNM = "soft_lutpair115" *) 
+  (* SOFT_HLUTNM = "soft_lutpair120" *) 
   LUT5 #(
     .INIT(32'h07F7F808)) 
     \sig_adjusted_addr_incr_ireg2[0]_i_1 
@@ -5700,7 +5700,7 @@ module system_axi_vdma_0_0_axi_datamover_pcc
         .I4(sig_first_xfer_im0),
         .I5(sig_bytes_to_mbaa_ireg1[2]),
         .O(sig_adjusted_addr_incr_im1[2]));
-  (* SOFT_HLUTNM = "soft_lutpair129" *) 
+  (* SOFT_HLUTNM = "soft_lutpair134" *) 
   LUT4 #(
     .INIT(16'hE888)) 
     \sig_adjusted_addr_incr_ireg2[2]_i_2 
@@ -5709,7 +5709,7 @@ module system_axi_vdma_0_0_axi_datamover_pcc
         .I2(\sig_addr_cntr_incr_ireg2[0]_i_1_n_0 ),
         .I3(sig_mbaa_addr_cntr_slice_im0[0]),
         .O(\sig_adjusted_addr_incr_ireg2[2]_i_2_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair126" *) 
+  (* SOFT_HLUTNM = "soft_lutpair131" *) 
   LUT5 #(
     .INIT(32'h556AAA6A)) 
     \sig_adjusted_addr_incr_ireg2[3]_i_1 
@@ -5729,7 +5729,7 @@ module system_axi_vdma_0_0_axi_datamover_pcc
         .I4(\sig_btt_cntr_im0_reg_n_0_[2] ),
         .I5(\sig_adjusted_addr_incr_ireg2[2]_i_2_n_0 ),
         .O(\sig_adjusted_addr_incr_ireg2[3]_i_2_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair125" *) 
+  (* SOFT_HLUTNM = "soft_lutpair130" *) 
   LUT5 #(
     .INIT(32'h556AAA6A)) 
     \sig_adjusted_addr_incr_ireg2[4]_i_1 
@@ -6258,7 +6258,7 @@ module system_axi_vdma_0_0_axi_datamover_pcc
         .D(\sig_btt_cntr_im0[9]_i_1_n_0 ),
         .Q(sel0[3]),
         .R(sig_init_reg));
-  (* SOFT_HLUTNM = "soft_lutpair136" *) 
+  (* SOFT_HLUTNM = "soft_lutpair141" *) 
   LUT4 #(
     .INIT(16'h4000)) 
     sig_btt_eq_b2mbaa_ireg1_i_1
@@ -6364,7 +6364,7 @@ module system_axi_vdma_0_0_axi_datamover_pcc
         .I2(sig_mbaa_addr_cntr_slice_im0[1]),
         .I3(\sig_btt_cntr_im0_reg_n_0_[1] ),
         .O(sig_btt_lt_b2mbaa_im01_carry_i_7_n_0));
-  (* SOFT_HLUTNM = "soft_lutpair136" *) 
+  (* SOFT_HLUTNM = "soft_lutpair141" *) 
   LUT2 #(
     .INIT(4'h8)) 
     sig_btt_lt_b2mbaa_ireg1_i_1
@@ -6379,14 +6379,14 @@ module system_axi_vdma_0_0_axi_datamover_pcc
         .D(sig_btt_lt_b2mbaa_im0),
         .Q(sig_btt_lt_b2mbaa_ireg1),
         .R(sig_init_reg));
-  (* SOFT_HLUTNM = "soft_lutpair153" *) 
+  (* SOFT_HLUTNM = "soft_lutpair158" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \sig_bytes_to_mbaa_ireg1[1]_i_1 
        (.I0(sig_mbaa_addr_cntr_slice_im0[0]),
         .I1(sig_mbaa_addr_cntr_slice_im0[1]),
         .O(\sig_bytes_to_mbaa_ireg1[1]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair153" *) 
+  (* SOFT_HLUTNM = "soft_lutpair158" *) 
   LUT3 #(
     .INIT(8'h1E)) 
     \sig_bytes_to_mbaa_ireg1[2]_i_1 
@@ -6394,7 +6394,7 @@ module system_axi_vdma_0_0_axi_datamover_pcc
         .I1(sig_mbaa_addr_cntr_slice_im0[1]),
         .I2(sig_mbaa_addr_cntr_slice_im0[2]),
         .O(\sig_bytes_to_mbaa_ireg1[2]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair118" *) 
+  (* SOFT_HLUTNM = "soft_lutpair123" *) 
   LUT4 #(
     .INIT(16'h01FE)) 
     \sig_bytes_to_mbaa_ireg1[3]_i_1 
@@ -6403,7 +6403,7 @@ module system_axi_vdma_0_0_axi_datamover_pcc
         .I2(sig_mbaa_addr_cntr_slice_im0[0]),
         .I3(sig_mbaa_addr_cntr_slice_im0[3]),
         .O(\sig_bytes_to_mbaa_ireg1[3]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair118" *) 
+  (* SOFT_HLUTNM = "soft_lutpair123" *) 
   LUT5 #(
     .INIT(32'h0001FFFE)) 
     \sig_bytes_to_mbaa_ireg1[4]_i_1 
@@ -6489,7 +6489,7 @@ module system_axi_vdma_0_0_axi_datamover_pcc
         .D(\sig_bytes_to_mbaa_ireg1[6]_i_1_n_0 ),
         .Q(sig_bytes_to_mbaa_ireg1[6]),
         .R(sig_init_reg));
-  (* SOFT_HLUTNM = "soft_lutpair128" *) 
+  (* SOFT_HLUTNM = "soft_lutpair133" *) 
   LUT4 #(
     .INIT(16'hFF80)) 
     sig_calc_error_pushed_i_1
@@ -6575,7 +6575,7 @@ module system_axi_vdma_0_0_axi_datamover_pcc
         .D(sig_cmd2dre_valid_i_1_n_0),
         .Q(sig_mstr2sf_cmd_valid),
         .R(1'b0));
-  (* SOFT_HLUTNM = "soft_lutpair115" *) 
+  (* SOFT_HLUTNM = "soft_lutpair120" *) 
   LUT5 #(
     .INIT(32'h556AAA6A)) 
     \sig_finish_addr_offset_ireg2[0]_i_1 
@@ -6585,7 +6585,7 @@ module system_axi_vdma_0_0_axi_datamover_pcc
         .I3(sig_btt_lt_b2mbaa_ireg1),
         .I4(\sig_btt_cntr_im0_reg_n_0_[0] ),
         .O(sig_finish_addr_offset_im1[0]));
-  (* SOFT_HLUTNM = "soft_lutpair129" *) 
+  (* SOFT_HLUTNM = "soft_lutpair134" *) 
   LUT4 #(
     .INIT(16'h8778)) 
     \sig_finish_addr_offset_ireg2[1]_i_1 
@@ -6628,7 +6628,7 @@ module system_axi_vdma_0_0_axi_datamover_pcc
         .D(sig_finish_addr_offset_im1[2]),
         .Q(sig_finish_addr_offset_ireg2[2]),
         .R(sig_init_reg));
-  (* SOFT_HLUTNM = "soft_lutpair130" *) 
+  (* SOFT_HLUTNM = "soft_lutpair135" *) 
   LUT4 #(
     .INIT(16'h000E)) 
     sig_first_xfer_im0_i_1
@@ -6645,7 +6645,7 @@ module system_axi_vdma_0_0_axi_datamover_pcc
         .D(sig_first_xfer_im0_i_1_n_0),
         .Q(sig_first_xfer_im0),
         .R(1'b0));
-  (* SOFT_HLUTNM = "soft_lutpair131" *) 
+  (* SOFT_HLUTNM = "soft_lutpair136" *) 
   LUT4 #(
     .INIT(16'h0080)) 
     sig_init_done_i_1
@@ -6654,7 +6654,7 @@ module system_axi_vdma_0_0_axi_datamover_pcc
         .I2(sig_cmd_stat_rst_user_reg_n_cdc_from_reg),
         .I3(sig_init_done),
         .O(sig_init_done_reg));
-  (* SOFT_HLUTNM = "soft_lutpair134" *) 
+  (* SOFT_HLUTNM = "soft_lutpair139" *) 
   LUT4 #(
     .INIT(16'h0080)) 
     sig_init_done_i_1__0
@@ -6663,7 +6663,7 @@ module system_axi_vdma_0_0_axi_datamover_pcc
         .I2(sig_cmd_stat_rst_user_reg_n_cdc_from_reg),
         .I3(sig_init_done_1),
         .O(sig_init_done_reg_0));
-  (* SOFT_HLUTNM = "soft_lutpair134" *) 
+  (* SOFT_HLUTNM = "soft_lutpair139" *) 
   LUT4 #(
     .INIT(16'h0080)) 
     sig_init_done_i_1__1
@@ -6672,7 +6672,7 @@ module system_axi_vdma_0_0_axi_datamover_pcc
         .I2(sig_cmd_stat_rst_user_reg_n_cdc_from_reg),
         .I3(sig_init_done_2),
         .O(sig_init_done_reg_1));
-  (* SOFT_HLUTNM = "soft_lutpair131" *) 
+  (* SOFT_HLUTNM = "soft_lutpair136" *) 
   LUT4 #(
     .INIT(16'h0080)) 
     sig_init_done_i_1__3
@@ -6728,7 +6728,7 @@ module system_axi_vdma_0_0_axi_datamover_pcc
         .D(1'b0),
         .Q(sig_input_reg_empty),
         .S(sig_input_cache_type_reg0));
-  (* SOFT_HLUTNM = "soft_lutpair154" *) 
+  (* SOFT_HLUTNM = "soft_lutpair159" *) 
   LUT3 #(
     .INIT(8'hA9)) 
     sig_last_addr_offset_im2
@@ -7195,7 +7195,7 @@ module system_axi_vdma_0_0_axi_datamover_pcc
         .D(\sig_strbgen_bytes_ireg2[3]_i_1_n_0 ),
         .Q(\sig_strbgen_bytes_ireg2_reg_n_0_[3] ),
         .R(sig_init_reg));
-  (* SOFT_HLUTNM = "soft_lutpair156" *) 
+  (* SOFT_HLUTNM = "soft_lutpair161" *) 
   LUT3 #(
     .INIT(8'hEF)) 
     \sig_xfer_end_strb_ireg3[1]_i_1 
@@ -7203,7 +7203,7 @@ module system_axi_vdma_0_0_axi_datamover_pcc
         .I1(sig_finish_addr_offset_ireg2[1]),
         .I2(sig_finish_addr_offset_ireg2[0]),
         .O(\sig_xfer_end_strb_ireg3[1]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair155" *) 
+  (* SOFT_HLUTNM = "soft_lutpair160" *) 
   LUT3 #(
     .INIT(8'hEB)) 
     \sig_xfer_end_strb_ireg3[2]_i_1 
@@ -7211,7 +7211,7 @@ module system_axi_vdma_0_0_axi_datamover_pcc
         .I1(sig_finish_addr_offset_ireg2[0]),
         .I2(sig_finish_addr_offset_ireg2[1]),
         .O(\sig_xfer_end_strb_ireg3[2]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair154" *) 
+  (* SOFT_HLUTNM = "soft_lutpair159" *) 
   LUT3 #(
     .INIT(8'hAB)) 
     \sig_xfer_end_strb_ireg3[3]_i_1 
@@ -7219,7 +7219,7 @@ module system_axi_vdma_0_0_axi_datamover_pcc
         .I1(sig_finish_addr_offset_ireg2[0]),
         .I2(sig_finish_addr_offset_ireg2[1]),
         .O(\sig_xfer_end_strb_ireg3[3]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair155" *) 
+  (* SOFT_HLUTNM = "soft_lutpair160" *) 
   LUT3 #(
     .INIT(8'hA1)) 
     \sig_xfer_end_strb_ireg3[5]_i_1 
@@ -7227,7 +7227,7 @@ module system_axi_vdma_0_0_axi_datamover_pcc
         .I1(sig_finish_addr_offset_ireg2[0]),
         .I2(sig_finish_addr_offset_ireg2[1]),
         .O(\sig_xfer_end_strb_ireg3[5]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair156" *) 
+  (* SOFT_HLUTNM = "soft_lutpair161" *) 
   LUT3 #(
     .INIT(8'h81)) 
     \sig_xfer_end_strb_ireg3[6]_i_1 
@@ -7386,7 +7386,7 @@ module system_axi_vdma_0_0_axi_datamover_pcc
         .I3(\sig_xfer_strt_strb_ireg3[3]_i_3_n_0 ),
         .I4(sig_strbgen_addr_ireg2[2]),
         .O(sig_xfer_strt_strb_im2[3]));
-  (* SOFT_HLUTNM = "soft_lutpair132" *) 
+  (* SOFT_HLUTNM = "soft_lutpair137" *) 
   LUT4 #(
     .INIT(16'h37FF)) 
     \sig_xfer_strt_strb_ireg3[3]_i_2 
@@ -7395,7 +7395,7 @@ module system_axi_vdma_0_0_axi_datamover_pcc
         .I2(sig_strbgen_addr_ireg2[0]),
         .I3(sig_strbgen_addr_ireg2[1]),
         .O(\sig_xfer_strt_strb_ireg3[3]_i_2_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair132" *) 
+  (* SOFT_HLUTNM = "soft_lutpair137" *) 
   LUT4 #(
     .INIT(16'hEA88)) 
     \sig_xfer_strt_strb_ireg3[3]_i_3 
@@ -7869,7 +7869,7 @@ module system_axi_vdma_0_0_axi_datamover_rd_sf
         .I4(sig_token_cntr_reg__0[4]),
         .I5(out),
         .O(sig_ok_to_post_rd_addr_i_5_n_0));
-  (* SOFT_HLUTNM = "soft_lutpair108" *) 
+  (* SOFT_HLUTNM = "soft_lutpair113" *) 
   LUT5 #(
     .INIT(32'h0001FFFE)) 
     sig_ok_to_post_rd_addr_i_7
@@ -7879,7 +7879,7 @@ module system_axi_vdma_0_0_axi_datamover_rd_sf
         .I3(sig_token_cntr_reg__0[2]),
         .I4(sig_token_cntr_reg__0[4]),
         .O(sig_ok_to_post_rd_addr_i_7_n_0));
-  (* SOFT_HLUTNM = "soft_lutpair108" *) 
+  (* SOFT_HLUTNM = "soft_lutpair113" *) 
   LUT2 #(
     .INIT(4'hE)) 
     sig_ok_to_post_rd_addr_i_8
@@ -7894,13 +7894,13 @@ module system_axi_vdma_0_0_axi_datamover_rd_sf
         .D(I_DATA_FIFO_n_5),
         .Q(sig_sf_allow_addr_req),
         .R(1'b0));
-  (* SOFT_HLUTNM = "soft_lutpair109" *) 
+  (* SOFT_HLUTNM = "soft_lutpair114" *) 
   LUT1 #(
     .INIT(2'h1)) 
     \sig_token_cntr[0]_i_1 
        (.I0(sig_token_cntr_reg__0[0]),
         .O(\sig_token_cntr[0]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair109" *) 
+  (* SOFT_HLUTNM = "soft_lutpair114" *) 
   LUT3 #(
     .INIT(8'h69)) 
     \sig_token_cntr[1]_i_1 
@@ -7908,7 +7908,7 @@ module system_axi_vdma_0_0_axi_datamover_rd_sf
         .I1(\sig_token_cntr[4]_i_5_n_0 ),
         .I2(sig_token_cntr_reg__0[1]),
         .O(\sig_token_cntr[1]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair107" *) 
+  (* SOFT_HLUTNM = "soft_lutpair112" *) 
   LUT4 #(
     .INIT(16'h78E1)) 
     \sig_token_cntr[2]_i_1 
@@ -7917,7 +7917,7 @@ module system_axi_vdma_0_0_axi_datamover_rd_sf
         .I2(sig_token_cntr_reg__0[2]),
         .I3(sig_token_cntr_reg__0[1]),
         .O(\sig_token_cntr[2]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair107" *) 
+  (* SOFT_HLUTNM = "soft_lutpair112" *) 
   LUT5 #(
     .INIT(32'h7F80FE01)) 
     \sig_token_cntr[3]_i_1 
@@ -8301,7 +8301,7 @@ module system_axi_vdma_0_0_axi_datamover_rddata_cntl
         .I4(full),
         .I5(sig_data2addr_stop_req),
         .O(m_axi_mm2s_rready));
-  (* SOFT_HLUTNM = "soft_lutpair162" *) 
+  (* SOFT_HLUTNM = "soft_lutpair167" *) 
   LUT3 #(
     .INIT(8'h01)) 
     m_axi_mm2s_rready_INST_0_i_1
@@ -8309,7 +8309,7 @@ module system_axi_vdma_0_0_axi_datamover_rddata_cntl
         .I1(sig_addr_posted_cntr[0]),
         .I2(sig_addr_posted_cntr[2]),
         .O(sig_addr_posted_cntr_eq_0__1));
-  (* SOFT_HLUTNM = "soft_lutpair161" *) 
+  (* SOFT_HLUTNM = "soft_lutpair166" *) 
   LUT5 #(
     .INIT(32'hEA5555A8)) 
     \sig_addr_posted_cntr[0]_i_1 
@@ -8319,7 +8319,7 @@ module system_axi_vdma_0_0_axi_datamover_rddata_cntl
         .I3(sig_posted_to_axi_reg),
         .I4(sig_addr_posted_cntr[0]),
         .O(\sig_addr_posted_cntr[0]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair162" *) 
+  (* SOFT_HLUTNM = "soft_lutpair167" *) 
   LUT5 #(
     .INIT(32'hFA04DFA0)) 
     \sig_addr_posted_cntr[1]_i_1 
@@ -8329,7 +8329,7 @@ module system_axi_vdma_0_0_axi_datamover_rddata_cntl
         .I3(sig_addr_posted_cntr[1]),
         .I4(\sig_addr_posted_cntr_reg[2]_0 ),
         .O(\sig_addr_posted_cntr[1]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair161" *) 
+  (* SOFT_HLUTNM = "soft_lutpair166" *) 
   LUT5 #(
     .INIT(32'hCCC8ECCC)) 
     \sig_addr_posted_cntr[2]_i_1 
@@ -8363,7 +8363,7 @@ module system_axi_vdma_0_0_axi_datamover_rddata_cntl
         .D(\sig_addr_posted_cntr[2]_i_1_n_0 ),
         .Q(sig_addr_posted_cntr[2]),
         .R(SR));
-  (* SOFT_HLUTNM = "soft_lutpair163" *) 
+  (* SOFT_HLUTNM = "soft_lutpair168" *) 
   LUT4 #(
     .INIT(16'hFF80)) 
     sig_coelsc_decerr_reg_i_1
@@ -8411,7 +8411,7 @@ module system_axi_vdma_0_0_axi_datamover_rddata_cntl
         .I2(sig_ld_new_cmd_reg),
         .I3(sig_next_calc_error_reg),
         .O(sig_push_coelsc_reg));
-  (* SOFT_HLUTNM = "soft_lutpair164" *) 
+  (* SOFT_HLUTNM = "soft_lutpair169" *) 
   LUT3 #(
     .INIT(8'hEA)) 
     sig_coelsc_reg_full_i_3
@@ -8427,7 +8427,7 @@ module system_axi_vdma_0_0_axi_datamover_rddata_cntl
         .D(sig_cmd_cmplt_last_dbeat),
         .Q(sig_data2rsc_valid),
         .R(sig_coelsc_reg_full_i_1_n_0));
-  (* SOFT_HLUTNM = "soft_lutpair163" *) 
+  (* SOFT_HLUTNM = "soft_lutpair168" *) 
   LUT4 #(
     .INIT(16'hFF08)) 
     sig_coelsc_slverr_reg_i_1
@@ -8877,7 +8877,7 @@ module system_axi_vdma_0_0_axi_datamover_rddata_cntl
         .I3(sig_first_dbeat),
         .I4(sig_next_strt_strb_reg[0]),
         .O(din[0]));
-  (* SOFT_HLUTNM = "soft_lutpair164" *) 
+  (* SOFT_HLUTNM = "soft_lutpair169" *) 
   LUT2 #(
     .INIT(4'h2)) 
     xpm_fifo_base_inst_i_15
@@ -9228,7 +9228,7 @@ endmodule
 (* C_INCLUDE_MM2S = "1" *) (* C_INCLUDE_MM2S_DRE = "1" *) (* C_INCLUDE_MM2S_SF = "0" *) 
 (* C_INCLUDE_S2MM = "0" *) (* C_INCLUDE_S2MM_DRE = "0" *) (* C_INCLUDE_S2MM_SF = "1" *) 
 (* C_INCLUDE_SG = "0" *) (* C_INSTANCE = "axi_vdma" *) (* C_MM2S_GENLOCK_MODE = "3" *) 
-(* C_MM2S_GENLOCK_NUM_MASTERS = "1" *) (* C_MM2S_GENLOCK_REPEAT_EN = "0" *) (* C_MM2S_LINEBUFFER_DEPTH = "16384" *) 
+(* C_MM2S_GENLOCK_NUM_MASTERS = "1" *) (* C_MM2S_GENLOCK_REPEAT_EN = "0" *) (* C_MM2S_LINEBUFFER_DEPTH = "512" *) 
 (* C_MM2S_LINEBUFFER_THRESH = "4" *) (* C_MM2S_MAX_BURST_LENGTH = "8" *) (* C_MM2S_SOF_ENABLE = "1" *) 
 (* C_M_AXIS_MM2S_TDATA_WIDTH = "24" *) (* C_M_AXIS_MM2S_TUSER_BITS = "1" *) (* C_M_AXI_MM2S_ADDR_WIDTH = "32" *) 
 (* C_M_AXI_MM2S_DATA_WIDTH = "64" *) (* C_M_AXI_S2MM_ADDR_WIDTH = "32" *) (* C_M_AXI_S2MM_DATA_WIDTH = "64" *) 
@@ -9580,14 +9580,6 @@ module system_axi_vdma_0_0_axi_vdma
   wire I_RST_MODULE_n_20;
   wire I_RST_MODULE_n_21;
   wire I_RST_MODULE_n_22;
-  wire I_RST_MODULE_n_23;
-  wire I_RST_MODULE_n_24;
-  wire I_RST_MODULE_n_25;
-  wire I_RST_MODULE_n_26;
-  wire I_RST_MODULE_n_27;
-  wire I_RST_MODULE_n_28;
-  wire I_RST_MODULE_n_29;
-  wire I_RST_MODULE_n_30;
   wire I_RST_MODULE_n_8;
   wire \I_STS_MNGR/datamover_idle ;
   wire \I_STS_MNGR/halted_set_i0 ;
@@ -10209,20 +10201,13 @@ module system_axi_vdma_0_0_axi_vdma
         .p_50_out(p_50_out),
         .p_75_out(p_75_out[0]));
   system_axi_vdma_0_0_axi_vdma_mm2s_linebuf \GEN_SPRT_FOR_MM2S.MM2S_LINEBUFFER_I 
-       (.DIADI({dm2linebuf_mm2s_tlast,dm2linebuf_mm2s_tkeep}),
+       (.DIBDI({dm2linebuf_mm2s_tlast,dm2linebuf_mm2s_tkeep}),
         .E(\GEN_SPRT_FOR_MM2S.GEN_AXIS_MM2S_DWIDTH_CONV.AXIS_MM2S_DWIDTH_CONVERTER_I_n_33 ),
-        .\GEN_FREE_RUN_MODE.frame_sync_i_reg (I_RST_MODULE_n_27),
-        .\GEN_FREE_RUN_MODE.frame_sync_i_reg_0 (I_RST_MODULE_n_26),
-        .\GEN_FREE_RUN_MODE.frame_sync_i_reg_1 ({I_RST_MODULE_n_28,I_RST_MODULE_n_29}),
-        .\GEN_FREE_RUN_MODE.frame_sync_i_reg_2 (I_RST_MODULE_n_25),
-        .\GEN_FREE_RUN_MODE.frame_sync_i_reg_3 (I_RST_MODULE_n_24),
-        .\GEN_FREE_RUN_MODE.frame_sync_i_reg_4 (I_RST_MODULE_n_15),
-        .\GEN_FREE_RUN_MODE.frame_sync_i_reg_5 (I_RST_MODULE_n_23),
+        .\GEN_FREE_RUN_MODE.frame_sync_i_reg (I_RST_MODULE_n_15),
         .\GEN_LINEBUF_NO_SOF.GEN_LINEBUFFER.GEN_SOF.sof_flag_reg_0 (p_2_in),
         .\GEN_LINEBUF_NO_SOF.GEN_LINEBUFFER.m_axis_tvalid_d1_reg_0 (p_3_out),
         .Q(p_52_out),
         .SR(I_RST_MODULE_n_14),
-        .WEA(I_RST_MODULE_n_30),
         .dm2linebuf_mm2s_tdata(dm2linebuf_mm2s_tdata),
         .dm2linebuf_mm2s_tvalid(dm2linebuf_mm2s_tvalid),
         .halt_i_reg(I_RST_MODULE_n_22),
@@ -10415,7 +10400,7 @@ module system_axi_vdma_0_0_axi_vdma
         .p_8_in__14(p_8_in__14),
         .prmry_resetn_i_reg(I_RST_MODULE_n_8));
   system_axi_vdma_0_0_axi_datamover I_PRMRY_DATAMOVER
-       (.DIADI({dm2linebuf_mm2s_tlast,dm2linebuf_mm2s_tkeep}),
+       (.DIBDI({dm2linebuf_mm2s_tlast,dm2linebuf_mm2s_tkeep}),
         .Q(\GEN_MM2S_FULL.I_MM2S_FULL_WRAPPER/I_CMD_STATUS/GEN_INCLUDE_STATUS_FIFO.I_STS_FIFO/sig_rd_empty ),
         .cmnd_wr(cmnd_wr),
         .decerr_i_reg(I_PRMRY_DATAMOVER_n_15),
@@ -10452,12 +10437,7 @@ module system_axi_vdma_0_0_axi_vdma
         .sts_tready_reg(\GEN_SPRT_FOR_MM2S.ADDR32.I_MM2S_DMA_MNGR_n_40 ));
   system_axi_vdma_0_0_axi_vdma_rst_module I_RST_MODULE
        (.D(mm2s_axi2ip_wrdata[2]),
-        .\DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram (I_RST_MODULE_n_23),
-        .\DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_0 (I_RST_MODULE_n_24),
-        .\DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_1 (I_RST_MODULE_n_25),
-        .\DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_2 (I_RST_MODULE_n_26),
-        .\DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_3 (I_RST_MODULE_n_27),
-        .\DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_4 ({I_RST_MODULE_n_28,I_RST_MODULE_n_29}),
+        .\DEVICE_7SERIES.NO_BMM_INFO.SDP.WIDE_PRIM36_NO_ECC.ram (I_RST_MODULE_n_15),
         .\GEN_DWIDTH_NO_SOF.all_lines_xfred_reg (I_RST_MODULE_n_20),
         .\GEN_INCLUDE_MM2S.GEN_CH1_FRM_CNTR.ch1_thresh_count_reg[0] (I_RST_MODULE_n_8),
         .\GEN_INPUT_REG[3].sig_input_data_reg_reg[3][9] (I_RST_MODULE_n_18),
@@ -10466,14 +10446,12 @@ module system_axi_vdma_0_0_axi_vdma
         .\GEN_LINEBUF_NO_SOF.GEN_LINEBUFFER.m_axis_tvalid_d1_reg (I_RST_MODULE_n_13),
         .\GEN_LINEBUF_NO_SOF.all_lines_xfred_reg (I_RST_MODULE_n_14),
         .SR(\GEN_MM2S_LITE_CROSSINGS.GEN_MM2S_CROSSINGS_ASYNC.MM2S_INTRPT_CROSSING_I/scndry_reset2 ),
-        .WEA(I_RST_MODULE_n_30),
         .axi_resetn(axi_resetn),
         .\cmnds_queued_reg[7] (I_RST_MODULE_n_16),
         .dm2linebuf_mm2s_tvalid(dm2linebuf_mm2s_tvalid),
         .dma_err(dma_err),
         .\dmacr_i_reg[2] (I_RST_MODULE_n_10),
-        .\gcc0.gc0.count_d1_reg[13] (I_RST_MODULE_n_21),
-        .\gcc0.gc0.count_reg[0] (I_RST_MODULE_n_15),
+        .\gcc0.gc0.count_d1_reg[8] (I_RST_MODULE_n_21),
         .halt_reset(\GEN_RESET_FOR_MM2S.RESET_I/halt_reset ),
         .m_axi_mm2s_aclk(m_axi_mm2s_aclk),
         .m_axis_mm2s_aclk(m_axis_mm2s_aclk),
@@ -11589,7 +11567,7 @@ module system_axi_vdma_0_0_axi_vdma_intrpt
         .I3(\GEN_INCLUDE_MM2S.GEN_CH1_FRM_CNTR.ch1_thresh_count_reg[7]_0 [4]),
         .I4(\GEN_FREE_RUN_MODE.mask_fsync_out_i_i_3_n_0 ),
         .O(\GEN_FREE_RUN_MODE.mask_fsync_out_i_i_2_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair51" *) 
+  (* SOFT_HLUTNM = "soft_lutpair56" *) 
   LUT5 #(
     .INIT(32'hDFFFFFFF)) 
     \GEN_FREE_RUN_MODE.mask_fsync_out_i_i_3 
@@ -11599,7 +11577,7 @@ module system_axi_vdma_0_0_axi_vdma_intrpt
         .I3(p_27_out),
         .I4(p_50_out),
         .O(\GEN_FREE_RUN_MODE.mask_fsync_out_i_i_3_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair55" *) 
+  (* SOFT_HLUTNM = "soft_lutpair60" *) 
   LUT3 #(
     .INIT(8'h32)) 
     \GEN_INCLUDE_MM2S.GEN_CH1_DELAY_INTERRUPT.GEN_CH1_FAST_COUNTER.ch1_dly_fast_cnt[0]_i_1 
@@ -11607,7 +11585,7 @@ module system_axi_vdma_0_0_axi_vdma_intrpt
         .I1(L[0]),
         .I2(\GEN_INCLUDE_MM2S.GEN_CH1_DELAY_INTERRUPT.GEN_CH1_FAST_COUNTER.ch1_dly_fast_cnt[1]_i_2_n_0 ),
         .O(ch1_dly_fast_cnt[0]));
-  (* SOFT_HLUTNM = "soft_lutpair55" *) 
+  (* SOFT_HLUTNM = "soft_lutpair60" *) 
   LUT3 #(
     .INIT(8'h98)) 
     \GEN_INCLUDE_MM2S.GEN_CH1_DELAY_INTERRUPT.GEN_CH1_FAST_COUNTER.ch1_dly_fast_cnt[1]_i_1 
@@ -11624,7 +11602,7 @@ module system_axi_vdma_0_0_axi_vdma_intrpt
         .I3(L[4]),
         .I4(L[6]),
         .O(\GEN_INCLUDE_MM2S.GEN_CH1_DELAY_INTERRUPT.GEN_CH1_FAST_COUNTER.ch1_dly_fast_cnt[1]_i_2_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair58" *) 
+  (* SOFT_HLUTNM = "soft_lutpair63" *) 
   LUT3 #(
     .INIT(8'hA9)) 
     \GEN_INCLUDE_MM2S.GEN_CH1_DELAY_INTERRUPT.GEN_CH1_FAST_COUNTER.ch1_dly_fast_cnt[2]_i_1 
@@ -11632,7 +11610,7 @@ module system_axi_vdma_0_0_axi_vdma_intrpt
         .I1(L[0]),
         .I2(L[1]),
         .O(ch1_dly_fast_cnt[2]));
-  (* SOFT_HLUTNM = "soft_lutpair53" *) 
+  (* SOFT_HLUTNM = "soft_lutpair58" *) 
   LUT4 #(
     .INIT(16'hFE01)) 
     \GEN_INCLUDE_MM2S.GEN_CH1_DELAY_INTERRUPT.GEN_CH1_FAST_COUNTER.ch1_dly_fast_cnt[3]_i_1 
@@ -11641,7 +11619,7 @@ module system_axi_vdma_0_0_axi_vdma_intrpt
         .I2(L[2]),
         .I3(L[3]),
         .O(ch1_dly_fast_cnt[3]));
-  (* SOFT_HLUTNM = "soft_lutpair53" *) 
+  (* SOFT_HLUTNM = "soft_lutpair58" *) 
   LUT5 #(
     .INIT(32'hFFFE0001)) 
     \GEN_INCLUDE_MM2S.GEN_CH1_DELAY_INTERRUPT.GEN_CH1_FAST_COUNTER.ch1_dly_fast_cnt[4]_i_1 
@@ -11671,7 +11649,7 @@ module system_axi_vdma_0_0_axi_vdma_intrpt
         .I4(L[4]),
         .I5(L[6]),
         .O(ch1_dly_fast_cnt[6]));
-  (* SOFT_HLUTNM = "soft_lutpair58" *) 
+  (* SOFT_HLUTNM = "soft_lutpair63" *) 
   LUT2 #(
     .INIT(4'hE)) 
     \GEN_INCLUDE_MM2S.GEN_CH1_DELAY_INTERRUPT.GEN_CH1_FAST_COUNTER.ch1_dly_fast_cnt[6]_i_5 
@@ -11765,14 +11743,14 @@ module system_axi_vdma_0_0_axi_vdma_intrpt
     \GEN_INCLUDE_MM2S.GEN_CH1_DELAY_INTERRUPT.ch1_delay_count[0]_i_1 
        (.I0(Q[0]),
         .O(plusOp[0]));
-  (* SOFT_HLUTNM = "soft_lutpair56" *) 
+  (* SOFT_HLUTNM = "soft_lutpair61" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \GEN_INCLUDE_MM2S.GEN_CH1_DELAY_INTERRUPT.ch1_delay_count[1]_i_1 
        (.I0(Q[0]),
         .I1(Q[1]),
         .O(plusOp[1]));
-  (* SOFT_HLUTNM = "soft_lutpair56" *) 
+  (* SOFT_HLUTNM = "soft_lutpair61" *) 
   LUT3 #(
     .INIT(8'h78)) 
     \GEN_INCLUDE_MM2S.GEN_CH1_DELAY_INTERRUPT.ch1_delay_count[2]_i_1 
@@ -11780,7 +11758,7 @@ module system_axi_vdma_0_0_axi_vdma_intrpt
         .I1(Q[1]),
         .I2(Q[2]),
         .O(plusOp[2]));
-  (* SOFT_HLUTNM = "soft_lutpair54" *) 
+  (* SOFT_HLUTNM = "soft_lutpair59" *) 
   LUT4 #(
     .INIT(16'h7F80)) 
     \GEN_INCLUDE_MM2S.GEN_CH1_DELAY_INTERRUPT.ch1_delay_count[3]_i_1 
@@ -11789,7 +11767,7 @@ module system_axi_vdma_0_0_axi_vdma_intrpt
         .I2(Q[2]),
         .I3(Q[3]),
         .O(plusOp[3]));
-  (* SOFT_HLUTNM = "soft_lutpair54" *) 
+  (* SOFT_HLUTNM = "soft_lutpair59" *) 
   LUT5 #(
     .INIT(32'h7FFF8000)) 
     \GEN_INCLUDE_MM2S.GEN_CH1_DELAY_INTERRUPT.ch1_delay_count[4]_i_1 
@@ -11809,14 +11787,14 @@ module system_axi_vdma_0_0_axi_vdma_intrpt
         .I4(Q[4]),
         .I5(Q[5]),
         .O(plusOp[5]));
-  (* SOFT_HLUTNM = "soft_lutpair57" *) 
+  (* SOFT_HLUTNM = "soft_lutpair62" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \GEN_INCLUDE_MM2S.GEN_CH1_DELAY_INTERRUPT.ch1_delay_count[6]_i_1 
        (.I0(\GEN_INCLUDE_MM2S.GEN_CH1_DELAY_INTERRUPT.ch1_delay_count[7]_i_4_n_0 ),
         .I1(Q[6]),
         .O(plusOp[6]));
-  (* SOFT_HLUTNM = "soft_lutpair57" *) 
+  (* SOFT_HLUTNM = "soft_lutpair62" *) 
   LUT3 #(
     .INIT(8'h78)) 
     \GEN_INCLUDE_MM2S.GEN_CH1_DELAY_INTERRUPT.ch1_delay_count[7]_i_2 
@@ -12006,7 +11984,7 @@ module system_axi_vdma_0_0_axi_vdma_intrpt
         .I3(\GEN_INCLUDE_MM2S.GEN_CH1_FRM_CNTR.ch1_thresh_count_reg[7]_0 [4]),
         .I4(p_6_out__1),
         .O(p_2_in[4]));
-  (* SOFT_HLUTNM = "soft_lutpair52" *) 
+  (* SOFT_HLUTNM = "soft_lutpair57" *) 
   LUT4 #(
     .INIT(16'hFFFE)) 
     \GEN_INCLUDE_MM2S.GEN_CH1_FRM_CNTR.ch1_thresh_count[4]_i_2 
@@ -12024,7 +12002,7 @@ module system_axi_vdma_0_0_axi_vdma_intrpt
         .I3(\GEN_INCLUDE_MM2S.GEN_CH1_FRM_CNTR.ch1_thresh_count_reg[7]_0 [5]),
         .I4(p_6_out__1),
         .O(p_2_in[5]));
-  (* SOFT_HLUTNM = "soft_lutpair52" *) 
+  (* SOFT_HLUTNM = "soft_lutpair57" *) 
   LUT5 #(
     .INIT(32'hFFFFFFFE)) 
     \GEN_INCLUDE_MM2S.GEN_CH1_FRM_CNTR.ch1_thresh_count[5]_i_2 
@@ -12073,7 +12051,7 @@ module system_axi_vdma_0_0_axi_vdma_intrpt
         .I4(\GEN_INCLUDE_MM2S.GEN_CH1_FRM_CNTR.ch1_thresh_count_reg[7]_0 [3]),
         .I5(\GEN_INCLUDE_MM2S.GEN_CH1_FRM_CNTR.ch1_thresh_count_reg[7]_0 [5]),
         .O(\GEN_INCLUDE_MM2S.GEN_CH1_FRM_CNTR.ch1_thresh_count[7]_i_4_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair51" *) 
+  (* SOFT_HLUTNM = "soft_lutpair56" *) 
   LUT2 #(
     .INIT(4'hB)) 
     \GEN_INCLUDE_MM2S.GEN_CH1_FRM_CNTR.ch1_thresh_count[7]_i_6 
@@ -16470,25 +16448,18 @@ module system_axi_vdma_0_0_axi_vdma_mm2s_linebuf
     \r0_data_reg[31] ,
     \r0_keep_reg[3] ,
     m_axi_mm2s_aclk,
-    WEA,
-    dm2linebuf_mm2s_tdata,
     \GEN_FREE_RUN_MODE.frame_sync_i_reg ,
-    \GEN_FREE_RUN_MODE.frame_sync_i_reg_0 ,
-    \GEN_FREE_RUN_MODE.frame_sync_i_reg_1 ,
-    \GEN_FREE_RUN_MODE.frame_sync_i_reg_2 ,
-    \GEN_FREE_RUN_MODE.frame_sync_i_reg_3 ,
-    DIADI,
+    dm2linebuf_mm2s_tdata,
+    DIBDI,
     halt_i_reg,
     m_axis_mm2s_aclk,
     E,
     halt_i_reg_0,
-    \GEN_FREE_RUN_MODE.frame_sync_i_reg_4 ,
     SR,
     sig_m_valid_out_reg,
     \state_reg[0] ,
     sig_last_reg_out_reg,
     p_88_out,
-    \GEN_FREE_RUN_MODE.frame_sync_i_reg_5 ,
     mm2s_halt,
     prmry_resetn_i_reg,
     dm2linebuf_mm2s_tvalid,
@@ -16505,25 +16476,18 @@ module system_axi_vdma_0_0_axi_vdma_mm2s_linebuf
   output [31:0]\r0_data_reg[31] ;
   output [3:0]\r0_keep_reg[3] ;
   input m_axi_mm2s_aclk;
-  input [0:0]WEA;
+  input \GEN_FREE_RUN_MODE.frame_sync_i_reg ;
   input [31:0]dm2linebuf_mm2s_tdata;
-  input [0:0]\GEN_FREE_RUN_MODE.frame_sync_i_reg ;
-  input [0:0]\GEN_FREE_RUN_MODE.frame_sync_i_reg_0 ;
-  input [1:0]\GEN_FREE_RUN_MODE.frame_sync_i_reg_1 ;
-  input [0:0]\GEN_FREE_RUN_MODE.frame_sync_i_reg_2 ;
-  input [0:0]\GEN_FREE_RUN_MODE.frame_sync_i_reg_3 ;
-  input [4:0]DIADI;
+  input [4:0]DIBDI;
   input halt_i_reg;
   input m_axis_mm2s_aclk;
   input [0:0]E;
   input halt_i_reg_0;
-  input \GEN_FREE_RUN_MODE.frame_sync_i_reg_4 ;
   input [0:0]SR;
   input sig_m_valid_out_reg;
   input \state_reg[0] ;
   input sig_last_reg_out_reg;
   input p_88_out;
-  input \GEN_FREE_RUN_MODE.frame_sync_i_reg_5 ;
   input mm2s_halt;
   input prmry_resetn_i_reg;
   input dm2linebuf_mm2s_tvalid;
@@ -16531,47 +16495,11 @@ module system_axi_vdma_0_0_axi_vdma_mm2s_linebuf
   input p_26_out;
   input [12:0]Q;
 
-  wire [4:0]DIADI;
+  wire [4:0]DIBDI;
   wire [0:0]E;
-  wire [0:0]\GEN_FREE_RUN_MODE.frame_sync_i_reg ;
-  wire [0:0]\GEN_FREE_RUN_MODE.frame_sync_i_reg_0 ;
-  wire [1:0]\GEN_FREE_RUN_MODE.frame_sync_i_reg_1 ;
-  wire [0:0]\GEN_FREE_RUN_MODE.frame_sync_i_reg_2 ;
-  wire [0:0]\GEN_FREE_RUN_MODE.frame_sync_i_reg_3 ;
-  wire \GEN_FREE_RUN_MODE.frame_sync_i_reg_4 ;
-  wire \GEN_FREE_RUN_MODE.frame_sync_i_reg_5 ;
+  wire \GEN_FREE_RUN_MODE.frame_sync_i_reg ;
   wire \GEN_LINEBUF_NO_SOF.GEN_LINEBUFFER.GEN_SOF.sof_flag_reg_0 ;
-  wire \GEN_LINEBUF_NO_SOF.GEN_LINEBUFFER.GEN_SYNC_FIFO.I_LINEBUFFER_FIFO_n_0 ;
-  wire \GEN_LINEBUF_NO_SOF.GEN_LINEBUFFER.GEN_SYNC_FIFO.I_LINEBUFFER_FIFO_n_1 ;
-  wire \GEN_LINEBUF_NO_SOF.GEN_LINEBUFFER.GEN_SYNC_FIFO.I_LINEBUFFER_FIFO_n_10 ;
-  wire \GEN_LINEBUF_NO_SOF.GEN_LINEBUFFER.GEN_SYNC_FIFO.I_LINEBUFFER_FIFO_n_11 ;
-  wire \GEN_LINEBUF_NO_SOF.GEN_LINEBUFFER.GEN_SYNC_FIFO.I_LINEBUFFER_FIFO_n_12 ;
-  wire \GEN_LINEBUF_NO_SOF.GEN_LINEBUFFER.GEN_SYNC_FIFO.I_LINEBUFFER_FIFO_n_13 ;
-  wire \GEN_LINEBUF_NO_SOF.GEN_LINEBUFFER.GEN_SYNC_FIFO.I_LINEBUFFER_FIFO_n_14 ;
-  wire \GEN_LINEBUF_NO_SOF.GEN_LINEBUFFER.GEN_SYNC_FIFO.I_LINEBUFFER_FIFO_n_15 ;
-  wire \GEN_LINEBUF_NO_SOF.GEN_LINEBUFFER.GEN_SYNC_FIFO.I_LINEBUFFER_FIFO_n_16 ;
-  wire \GEN_LINEBUF_NO_SOF.GEN_LINEBUFFER.GEN_SYNC_FIFO.I_LINEBUFFER_FIFO_n_17 ;
-  wire \GEN_LINEBUF_NO_SOF.GEN_LINEBUFFER.GEN_SYNC_FIFO.I_LINEBUFFER_FIFO_n_18 ;
-  wire \GEN_LINEBUF_NO_SOF.GEN_LINEBUFFER.GEN_SYNC_FIFO.I_LINEBUFFER_FIFO_n_19 ;
-  wire \GEN_LINEBUF_NO_SOF.GEN_LINEBUFFER.GEN_SYNC_FIFO.I_LINEBUFFER_FIFO_n_2 ;
-  wire \GEN_LINEBUF_NO_SOF.GEN_LINEBUFFER.GEN_SYNC_FIFO.I_LINEBUFFER_FIFO_n_20 ;
-  wire \GEN_LINEBUF_NO_SOF.GEN_LINEBUFFER.GEN_SYNC_FIFO.I_LINEBUFFER_FIFO_n_21 ;
-  wire \GEN_LINEBUF_NO_SOF.GEN_LINEBUFFER.GEN_SYNC_FIFO.I_LINEBUFFER_FIFO_n_22 ;
-  wire \GEN_LINEBUF_NO_SOF.GEN_LINEBUFFER.GEN_SYNC_FIFO.I_LINEBUFFER_FIFO_n_23 ;
-  wire \GEN_LINEBUF_NO_SOF.GEN_LINEBUFFER.GEN_SYNC_FIFO.I_LINEBUFFER_FIFO_n_24 ;
-  wire \GEN_LINEBUF_NO_SOF.GEN_LINEBUFFER.GEN_SYNC_FIFO.I_LINEBUFFER_FIFO_n_25 ;
-  wire \GEN_LINEBUF_NO_SOF.GEN_LINEBUFFER.GEN_SYNC_FIFO.I_LINEBUFFER_FIFO_n_26 ;
-  wire \GEN_LINEBUF_NO_SOF.GEN_LINEBUFFER.GEN_SYNC_FIFO.I_LINEBUFFER_FIFO_n_27 ;
-  wire \GEN_LINEBUF_NO_SOF.GEN_LINEBUFFER.GEN_SYNC_FIFO.I_LINEBUFFER_FIFO_n_28 ;
-  wire \GEN_LINEBUF_NO_SOF.GEN_LINEBUFFER.GEN_SYNC_FIFO.I_LINEBUFFER_FIFO_n_29 ;
-  wire \GEN_LINEBUF_NO_SOF.GEN_LINEBUFFER.GEN_SYNC_FIFO.I_LINEBUFFER_FIFO_n_3 ;
-  wire \GEN_LINEBUF_NO_SOF.GEN_LINEBUFFER.GEN_SYNC_FIFO.I_LINEBUFFER_FIFO_n_35 ;
-  wire \GEN_LINEBUF_NO_SOF.GEN_LINEBUFFER.GEN_SYNC_FIFO.I_LINEBUFFER_FIFO_n_4 ;
-  wire \GEN_LINEBUF_NO_SOF.GEN_LINEBUFFER.GEN_SYNC_FIFO.I_LINEBUFFER_FIFO_n_5 ;
-  wire \GEN_LINEBUF_NO_SOF.GEN_LINEBUFFER.GEN_SYNC_FIFO.I_LINEBUFFER_FIFO_n_6 ;
-  wire \GEN_LINEBUF_NO_SOF.GEN_LINEBUFFER.GEN_SYNC_FIFO.I_LINEBUFFER_FIFO_n_7 ;
-  wire \GEN_LINEBUF_NO_SOF.GEN_LINEBUFFER.GEN_SYNC_FIFO.I_LINEBUFFER_FIFO_n_8 ;
-  wire \GEN_LINEBUF_NO_SOF.GEN_LINEBUFFER.GEN_SYNC_FIFO.I_LINEBUFFER_FIFO_n_9 ;
+  wire \GEN_LINEBUF_NO_SOF.GEN_LINEBUFFER.GEN_SYNC_FIFO.I_LINEBUFFER_FIFO_n_41 ;
   wire \GEN_LINEBUF_NO_SOF.GEN_LINEBUFFER.m_axis_tvalid_d1_reg_0 ;
   wire \GEN_LINEBUF_NO_SOF.all_lines_xfred_i_1_n_0 ;
   wire \GEN_LINEBUF_NO_SOF.vsize_counter[12]_i_2_n_0 ;
@@ -16583,14 +16511,12 @@ module system_axi_vdma_0_0_axi_vdma_mm2s_linebuf
   wire \GEN_LINEBUF_NO_SOF.vsize_counter[12]_i_9_n_0 ;
   wire [12:0]Q;
   wire [0:0]SR;
-  wire [0:0]WEA;
   (* async_reg = "true" *) wire [12:0]crnt_vsize_cdc_tig;
   (* async_reg = "true" *) wire [12:0]crnt_vsize_d1;
-  (* async_reg = "true" *) wire [13:0]data_count_ae_threshold_cdc_tig;
-  (* async_reg = "true" *) wire [13:0]data_count_ae_threshold_d1;
+  (* async_reg = "true" *) wire [8:0]data_count_ae_threshold_cdc_tig;
+  (* async_reg = "true" *) wire [8:0]data_count_ae_threshold_d1;
   wire [31:0]dm2linebuf_mm2s_tdata;
   wire dm2linebuf_mm2s_tvalid;
-  wire [1:0]\fg_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gbm.gbmg.gbmgb.ngecc.bmg/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ram_doutb ;
   wire halt_i_reg;
   wire halt_i_reg_0;
   wire m_axi_mm2s_aclk;
@@ -16626,7 +16552,7 @@ module system_axi_vdma_0_0_axi_vdma_mm2s_linebuf
   wire out;
   wire p_0_in;
   wire p_0_out;
-  wire [37:32]p_12_out;
+  wire [37:0]p_12_out;
   wire [12:0]p_1_in;
   wire p_26_out;
   wire p_27_out;
@@ -16650,21 +16576,14 @@ module system_axi_vdma_0_0_axi_vdma_mm2s_linebuf
     \GEN_LINEBUF_NO_SOF.GEN_LINEBUFFER.GEN_SOF.sof_flag_reg 
        (.C(m_axi_mm2s_aclk),
         .CE(1'b1),
-        .D(\GEN_LINEBUF_NO_SOF.GEN_LINEBUFFER.GEN_SYNC_FIFO.I_LINEBUFFER_FIFO_n_35 ),
+        .D(\GEN_LINEBUF_NO_SOF.GEN_LINEBUFFER.GEN_SYNC_FIFO.I_LINEBUFFER_FIFO_n_41 ),
         .Q(sof_flag),
         .R(1'b0));
   system_axi_vdma_0_0_axi_vdma_sfifo \GEN_LINEBUF_NO_SOF.GEN_LINEBUFFER.GEN_SYNC_FIFO.I_LINEBUFFER_FIFO 
-       (.D({\GEN_LINEBUF_NO_SOF.GEN_LINEBUFFER.GEN_SYNC_FIFO.I_LINEBUFFER_FIFO_n_0 ,\GEN_LINEBUF_NO_SOF.GEN_LINEBUFFER.GEN_SYNC_FIFO.I_LINEBUFFER_FIFO_n_1 ,\GEN_LINEBUF_NO_SOF.GEN_LINEBUFFER.GEN_SYNC_FIFO.I_LINEBUFFER_FIFO_n_2 ,\GEN_LINEBUF_NO_SOF.GEN_LINEBUFFER.GEN_SYNC_FIFO.I_LINEBUFFER_FIFO_n_3 ,\GEN_LINEBUF_NO_SOF.GEN_LINEBUFFER.GEN_SYNC_FIFO.I_LINEBUFFER_FIFO_n_4 ,\GEN_LINEBUF_NO_SOF.GEN_LINEBUFFER.GEN_SYNC_FIFO.I_LINEBUFFER_FIFO_n_5 ,\GEN_LINEBUF_NO_SOF.GEN_LINEBUFFER.GEN_SYNC_FIFO.I_LINEBUFFER_FIFO_n_6 ,\GEN_LINEBUF_NO_SOF.GEN_LINEBUFFER.GEN_SYNC_FIFO.I_LINEBUFFER_FIFO_n_7 ,\GEN_LINEBUF_NO_SOF.GEN_LINEBUFFER.GEN_SYNC_FIFO.I_LINEBUFFER_FIFO_n_8 ,\GEN_LINEBUF_NO_SOF.GEN_LINEBUFFER.GEN_SYNC_FIFO.I_LINEBUFFER_FIFO_n_9 ,\GEN_LINEBUF_NO_SOF.GEN_LINEBUFFER.GEN_SYNC_FIFO.I_LINEBUFFER_FIFO_n_10 ,\GEN_LINEBUF_NO_SOF.GEN_LINEBUFFER.GEN_SYNC_FIFO.I_LINEBUFFER_FIFO_n_11 ,\GEN_LINEBUF_NO_SOF.GEN_LINEBUFFER.GEN_SYNC_FIFO.I_LINEBUFFER_FIFO_n_12 ,\GEN_LINEBUF_NO_SOF.GEN_LINEBUFFER.GEN_SYNC_FIFO.I_LINEBUFFER_FIFO_n_13 ,\GEN_LINEBUF_NO_SOF.GEN_LINEBUFFER.GEN_SYNC_FIFO.I_LINEBUFFER_FIFO_n_14 ,\GEN_LINEBUF_NO_SOF.GEN_LINEBUFFER.GEN_SYNC_FIFO.I_LINEBUFFER_FIFO_n_15 ,\GEN_LINEBUF_NO_SOF.GEN_LINEBUFFER.GEN_SYNC_FIFO.I_LINEBUFFER_FIFO_n_16 ,\GEN_LINEBUF_NO_SOF.GEN_LINEBUFFER.GEN_SYNC_FIFO.I_LINEBUFFER_FIFO_n_17 ,\GEN_LINEBUF_NO_SOF.GEN_LINEBUFFER.GEN_SYNC_FIFO.I_LINEBUFFER_FIFO_n_18 ,\GEN_LINEBUF_NO_SOF.GEN_LINEBUFFER.GEN_SYNC_FIFO.I_LINEBUFFER_FIFO_n_19 ,\GEN_LINEBUF_NO_SOF.GEN_LINEBUFFER.GEN_SYNC_FIFO.I_LINEBUFFER_FIFO_n_20 ,\GEN_LINEBUF_NO_SOF.GEN_LINEBUFFER.GEN_SYNC_FIFO.I_LINEBUFFER_FIFO_n_21 ,\GEN_LINEBUF_NO_SOF.GEN_LINEBUFFER.GEN_SYNC_FIFO.I_LINEBUFFER_FIFO_n_22 ,\GEN_LINEBUF_NO_SOF.GEN_LINEBUFFER.GEN_SYNC_FIFO.I_LINEBUFFER_FIFO_n_23 ,\GEN_LINEBUF_NO_SOF.GEN_LINEBUFFER.GEN_SYNC_FIFO.I_LINEBUFFER_FIFO_n_24 ,\GEN_LINEBUF_NO_SOF.GEN_LINEBUFFER.GEN_SYNC_FIFO.I_LINEBUFFER_FIFO_n_25 ,\GEN_LINEBUF_NO_SOF.GEN_LINEBUFFER.GEN_SYNC_FIFO.I_LINEBUFFER_FIFO_n_26 ,\GEN_LINEBUF_NO_SOF.GEN_LINEBUFFER.GEN_SYNC_FIFO.I_LINEBUFFER_FIFO_n_27 ,\GEN_LINEBUF_NO_SOF.GEN_LINEBUFFER.GEN_SYNC_FIFO.I_LINEBUFFER_FIFO_n_28 ,\GEN_LINEBUF_NO_SOF.GEN_LINEBUFFER.GEN_SYNC_FIFO.I_LINEBUFFER_FIFO_n_29 ,\fg_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gbm.gbmg.gbmgb.ngecc.bmg/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ram_doutb }),
-        .DIADI(DIADI),
-        .DIPADIP(sof_flag),
-        .\GEN_FREE_RUN_MODE.frame_sync_i_reg ({\GEN_FREE_RUN_MODE.frame_sync_i_reg ,\GEN_FREE_RUN_MODE.frame_sync_i_reg_0 }),
-        .\GEN_FREE_RUN_MODE.frame_sync_i_reg_0 (\GEN_FREE_RUN_MODE.frame_sync_i_reg_1 ),
-        .\GEN_FREE_RUN_MODE.frame_sync_i_reg_1 ({\GEN_FREE_RUN_MODE.frame_sync_i_reg_2 ,\GEN_FREE_RUN_MODE.frame_sync_i_reg_3 }),
-        .\GEN_FREE_RUN_MODE.frame_sync_i_reg_2 (\GEN_FREE_RUN_MODE.frame_sync_i_reg_4 ),
-        .\GEN_FREE_RUN_MODE.frame_sync_i_reg_3 (\GEN_FREE_RUN_MODE.frame_sync_i_reg_5 ),
+       (.DIBDI({sof_flag,DIBDI}),
+        .\GEN_FREE_RUN_MODE.frame_sync_i_reg (\GEN_FREE_RUN_MODE.frame_sync_i_reg ),
         .\GEN_LINEBUF_NO_SOF.GEN_LINEBUFFER.GEN_SOF.sof_flag_reg (\GEN_LINEBUF_NO_SOF.GEN_LINEBUFFER.GEN_SOF.sof_flag_reg_0 ),
-        .\GEN_LINEBUF_NO_SOF.GEN_LINEBUFFER.GEN_SOF.sof_flag_reg_0 (\GEN_LINEBUF_NO_SOF.GEN_LINEBUFFER.GEN_SYNC_FIFO.I_LINEBUFFER_FIFO_n_35 ),
-        .WEA(WEA),
+        .\GEN_LINEBUF_NO_SOF.GEN_LINEBUFFER.GEN_SOF.sof_flag_reg_0 (\GEN_LINEBUF_NO_SOF.GEN_LINEBUFFER.GEN_SYNC_FIFO.I_LINEBUFFER_FIFO_n_41 ),
         .dm2linebuf_mm2s_tdata(dm2linebuf_mm2s_tdata),
         .dm2linebuf_mm2s_tvalid(dm2linebuf_mm2s_tvalid),
         .halt_i_reg(halt_i_reg_0),
@@ -16677,8 +16596,7 @@ module system_axi_vdma_0_0_axi_vdma_mm2s_linebuf
         .ram_full_fb_i_reg(ram_full_fb_i_reg),
         .sig_s_ready_out_reg(p_4_in));
   system_axi_vdma_0_0_axi_vdma_skid_buf \GEN_LINEBUF_NO_SOF.GEN_LINEBUFFER.I_MSTR_SKID 
-       (.D({\GEN_LINEBUF_NO_SOF.GEN_LINEBUFFER.GEN_SYNC_FIFO.I_LINEBUFFER_FIFO_n_0 ,\GEN_LINEBUF_NO_SOF.GEN_LINEBUFFER.GEN_SYNC_FIFO.I_LINEBUFFER_FIFO_n_1 ,\GEN_LINEBUF_NO_SOF.GEN_LINEBUFFER.GEN_SYNC_FIFO.I_LINEBUFFER_FIFO_n_2 ,\GEN_LINEBUF_NO_SOF.GEN_LINEBUFFER.GEN_SYNC_FIFO.I_LINEBUFFER_FIFO_n_3 ,\GEN_LINEBUF_NO_SOF.GEN_LINEBUFFER.GEN_SYNC_FIFO.I_LINEBUFFER_FIFO_n_4 ,\GEN_LINEBUF_NO_SOF.GEN_LINEBUFFER.GEN_SYNC_FIFO.I_LINEBUFFER_FIFO_n_5 ,\GEN_LINEBUF_NO_SOF.GEN_LINEBUFFER.GEN_SYNC_FIFO.I_LINEBUFFER_FIFO_n_6 ,\GEN_LINEBUF_NO_SOF.GEN_LINEBUFFER.GEN_SYNC_FIFO.I_LINEBUFFER_FIFO_n_7 ,\GEN_LINEBUF_NO_SOF.GEN_LINEBUFFER.GEN_SYNC_FIFO.I_LINEBUFFER_FIFO_n_8 ,\GEN_LINEBUF_NO_SOF.GEN_LINEBUFFER.GEN_SYNC_FIFO.I_LINEBUFFER_FIFO_n_9 ,\GEN_LINEBUF_NO_SOF.GEN_LINEBUFFER.GEN_SYNC_FIFO.I_LINEBUFFER_FIFO_n_10 ,\GEN_LINEBUF_NO_SOF.GEN_LINEBUFFER.GEN_SYNC_FIFO.I_LINEBUFFER_FIFO_n_11 ,\GEN_LINEBUF_NO_SOF.GEN_LINEBUFFER.GEN_SYNC_FIFO.I_LINEBUFFER_FIFO_n_12 ,\GEN_LINEBUF_NO_SOF.GEN_LINEBUFFER.GEN_SYNC_FIFO.I_LINEBUFFER_FIFO_n_13 ,\GEN_LINEBUF_NO_SOF.GEN_LINEBUFFER.GEN_SYNC_FIFO.I_LINEBUFFER_FIFO_n_14 ,\GEN_LINEBUF_NO_SOF.GEN_LINEBUFFER.GEN_SYNC_FIFO.I_LINEBUFFER_FIFO_n_15 ,\GEN_LINEBUF_NO_SOF.GEN_LINEBUFFER.GEN_SYNC_FIFO.I_LINEBUFFER_FIFO_n_16 ,\GEN_LINEBUF_NO_SOF.GEN_LINEBUFFER.GEN_SYNC_FIFO.I_LINEBUFFER_FIFO_n_17 ,\GEN_LINEBUF_NO_SOF.GEN_LINEBUFFER.GEN_SYNC_FIFO.I_LINEBUFFER_FIFO_n_18 ,\GEN_LINEBUF_NO_SOF.GEN_LINEBUFFER.GEN_SYNC_FIFO.I_LINEBUFFER_FIFO_n_19 ,\GEN_LINEBUF_NO_SOF.GEN_LINEBUFFER.GEN_SYNC_FIFO.I_LINEBUFFER_FIFO_n_20 ,\GEN_LINEBUF_NO_SOF.GEN_LINEBUFFER.GEN_SYNC_FIFO.I_LINEBUFFER_FIFO_n_21 ,\GEN_LINEBUF_NO_SOF.GEN_LINEBUFFER.GEN_SYNC_FIFO.I_LINEBUFFER_FIFO_n_22 ,\GEN_LINEBUF_NO_SOF.GEN_LINEBUFFER.GEN_SYNC_FIFO.I_LINEBUFFER_FIFO_n_23 ,\GEN_LINEBUF_NO_SOF.GEN_LINEBUFFER.GEN_SYNC_FIFO.I_LINEBUFFER_FIFO_n_24 ,\GEN_LINEBUF_NO_SOF.GEN_LINEBUFFER.GEN_SYNC_FIFO.I_LINEBUFFER_FIFO_n_25 ,\GEN_LINEBUF_NO_SOF.GEN_LINEBUFFER.GEN_SYNC_FIFO.I_LINEBUFFER_FIFO_n_26 ,\GEN_LINEBUF_NO_SOF.GEN_LINEBUFFER.GEN_SYNC_FIFO.I_LINEBUFFER_FIFO_n_27 ,\GEN_LINEBUF_NO_SOF.GEN_LINEBUFFER.GEN_SYNC_FIFO.I_LINEBUFFER_FIFO_n_28 ,\GEN_LINEBUF_NO_SOF.GEN_LINEBUFFER.GEN_SYNC_FIFO.I_LINEBUFFER_FIFO_n_29 ,\fg_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gbm.gbmg.gbmgb.ngecc.bmg/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ram_doutb }),
-        .E(E),
+       (.E(E),
         .\GEN_LINEBUF_NO_SOF.GEN_LINEBUFFER.m_axis_tvalid_d1_reg (\GEN_LINEBUF_NO_SOF.GEN_LINEBUFFER.m_axis_tvalid_d1_reg_0 ),
         .empty_fwft_i_reg(p_5_in),
         .\gpregsm1.curr_fwft_state_reg[1] (p_4_in),
@@ -17103,22 +17021,22 @@ module system_axi_vdma_0_0_axi_vdma_mm2s_linebuf
     .INIT(2'h2)) 
     i_26
        (.I0(1'b0),
-        .O(data_count_ae_threshold_cdc_tig[13]));
+        .O(data_count_ae_threshold_cdc_tig[8]));
   LUT1 #(
     .INIT(2'h2)) 
     i_27
        (.I0(1'b0),
-        .O(data_count_ae_threshold_cdc_tig[12]));
+        .O(data_count_ae_threshold_cdc_tig[7]));
   LUT1 #(
     .INIT(2'h2)) 
     i_28
        (.I0(1'b0),
-        .O(data_count_ae_threshold_cdc_tig[11]));
+        .O(data_count_ae_threshold_cdc_tig[6]));
   LUT1 #(
     .INIT(2'h2)) 
     i_29
        (.I0(1'b0),
-        .O(data_count_ae_threshold_cdc_tig[10]));
+        .O(data_count_ae_threshold_cdc_tig[5]));
   LUT1 #(
     .INIT(2'h2)) 
     i_3
@@ -17128,52 +17046,52 @@ module system_axi_vdma_0_0_axi_vdma_mm2s_linebuf
     .INIT(2'h2)) 
     i_30
        (.I0(1'b0),
-        .O(data_count_ae_threshold_cdc_tig[9]));
+        .O(data_count_ae_threshold_cdc_tig[4]));
   LUT1 #(
     .INIT(2'h2)) 
     i_31
        (.I0(1'b0),
-        .O(data_count_ae_threshold_cdc_tig[8]));
+        .O(data_count_ae_threshold_cdc_tig[3]));
   LUT1 #(
     .INIT(2'h2)) 
     i_32
        (.I0(1'b0),
-        .O(data_count_ae_threshold_cdc_tig[7]));
+        .O(data_count_ae_threshold_cdc_tig[2]));
   LUT1 #(
     .INIT(2'h2)) 
     i_33
        (.I0(1'b0),
-        .O(data_count_ae_threshold_cdc_tig[6]));
+        .O(data_count_ae_threshold_cdc_tig[1]));
   LUT1 #(
     .INIT(2'h2)) 
     i_34
        (.I0(1'b0),
-        .O(data_count_ae_threshold_cdc_tig[5]));
+        .O(data_count_ae_threshold_cdc_tig[0]));
   LUT1 #(
     .INIT(2'h2)) 
     i_35
        (.I0(1'b0),
-        .O(data_count_ae_threshold_cdc_tig[4]));
+        .O(data_count_ae_threshold_d1[8]));
   LUT1 #(
     .INIT(2'h2)) 
     i_36
        (.I0(1'b0),
-        .O(data_count_ae_threshold_cdc_tig[3]));
+        .O(data_count_ae_threshold_d1[7]));
   LUT1 #(
     .INIT(2'h2)) 
     i_37
        (.I0(1'b0),
-        .O(data_count_ae_threshold_cdc_tig[2]));
+        .O(data_count_ae_threshold_d1[6]));
   LUT1 #(
     .INIT(2'h2)) 
     i_38
        (.I0(1'b0),
-        .O(data_count_ae_threshold_cdc_tig[1]));
+        .O(data_count_ae_threshold_d1[5]));
   LUT1 #(
     .INIT(2'h2)) 
     i_39
        (.I0(1'b0),
-        .O(data_count_ae_threshold_cdc_tig[0]));
+        .O(data_count_ae_threshold_d1[4]));
   LUT1 #(
     .INIT(2'h2)) 
     i_4
@@ -17183,77 +17101,27 @@ module system_axi_vdma_0_0_axi_vdma_mm2s_linebuf
     .INIT(2'h2)) 
     i_40
        (.I0(1'b0),
-        .O(data_count_ae_threshold_d1[13]));
+        .O(data_count_ae_threshold_d1[3]));
   LUT1 #(
     .INIT(2'h2)) 
     i_41
        (.I0(1'b0),
-        .O(data_count_ae_threshold_d1[12]));
+        .O(data_count_ae_threshold_d1[2]));
   LUT1 #(
     .INIT(2'h2)) 
     i_42
        (.I0(1'b0),
-        .O(data_count_ae_threshold_d1[11]));
+        .O(data_count_ae_threshold_d1[1]));
   LUT1 #(
     .INIT(2'h2)) 
     i_43
        (.I0(1'b0),
-        .O(data_count_ae_threshold_d1[10]));
-  LUT1 #(
-    .INIT(2'h2)) 
-    i_44
-       (.I0(1'b0),
-        .O(data_count_ae_threshold_d1[9]));
-  LUT1 #(
-    .INIT(2'h2)) 
-    i_45
-       (.I0(1'b0),
-        .O(data_count_ae_threshold_d1[8]));
-  LUT1 #(
-    .INIT(2'h2)) 
-    i_46
-       (.I0(1'b0),
-        .O(data_count_ae_threshold_d1[7]));
-  LUT1 #(
-    .INIT(2'h2)) 
-    i_47
-       (.I0(1'b0),
-        .O(data_count_ae_threshold_d1[6]));
-  LUT1 #(
-    .INIT(2'h2)) 
-    i_48
-       (.I0(1'b0),
-        .O(data_count_ae_threshold_d1[5]));
-  LUT1 #(
-    .INIT(2'h2)) 
-    i_49
-       (.I0(1'b0),
-        .O(data_count_ae_threshold_d1[4]));
+        .O(data_count_ae_threshold_d1[0]));
   LUT1 #(
     .INIT(2'h2)) 
     i_5
        (.I0(1'b0),
         .O(crnt_vsize_cdc_tig[7]));
-  LUT1 #(
-    .INIT(2'h2)) 
-    i_50
-       (.I0(1'b0),
-        .O(data_count_ae_threshold_d1[3]));
-  LUT1 #(
-    .INIT(2'h2)) 
-    i_51
-       (.I0(1'b0),
-        .O(data_count_ae_threshold_d1[2]));
-  LUT1 #(
-    .INIT(2'h2)) 
-    i_52
-       (.I0(1'b0),
-        .O(data_count_ae_threshold_d1[1]));
-  LUT1 #(
-    .INIT(2'h2)) 
-    i_53
-       (.I0(1'b0),
-        .O(data_count_ae_threshold_d1[0]));
   LUT1 #(
     .INIT(2'h2)) 
     i_6
@@ -21723,7 +21591,7 @@ module system_axi_vdma_0_0_axi_vdma_register
         .D(D[2]),
         .Q(\DYNAMIC_SLAVE_MODE_FRAME_CNT.frame_number_i_reg[2]_0 ),
         .R(SR));
-  (* SOFT_HLUTNM = "soft_lutpair49" *) 
+  (* SOFT_HLUTNM = "soft_lutpair54" *) 
   LUT3 #(
     .INIT(8'h80)) 
     \DYNAMIC_SLAVE_MODE_FRAME_CNT.frame_number_i[0]_i_2 
@@ -21747,7 +21615,7 @@ module system_axi_vdma_0_0_axi_vdma_register
         .I2(\DYNAMIC_SLAVE_MODE_FRAME_CNT.frame_number_i_reg[3]_0 ),
         .I3(\ptr_ref_i_reg[4] [1]),
         .O(\DYNAMIC_SLAVE_MODE_FRAME_CNT.frame_number_i_reg[4] [1]));
-  (* SOFT_HLUTNM = "soft_lutpair47" *) 
+  (* SOFT_HLUTNM = "soft_lutpair52" *) 
   LUT5 #(
     .INIT(32'hFF02FFFF)) 
     \DYNAMIC_SLAVE_MODE_FRAME_CNT.frame_number_i[4]_i_1 
@@ -21757,7 +21625,7 @@ module system_axi_vdma_0_0_axi_vdma_register
         .I3(\s_axis_cmd_tdata_reg[63] ),
         .I4(prmry_resetn_i_reg),
         .O(\DYNAMIC_SLAVE_MODE_FRAME_CNT.frame_number_i_reg[0] ));
-  (* SOFT_HLUTNM = "soft_lutpair49" *) 
+  (* SOFT_HLUTNM = "soft_lutpair54" *) 
   LUT4 #(
     .INIT(16'h7520)) 
     \DYNAMIC_SLAVE_MODE_FRAME_CNT.frame_number_i[4]_i_2 
@@ -22329,14 +22197,14 @@ module system_axi_vdma_0_0_axi_vdma_register
         .D(reset_counts_reg_0),
         .Q(\GEN_INCLUDE_MM2S.GEN_CH1_FRM_CNTR.ch1_thresh_count_reg[7] ),
         .R(1'b0));
-  (* SOFT_HLUTNM = "soft_lutpair47" *) 
+  (* SOFT_HLUTNM = "soft_lutpair52" *) 
   LUT2 #(
     .INIT(4'hB)) 
     \s_axis_cmd_tdata[63]_i_1 
        (.I0(\s_axis_cmd_tdata_reg[63] ),
         .I1(prmry_resetn_i_reg),
         .O(\s_axis_cmd_tdata_reg[63]_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair48" *) 
+  (* SOFT_HLUTNM = "soft_lutpair53" *) 
   LUT4 #(
     .INIT(16'hA800)) 
     s_soft_reset_i_i_1
@@ -22345,7 +22213,7 @@ module system_axi_vdma_0_0_axi_vdma_register
         .I2(halt_reset),
         .I3(p_41_out),
         .O(s_soft_reset_i0));
-  (* SOFT_HLUTNM = "soft_lutpair48" *) 
+  (* SOFT_HLUTNM = "soft_lutpair53" *) 
   LUT2 #(
     .INIT(4'hE)) 
     stop_i_1
@@ -22366,22 +22234,15 @@ module system_axi_vdma_0_0_axi_vdma_reset
     \GEN_LINEBUF_NO_SOF.GEN_LINEBUFFER.m_axis_tready_d1_reg ,
     \GEN_LINEBUF_NO_SOF.GEN_LINEBUFFER.m_axis_tvalid_d1_reg ,
     \GEN_LINEBUF_NO_SOF.all_lines_xfred_reg ,
-    \gcc0.gc0.count_reg[0] ,
+    \DEVICE_7SERIES.NO_BMM_INFO.SDP.WIDE_PRIM36_NO_ECC.ram ,
     \cmnds_queued_reg[7] ,
     sig_mm2s_dm_prmry_resetn,
     reset_counts_reg,
     \GEN_INPUT_REG[3].sig_input_data_reg_reg[3][9] ,
     sig_s_h_halt_reg_reg,
     \GEN_DWIDTH_NO_SOF.all_lines_xfred_reg ,
-    \gcc0.gc0.count_d1_reg[13] ,
+    \gcc0.gc0.count_d1_reg[8] ,
     sig_reset_reg_reg,
-    \DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram ,
-    \DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_0 ,
-    \DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_1 ,
-    \DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_2 ,
-    \DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_3 ,
-    \DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_4 ,
-    WEA,
     scndry_out,
     m_axi_mm2s_aclk,
     s_axi_lite_aclk,
@@ -22417,22 +22278,15 @@ module system_axi_vdma_0_0_axi_vdma_reset
   output \GEN_LINEBUF_NO_SOF.GEN_LINEBUFFER.m_axis_tready_d1_reg ;
   output \GEN_LINEBUF_NO_SOF.GEN_LINEBUFFER.m_axis_tvalid_d1_reg ;
   output [0:0]\GEN_LINEBUF_NO_SOF.all_lines_xfred_reg ;
-  output \gcc0.gc0.count_reg[0] ;
+  output \DEVICE_7SERIES.NO_BMM_INFO.SDP.WIDE_PRIM36_NO_ECC.ram ;
   output [0:0]\cmnds_queued_reg[7] ;
   output sig_mm2s_dm_prmry_resetn;
   output reset_counts_reg;
   output \GEN_INPUT_REG[3].sig_input_data_reg_reg[3][9] ;
   output sig_s_h_halt_reg_reg;
   output [0:0]\GEN_DWIDTH_NO_SOF.all_lines_xfred_reg ;
-  output \gcc0.gc0.count_d1_reg[13] ;
+  output \gcc0.gc0.count_d1_reg[8] ;
   output sig_reset_reg_reg;
-  output \DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram ;
-  output [0:0]\DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_0 ;
-  output [0:0]\DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_1 ;
-  output [0:0]\DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_2 ;
-  output [0:0]\DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_3 ;
-  output [1:0]\DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_4 ;
-  output [0:0]WEA;
   output scndry_out;
   input m_axi_mm2s_aclk;
   input s_axi_lite_aclk;
@@ -22460,12 +22314,7 @@ module system_axi_vdma_0_0_axi_vdma_reset
   input prmry_in;
 
   wire [0:0]D;
-  wire \DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram ;
-  wire [0:0]\DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_0 ;
-  wire [0:0]\DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_1 ;
-  wire [0:0]\DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_2 ;
-  wire [0:0]\DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_3 ;
-  wire [1:0]\DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_4 ;
+  wire \DEVICE_7SERIES.NO_BMM_INFO.SDP.WIDE_PRIM36_NO_ECC.ram ;
   wire \GENERATE_LEVEL_P_S_CDC.SINGLE_BIT.CROSS_PLEVEL_IN2SCNDRY_s_level_out_d4 ;
   wire [0:0]\GEN_DWIDTH_NO_SOF.all_lines_xfred_reg ;
   wire \GEN_INPUT_REG[3].sig_input_data_reg_reg[3][9] ;
@@ -22498,7 +22347,6 @@ module system_axi_vdma_0_0_axi_vdma_reset
   wire \GEN_MIN_FOR_ASYNC.prmry_min_count[3]_i_3_n_0 ;
   wire \GEN_RESET_FOR_ASYNC.HARD_RESET_CDC_I_n_0 ;
   wire \GEN_RESET_FOR_ASYNC.HARD_RESET_CDC_I_n_3 ;
-  wire [0:0]WEA;
   wire assert_sftrst_d1;
   wire axis_all_idle;
   wire axis_min_assert_sftrst;
@@ -22507,8 +22355,7 @@ module system_axi_vdma_0_0_axi_vdma_reset
   wire dm2linebuf_mm2s_tvalid;
   wire dma_err;
   wire \dmacr_i_reg[2] ;
-  wire \gcc0.gc0.count_d1_reg[13] ;
-  wire \gcc0.gc0.count_reg[0] ;
+  wire \gcc0.gc0.count_d1_reg[8] ;
   wire halt_i0;
   wire halt_i_reg_0;
   wire halt_i_reg_1;
@@ -22566,85 +22413,15 @@ module system_axi_vdma_0_0_axi_vdma_reset
 
   LUT6 #(
     .INIT(64'h0000000000100000)) 
-    \DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_i_1__3 
+    \DEVICE_7SERIES.NO_BMM_INFO.SDP.WIDE_PRIM36_NO_ECC.ram_i_2 
        (.I0(p_27_out),
         .I1(halt_i_reg_0),
         .I2(out),
         .I3(ram_full_i_reg),
         .I4(dm2linebuf_mm2s_tvalid),
         .I5(ram_full_fb_i_reg),
-        .O(\DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_0 ));
-  LUT6 #(
-    .INIT(64'h0000000000100000)) 
-    \DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_i_1__4 
-       (.I0(p_27_out),
-        .I1(halt_i_reg_0),
-        .I2(out),
-        .I3(ram_full_i_reg),
-        .I4(dm2linebuf_mm2s_tvalid),
-        .I5(ram_full_fb_i_reg),
-        .O(\DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_1 ));
-  LUT6 #(
-    .INIT(64'h0000000000100000)) 
-    \DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_i_1__5 
-       (.I0(p_27_out),
-        .I1(halt_i_reg_0),
-        .I2(out),
-        .I3(ram_full_i_reg),
-        .I4(dm2linebuf_mm2s_tvalid),
-        .I5(ram_full_fb_i_reg),
-        .O(\DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_4 [0]));
-  LUT6 #(
-    .INIT(64'h0000000000100000)) 
-    \DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_i_1__6 
-       (.I0(p_27_out),
-        .I1(halt_i_reg_0),
-        .I2(out),
-        .I3(ram_full_i_reg),
-        .I4(dm2linebuf_mm2s_tvalid),
-        .I5(ram_full_fb_i_reg),
-        .O(WEA));
-  LUT6 #(
-    .INIT(64'h0000000000100000)) 
-    \DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_i_3__0 
-       (.I0(p_27_out),
-        .I1(halt_i_reg_0),
-        .I2(out),
-        .I3(ram_full_i_reg),
-        .I4(dm2linebuf_mm2s_tvalid),
-        .I5(ram_full_fb_i_reg),
-        .O(\DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram ));
-  LUT6 #(
-    .INIT(64'h0000000000100000)) 
-    \DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_i_3__1 
-       (.I0(p_27_out),
-        .I1(halt_i_reg_0),
-        .I2(out),
-        .I3(ram_full_i_reg),
-        .I4(dm2linebuf_mm2s_tvalid),
-        .I5(ram_full_fb_i_reg),
-        .O(\DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_2 ));
-  LUT6 #(
-    .INIT(64'h0000000000100000)) 
-    \DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_i_3__2 
-       (.I0(p_27_out),
-        .I1(halt_i_reg_0),
-        .I2(out),
-        .I3(ram_full_i_reg),
-        .I4(dm2linebuf_mm2s_tvalid),
-        .I5(ram_full_fb_i_reg),
-        .O(\DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_4 [1]));
-  LUT6 #(
-    .INIT(64'h0000000000100000)) 
-    \DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_i_4 
-       (.I0(p_27_out),
-        .I1(halt_i_reg_0),
-        .I2(out),
-        .I3(ram_full_i_reg),
-        .I4(dm2linebuf_mm2s_tvalid),
-        .I5(ram_full_fb_i_reg),
-        .O(\DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_3 ));
-  (* SOFT_HLUTNM = "soft_lutpair175" *) 
+        .O(\DEVICE_7SERIES.NO_BMM_INFO.SDP.WIDE_PRIM36_NO_ECC.ram ));
+  (* SOFT_HLUTNM = "soft_lutpair180" *) 
   LUT3 #(
     .INIT(8'h0D)) 
     \GEN_DWIDTH_NO_SOF.vsize_counter[12]_i_1 
@@ -22652,7 +22429,7 @@ module system_axi_vdma_0_0_axi_vdma_reset
         .I1(halt_i_reg_0),
         .I2(p_26_out),
         .O(\GEN_DWIDTH_NO_SOF.all_lines_xfred_reg ));
-  (* SOFT_HLUTNM = "soft_lutpair167" *) 
+  (* SOFT_HLUTNM = "soft_lutpair172" *) 
   LUT5 #(
     .INIT(32'hAAAAAA8A)) 
     \GEN_INPUT_REG[2].sig_input_data_reg[2][9]_i_4 
@@ -22662,7 +22439,7 @@ module system_axi_vdma_0_0_axi_vdma_reset
         .I3(halt_i_reg_0),
         .I4(p_27_out),
         .O(\GEN_INPUT_REG[3].sig_input_data_reg_reg[3][9] ));
-  (* SOFT_HLUTNM = "soft_lutpair175" *) 
+  (* SOFT_HLUTNM = "soft_lutpair180" *) 
   LUT4 #(
     .INIT(16'h0200)) 
     \GEN_LINEBUF_NO_SOF.GEN_LINEBUFFER.m_axis_tlast_d1_i_1 
@@ -22671,7 +22448,7 @@ module system_axi_vdma_0_0_axi_vdma_reset
         .I2(halt_i_reg_0),
         .I3(\GENERATE_LEVEL_P_S_CDC.SINGLE_BIT.CROSS_PLEVEL_IN2SCNDRY_s_level_out_d4 ),
         .O(\GEN_LINEBUF_NO_SOF.GEN_LINEBUFFER.m_axis_tlast_d1_reg ));
-  (* SOFT_HLUTNM = "soft_lutpair172" *) 
+  (* SOFT_HLUTNM = "soft_lutpair181" *) 
   LUT4 #(
     .INIT(16'h0200)) 
     \GEN_LINEBUF_NO_SOF.GEN_LINEBUFFER.m_axis_tready_d1_i_1 
@@ -22680,7 +22457,7 @@ module system_axi_vdma_0_0_axi_vdma_reset
         .I2(halt_i_reg_0),
         .I3(\GENERATE_LEVEL_P_S_CDC.SINGLE_BIT.CROSS_PLEVEL_IN2SCNDRY_s_level_out_d4 ),
         .O(\GEN_LINEBUF_NO_SOF.GEN_LINEBUFFER.m_axis_tready_d1_reg ));
-  (* SOFT_HLUTNM = "soft_lutpair176" *) 
+  (* SOFT_HLUTNM = "soft_lutpair177" *) 
   LUT4 #(
     .INIT(16'h0200)) 
     \GEN_LINEBUF_NO_SOF.GEN_LINEBUFFER.m_axis_tvalid_d1_i_1 
@@ -22689,7 +22466,7 @@ module system_axi_vdma_0_0_axi_vdma_reset
         .I2(halt_i_reg_0),
         .I3(\GENERATE_LEVEL_P_S_CDC.SINGLE_BIT.CROSS_PLEVEL_IN2SCNDRY_s_level_out_d4 ),
         .O(\GEN_LINEBUF_NO_SOF.GEN_LINEBUFFER.m_axis_tvalid_d1_reg ));
-  (* SOFT_HLUTNM = "soft_lutpair172" *) 
+  (* SOFT_HLUTNM = "soft_lutpair177" *) 
   LUT3 #(
     .INIT(8'h0B)) 
     \GEN_LINEBUF_NO_SOF.vsize_counter[12]_i_1 
@@ -22773,7 +22550,7 @@ module system_axi_vdma_0_0_axi_vdma_reset
         .s_axi_lite_aclk(s_axi_lite_aclk),
         .s_soft_reset_i(s_soft_reset_i),
         .s_soft_reset_i_d1(s_soft_reset_i_d1));
-  (* SOFT_HLUTNM = "soft_lutpair168" *) 
+  (* SOFT_HLUTNM = "soft_lutpair173" *) 
   LUT5 #(
     .INIT(32'h80000000)) 
     \GEN_MIN_FOR_ASYNC.axis_min_assert_sftrst_i_2 
@@ -22791,7 +22568,7 @@ module system_axi_vdma_0_0_axi_vdma_reset
         .D(\GEN_MIN_FOR_ASYNC.AXIS_RESET_CDC_I_n_1 ),
         .Q(axis_min_assert_sftrst),
         .R(1'b0));
-  (* SOFT_HLUTNM = "soft_lutpair168" *) 
+  (* SOFT_HLUTNM = "soft_lutpair173" *) 
   LUT4 #(
     .INIT(16'h80FF)) 
     \GEN_MIN_FOR_ASYNC.axis_min_count[0]_i_1 
@@ -22800,7 +22577,7 @@ module system_axi_vdma_0_0_axi_vdma_reset
         .I2(axis_min_count[2]),
         .I3(axis_min_count[0]),
         .O(\GEN_MIN_FOR_ASYNC.axis_min_count[0]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair174" *) 
+  (* SOFT_HLUTNM = "soft_lutpair179" *) 
   LUT4 #(
     .INIT(16'hDA5A)) 
     \GEN_MIN_FOR_ASYNC.axis_min_count[1]_i_1 
@@ -22827,7 +22604,7 @@ module system_axi_vdma_0_0_axi_vdma_reset
         .I4(axis_min_count[0]),
         .I5(axis_min_count[2]),
         .O(\GEN_MIN_FOR_ASYNC.axis_min_count[3]_i_2_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair174" *) 
+  (* SOFT_HLUTNM = "soft_lutpair179" *) 
   LUT4 #(
     .INIT(16'hECCC)) 
     \GEN_MIN_FOR_ASYNC.axis_min_count[3]_i_3 
@@ -22868,7 +22645,7 @@ module system_axi_vdma_0_0_axi_vdma_reset
         .D(\GEN_MIN_FOR_ASYNC.axis_min_count[3]_i_3_n_0 ),
         .Q(axis_min_count[3]),
         .R(\GEN_MIN_FOR_ASYNC.AXIS_CLR_CDC_I_n_2 ));
-  (* SOFT_HLUTNM = "soft_lutpair169" *) 
+  (* SOFT_HLUTNM = "soft_lutpair174" *) 
   LUT5 #(
     .INIT(32'h80000000)) 
     \GEN_MIN_FOR_ASYNC.lite_min_assert_sftrst_i_2 
@@ -22886,7 +22663,7 @@ module system_axi_vdma_0_0_axi_vdma_reset
         .D(\GEN_MIN_FOR_ASYNC.LITE_RESET_CDC_I_n_1 ),
         .Q(lite_min_assert_sftrst),
         .R(1'b0));
-  (* SOFT_HLUTNM = "soft_lutpair169" *) 
+  (* SOFT_HLUTNM = "soft_lutpair174" *) 
   LUT4 #(
     .INIT(16'h80FF)) 
     \GEN_MIN_FOR_ASYNC.lite_min_count[0]_i_1 
@@ -22895,7 +22672,7 @@ module system_axi_vdma_0_0_axi_vdma_reset
         .I2(lite_min_count[2]),
         .I3(lite_min_count[0]),
         .O(\GEN_MIN_FOR_ASYNC.lite_min_count[0]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair177" *) 
+  (* SOFT_HLUTNM = "soft_lutpair182" *) 
   LUT4 #(
     .INIT(16'hDA5A)) 
     \GEN_MIN_FOR_ASYNC.lite_min_count[1]_i_1 
@@ -22922,7 +22699,7 @@ module system_axi_vdma_0_0_axi_vdma_reset
         .I4(lite_min_count[0]),
         .I5(lite_min_count[2]),
         .O(\GEN_MIN_FOR_ASYNC.lite_min_count[3]_i_2_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair177" *) 
+  (* SOFT_HLUTNM = "soft_lutpair182" *) 
   LUT4 #(
     .INIT(16'hECCC)) 
     \GEN_MIN_FOR_ASYNC.lite_min_count[3]_i_3 
@@ -22963,7 +22740,7 @@ module system_axi_vdma_0_0_axi_vdma_reset
         .D(\GEN_MIN_FOR_ASYNC.lite_min_count[3]_i_3_n_0 ),
         .Q(lite_min_count[3]),
         .R(\GEN_MIN_FOR_ASYNC.LITE_CLR_CDC_I_n_2 ));
-  (* SOFT_HLUTNM = "soft_lutpair170" *) 
+  (* SOFT_HLUTNM = "soft_lutpair175" *) 
   LUT5 #(
     .INIT(32'h80000000)) 
     \GEN_MIN_FOR_ASYNC.prmry_min_assert_sftrst_i_2 
@@ -22981,7 +22758,7 @@ module system_axi_vdma_0_0_axi_vdma_reset
         .D(\GEN_MIN_FOR_ASYNC.LITE_MIN_CDC_I_n_4 ),
         .Q(prmry_min_assert_sftrst),
         .R(1'b0));
-  (* SOFT_HLUTNM = "soft_lutpair170" *) 
+  (* SOFT_HLUTNM = "soft_lutpair175" *) 
   LUT4 #(
     .INIT(16'h80FF)) 
     \GEN_MIN_FOR_ASYNC.prmry_min_count[0]_i_1 
@@ -22998,7 +22775,7 @@ module system_axi_vdma_0_0_axi_vdma_reset
         .I2(prmry_min_count[0]),
         .I3(prmry_min_count[2]),
         .O(\GEN_MIN_FOR_ASYNC.prmry_min_count[1]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair173" *) 
+  (* SOFT_HLUTNM = "soft_lutpair178" *) 
   LUT4 #(
     .INIT(16'hDFA0)) 
     \GEN_MIN_FOR_ASYNC.prmry_min_count[2]_i_1 
@@ -23017,7 +22794,7 @@ module system_axi_vdma_0_0_axi_vdma_reset
         .I4(prmry_min_count[0]),
         .I5(prmry_min_count[2]),
         .O(\GEN_MIN_FOR_ASYNC.prmry_min_count[3]_i_2_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair173" *) 
+  (* SOFT_HLUTNM = "soft_lutpair178" *) 
   LUT4 #(
     .INIT(16'hECCC)) 
     \GEN_MIN_FOR_ASYNC.prmry_min_count[3]_i_3 
@@ -23058,7 +22835,7 @@ module system_axi_vdma_0_0_axi_vdma_reset
         .D(\GEN_MIN_FOR_ASYNC.prmry_min_count[3]_i_3_n_0 ),
         .Q(prmry_min_count[3]),
         .R(\GEN_MIN_FOR_ASYNC.LITE_MIN_CDC_I_n_2 ));
-  (* SOFT_HLUTNM = "soft_lutpair167" *) 
+  (* SOFT_HLUTNM = "soft_lutpair172" *) 
   LUT5 #(
     .INIT(32'h00040000)) 
     \GEN_OUTPUT_REG[0].sig_output_data_reg[0][8]_i_4 
@@ -23104,7 +22881,7 @@ module system_axi_vdma_0_0_axi_vdma_reset
         .D(min_assert_sftrst),
         .Q(assert_sftrst_d1),
         .R(1'b0));
-  (* SOFT_HLUTNM = "soft_lutpair171" *) 
+  (* SOFT_HLUTNM = "soft_lutpair176" *) 
   LUT4 #(
     .INIT(16'hFEFF)) 
     \cmnds_queued[7]_i_1 
@@ -23113,23 +22890,13 @@ module system_axi_vdma_0_0_axi_vdma_reset
         .I2(dma_err),
         .I3(out),
         .O(\cmnds_queued_reg[7] ));
-  (* SOFT_HLUTNM = "soft_lutpair171" *) 
+  (* SOFT_HLUTNM = "soft_lutpair176" *) 
   LUT2 #(
     .INIT(4'hB)) 
-    \gc0.count_d1[13]_i_1 
+    \gpregsm1.curr_fwft_state[1]_i_1 
        (.I0(halt_i_reg_0),
         .I1(out),
-        .O(\gcc0.gc0.count_d1_reg[13] ));
-  LUT6 #(
-    .INIT(64'h0000000000100000)) 
-    \gcc0.gc0.count_d1[13]_i_1 
-       (.I0(p_27_out),
-        .I1(halt_i_reg_0),
-        .I2(out),
-        .I3(ram_full_i_reg),
-        .I4(dm2linebuf_mm2s_tvalid),
-        .I5(ram_full_fb_i_reg),
-        .O(\gcc0.gc0.count_reg[0] ));
+        .O(\gcc0.gc0.count_d1_reg[8] ));
   LUT5 #(
     .INIT(32'hAEAEFFAE)) 
     halt_i_i_2
@@ -23197,7 +22964,7 @@ module system_axi_vdma_0_0_axi_vdma_reset
         .D(s_soft_reset_i0),
         .Q(s_soft_reset_i),
         .R(1'b0));
-  (* SOFT_HLUTNM = "soft_lutpair176" *) 
+  (* SOFT_HLUTNM = "soft_lutpair181" *) 
   LUT2 #(
     .INIT(4'hB)) 
     sig_reset_reg_i_1
@@ -23237,21 +23004,14 @@ module system_axi_vdma_0_0_axi_vdma_rst_module
     \GEN_LINEBUF_NO_SOF.GEN_LINEBUFFER.m_axis_tready_d1_reg ,
     \GEN_LINEBUF_NO_SOF.GEN_LINEBUFFER.m_axis_tvalid_d1_reg ,
     \GEN_LINEBUF_NO_SOF.all_lines_xfred_reg ,
-    \gcc0.gc0.count_reg[0] ,
+    \DEVICE_7SERIES.NO_BMM_INFO.SDP.WIDE_PRIM36_NO_ECC.ram ,
     \cmnds_queued_reg[7] ,
     reset_counts_reg,
     \GEN_INPUT_REG[3].sig_input_data_reg_reg[3][9] ,
     sig_s_h_halt_reg_reg,
     \GEN_DWIDTH_NO_SOF.all_lines_xfred_reg ,
-    \gcc0.gc0.count_d1_reg[13] ,
+    \gcc0.gc0.count_d1_reg[8] ,
     sig_reset_reg_reg_0,
-    \DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram ,
-    \DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_0 ,
-    \DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_1 ,
-    \DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_2 ,
-    \DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_3 ,
-    \DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_4 ,
-    WEA,
     m_axi_mm2s_aclk,
     s_axi_lite_aclk,
     m_axis_mm2s_aclk,
@@ -23289,21 +23049,14 @@ module system_axi_vdma_0_0_axi_vdma_rst_module
   output \GEN_LINEBUF_NO_SOF.GEN_LINEBUFFER.m_axis_tready_d1_reg ;
   output \GEN_LINEBUF_NO_SOF.GEN_LINEBUFFER.m_axis_tvalid_d1_reg ;
   output [0:0]\GEN_LINEBUF_NO_SOF.all_lines_xfred_reg ;
-  output \gcc0.gc0.count_reg[0] ;
+  output \DEVICE_7SERIES.NO_BMM_INFO.SDP.WIDE_PRIM36_NO_ECC.ram ;
   output [0:0]\cmnds_queued_reg[7] ;
   output reset_counts_reg;
   output \GEN_INPUT_REG[3].sig_input_data_reg_reg[3][9] ;
   output sig_s_h_halt_reg_reg;
   output [0:0]\GEN_DWIDTH_NO_SOF.all_lines_xfred_reg ;
-  output \gcc0.gc0.count_d1_reg[13] ;
+  output \gcc0.gc0.count_d1_reg[8] ;
   output sig_reset_reg_reg_0;
-  output \DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram ;
-  output [0:0]\DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_0 ;
-  output [0:0]\DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_1 ;
-  output [0:0]\DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_2 ;
-  output [0:0]\DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_3 ;
-  output [1:0]\DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_4 ;
-  output [0:0]WEA;
   input m_axi_mm2s_aclk;
   input s_axi_lite_aclk;
   input m_axis_mm2s_aclk;
@@ -23328,12 +23081,7 @@ module system_axi_vdma_0_0_axi_vdma_rst_module
   input p_41_out;
 
   wire [0:0]D;
-  wire \DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram ;
-  wire [0:0]\DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_0 ;
-  wire [0:0]\DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_1 ;
-  wire [0:0]\DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_2 ;
-  wire [0:0]\DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_3 ;
-  wire [1:0]\DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_4 ;
+  wire \DEVICE_7SERIES.NO_BMM_INFO.SDP.WIDE_PRIM36_NO_ECC.ram ;
   wire [0:0]\GEN_DWIDTH_NO_SOF.all_lines_xfred_reg ;
   wire [0:0]\GEN_INCLUDE_MM2S.GEN_CH1_FRM_CNTR.ch1_thresh_count_reg[0] ;
   wire \GEN_INPUT_REG[3].sig_input_data_reg_reg[3][9] ;
@@ -23342,14 +23090,12 @@ module system_axi_vdma_0_0_axi_vdma_rst_module
   wire \GEN_LINEBUF_NO_SOF.GEN_LINEBUFFER.m_axis_tvalid_d1_reg ;
   wire [0:0]\GEN_LINEBUF_NO_SOF.all_lines_xfred_reg ;
   wire [0:0]SR;
-  wire [0:0]WEA;
   wire axi_resetn;
   wire [0:0]\cmnds_queued_reg[7] ;
   wire dm2linebuf_mm2s_tvalid;
   wire dma_err;
   wire \dmacr_i_reg[2] ;
-  wire \gcc0.gc0.count_d1_reg[13] ;
-  wire \gcc0.gc0.count_reg[0] ;
+  wire \gcc0.gc0.count_d1_reg[8] ;
   wire halt_reset;
   wire m_axi_mm2s_aclk;
   wire m_axis_mm2s_aclk;
@@ -23390,12 +23136,7 @@ module system_axi_vdma_0_0_axi_vdma_rst_module
         .O(\GEN_INCLUDE_MM2S.GEN_CH1_FRM_CNTR.ch1_thresh_count_reg[0] ));
   system_axi_vdma_0_0_axi_vdma_reset \GEN_RESET_FOR_MM2S.RESET_I 
        (.D(D),
-        .\DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram (\DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram ),
-        .\DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_0 (\DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_0 ),
-        .\DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_1 (\DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_1 ),
-        .\DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_2 (\DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_2 ),
-        .\DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_3 (\DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_3 ),
-        .\DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_4 (\DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_4 ),
+        .\DEVICE_7SERIES.NO_BMM_INFO.SDP.WIDE_PRIM36_NO_ECC.ram (\DEVICE_7SERIES.NO_BMM_INFO.SDP.WIDE_PRIM36_NO_ECC.ram ),
         .\GENERATE_LEVEL_P_S_CDC.SINGLE_BIT.CROSS_PLEVEL_IN2SCNDRY_s_level_out_d4 (sig_mm2s_axis_resetn),
         .\GEN_DWIDTH_NO_SOF.all_lines_xfred_reg (\GEN_DWIDTH_NO_SOF.all_lines_xfred_reg ),
         .\GEN_INPUT_REG[3].sig_input_data_reg_reg[3][9] (\GEN_INPUT_REG[3].sig_input_data_reg_reg[3][9] ),
@@ -23403,13 +23144,11 @@ module system_axi_vdma_0_0_axi_vdma_rst_module
         .\GEN_LINEBUF_NO_SOF.GEN_LINEBUFFER.m_axis_tready_d1_reg (\GEN_LINEBUF_NO_SOF.GEN_LINEBUFFER.m_axis_tready_d1_reg ),
         .\GEN_LINEBUF_NO_SOF.GEN_LINEBUFFER.m_axis_tvalid_d1_reg (\GEN_LINEBUF_NO_SOF.GEN_LINEBUFFER.m_axis_tvalid_d1_reg ),
         .\GEN_LINEBUF_NO_SOF.all_lines_xfred_reg (\GEN_LINEBUF_NO_SOF.all_lines_xfred_reg ),
-        .WEA(WEA),
         .\cmnds_queued_reg[7] (\cmnds_queued_reg[7] ),
         .dm2linebuf_mm2s_tvalid(dm2linebuf_mm2s_tvalid),
         .dma_err(dma_err),
         .\dmacr_i_reg[2] (\dmacr_i_reg[2] ),
-        .\gcc0.gc0.count_d1_reg[13] (\gcc0.gc0.count_d1_reg[13] ),
-        .\gcc0.gc0.count_reg[0] (\gcc0.gc0.count_reg[0] ),
+        .\gcc0.gc0.count_d1_reg[8] (\gcc0.gc0.count_d1_reg[8] ),
         .halt_i_reg_0(mm2s_halt),
         .halt_i_reg_1(halt_reset),
         .in0(sig_mm2s_prmry_resetn),
@@ -23457,86 +23196,58 @@ endmodule
 
 (* ORIG_REF_NAME = "axi_vdma_sfifo" *) 
 module system_axi_vdma_0_0_axi_vdma_sfifo
-   (D,
+   (p_12_out,
     out,
     ram_full_fb_i_reg,
     \GEN_LINEBUF_NO_SOF.GEN_LINEBUFFER.GEN_SOF.sof_flag_reg ,
     \GEN_LINEBUF_NO_SOF.GEN_LINEBUFFER.GEN_SOF.sof_flag_reg_0 ,
-    p_12_out,
     m_axi_mm2s_aclk,
-    WEA,
-    dm2linebuf_mm2s_tdata,
     \GEN_FREE_RUN_MODE.frame_sync_i_reg ,
-    \GEN_FREE_RUN_MODE.frame_sync_i_reg_0 ,
-    \GEN_FREE_RUN_MODE.frame_sync_i_reg_1 ,
-    DIADI,
-    DIPADIP,
+    dm2linebuf_mm2s_tdata,
+    DIBDI,
     halt_i_reg,
-    \GEN_FREE_RUN_MODE.frame_sync_i_reg_2 ,
     sig_s_ready_out_reg,
-    \GEN_FREE_RUN_MODE.frame_sync_i_reg_3 ,
     mm2s_halt,
     prmry_resetn_i_reg,
     dm2linebuf_mm2s_tvalid,
     p_27_out);
-  output [31:0]D;
+  output [37:0]p_12_out;
   output out;
   output ram_full_fb_i_reg;
   output \GEN_LINEBUF_NO_SOF.GEN_LINEBUFFER.GEN_SOF.sof_flag_reg ;
   output \GEN_LINEBUF_NO_SOF.GEN_LINEBUFFER.GEN_SOF.sof_flag_reg_0 ;
-  output [5:0]p_12_out;
   input m_axi_mm2s_aclk;
-  input [0:0]WEA;
+  input \GEN_FREE_RUN_MODE.frame_sync_i_reg ;
   input [31:0]dm2linebuf_mm2s_tdata;
-  input [1:0]\GEN_FREE_RUN_MODE.frame_sync_i_reg ;
-  input [1:0]\GEN_FREE_RUN_MODE.frame_sync_i_reg_0 ;
-  input [1:0]\GEN_FREE_RUN_MODE.frame_sync_i_reg_1 ;
-  input [4:0]DIADI;
-  input [0:0]DIPADIP;
+  input [5:0]DIBDI;
   input halt_i_reg;
-  input \GEN_FREE_RUN_MODE.frame_sync_i_reg_2 ;
   input sig_s_ready_out_reg;
-  input \GEN_FREE_RUN_MODE.frame_sync_i_reg_3 ;
   input mm2s_halt;
   input prmry_resetn_i_reg;
   input dm2linebuf_mm2s_tvalid;
   input p_27_out;
 
-  wire [31:0]D;
-  wire [4:0]DIADI;
-  wire [0:0]DIPADIP;
-  wire [1:0]\GEN_FREE_RUN_MODE.frame_sync_i_reg ;
-  wire [1:0]\GEN_FREE_RUN_MODE.frame_sync_i_reg_0 ;
-  wire [1:0]\GEN_FREE_RUN_MODE.frame_sync_i_reg_1 ;
-  wire \GEN_FREE_RUN_MODE.frame_sync_i_reg_2 ;
-  wire \GEN_FREE_RUN_MODE.frame_sync_i_reg_3 ;
+  wire [5:0]DIBDI;
+  wire \GEN_FREE_RUN_MODE.frame_sync_i_reg ;
   wire \GEN_LINEBUF_NO_SOF.GEN_LINEBUFFER.GEN_SOF.sof_flag_reg ;
   wire \GEN_LINEBUF_NO_SOF.GEN_LINEBUFFER.GEN_SOF.sof_flag_reg_0 ;
-  wire [0:0]WEA;
   wire [31:0]dm2linebuf_mm2s_tdata;
   wire dm2linebuf_mm2s_tvalid;
   wire halt_i_reg;
   wire m_axi_mm2s_aclk;
   wire mm2s_halt;
   wire out;
-  wire [5:0]p_12_out;
+  wire [37:0]p_12_out;
   wire p_27_out;
   wire prmry_resetn_i_reg;
   wire ram_full_fb_i_reg;
   wire sig_s_ready_out_reg;
 
   system_axi_vdma_0_0_fifo_generator_v13_2_1 fg_inst
-       (.D(D),
-        .DIADI(DIADI),
-        .DIPADIP(DIPADIP),
+       (.DIBDI(DIBDI),
         .\GEN_FREE_RUN_MODE.frame_sync_i_reg (\GEN_FREE_RUN_MODE.frame_sync_i_reg ),
-        .\GEN_FREE_RUN_MODE.frame_sync_i_reg_0 (\GEN_FREE_RUN_MODE.frame_sync_i_reg_0 ),
-        .\GEN_FREE_RUN_MODE.frame_sync_i_reg_1 (\GEN_FREE_RUN_MODE.frame_sync_i_reg_1 ),
-        .\GEN_FREE_RUN_MODE.frame_sync_i_reg_2 (\GEN_FREE_RUN_MODE.frame_sync_i_reg_2 ),
-        .\GEN_FREE_RUN_MODE.frame_sync_i_reg_3 (\GEN_FREE_RUN_MODE.frame_sync_i_reg_3 ),
         .\GEN_LINEBUF_NO_SOF.GEN_LINEBUFFER.GEN_SOF.sof_flag_reg (\GEN_LINEBUF_NO_SOF.GEN_LINEBUFFER.GEN_SOF.sof_flag_reg ),
         .\GEN_LINEBUF_NO_SOF.GEN_LINEBUFFER.GEN_SOF.sof_flag_reg_0 (\GEN_LINEBUF_NO_SOF.GEN_LINEBUFFER.GEN_SOF.sof_flag_reg_0 ),
-        .WEA(WEA),
         .dm2linebuf_mm2s_tdata(dm2linebuf_mm2s_tdata),
         .dm2linebuf_mm2s_tvalid(dm2linebuf_mm2s_tvalid),
         .halt_i_reg(halt_i_reg),
@@ -23564,8 +23275,7 @@ module system_axi_vdma_0_0_axi_vdma_skid_buf
     p_12_out,
     E,
     empty_fwft_i_reg,
-    p_88_out,
-    D);
+    p_88_out);
   output out;
   output \gpregsm1.curr_fwft_state_reg[1] ;
   output \GEN_LINEBUF_NO_SOF.GEN_LINEBUFFER.m_axis_tvalid_d1_reg ;
@@ -23575,19 +23285,17 @@ module system_axi_vdma_0_0_axi_vdma_skid_buf
   output [3:0]\r0_keep_reg[3] ;
   input halt_i_reg;
   input m_axis_mm2s_aclk;
-  input [5:0]p_12_out;
+  input [37:0]p_12_out;
   input [0:0]E;
   input empty_fwft_i_reg;
   input p_88_out;
-  input [31:0]D;
 
-  wire [31:0]D;
   wire [0:0]E;
   wire empty_fwft_i_reg;
   wire halt_i_reg;
   wire m_axis_mm2s_aclk;
   wire p_0_in;
-  wire [5:0]p_12_out;
+  wire [37:0]p_12_out;
   wire p_4_out;
   wire p_88_out;
   wire [31:0]\r0_data_reg[31] ;
@@ -23615,224 +23323,224 @@ module system_axi_vdma_0_0_axi_vdma_skid_buf
     .INIT(8'hCA)) 
     \sig_data_reg_out[0]_i_1 
        (.I0(sig_data_skid_reg[0]),
-        .I1(D[0]),
+        .I1(p_12_out[0]),
         .I2(sig_s_ready_dup),
         .O(sig_data_skid_mux_out[0]));
   LUT3 #(
     .INIT(8'hCA)) 
     \sig_data_reg_out[10]_i_1 
        (.I0(sig_data_skid_reg[10]),
-        .I1(D[10]),
+        .I1(p_12_out[10]),
         .I2(sig_s_ready_dup),
         .O(sig_data_skid_mux_out[10]));
   LUT3 #(
     .INIT(8'hCA)) 
     \sig_data_reg_out[11]_i_1 
        (.I0(sig_data_skid_reg[11]),
-        .I1(D[11]),
+        .I1(p_12_out[11]),
         .I2(sig_s_ready_dup),
         .O(sig_data_skid_mux_out[11]));
   LUT3 #(
     .INIT(8'hCA)) 
     \sig_data_reg_out[12]_i_1 
        (.I0(sig_data_skid_reg[12]),
-        .I1(D[12]),
+        .I1(p_12_out[12]),
         .I2(sig_s_ready_dup),
         .O(sig_data_skid_mux_out[12]));
   LUT3 #(
     .INIT(8'hCA)) 
     \sig_data_reg_out[13]_i_1 
        (.I0(sig_data_skid_reg[13]),
-        .I1(D[13]),
+        .I1(p_12_out[13]),
         .I2(sig_s_ready_dup),
         .O(sig_data_skid_mux_out[13]));
   LUT3 #(
     .INIT(8'hCA)) 
     \sig_data_reg_out[14]_i_1 
        (.I0(sig_data_skid_reg[14]),
-        .I1(D[14]),
+        .I1(p_12_out[14]),
         .I2(sig_s_ready_dup),
         .O(sig_data_skid_mux_out[14]));
   LUT3 #(
     .INIT(8'hCA)) 
     \sig_data_reg_out[15]_i_1 
        (.I0(sig_data_skid_reg[15]),
-        .I1(D[15]),
+        .I1(p_12_out[15]),
         .I2(sig_s_ready_dup),
         .O(sig_data_skid_mux_out[15]));
   LUT3 #(
     .INIT(8'hCA)) 
     \sig_data_reg_out[16]_i_1 
        (.I0(sig_data_skid_reg[16]),
-        .I1(D[16]),
+        .I1(p_12_out[16]),
         .I2(sig_s_ready_dup),
         .O(sig_data_skid_mux_out[16]));
   LUT3 #(
     .INIT(8'hCA)) 
     \sig_data_reg_out[17]_i_1 
        (.I0(sig_data_skid_reg[17]),
-        .I1(D[17]),
+        .I1(p_12_out[17]),
         .I2(sig_s_ready_dup),
         .O(sig_data_skid_mux_out[17]));
   LUT3 #(
     .INIT(8'hCA)) 
     \sig_data_reg_out[18]_i_1 
        (.I0(sig_data_skid_reg[18]),
-        .I1(D[18]),
+        .I1(p_12_out[18]),
         .I2(sig_s_ready_dup),
         .O(sig_data_skid_mux_out[18]));
   LUT3 #(
     .INIT(8'hCA)) 
     \sig_data_reg_out[19]_i_1 
        (.I0(sig_data_skid_reg[19]),
-        .I1(D[19]),
+        .I1(p_12_out[19]),
         .I2(sig_s_ready_dup),
         .O(sig_data_skid_mux_out[19]));
   LUT3 #(
     .INIT(8'hCA)) 
     \sig_data_reg_out[1]_i_1 
        (.I0(sig_data_skid_reg[1]),
-        .I1(D[1]),
+        .I1(p_12_out[1]),
         .I2(sig_s_ready_dup),
         .O(sig_data_skid_mux_out[1]));
   LUT3 #(
     .INIT(8'hCA)) 
     \sig_data_reg_out[20]_i_1 
        (.I0(sig_data_skid_reg[20]),
-        .I1(D[20]),
+        .I1(p_12_out[20]),
         .I2(sig_s_ready_dup),
         .O(sig_data_skid_mux_out[20]));
   LUT3 #(
     .INIT(8'hCA)) 
     \sig_data_reg_out[21]_i_1 
        (.I0(sig_data_skid_reg[21]),
-        .I1(D[21]),
+        .I1(p_12_out[21]),
         .I2(sig_s_ready_dup),
         .O(sig_data_skid_mux_out[21]));
   LUT3 #(
     .INIT(8'hCA)) 
     \sig_data_reg_out[22]_i_1 
        (.I0(sig_data_skid_reg[22]),
-        .I1(D[22]),
+        .I1(p_12_out[22]),
         .I2(sig_s_ready_dup),
         .O(sig_data_skid_mux_out[22]));
   LUT3 #(
     .INIT(8'hCA)) 
     \sig_data_reg_out[23]_i_1 
        (.I0(sig_data_skid_reg[23]),
-        .I1(D[23]),
+        .I1(p_12_out[23]),
         .I2(sig_s_ready_dup),
         .O(sig_data_skid_mux_out[23]));
   LUT3 #(
     .INIT(8'hCA)) 
     \sig_data_reg_out[24]_i_1 
        (.I0(sig_data_skid_reg[24]),
-        .I1(D[24]),
+        .I1(p_12_out[24]),
         .I2(sig_s_ready_dup),
         .O(sig_data_skid_mux_out[24]));
   LUT3 #(
     .INIT(8'hCA)) 
     \sig_data_reg_out[25]_i_1 
        (.I0(sig_data_skid_reg[25]),
-        .I1(D[25]),
+        .I1(p_12_out[25]),
         .I2(sig_s_ready_dup),
         .O(sig_data_skid_mux_out[25]));
   LUT3 #(
     .INIT(8'hCA)) 
     \sig_data_reg_out[26]_i_1 
        (.I0(sig_data_skid_reg[26]),
-        .I1(D[26]),
+        .I1(p_12_out[26]),
         .I2(sig_s_ready_dup),
         .O(sig_data_skid_mux_out[26]));
   LUT3 #(
     .INIT(8'hCA)) 
     \sig_data_reg_out[27]_i_1 
        (.I0(sig_data_skid_reg[27]),
-        .I1(D[27]),
+        .I1(p_12_out[27]),
         .I2(sig_s_ready_dup),
         .O(sig_data_skid_mux_out[27]));
   LUT3 #(
     .INIT(8'hCA)) 
     \sig_data_reg_out[28]_i_1 
        (.I0(sig_data_skid_reg[28]),
-        .I1(D[28]),
+        .I1(p_12_out[28]),
         .I2(sig_s_ready_dup),
         .O(sig_data_skid_mux_out[28]));
   LUT3 #(
     .INIT(8'hCA)) 
     \sig_data_reg_out[29]_i_1 
        (.I0(sig_data_skid_reg[29]),
-        .I1(D[29]),
+        .I1(p_12_out[29]),
         .I2(sig_s_ready_dup),
         .O(sig_data_skid_mux_out[29]));
   LUT3 #(
     .INIT(8'hCA)) 
     \sig_data_reg_out[2]_i_1 
        (.I0(sig_data_skid_reg[2]),
-        .I1(D[2]),
+        .I1(p_12_out[2]),
         .I2(sig_s_ready_dup),
         .O(sig_data_skid_mux_out[2]));
   LUT3 #(
     .INIT(8'hCA)) 
     \sig_data_reg_out[30]_i_1 
        (.I0(sig_data_skid_reg[30]),
-        .I1(D[30]),
+        .I1(p_12_out[30]),
         .I2(sig_s_ready_dup),
         .O(sig_data_skid_mux_out[30]));
   LUT3 #(
     .INIT(8'hCA)) 
     \sig_data_reg_out[31]_i_1 
        (.I0(sig_data_skid_reg[31]),
-        .I1(D[31]),
+        .I1(p_12_out[31]),
         .I2(sig_s_ready_dup),
         .O(sig_data_skid_mux_out[31]));
   LUT3 #(
     .INIT(8'hCA)) 
     \sig_data_reg_out[3]_i_1 
        (.I0(sig_data_skid_reg[3]),
-        .I1(D[3]),
+        .I1(p_12_out[3]),
         .I2(sig_s_ready_dup),
         .O(sig_data_skid_mux_out[3]));
   LUT3 #(
     .INIT(8'hCA)) 
     \sig_data_reg_out[4]_i_1 
        (.I0(sig_data_skid_reg[4]),
-        .I1(D[4]),
+        .I1(p_12_out[4]),
         .I2(sig_s_ready_dup),
         .O(sig_data_skid_mux_out[4]));
   LUT3 #(
     .INIT(8'hCA)) 
     \sig_data_reg_out[5]_i_1 
        (.I0(sig_data_skid_reg[5]),
-        .I1(D[5]),
+        .I1(p_12_out[5]),
         .I2(sig_s_ready_dup),
         .O(sig_data_skid_mux_out[5]));
   LUT3 #(
     .INIT(8'hCA)) 
     \sig_data_reg_out[6]_i_1 
        (.I0(sig_data_skid_reg[6]),
-        .I1(D[6]),
+        .I1(p_12_out[6]),
         .I2(sig_s_ready_dup),
         .O(sig_data_skid_mux_out[6]));
   LUT3 #(
     .INIT(8'hCA)) 
     \sig_data_reg_out[7]_i_1 
        (.I0(sig_data_skid_reg[7]),
-        .I1(D[7]),
+        .I1(p_12_out[7]),
         .I2(sig_s_ready_dup),
         .O(sig_data_skid_mux_out[7]));
   LUT3 #(
     .INIT(8'hCA)) 
     \sig_data_reg_out[8]_i_1 
        (.I0(sig_data_skid_reg[8]),
-        .I1(D[8]),
+        .I1(p_12_out[8]),
         .I2(sig_s_ready_dup),
         .O(sig_data_skid_mux_out[8]));
   LUT3 #(
     .INIT(8'hCA)) 
     \sig_data_reg_out[9]_i_1 
        (.I0(sig_data_skid_reg[9]),
-        .I1(D[9]),
+        .I1(p_12_out[9]),
         .I2(sig_s_ready_dup),
         .O(sig_data_skid_mux_out[9]));
   FDRE #(
@@ -24096,7 +23804,7 @@ module system_axi_vdma_0_0_axi_vdma_skid_buf
     \sig_data_skid_reg_reg[0] 
        (.C(m_axis_mm2s_aclk),
         .CE(sig_s_ready_dup),
-        .D(D[0]),
+        .D(p_12_out[0]),
         .Q(sig_data_skid_reg[0]),
         .R(halt_i_reg));
   FDRE #(
@@ -24104,7 +23812,7 @@ module system_axi_vdma_0_0_axi_vdma_skid_buf
     \sig_data_skid_reg_reg[10] 
        (.C(m_axis_mm2s_aclk),
         .CE(sig_s_ready_dup),
-        .D(D[10]),
+        .D(p_12_out[10]),
         .Q(sig_data_skid_reg[10]),
         .R(halt_i_reg));
   FDRE #(
@@ -24112,7 +23820,7 @@ module system_axi_vdma_0_0_axi_vdma_skid_buf
     \sig_data_skid_reg_reg[11] 
        (.C(m_axis_mm2s_aclk),
         .CE(sig_s_ready_dup),
-        .D(D[11]),
+        .D(p_12_out[11]),
         .Q(sig_data_skid_reg[11]),
         .R(halt_i_reg));
   FDRE #(
@@ -24120,7 +23828,7 @@ module system_axi_vdma_0_0_axi_vdma_skid_buf
     \sig_data_skid_reg_reg[12] 
        (.C(m_axis_mm2s_aclk),
         .CE(sig_s_ready_dup),
-        .D(D[12]),
+        .D(p_12_out[12]),
         .Q(sig_data_skid_reg[12]),
         .R(halt_i_reg));
   FDRE #(
@@ -24128,7 +23836,7 @@ module system_axi_vdma_0_0_axi_vdma_skid_buf
     \sig_data_skid_reg_reg[13] 
        (.C(m_axis_mm2s_aclk),
         .CE(sig_s_ready_dup),
-        .D(D[13]),
+        .D(p_12_out[13]),
         .Q(sig_data_skid_reg[13]),
         .R(halt_i_reg));
   FDRE #(
@@ -24136,7 +23844,7 @@ module system_axi_vdma_0_0_axi_vdma_skid_buf
     \sig_data_skid_reg_reg[14] 
        (.C(m_axis_mm2s_aclk),
         .CE(sig_s_ready_dup),
-        .D(D[14]),
+        .D(p_12_out[14]),
         .Q(sig_data_skid_reg[14]),
         .R(halt_i_reg));
   FDRE #(
@@ -24144,7 +23852,7 @@ module system_axi_vdma_0_0_axi_vdma_skid_buf
     \sig_data_skid_reg_reg[15] 
        (.C(m_axis_mm2s_aclk),
         .CE(sig_s_ready_dup),
-        .D(D[15]),
+        .D(p_12_out[15]),
         .Q(sig_data_skid_reg[15]),
         .R(halt_i_reg));
   FDRE #(
@@ -24152,7 +23860,7 @@ module system_axi_vdma_0_0_axi_vdma_skid_buf
     \sig_data_skid_reg_reg[16] 
        (.C(m_axis_mm2s_aclk),
         .CE(sig_s_ready_dup),
-        .D(D[16]),
+        .D(p_12_out[16]),
         .Q(sig_data_skid_reg[16]),
         .R(halt_i_reg));
   FDRE #(
@@ -24160,7 +23868,7 @@ module system_axi_vdma_0_0_axi_vdma_skid_buf
     \sig_data_skid_reg_reg[17] 
        (.C(m_axis_mm2s_aclk),
         .CE(sig_s_ready_dup),
-        .D(D[17]),
+        .D(p_12_out[17]),
         .Q(sig_data_skid_reg[17]),
         .R(halt_i_reg));
   FDRE #(
@@ -24168,7 +23876,7 @@ module system_axi_vdma_0_0_axi_vdma_skid_buf
     \sig_data_skid_reg_reg[18] 
        (.C(m_axis_mm2s_aclk),
         .CE(sig_s_ready_dup),
-        .D(D[18]),
+        .D(p_12_out[18]),
         .Q(sig_data_skid_reg[18]),
         .R(halt_i_reg));
   FDRE #(
@@ -24176,7 +23884,7 @@ module system_axi_vdma_0_0_axi_vdma_skid_buf
     \sig_data_skid_reg_reg[19] 
        (.C(m_axis_mm2s_aclk),
         .CE(sig_s_ready_dup),
-        .D(D[19]),
+        .D(p_12_out[19]),
         .Q(sig_data_skid_reg[19]),
         .R(halt_i_reg));
   FDRE #(
@@ -24184,7 +23892,7 @@ module system_axi_vdma_0_0_axi_vdma_skid_buf
     \sig_data_skid_reg_reg[1] 
        (.C(m_axis_mm2s_aclk),
         .CE(sig_s_ready_dup),
-        .D(D[1]),
+        .D(p_12_out[1]),
         .Q(sig_data_skid_reg[1]),
         .R(halt_i_reg));
   FDRE #(
@@ -24192,7 +23900,7 @@ module system_axi_vdma_0_0_axi_vdma_skid_buf
     \sig_data_skid_reg_reg[20] 
        (.C(m_axis_mm2s_aclk),
         .CE(sig_s_ready_dup),
-        .D(D[20]),
+        .D(p_12_out[20]),
         .Q(sig_data_skid_reg[20]),
         .R(halt_i_reg));
   FDRE #(
@@ -24200,7 +23908,7 @@ module system_axi_vdma_0_0_axi_vdma_skid_buf
     \sig_data_skid_reg_reg[21] 
        (.C(m_axis_mm2s_aclk),
         .CE(sig_s_ready_dup),
-        .D(D[21]),
+        .D(p_12_out[21]),
         .Q(sig_data_skid_reg[21]),
         .R(halt_i_reg));
   FDRE #(
@@ -24208,7 +23916,7 @@ module system_axi_vdma_0_0_axi_vdma_skid_buf
     \sig_data_skid_reg_reg[22] 
        (.C(m_axis_mm2s_aclk),
         .CE(sig_s_ready_dup),
-        .D(D[22]),
+        .D(p_12_out[22]),
         .Q(sig_data_skid_reg[22]),
         .R(halt_i_reg));
   FDRE #(
@@ -24216,7 +23924,7 @@ module system_axi_vdma_0_0_axi_vdma_skid_buf
     \sig_data_skid_reg_reg[23] 
        (.C(m_axis_mm2s_aclk),
         .CE(sig_s_ready_dup),
-        .D(D[23]),
+        .D(p_12_out[23]),
         .Q(sig_data_skid_reg[23]),
         .R(halt_i_reg));
   FDRE #(
@@ -24224,7 +23932,7 @@ module system_axi_vdma_0_0_axi_vdma_skid_buf
     \sig_data_skid_reg_reg[24] 
        (.C(m_axis_mm2s_aclk),
         .CE(sig_s_ready_dup),
-        .D(D[24]),
+        .D(p_12_out[24]),
         .Q(sig_data_skid_reg[24]),
         .R(halt_i_reg));
   FDRE #(
@@ -24232,7 +23940,7 @@ module system_axi_vdma_0_0_axi_vdma_skid_buf
     \sig_data_skid_reg_reg[25] 
        (.C(m_axis_mm2s_aclk),
         .CE(sig_s_ready_dup),
-        .D(D[25]),
+        .D(p_12_out[25]),
         .Q(sig_data_skid_reg[25]),
         .R(halt_i_reg));
   FDRE #(
@@ -24240,7 +23948,7 @@ module system_axi_vdma_0_0_axi_vdma_skid_buf
     \sig_data_skid_reg_reg[26] 
        (.C(m_axis_mm2s_aclk),
         .CE(sig_s_ready_dup),
-        .D(D[26]),
+        .D(p_12_out[26]),
         .Q(sig_data_skid_reg[26]),
         .R(halt_i_reg));
   FDRE #(
@@ -24248,7 +23956,7 @@ module system_axi_vdma_0_0_axi_vdma_skid_buf
     \sig_data_skid_reg_reg[27] 
        (.C(m_axis_mm2s_aclk),
         .CE(sig_s_ready_dup),
-        .D(D[27]),
+        .D(p_12_out[27]),
         .Q(sig_data_skid_reg[27]),
         .R(halt_i_reg));
   FDRE #(
@@ -24256,7 +23964,7 @@ module system_axi_vdma_0_0_axi_vdma_skid_buf
     \sig_data_skid_reg_reg[28] 
        (.C(m_axis_mm2s_aclk),
         .CE(sig_s_ready_dup),
-        .D(D[28]),
+        .D(p_12_out[28]),
         .Q(sig_data_skid_reg[28]),
         .R(halt_i_reg));
   FDRE #(
@@ -24264,7 +23972,7 @@ module system_axi_vdma_0_0_axi_vdma_skid_buf
     \sig_data_skid_reg_reg[29] 
        (.C(m_axis_mm2s_aclk),
         .CE(sig_s_ready_dup),
-        .D(D[29]),
+        .D(p_12_out[29]),
         .Q(sig_data_skid_reg[29]),
         .R(halt_i_reg));
   FDRE #(
@@ -24272,7 +23980,7 @@ module system_axi_vdma_0_0_axi_vdma_skid_buf
     \sig_data_skid_reg_reg[2] 
        (.C(m_axis_mm2s_aclk),
         .CE(sig_s_ready_dup),
-        .D(D[2]),
+        .D(p_12_out[2]),
         .Q(sig_data_skid_reg[2]),
         .R(halt_i_reg));
   FDRE #(
@@ -24280,7 +23988,7 @@ module system_axi_vdma_0_0_axi_vdma_skid_buf
     \sig_data_skid_reg_reg[30] 
        (.C(m_axis_mm2s_aclk),
         .CE(sig_s_ready_dup),
-        .D(D[30]),
+        .D(p_12_out[30]),
         .Q(sig_data_skid_reg[30]),
         .R(halt_i_reg));
   FDRE #(
@@ -24288,7 +23996,7 @@ module system_axi_vdma_0_0_axi_vdma_skid_buf
     \sig_data_skid_reg_reg[31] 
        (.C(m_axis_mm2s_aclk),
         .CE(sig_s_ready_dup),
-        .D(D[31]),
+        .D(p_12_out[31]),
         .Q(sig_data_skid_reg[31]),
         .R(halt_i_reg));
   FDRE #(
@@ -24296,7 +24004,7 @@ module system_axi_vdma_0_0_axi_vdma_skid_buf
     \sig_data_skid_reg_reg[3] 
        (.C(m_axis_mm2s_aclk),
         .CE(sig_s_ready_dup),
-        .D(D[3]),
+        .D(p_12_out[3]),
         .Q(sig_data_skid_reg[3]),
         .R(halt_i_reg));
   FDRE #(
@@ -24304,7 +24012,7 @@ module system_axi_vdma_0_0_axi_vdma_skid_buf
     \sig_data_skid_reg_reg[4] 
        (.C(m_axis_mm2s_aclk),
         .CE(sig_s_ready_dup),
-        .D(D[4]),
+        .D(p_12_out[4]),
         .Q(sig_data_skid_reg[4]),
         .R(halt_i_reg));
   FDRE #(
@@ -24312,7 +24020,7 @@ module system_axi_vdma_0_0_axi_vdma_skid_buf
     \sig_data_skid_reg_reg[5] 
        (.C(m_axis_mm2s_aclk),
         .CE(sig_s_ready_dup),
-        .D(D[5]),
+        .D(p_12_out[5]),
         .Q(sig_data_skid_reg[5]),
         .R(halt_i_reg));
   FDRE #(
@@ -24320,7 +24028,7 @@ module system_axi_vdma_0_0_axi_vdma_skid_buf
     \sig_data_skid_reg_reg[6] 
        (.C(m_axis_mm2s_aclk),
         .CE(sig_s_ready_dup),
-        .D(D[6]),
+        .D(p_12_out[6]),
         .Q(sig_data_skid_reg[6]),
         .R(halt_i_reg));
   FDRE #(
@@ -24328,7 +24036,7 @@ module system_axi_vdma_0_0_axi_vdma_skid_buf
     \sig_data_skid_reg_reg[7] 
        (.C(m_axis_mm2s_aclk),
         .CE(sig_s_ready_dup),
-        .D(D[7]),
+        .D(p_12_out[7]),
         .Q(sig_data_skid_reg[7]),
         .R(halt_i_reg));
   FDRE #(
@@ -24336,7 +24044,7 @@ module system_axi_vdma_0_0_axi_vdma_skid_buf
     \sig_data_skid_reg_reg[8] 
        (.C(m_axis_mm2s_aclk),
         .CE(sig_s_ready_dup),
-        .D(D[8]),
+        .D(p_12_out[8]),
         .Q(sig_data_skid_reg[8]),
         .R(halt_i_reg));
   FDRE #(
@@ -24344,13 +24052,13 @@ module system_axi_vdma_0_0_axi_vdma_skid_buf
     \sig_data_skid_reg_reg[9] 
        (.C(m_axis_mm2s_aclk),
         .CE(sig_s_ready_dup),
-        .D(D[9]),
+        .D(p_12_out[9]),
         .Q(sig_data_skid_reg[9]),
         .R(halt_i_reg));
   LUT3 #(
     .INIT(8'hB8)) 
     sig_last_reg_out_i_2
-       (.I0(p_12_out[4]),
+       (.I0(p_12_out[36]),
         .I1(sig_s_ready_dup),
         .I2(sig_last_skid_reg),
         .O(sig_last_skid_mux_out));
@@ -24367,7 +24075,7 @@ module system_axi_vdma_0_0_axi_vdma_skid_buf
     sig_last_skid_reg_reg
        (.C(m_axis_mm2s_aclk),
         .CE(sig_s_ready_dup),
-        .D(p_12_out[4]),
+        .D(p_12_out[36]),
         .Q(sig_last_skid_reg),
         .R(halt_i_reg));
   LUT6 #(
@@ -24440,28 +24148,28 @@ module system_axi_vdma_0_0_axi_vdma_skid_buf
   LUT3 #(
     .INIT(8'hB8)) 
     \sig_strb_reg_out[0]_i_1 
-       (.I0(p_12_out[0]),
+       (.I0(p_12_out[32]),
         .I1(sig_s_ready_dup),
         .I2(sig_strb_skid_reg[0]),
         .O(sig_strb_skid_mux_out[0]));
   LUT3 #(
     .INIT(8'hB8)) 
     \sig_strb_reg_out[1]_i_1 
-       (.I0(p_12_out[1]),
+       (.I0(p_12_out[33]),
         .I1(sig_s_ready_dup),
         .I2(sig_strb_skid_reg[1]),
         .O(sig_strb_skid_mux_out[1]));
   LUT3 #(
     .INIT(8'hB8)) 
     \sig_strb_reg_out[2]_i_1 
-       (.I0(p_12_out[2]),
+       (.I0(p_12_out[34]),
         .I1(sig_s_ready_dup),
         .I2(sig_strb_skid_reg[2]),
         .O(sig_strb_skid_mux_out[2]));
   LUT3 #(
     .INIT(8'hB8)) 
     \sig_strb_reg_out[3]_i_1 
-       (.I0(p_12_out[3]),
+       (.I0(p_12_out[35]),
         .I1(sig_s_ready_dup),
         .I2(sig_strb_skid_reg[3]),
         .O(sig_strb_skid_mux_out[3]));
@@ -24502,7 +24210,7 @@ module system_axi_vdma_0_0_axi_vdma_skid_buf
     \sig_strb_skid_reg_reg[0] 
        (.C(m_axis_mm2s_aclk),
         .CE(sig_s_ready_dup),
-        .D(p_12_out[0]),
+        .D(p_12_out[32]),
         .Q(sig_strb_skid_reg[0]),
         .R(halt_i_reg));
   FDRE #(
@@ -24510,7 +24218,7 @@ module system_axi_vdma_0_0_axi_vdma_skid_buf
     \sig_strb_skid_reg_reg[1] 
        (.C(m_axis_mm2s_aclk),
         .CE(sig_s_ready_dup),
-        .D(p_12_out[1]),
+        .D(p_12_out[33]),
         .Q(sig_strb_skid_reg[1]),
         .R(halt_i_reg));
   FDRE #(
@@ -24518,7 +24226,7 @@ module system_axi_vdma_0_0_axi_vdma_skid_buf
     \sig_strb_skid_reg_reg[2] 
        (.C(m_axis_mm2s_aclk),
         .CE(sig_s_ready_dup),
-        .D(p_12_out[2]),
+        .D(p_12_out[34]),
         .Q(sig_strb_skid_reg[2]),
         .R(halt_i_reg));
   FDRE #(
@@ -24526,13 +24234,13 @@ module system_axi_vdma_0_0_axi_vdma_skid_buf
     \sig_strb_skid_reg_reg[3] 
        (.C(m_axis_mm2s_aclk),
         .CE(sig_s_ready_dup),
-        .D(p_12_out[3]),
+        .D(p_12_out[35]),
         .Q(sig_strb_skid_reg[3]),
         .R(halt_i_reg));
   LUT3 #(
     .INIT(8'hB8)) 
     \sig_user_reg_out[0]_i_1 
-       (.I0(p_12_out[5]),
+       (.I0(p_12_out[37]),
         .I1(sig_s_ready_dup),
         .I2(sig_user_skid_reg),
         .O(sig_user_skid_mux_out));
@@ -24549,7 +24257,7 @@ module system_axi_vdma_0_0_axi_vdma_skid_buf
     \sig_user_skid_reg_reg[0] 
        (.C(m_axis_mm2s_aclk),
         .CE(sig_s_ready_dup),
-        .D(p_12_out[5]),
+        .D(p_12_out[37]),
         .Q(sig_user_skid_reg),
         .R(halt_i_reg));
 endmodule
@@ -26691,7 +26399,7 @@ module system_axi_vdma_0_0_axi_vdma_sof_gen
         .I3(ch1_delay_cnt_en),
         .I4(p_10_out),
         .O(SR));
-  (* SOFT_HLUTNM = "soft_lutpair50" *) 
+  (* SOFT_HLUTNM = "soft_lutpair55" *) 
   LUT3 #(
     .INIT(8'h02)) 
     \GEN_INCLUDE_MM2S.GEN_CH1_DELAY_INTERRUPT.ch1_delay_count[7]_i_3 
@@ -26709,7 +26417,7 @@ module system_axi_vdma_0_0_axi_vdma_sof_gen
         .I4(E),
         .I5(p_8_in__14),
         .O(p_10_out));
-  (* SOFT_HLUTNM = "soft_lutpair50" *) 
+  (* SOFT_HLUTNM = "soft_lutpair55" *) 
   LUT5 #(
     .INIT(32'h0000AE00)) 
     hold_sof_i_1
@@ -34015,7 +33723,7 @@ module system_axi_vdma_0_0_cdc_sync__parameterized0_4
         .D(lite_min_assert_sftrst),
         .Q(p_level_in_d1_cdc_from),
         .R(1'b0));
-  (* SOFT_HLUTNM = "soft_lutpair165" *) 
+  (* SOFT_HLUTNM = "soft_lutpair170" *) 
   LUT4 #(
     .INIT(16'h7F80)) 
     \GENERATE_PULSE_P_S_CDC_OPEN_ENDED.REG_P_IN_cdc_from_i_1__0 
@@ -34024,7 +33732,7 @@ module system_axi_vdma_0_0_cdc_sync__parameterized0_4
         .I2(scndry_out),
         .I3(p_in_d1_cdc_from),
         .O(prmry_in_xored));
-  (* SOFT_HLUTNM = "soft_lutpair165" *) 
+  (* SOFT_HLUTNM = "soft_lutpair170" *) 
   LUT4 #(
     .INIT(16'h7F80)) 
     \GENERATE_PULSE_P_S_CDC_OPEN_ENDED.REG_P_IN_cdc_from_i_1__2 
@@ -34269,7 +33977,7 @@ module system_axi_vdma_0_0_cdc_sync__parameterized0_7
         .D(hrd_resetn_i_reg),
         .Q(p_level_in_d1_cdc_from),
         .R(1'b0));
-  (* SOFT_HLUTNM = "soft_lutpair166" *) 
+  (* SOFT_HLUTNM = "soft_lutpair171" *) 
   LUT3 #(
     .INIT(8'h02)) 
     \GENERATE_LEVEL_P_S_CDC.SINGLE_BIT.INPUT_FLOP.REG_PLEVEL_IN_cdc_from_i_1__0 
@@ -34321,7 +34029,7 @@ module system_axi_vdma_0_0_cdc_sync__parameterized0_7
         .I4(min_assert_sftrst),
         .I5(s_soft_reset_i),
         .O(run_stop_d1_reg));
-  (* SOFT_HLUTNM = "soft_lutpair166" *) 
+  (* SOFT_HLUTNM = "soft_lutpair171" *) 
   LUT4 #(
     .INIT(16'h0010)) 
     sig_mm2s_dm_prmry_resetn_inferred_i_1
@@ -34929,7 +34637,7 @@ module system_axi_vdma_0_0_cntr_incr_decr_addn_f
   wire sig_rd_empty;
   wire sig_rsc2stat_status_valid;
 
-  (* SOFT_HLUTNM = "soft_lutpair157" *) 
+  (* SOFT_HLUTNM = "soft_lutpair162" *) 
   LUT5 #(
     .INIT(32'h41100000)) 
     FIFO_Full_i_1__2
@@ -34958,7 +34666,7 @@ module system_axi_vdma_0_0_cntr_incr_decr_addn_f
         .I3(sig_rd_empty),
         .I4(Q[1]),
         .O(addr_i_p1[1]));
-  (* SOFT_HLUTNM = "soft_lutpair157" *) 
+  (* SOFT_HLUTNM = "soft_lutpair162" *) 
   LUT5 #(
     .INIT(32'h7F7F0180)) 
     \INFERRED_GEN.cnt_i[2]_i_1__2 
@@ -35012,7 +34720,7 @@ module system_axi_vdma_0_0_cntr_incr_decr_addn_f
         .I1(\sig_dbeat_cntr_reg[7] [5]),
         .I2(\sig_dbeat_cntr_reg[3] ),
         .O(D[2]));
-  (* SOFT_HLUTNM = "soft_lutpair158" *) 
+  (* SOFT_HLUTNM = "soft_lutpair163" *) 
   LUT3 #(
     .INIT(8'h41)) 
     \sig_dbeat_cntr[6]_i_1 
@@ -35020,14 +34728,14 @@ module system_axi_vdma_0_0_cntr_incr_decr_addn_f
         .I1(\sig_dbeat_cntr_reg[7] [6]),
         .I2(\sig_dbeat_cntr_reg[4] ),
         .O(D[3]));
-  (* SOFT_HLUTNM = "soft_lutpair159" *) 
+  (* SOFT_HLUTNM = "soft_lutpair164" *) 
   LUT2 #(
     .INIT(4'hE)) 
     \sig_dbeat_cntr[7]_i_1 
        (.I0(sig_dqual_reg_empty_reg),
         .I1(\sig_dbeat_cntr_reg[2] ),
         .O(E));
-  (* SOFT_HLUTNM = "soft_lutpair158" *) 
+  (* SOFT_HLUTNM = "soft_lutpair163" *) 
   LUT4 #(
     .INIT(16'h4441)) 
     \sig_dbeat_cntr[7]_i_2 
@@ -35036,7 +34744,7 @@ module system_axi_vdma_0_0_cntr_incr_decr_addn_f
         .I2(\sig_dbeat_cntr_reg[4] ),
         .I3(\sig_dbeat_cntr_reg[7] [6]),
         .O(D[4]));
-  (* SOFT_HLUTNM = "soft_lutpair159" *) 
+  (* SOFT_HLUTNM = "soft_lutpair164" *) 
   LUT3 #(
     .INIT(8'h08)) 
     sig_ld_new_cmd_reg_i_1
@@ -35148,7 +34856,7 @@ module system_axi_vdma_0_0_cntr_incr_decr_addn_f_10
   wire sig_rd_empty;
   wire sig_sf_allow_addr_req;
 
-  (* SOFT_HLUTNM = "soft_lutpair110" *) 
+  (* SOFT_HLUTNM = "soft_lutpair115" *) 
   LUT5 #(
     .INIT(32'h41100008)) 
     FIFO_Full_i_1__1
@@ -35177,7 +34885,7 @@ module system_axi_vdma_0_0_cntr_incr_decr_addn_f_10
         .I4(sig_calc_error_reg_reg),
         .I5(Q[1]),
         .O(addr_i_p1[1]));
-  (* SOFT_HLUTNM = "soft_lutpair110" *) 
+  (* SOFT_HLUTNM = "soft_lutpair115" *) 
   LUT5 #(
     .INIT(32'hFE7F0180)) 
     \INFERRED_GEN.cnt_i[2]_i_1__1 
@@ -35205,7 +34913,7 @@ module system_axi_vdma_0_0_cntr_incr_decr_addn_f_10
         .D(addr_i_p1[2]),
         .Q(sig_rd_empty),
         .S(SR));
-  (* SOFT_HLUTNM = "soft_lutpair111" *) 
+  (* SOFT_HLUTNM = "soft_lutpair116" *) 
   LUT4 #(
     .INIT(16'h0008)) 
     \sig_next_addr_reg[31]_i_2 
@@ -35214,7 +34922,7 @@ module system_axi_vdma_0_0_cntr_incr_decr_addn_f_10
         .I2(sig_data2addr_stop_req),
         .I3(sig_rd_empty),
         .O(sig_calc_error_reg_reg));
-  (* SOFT_HLUTNM = "soft_lutpair111" *) 
+  (* SOFT_HLUTNM = "soft_lutpair116" *) 
   LUT5 #(
     .INIT(32'h02000000)) 
     sig_posted_to_axi_2_i_1
@@ -35267,7 +34975,7 @@ module system_axi_vdma_0_0_cntr_incr_decr_addn_f_13
   wire sig_inhibit_rdy_n_reg;
   wire sig_mstr2sf_cmd_valid;
 
-  (* SOFT_HLUTNM = "soft_lutpair66" *) 
+  (* SOFT_HLUTNM = "soft_lutpair71" *) 
   LUT5 #(
     .INIT(32'h41100000)) 
     FIFO_Full_i_1__0
@@ -35303,7 +35011,7 @@ module system_axi_vdma_0_0_cntr_incr_decr_addn_f_13
         .I3(Q[2]),
         .I4(Q[1]),
         .O(addr_i_p1[1]));
-  (* SOFT_HLUTNM = "soft_lutpair66" *) 
+  (* SOFT_HLUTNM = "soft_lutpair71" *) 
   LUT5 #(
     .INIT(32'h7F7F0180)) 
     \INFERRED_GEN.cnt_i[2]_i_1__0 
@@ -35374,7 +35082,7 @@ module system_axi_vdma_0_0_cntr_incr_decr_addn_f_8
   wire sig_sm_halt_reg;
   wire sig_wr_fifo;
 
-  (* SOFT_HLUTNM = "soft_lutpair114" *) 
+  (* SOFT_HLUTNM = "soft_lutpair119" *) 
   LUT5 #(
     .INIT(32'h41100008)) 
     FIFO_Full_i_1
@@ -35404,7 +35112,7 @@ module system_axi_vdma_0_0_cntr_incr_decr_addn_f_8
         .I4(sig_calc_error_pushed_reg),
         .I5(Q[1]),
         .O(addr_i_p1[1]));
-  (* SOFT_HLUTNM = "soft_lutpair114" *) 
+  (* SOFT_HLUTNM = "soft_lutpair119" *) 
   LUT5 #(
     .INIT(32'hFE7F0180)) 
     \INFERRED_GEN.cnt_i[2]_i_1 
@@ -35469,7 +35177,7 @@ module system_axi_vdma_0_0_cntr_incr_decr_addn_f_9
   wire sig_wr_fifo;
   wire sts_tready_reg;
 
-  (* SOFT_HLUTNM = "soft_lutpair112" *) 
+  (* SOFT_HLUTNM = "soft_lutpair117" *) 
   LUT5 #(
     .INIT(32'h41100000)) 
     FIFO_Full_i_1__3
@@ -35499,7 +35207,7 @@ module system_axi_vdma_0_0_cntr_incr_decr_addn_f_9
         .I4(sts_tready_reg),
         .I5(Q[1]),
         .O(addr_i_p1[1]));
-  (* SOFT_HLUTNM = "soft_lutpair112" *) 
+  (* SOFT_HLUTNM = "soft_lutpair117" *) 
   LUT5 #(
     .INIT(32'h7F7F0180)) 
     \INFERRED_GEN.cnt_i[2]_i_1__3 
@@ -36376,14 +36084,14 @@ module system_axi_vdma_0_0_dynshreg_f__parameterized0
        (.I0(m_axis_mm2s_sts_tdata[5]),
         .I1(Q[2]),
         .O(decerr_i_reg));
-  (* SOFT_HLUTNM = "soft_lutpair113" *) 
+  (* SOFT_HLUTNM = "soft_lutpair118" *) 
   LUT2 #(
     .INIT(4'h2)) 
     interr_i_i_1
        (.I0(m_axis_mm2s_sts_tdata[4]),
         .I1(Q[2]),
         .O(interr_i_reg));
-  (* SOFT_HLUTNM = "soft_lutpair113" *) 
+  (* SOFT_HLUTNM = "soft_lutpair118" *) 
   LUT2 #(
     .INIT(4'h2)) 
     slverr_i_i_1
@@ -37310,7 +37018,7 @@ module system_axi_vdma_0_0_dynshreg_f__parameterized2
         .CLK(m_axi_mm2s_aclk),
         .D(in[18]),
         .Q(out[15]));
-  (* SOFT_HLUTNM = "soft_lutpair160" *) 
+  (* SOFT_HLUTNM = "soft_lutpair165" *) 
   LUT3 #(
     .INIT(8'hA3)) 
     \sig_dbeat_cntr[0]_i_1 
@@ -37318,7 +37026,7 @@ module system_axi_vdma_0_0_dynshreg_f__parameterized2
         .I1(Q[0]),
         .I2(sig_next_sequential_reg_reg),
         .O(D[0]));
-  (* SOFT_HLUTNM = "soft_lutpair160" *) 
+  (* SOFT_HLUTNM = "soft_lutpair165" *) 
   LUT4 #(
     .INIT(16'hAAC3)) 
     \sig_dbeat_cntr[1]_i_1 
@@ -38695,7 +38403,7 @@ module system_axi_vdma_0_0_xpm_counter_updn__parameterized0
   wire wr_clk;
   wire wr_en;
 
-  (* SOFT_HLUTNM = "soft_lutpair79" *) 
+  (* SOFT_HLUTNM = "soft_lutpair84" *) 
   LUT1 #(
     .INIT(2'h1)) 
     \count_value_i[0]_i_1__1 
@@ -38707,7 +38415,7 @@ module system_axi_vdma_0_0_xpm_counter_updn__parameterized0
        (.I0(Q[0]),
         .I1(Q[1]),
         .O(\count_value_i[1]_i_1__1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair79" *) 
+  (* SOFT_HLUTNM = "soft_lutpair84" *) 
   LUT3 #(
     .INIT(8'h78)) 
     \count_value_i[2]_i_1__1 
@@ -38715,7 +38423,7 @@ module system_axi_vdma_0_0_xpm_counter_updn__parameterized0
         .I1(Q[1]),
         .I2(Q[2]),
         .O(\count_value_i[2]_i_1__1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair78" *) 
+  (* SOFT_HLUTNM = "soft_lutpair83" *) 
   LUT4 #(
     .INIT(16'h7F80)) 
     \count_value_i[3]_i_1__1 
@@ -38724,7 +38432,7 @@ module system_axi_vdma_0_0_xpm_counter_updn__parameterized0
         .I2(Q[2]),
         .I3(Q[3]),
         .O(\count_value_i[3]_i_1__1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair78" *) 
+  (* SOFT_HLUTNM = "soft_lutpair83" *) 
   LUT5 #(
     .INIT(32'h7FFF8000)) 
     \count_value_i[4]_i_1__1 
@@ -38734,7 +38442,7 @@ module system_axi_vdma_0_0_xpm_counter_updn__parameterized0
         .I3(Q[3]),
         .I4(Q[4]),
         .O(\count_value_i[4]_i_1__1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair77" *) 
+  (* SOFT_HLUTNM = "soft_lutpair82" *) 
   LUT4 #(
     .INIT(16'h7F80)) 
     \count_value_i[5]_i_1__3 
@@ -38743,7 +38451,7 @@ module system_axi_vdma_0_0_xpm_counter_updn__parameterized0
         .I2(Q[4]),
         .I3(Q[5]),
         .O(\count_value_i[5]_i_1__3_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair77" *) 
+  (* SOFT_HLUTNM = "soft_lutpair82" *) 
   LUT5 #(
     .INIT(32'h7FFF8000)) 
     \count_value_i[6]_i_1__3 
@@ -39035,7 +38743,7 @@ module system_axi_vdma_0_0_xpm_counter_updn__parameterized2
   wire rst_d1;
   wire wr_en;
 
-  (* SOFT_HLUTNM = "soft_lutpair68" *) 
+  (* SOFT_HLUTNM = "soft_lutpair73" *) 
   LUT4 #(
     .INIT(16'h40BF)) 
     \count_value_i[0]_i_1__2 
@@ -39044,7 +38752,7 @@ module system_axi_vdma_0_0_xpm_counter_updn__parameterized2
         .I2(\gen_fwft.curr_fwft_state_reg[1] [0]),
         .I3(Q[0]),
         .O(\count_value_i[0]_i_1__2_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair68" *) 
+  (* SOFT_HLUTNM = "soft_lutpair73" *) 
   LUT5 #(
     .INIT(32'h08FFF700)) 
     \count_value_i[1]_i_1__2 
@@ -39061,7 +38769,7 @@ module system_axi_vdma_0_0_xpm_counter_updn__parameterized2
         .I1(Q[1]),
         .I2(Q[2]),
         .O(\count_value_i[2]_i_1__2_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair67" *) 
+  (* SOFT_HLUTNM = "soft_lutpair72" *) 
   LUT4 #(
     .INIT(16'h7F80)) 
     \count_value_i[3]_i_1__2 
@@ -39070,7 +38778,7 @@ module system_axi_vdma_0_0_xpm_counter_updn__parameterized2
         .I2(Q[2]),
         .I3(Q[3]),
         .O(\count_value_i[3]_i_1__2_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair67" *) 
+  (* SOFT_HLUTNM = "soft_lutpair72" *) 
   LUT5 #(
     .INIT(32'h7FFF8000)) 
     \count_value_i[4]_i_1__2 
@@ -39241,7 +38949,7 @@ module system_axi_vdma_0_0_xpm_counter_updn__parameterized2
         .I4(\count_value_i_reg[6]_1 [1]),
         .I5(Q[1]),
         .O(\gen_pntr_flags_cc.gaf_cc.ram_afull_i_i_5_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair69" *) 
+  (* SOFT_HLUTNM = "soft_lutpair74" *) 
   LUT5 #(
     .INIT(32'h4444FCCC)) 
     \gen_pntr_flags_cc.ngen_full_rst_val.ram_full_i_i_1 
@@ -39307,7 +39015,7 @@ module system_axi_vdma_0_0_xpm_counter_updn__parameterized2
         .I4(\count_value_i_reg[6]_0 [1]),
         .I5(Q[1]),
         .O(\gen_pntr_flags_cc.ngen_full_rst_val.ram_full_i_i_7_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair69" *) 
+  (* SOFT_HLUTNM = "soft_lutpair74" *) 
   LUT5 #(
     .INIT(32'hAABF00BF)) 
     \gen_pntr_flags_cc.ngen_full_rst_val.ram_full_n_i_1 
@@ -39520,14 +39228,14 @@ module system_axi_vdma_0_0_xpm_counter_updn__parameterized2_11
     \count_value_i[0]_i_1 
        (.I0(Q[0]),
         .O(\count_value_i[0]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair73" *) 
+  (* SOFT_HLUTNM = "soft_lutpair78" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \count_value_i[1]_i_1 
        (.I0(Q[0]),
         .I1(Q[1]),
         .O(\count_value_i[1]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair73" *) 
+  (* SOFT_HLUTNM = "soft_lutpair78" *) 
   LUT3 #(
     .INIT(8'h78)) 
     \count_value_i[2]_i_1 
@@ -39535,7 +39243,7 @@ module system_axi_vdma_0_0_xpm_counter_updn__parameterized2_11
         .I1(Q[1]),
         .I2(Q[2]),
         .O(\count_value_i[2]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair71" *) 
+  (* SOFT_HLUTNM = "soft_lutpair76" *) 
   LUT4 #(
     .INIT(16'h7F80)) 
     \count_value_i[3]_i_1 
@@ -39544,7 +39252,7 @@ module system_axi_vdma_0_0_xpm_counter_updn__parameterized2_11
         .I2(Q[2]),
         .I3(Q[3]),
         .O(\count_value_i[3]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair71" *) 
+  (* SOFT_HLUTNM = "soft_lutpair76" *) 
   LUT5 #(
     .INIT(32'h7FFF8000)) 
     \count_value_i[4]_i_1 
@@ -39554,7 +39262,7 @@ module system_axi_vdma_0_0_xpm_counter_updn__parameterized2_11
         .I3(Q[3]),
         .I4(Q[4]),
         .O(\count_value_i[4]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair72" *) 
+  (* SOFT_HLUTNM = "soft_lutpair77" *) 
   LUT4 #(
     .INIT(16'h7F80)) 
     \count_value_i[5]_i_1__1 
@@ -39563,7 +39271,7 @@ module system_axi_vdma_0_0_xpm_counter_updn__parameterized2_11
         .I2(Q[4]),
         .I3(Q[5]),
         .O(\count_value_i[5]_i_1__1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair72" *) 
+  (* SOFT_HLUTNM = "soft_lutpair77" *) 
   LUT5 #(
     .INIT(32'h7FFF8000)) 
     \count_value_i[6]_i_1__1 
@@ -39809,7 +39517,7 @@ module system_axi_vdma_0_0_xpm_counter_updn__parameterized3
         .I1(Q[1]),
         .I2(Q[2]),
         .O(\count_value_i[2]_i_1__3_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair70" *) 
+  (* SOFT_HLUTNM = "soft_lutpair75" *) 
   LUT4 #(
     .INIT(16'h7F80)) 
     \count_value_i[3]_i_1__3 
@@ -39818,7 +39526,7 @@ module system_axi_vdma_0_0_xpm_counter_updn__parameterized3
         .I2(Q[2]),
         .I3(Q[3]),
         .O(\count_value_i[3]_i_1__3_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair70" *) 
+  (* SOFT_HLUTNM = "soft_lutpair75" *) 
   LUT5 #(
     .INIT(32'h7FFF8000)) 
     \count_value_i[4]_i_1__3 
@@ -39974,14 +39682,14 @@ module system_axi_vdma_0_0_xpm_counter_updn__parameterized3_12
     \count_value_i[0]_i_1__0 
        (.I0(Q[0]),
         .O(\count_value_i[0]_i_1__0_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair76" *) 
+  (* SOFT_HLUTNM = "soft_lutpair81" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \count_value_i[1]_i_1__0 
        (.I0(Q[0]),
         .I1(Q[1]),
         .O(\count_value_i[1]_i_1__0_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair76" *) 
+  (* SOFT_HLUTNM = "soft_lutpair81" *) 
   LUT3 #(
     .INIT(8'h78)) 
     \count_value_i[2]_i_1__0 
@@ -39989,7 +39697,7 @@ module system_axi_vdma_0_0_xpm_counter_updn__parameterized3_12
         .I1(Q[1]),
         .I2(Q[2]),
         .O(\count_value_i[2]_i_1__0_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair75" *) 
+  (* SOFT_HLUTNM = "soft_lutpair80" *) 
   LUT4 #(
     .INIT(16'h7F80)) 
     \count_value_i[3]_i_1__0 
@@ -39998,7 +39706,7 @@ module system_axi_vdma_0_0_xpm_counter_updn__parameterized3_12
         .I2(Q[2]),
         .I3(Q[3]),
         .O(\count_value_i[3]_i_1__0_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair75" *) 
+  (* SOFT_HLUTNM = "soft_lutpair80" *) 
   LUT5 #(
     .INIT(32'h7FFF8000)) 
     \count_value_i[4]_i_1__0 
@@ -40008,7 +39716,7 @@ module system_axi_vdma_0_0_xpm_counter_updn__parameterized3_12
         .I3(Q[3]),
         .I4(Q[4]),
         .O(\count_value_i[4]_i_1__0_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair74" *) 
+  (* SOFT_HLUTNM = "soft_lutpair79" *) 
   LUT4 #(
     .INIT(16'h7F80)) 
     \count_value_i[5]_i_1__2 
@@ -40017,7 +39725,7 @@ module system_axi_vdma_0_0_xpm_counter_updn__parameterized3_12
         .I2(Q[4]),
         .I3(Q[5]),
         .O(\count_value_i[5]_i_1__2_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair74" *) 
+  (* SOFT_HLUTNM = "soft_lutpair79" *) 
   LUT5 #(
     .INIT(32'h7FFF8000)) 
     \count_value_i[6]_i_1__2 
@@ -40351,7 +40059,7 @@ module system_axi_vdma_0_0_xpm_fifo_base
         .I1(rd_en),
         .I2(\gen_fwft.curr_fwft_state [0]),
         .O(\gen_fwft.next_fwft_state [0]));
-  (* SOFT_HLUTNM = "soft_lutpair83" *) 
+  (* SOFT_HLUTNM = "soft_lutpair88" *) 
   LUT4 #(
     .INIT(16'h20FF)) 
     \gen_fwft.curr_fwft_state[1]_i_1 
@@ -40409,7 +40117,7 @@ module system_axi_vdma_0_0_xpm_fifo_base
         .D(aempty_fwft_i0),
         .Q(almost_empty),
         .S(wr_rst_busy));
-  (* SOFT_HLUTNM = "soft_lutpair83" *) 
+  (* SOFT_HLUTNM = "soft_lutpair88" *) 
   LUT4 #(
     .INIT(16'h7175)) 
     \gen_fwft.gdvld_fwft.data_valid_fwft_i_1 
@@ -40549,7 +40257,7 @@ module system_axi_vdma_0_0_xpm_fifo_base
         .D(xpm_fifo_rst_inst_n_2),
         .Q(prog_empty),
         .R(1'b0));
-  (* SOFT_HLUTNM = "soft_lutpair82" *) 
+  (* SOFT_HLUTNM = "soft_lutpair87" *) 
   LUT4 #(
     .INIT(16'h4044)) 
     \gen_pntr_flags_cc.wrp_eq_rdp_pf_cc.gpe_cc_sym.read_only_q_i_1 
@@ -40564,7 +40272,7 @@ module system_axi_vdma_0_0_xpm_fifo_base
         .D(\gen_pntr_flags_cc.wrp_eq_rdp_pf_cc.gpe_cc_sym.read_only_q_i_1_n_0 ),
         .Q(read_only_q),
         .R(wr_rst_busy));
-  (* SOFT_HLUTNM = "soft_lutpair82" *) 
+  (* SOFT_HLUTNM = "soft_lutpair87" *) 
   LUT4 #(
     .INIT(16'h4044)) 
     \gen_pntr_flags_cc.wrp_eq_rdp_pf_cc.gpe_cc_sym.write_only_q_i_1 
@@ -41149,7 +40857,7 @@ module system_axi_vdma_0_0_xpm_fifo_rst
         .I4(\gen_pntr_flags_cc.wrp_eq_rdp_pf_cc.gpf_cc_sym.prog_full_i_i_3_n_0 ),
         .I5(\count_value_i_reg[1] ),
         .O(\gen_pntr_flags_cc.wrp_eq_rdp_pf_cc.gpf_cc_sym.prog_full_i_reg ));
-  (* SOFT_HLUTNM = "soft_lutpair81" *) 
+  (* SOFT_HLUTNM = "soft_lutpair86" *) 
   LUT3 #(
     .INIT(8'h04)) 
     \gen_pntr_flags_cc.wrp_eq_rdp_pf_cc.gpf_cc_sym.prog_full_i_i_3 
@@ -41178,7 +40886,7 @@ module system_axi_vdma_0_0_xpm_fifo_rst
         .I1(wr_en),
         .I2(\count_value_i_reg[1] ),
         .O(\count_value_i_reg[0] ));
-  (* SOFT_HLUTNM = "soft_lutpair80" *) 
+  (* SOFT_HLUTNM = "soft_lutpair85" *) 
   LUT3 #(
     .INIT(8'hA8)) 
     \gof.overflow_i_i_1 
@@ -41193,7 +40901,7 @@ module system_axi_vdma_0_0_xpm_fifo_rst
         .I1(Q[0]),
         .I2(Q[1]),
         .O(SR));
-  (* SOFT_HLUTNM = "soft_lutpair81" *) 
+  (* SOFT_HLUTNM = "soft_lutpair86" *) 
   LUT3 #(
     .INIT(8'hA8)) 
     \guf.underflow_i_i_1 
@@ -41201,7 +40909,7 @@ module system_axi_vdma_0_0_xpm_fifo_rst
         .I1(\gen_fwft.empty_fwft_i_reg ),
         .I2(\count_value_i_reg[1] ),
         .O(underflow_i0));
-  (* SOFT_HLUTNM = "soft_lutpair80" *) 
+  (* SOFT_HLUTNM = "soft_lutpair85" *) 
   LUT4 #(
     .INIT(16'h0002)) 
     \gwack.wr_ack_i_i_1 
@@ -41396,7 +41104,7 @@ module system_axi_vdma_0_0_xpm_fifo_sync
   wire NLW_xpm_fifo_base_inst_full_n_UNCONNECTED;
   wire NLW_xpm_fifo_base_inst_rd_rst_busy_UNCONNECTED;
 
-  (* SOFT_HLUTNM = "soft_lutpair90" *) 
+  (* SOFT_HLUTNM = "soft_lutpair95" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_INPUT_REG[0].sig_input_data_reg[0][0]_i_1 
@@ -41404,7 +41112,7 @@ module system_axi_vdma_0_0_xpm_fifo_sync
         .I1(lsig_0ffset_cntr),
         .I2(sig_data_fifo_data_out[0]),
         .O(\GEN_INPUT_REG[0].sig_input_data_reg_reg[0][9]_0 [0]));
-  (* SOFT_HLUTNM = "soft_lutpair90" *) 
+  (* SOFT_HLUTNM = "soft_lutpair95" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_INPUT_REG[0].sig_input_data_reg[0][1]_i_1 
@@ -41412,7 +41120,7 @@ module system_axi_vdma_0_0_xpm_fifo_sync
         .I1(lsig_0ffset_cntr),
         .I2(sig_data_fifo_data_out[1]),
         .O(\GEN_INPUT_REG[0].sig_input_data_reg_reg[0][9]_0 [1]));
-  (* SOFT_HLUTNM = "soft_lutpair91" *) 
+  (* SOFT_HLUTNM = "soft_lutpair96" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_INPUT_REG[0].sig_input_data_reg[0][2]_i_1 
@@ -41420,7 +41128,7 @@ module system_axi_vdma_0_0_xpm_fifo_sync
         .I1(lsig_0ffset_cntr),
         .I2(sig_data_fifo_data_out[2]),
         .O(\GEN_INPUT_REG[0].sig_input_data_reg_reg[0][9]_0 [2]));
-  (* SOFT_HLUTNM = "soft_lutpair91" *) 
+  (* SOFT_HLUTNM = "soft_lutpair96" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_INPUT_REG[0].sig_input_data_reg[0][3]_i_1 
@@ -41428,7 +41136,7 @@ module system_axi_vdma_0_0_xpm_fifo_sync
         .I1(lsig_0ffset_cntr),
         .I2(sig_data_fifo_data_out[3]),
         .O(\GEN_INPUT_REG[0].sig_input_data_reg_reg[0][9]_0 [3]));
-  (* SOFT_HLUTNM = "soft_lutpair92" *) 
+  (* SOFT_HLUTNM = "soft_lutpair97" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_INPUT_REG[0].sig_input_data_reg[0][4]_i_1 
@@ -41436,7 +41144,7 @@ module system_axi_vdma_0_0_xpm_fifo_sync
         .I1(lsig_0ffset_cntr),
         .I2(sig_data_fifo_data_out[4]),
         .O(\GEN_INPUT_REG[0].sig_input_data_reg_reg[0][9]_0 [4]));
-  (* SOFT_HLUTNM = "soft_lutpair92" *) 
+  (* SOFT_HLUTNM = "soft_lutpair97" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_INPUT_REG[0].sig_input_data_reg[0][5]_i_1 
@@ -41444,7 +41152,7 @@ module system_axi_vdma_0_0_xpm_fifo_sync
         .I1(lsig_0ffset_cntr),
         .I2(sig_data_fifo_data_out[5]),
         .O(\GEN_INPUT_REG[0].sig_input_data_reg_reg[0][9]_0 [5]));
-  (* SOFT_HLUTNM = "soft_lutpair93" *) 
+  (* SOFT_HLUTNM = "soft_lutpair98" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_INPUT_REG[0].sig_input_data_reg[0][6]_i_1 
@@ -41452,7 +41160,7 @@ module system_axi_vdma_0_0_xpm_fifo_sync
         .I1(lsig_0ffset_cntr),
         .I2(sig_data_fifo_data_out[6]),
         .O(\GEN_INPUT_REG[0].sig_input_data_reg_reg[0][9]_0 [6]));
-  (* SOFT_HLUTNM = "soft_lutpair93" *) 
+  (* SOFT_HLUTNM = "soft_lutpair98" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_INPUT_REG[0].sig_input_data_reg[0][7]_i_1 
@@ -41460,7 +41168,7 @@ module system_axi_vdma_0_0_xpm_fifo_sync
         .I1(lsig_0ffset_cntr),
         .I2(sig_data_fifo_data_out[7]),
         .O(\GEN_INPUT_REG[0].sig_input_data_reg_reg[0][9]_0 [7]));
-  (* SOFT_HLUTNM = "soft_lutpair84" *) 
+  (* SOFT_HLUTNM = "soft_lutpair89" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_INPUT_REG[0].sig_input_data_reg[0][8]_i_1 
@@ -41468,7 +41176,7 @@ module system_axi_vdma_0_0_xpm_fifo_sync
         .I1(lsig_0ffset_cntr),
         .I2(sig_data_fifo_data_out[64]),
         .O(\GEN_INPUT_REG[0].sig_input_data_reg_reg[0][9]_0 [8]));
-  (* SOFT_HLUTNM = "soft_lutpair84" *) 
+  (* SOFT_HLUTNM = "soft_lutpair89" *) 
   LUT5 #(
     .INIT(32'hBABFAAAA)) 
     \GEN_INPUT_REG[0].sig_input_data_reg[0][9]_i_1 
@@ -41506,7 +41214,7 @@ module system_axi_vdma_0_0_xpm_fifo_sync
         .I4(ram_full_i_reg),
         .I5(sig_dre_tvalid_i_reg_2),
         .O(\GEN_INPUT_REG[0].sig_input_data_reg[0][9]_i_5_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair94" *) 
+  (* SOFT_HLUTNM = "soft_lutpair99" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_INPUT_REG[1].sig_input_data_reg[1][0]_i_1 
@@ -41514,7 +41222,7 @@ module system_axi_vdma_0_0_xpm_fifo_sync
         .I1(lsig_0ffset_cntr),
         .I2(sig_data_fifo_data_out[8]),
         .O(\GEN_INPUT_REG[1].sig_input_data_reg_reg[1][9] [0]));
-  (* SOFT_HLUTNM = "soft_lutpair94" *) 
+  (* SOFT_HLUTNM = "soft_lutpair99" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_INPUT_REG[1].sig_input_data_reg[1][1]_i_1 
@@ -41522,7 +41230,7 @@ module system_axi_vdma_0_0_xpm_fifo_sync
         .I1(lsig_0ffset_cntr),
         .I2(sig_data_fifo_data_out[9]),
         .O(\GEN_INPUT_REG[1].sig_input_data_reg_reg[1][9] [1]));
-  (* SOFT_HLUTNM = "soft_lutpair95" *) 
+  (* SOFT_HLUTNM = "soft_lutpair100" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_INPUT_REG[1].sig_input_data_reg[1][2]_i_1 
@@ -41530,7 +41238,7 @@ module system_axi_vdma_0_0_xpm_fifo_sync
         .I1(lsig_0ffset_cntr),
         .I2(sig_data_fifo_data_out[10]),
         .O(\GEN_INPUT_REG[1].sig_input_data_reg_reg[1][9] [2]));
-  (* SOFT_HLUTNM = "soft_lutpair95" *) 
+  (* SOFT_HLUTNM = "soft_lutpair100" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_INPUT_REG[1].sig_input_data_reg[1][3]_i_1 
@@ -41538,7 +41246,7 @@ module system_axi_vdma_0_0_xpm_fifo_sync
         .I1(lsig_0ffset_cntr),
         .I2(sig_data_fifo_data_out[11]),
         .O(\GEN_INPUT_REG[1].sig_input_data_reg_reg[1][9] [3]));
-  (* SOFT_HLUTNM = "soft_lutpair96" *) 
+  (* SOFT_HLUTNM = "soft_lutpair101" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_INPUT_REG[1].sig_input_data_reg[1][4]_i_1 
@@ -41546,7 +41254,7 @@ module system_axi_vdma_0_0_xpm_fifo_sync
         .I1(lsig_0ffset_cntr),
         .I2(sig_data_fifo_data_out[12]),
         .O(\GEN_INPUT_REG[1].sig_input_data_reg_reg[1][9] [4]));
-  (* SOFT_HLUTNM = "soft_lutpair96" *) 
+  (* SOFT_HLUTNM = "soft_lutpair101" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_INPUT_REG[1].sig_input_data_reg[1][5]_i_1 
@@ -41554,7 +41262,7 @@ module system_axi_vdma_0_0_xpm_fifo_sync
         .I1(lsig_0ffset_cntr),
         .I2(sig_data_fifo_data_out[13]),
         .O(\GEN_INPUT_REG[1].sig_input_data_reg_reg[1][9] [5]));
-  (* SOFT_HLUTNM = "soft_lutpair97" *) 
+  (* SOFT_HLUTNM = "soft_lutpair102" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_INPUT_REG[1].sig_input_data_reg[1][6]_i_1 
@@ -41562,7 +41270,7 @@ module system_axi_vdma_0_0_xpm_fifo_sync
         .I1(lsig_0ffset_cntr),
         .I2(sig_data_fifo_data_out[14]),
         .O(\GEN_INPUT_REG[1].sig_input_data_reg_reg[1][9] [6]));
-  (* SOFT_HLUTNM = "soft_lutpair97" *) 
+  (* SOFT_HLUTNM = "soft_lutpair102" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_INPUT_REG[1].sig_input_data_reg[1][7]_i_1 
@@ -41570,7 +41278,7 @@ module system_axi_vdma_0_0_xpm_fifo_sync
         .I1(lsig_0ffset_cntr),
         .I2(sig_data_fifo_data_out[15]),
         .O(\GEN_INPUT_REG[1].sig_input_data_reg_reg[1][9] [7]));
-  (* SOFT_HLUTNM = "soft_lutpair87" *) 
+  (* SOFT_HLUTNM = "soft_lutpair92" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_INPUT_REG[1].sig_input_data_reg[1][8]_i_1 
@@ -41588,7 +41296,7 @@ module system_axi_vdma_0_0_xpm_fifo_sync
         .I4(\INCLUDE_UNPACKING.lsig_cmd_loaded_reg_0 ),
         .I5(sig_dre_tvalid_i_reg_0),
         .O(\GEN_INPUT_REG[1].sig_input_data_reg_reg[1][9]_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair87" *) 
+  (* SOFT_HLUTNM = "soft_lutpair92" *) 
   LUT4 #(
     .INIT(16'h00E2)) 
     \GEN_INPUT_REG[1].sig_input_data_reg[1][9]_i_2 
@@ -41607,7 +41315,7 @@ module system_axi_vdma_0_0_xpm_fifo_sync
         .I4(sig_data_fifo_data_out[69]),
         .I5(\GEN_INPUT_REG[2].sig_input_data_reg_reg[2][8] ),
         .O(\GEN_INPUT_REG[1].sig_input_data_reg_reg[1][9] [9]));
-  (* SOFT_HLUTNM = "soft_lutpair98" *) 
+  (* SOFT_HLUTNM = "soft_lutpair103" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_INPUT_REG[2].sig_input_data_reg[2][0]_i_1 
@@ -41615,7 +41323,7 @@ module system_axi_vdma_0_0_xpm_fifo_sync
         .I1(lsig_0ffset_cntr),
         .I2(sig_data_fifo_data_out[16]),
         .O(\GEN_INPUT_REG[2].sig_input_data_reg_reg[2][9] [0]));
-  (* SOFT_HLUTNM = "soft_lutpair98" *) 
+  (* SOFT_HLUTNM = "soft_lutpair103" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_INPUT_REG[2].sig_input_data_reg[2][1]_i_1 
@@ -41623,7 +41331,7 @@ module system_axi_vdma_0_0_xpm_fifo_sync
         .I1(lsig_0ffset_cntr),
         .I2(sig_data_fifo_data_out[17]),
         .O(\GEN_INPUT_REG[2].sig_input_data_reg_reg[2][9] [1]));
-  (* SOFT_HLUTNM = "soft_lutpair99" *) 
+  (* SOFT_HLUTNM = "soft_lutpair104" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_INPUT_REG[2].sig_input_data_reg[2][2]_i_1 
@@ -41631,7 +41339,7 @@ module system_axi_vdma_0_0_xpm_fifo_sync
         .I1(lsig_0ffset_cntr),
         .I2(sig_data_fifo_data_out[18]),
         .O(\GEN_INPUT_REG[2].sig_input_data_reg_reg[2][9] [2]));
-  (* SOFT_HLUTNM = "soft_lutpair99" *) 
+  (* SOFT_HLUTNM = "soft_lutpair104" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_INPUT_REG[2].sig_input_data_reg[2][3]_i_1 
@@ -41639,7 +41347,7 @@ module system_axi_vdma_0_0_xpm_fifo_sync
         .I1(lsig_0ffset_cntr),
         .I2(sig_data_fifo_data_out[19]),
         .O(\GEN_INPUT_REG[2].sig_input_data_reg_reg[2][9] [3]));
-  (* SOFT_HLUTNM = "soft_lutpair100" *) 
+  (* SOFT_HLUTNM = "soft_lutpair105" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_INPUT_REG[2].sig_input_data_reg[2][4]_i_1 
@@ -41647,7 +41355,7 @@ module system_axi_vdma_0_0_xpm_fifo_sync
         .I1(lsig_0ffset_cntr),
         .I2(sig_data_fifo_data_out[20]),
         .O(\GEN_INPUT_REG[2].sig_input_data_reg_reg[2][9] [4]));
-  (* SOFT_HLUTNM = "soft_lutpair100" *) 
+  (* SOFT_HLUTNM = "soft_lutpair105" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_INPUT_REG[2].sig_input_data_reg[2][5]_i_1 
@@ -41655,7 +41363,7 @@ module system_axi_vdma_0_0_xpm_fifo_sync
         .I1(lsig_0ffset_cntr),
         .I2(sig_data_fifo_data_out[21]),
         .O(\GEN_INPUT_REG[2].sig_input_data_reg_reg[2][9] [5]));
-  (* SOFT_HLUTNM = "soft_lutpair101" *) 
+  (* SOFT_HLUTNM = "soft_lutpair106" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_INPUT_REG[2].sig_input_data_reg[2][6]_i_1 
@@ -41663,7 +41371,7 @@ module system_axi_vdma_0_0_xpm_fifo_sync
         .I1(lsig_0ffset_cntr),
         .I2(sig_data_fifo_data_out[22]),
         .O(\GEN_INPUT_REG[2].sig_input_data_reg_reg[2][9] [6]));
-  (* SOFT_HLUTNM = "soft_lutpair101" *) 
+  (* SOFT_HLUTNM = "soft_lutpair106" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_INPUT_REG[2].sig_input_data_reg[2][7]_i_1 
@@ -41671,7 +41379,7 @@ module system_axi_vdma_0_0_xpm_fifo_sync
         .I1(lsig_0ffset_cntr),
         .I2(sig_data_fifo_data_out[23]),
         .O(\GEN_INPUT_REG[2].sig_input_data_reg_reg[2][9] [7]));
-  (* SOFT_HLUTNM = "soft_lutpair86" *) 
+  (* SOFT_HLUTNM = "soft_lutpair91" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_INPUT_REG[2].sig_input_data_reg[2][8]_i_1 
@@ -41689,7 +41397,7 @@ module system_axi_vdma_0_0_xpm_fifo_sync
         .I4(\INCLUDE_UNPACKING.lsig_cmd_loaded_reg_0 ),
         .I5(sig_dre_tvalid_i_reg_0),
         .O(\GEN_INPUT_REG[2].sig_input_data_reg_reg[2][9]_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair86" *) 
+  (* SOFT_HLUTNM = "soft_lutpair91" *) 
   LUT4 #(
     .INIT(16'h00E2)) 
     \GEN_INPUT_REG[2].sig_input_data_reg[2][9]_i_2 
@@ -41708,7 +41416,7 @@ module system_axi_vdma_0_0_xpm_fifo_sync
         .I4(sig_data_fifo_data_out[70]),
         .I5(sig_data_fifo_data_out[66]),
         .O(\GEN_INPUT_REG[2].sig_input_data_reg_reg[2][9] [8]));
-  (* SOFT_HLUTNM = "soft_lutpair85" *) 
+  (* SOFT_HLUTNM = "soft_lutpair90" *) 
   LUT5 #(
     .INIT(32'h08000808)) 
     \GEN_INPUT_REG[2].sig_input_data_reg[2][9]_i_5 
@@ -41718,7 +41426,7 @@ module system_axi_vdma_0_0_xpm_fifo_sync
         .I3(lsig_0ffset_cntr),
         .I4(sig_data_fifo_data_out[68]),
         .O(\GEN_INPUT_REG[2].sig_input_data_reg[2][9]_i_5_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair102" *) 
+  (* SOFT_HLUTNM = "soft_lutpair107" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_INPUT_REG[3].sig_input_data_reg[3][0]_i_1 
@@ -41726,7 +41434,7 @@ module system_axi_vdma_0_0_xpm_fifo_sync
         .I1(lsig_0ffset_cntr),
         .I2(sig_data_fifo_data_out[24]),
         .O(\GEN_INPUT_REG[3].sig_input_data_reg_reg[3][9]_0 [0]));
-  (* SOFT_HLUTNM = "soft_lutpair102" *) 
+  (* SOFT_HLUTNM = "soft_lutpair107" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_INPUT_REG[3].sig_input_data_reg[3][1]_i_1 
@@ -41734,7 +41442,7 @@ module system_axi_vdma_0_0_xpm_fifo_sync
         .I1(lsig_0ffset_cntr),
         .I2(sig_data_fifo_data_out[25]),
         .O(\GEN_INPUT_REG[3].sig_input_data_reg_reg[3][9]_0 [1]));
-  (* SOFT_HLUTNM = "soft_lutpair103" *) 
+  (* SOFT_HLUTNM = "soft_lutpair108" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_INPUT_REG[3].sig_input_data_reg[3][2]_i_1 
@@ -41742,7 +41450,7 @@ module system_axi_vdma_0_0_xpm_fifo_sync
         .I1(lsig_0ffset_cntr),
         .I2(sig_data_fifo_data_out[26]),
         .O(\GEN_INPUT_REG[3].sig_input_data_reg_reg[3][9]_0 [2]));
-  (* SOFT_HLUTNM = "soft_lutpair103" *) 
+  (* SOFT_HLUTNM = "soft_lutpair108" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_INPUT_REG[3].sig_input_data_reg[3][3]_i_1 
@@ -41750,7 +41458,7 @@ module system_axi_vdma_0_0_xpm_fifo_sync
         .I1(lsig_0ffset_cntr),
         .I2(sig_data_fifo_data_out[27]),
         .O(\GEN_INPUT_REG[3].sig_input_data_reg_reg[3][9]_0 [3]));
-  (* SOFT_HLUTNM = "soft_lutpair104" *) 
+  (* SOFT_HLUTNM = "soft_lutpair109" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_INPUT_REG[3].sig_input_data_reg[3][4]_i_1 
@@ -41758,7 +41466,7 @@ module system_axi_vdma_0_0_xpm_fifo_sync
         .I1(lsig_0ffset_cntr),
         .I2(sig_data_fifo_data_out[28]),
         .O(\GEN_INPUT_REG[3].sig_input_data_reg_reg[3][9]_0 [4]));
-  (* SOFT_HLUTNM = "soft_lutpair104" *) 
+  (* SOFT_HLUTNM = "soft_lutpair109" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_INPUT_REG[3].sig_input_data_reg[3][5]_i_1 
@@ -41766,7 +41474,7 @@ module system_axi_vdma_0_0_xpm_fifo_sync
         .I1(lsig_0ffset_cntr),
         .I2(sig_data_fifo_data_out[29]),
         .O(\GEN_INPUT_REG[3].sig_input_data_reg_reg[3][9]_0 [5]));
-  (* SOFT_HLUTNM = "soft_lutpair105" *) 
+  (* SOFT_HLUTNM = "soft_lutpair110" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_INPUT_REG[3].sig_input_data_reg[3][6]_i_1 
@@ -41774,7 +41482,7 @@ module system_axi_vdma_0_0_xpm_fifo_sync
         .I1(lsig_0ffset_cntr),
         .I2(sig_data_fifo_data_out[30]),
         .O(\GEN_INPUT_REG[3].sig_input_data_reg_reg[3][9]_0 [6]));
-  (* SOFT_HLUTNM = "soft_lutpair105" *) 
+  (* SOFT_HLUTNM = "soft_lutpair110" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_INPUT_REG[3].sig_input_data_reg[3][7]_i_1 
@@ -41782,7 +41490,7 @@ module system_axi_vdma_0_0_xpm_fifo_sync
         .I1(lsig_0ffset_cntr),
         .I2(sig_data_fifo_data_out[31]),
         .O(\GEN_INPUT_REG[3].sig_input_data_reg_reg[3][9]_0 [7]));
-  (* SOFT_HLUTNM = "soft_lutpair88" *) 
+  (* SOFT_HLUTNM = "soft_lutpair93" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_INPUT_REG[3].sig_input_data_reg[3][8]_i_1 
@@ -41800,7 +41508,7 @@ module system_axi_vdma_0_0_xpm_fifo_sync
         .I4(\INCLUDE_UNPACKING.lsig_cmd_loaded_reg_0 ),
         .I5(sig_dre_tvalid_i_reg_0),
         .O(\GEN_INPUT_REG[3].sig_input_data_reg_reg[3][9] ));
-  (* SOFT_HLUTNM = "soft_lutpair88" *) 
+  (* SOFT_HLUTNM = "soft_lutpair93" *) 
   LUT4 #(
     .INIT(16'h00E2)) 
     \GEN_INPUT_REG[3].sig_input_data_reg[3][9]_i_2 
@@ -41829,14 +41537,14 @@ module system_axi_vdma_0_0_xpm_fifo_sync
         .I4(sig_flush_db1_reg_0),
         .I5(\INFERRED_GEN.cnt_i_reg[2] ),
         .O(\INCLUDE_DRE_CNTL.sig_dre_align_valid_reg_reg ));
-  (* SOFT_HLUTNM = "soft_lutpair106" *) 
+  (* SOFT_HLUTNM = "soft_lutpair111" *) 
   LUT2 #(
     .INIT(4'h8)) 
     \INCLUDE_DRE_CNTL.sig_dre_src_align_reg[0]_i_1 
        (.I0(\INCLUDE_DRE_CNTL.sig_dre_align_valid_reg_reg ),
         .I1(out[0]),
         .O(D[0]));
-  (* SOFT_HLUTNM = "soft_lutpair106" *) 
+  (* SOFT_HLUTNM = "soft_lutpair111" *) 
   LUT2 #(
     .INIT(4'h8)) 
     \INCLUDE_DRE_CNTL.sig_dre_src_align_reg[1]_i_2 
@@ -41863,7 +41571,7 @@ module system_axi_vdma_0_0_xpm_fifo_sync
         .I4(sig_flush_db1),
         .I5(sig_dre_tvalid_i_reg_1),
         .O(sig_flush_db1_reg));
-  (* SOFT_HLUTNM = "soft_lutpair85" *) 
+  (* SOFT_HLUTNM = "soft_lutpair90" *) 
   LUT2 #(
     .INIT(4'h2)) 
     sig_flush_db1_i_2
@@ -41897,7 +41605,7 @@ module system_axi_vdma_0_0_xpm_fifo_sync
         .I4(sig_data_fifo_wr_cnt[7]),
         .I5(\sig_token_cntr_reg[3] ),
         .O(sig_ok_to_post_rd_addr0__0));
-  (* SOFT_HLUTNM = "soft_lutpair89" *) 
+  (* SOFT_HLUTNM = "soft_lutpair94" *) 
   LUT4 #(
     .INIT(16'hF69F)) 
     sig_ok_to_post_rd_addr_i_3
@@ -41926,7 +41634,7 @@ module system_axi_vdma_0_0_xpm_fifo_sync
         .I4(Q[2]),
         .I5(sig_ok_to_post_rd_addr_i_10_n_0),
         .O(sig_ok_to_post_rd_addr_i_6_n_0));
-  (* SOFT_HLUTNM = "soft_lutpair89" *) 
+  (* SOFT_HLUTNM = "soft_lutpair94" *) 
   LUT4 #(
     .INIT(16'hB828)) 
     sig_ok_to_post_rd_addr_i_9
@@ -42555,1866 +42263,160 @@ endmodule
 
 (* ORIG_REF_NAME = "blk_mem_gen_generic_cstr" *) 
 module system_axi_vdma_0_0_blk_mem_gen_generic_cstr
-   (D,
-    p_12_out,
+   (p_12_out,
     m_axi_mm2s_aclk,
-    WEA,
-    ram_empty_fb_i_reg,
-    empty_fwft_i_reg,
-    Q,
-    \gc0.count_d1_reg[13] ,
-    dm2linebuf_mm2s_tdata,
+    tmp_ram_rd_en,
     \GEN_FREE_RUN_MODE.frame_sync_i_reg ,
-    ena_array,
-    enb_array,
-    \GEN_FREE_RUN_MODE.frame_sync_i_reg_0 ,
-    \gcc0.gc0.count_d1_reg[13] ,
-    \gc0.count_d1_reg[13]_0 ,
-    \GEN_FREE_RUN_MODE.frame_sync_i_reg_1 ,
-    DIADI,
-    DIPADIP,
-    out,
-    p_7_out,
-    mm2s_halt,
-    prmry_resetn_i_reg);
-  output [31:0]D;
-  output [5:0]p_12_out;
+    empty_fwft_i_reg,
+    \gc0.count_d1_reg[8] ,
+    \gcc0.gc0.count_d1_reg[8] ,
+    dm2linebuf_mm2s_tdata,
+    DIBDI);
+  output [37:0]p_12_out;
   input m_axi_mm2s_aclk;
-  input [0:0]WEA;
-  input ram_empty_fb_i_reg;
+  input tmp_ram_rd_en;
+  input \GEN_FREE_RUN_MODE.frame_sync_i_reg ;
   input empty_fwft_i_reg;
-  input [13:0]Q;
-  input [13:0]\gc0.count_d1_reg[13] ;
+  input [8:0]\gc0.count_d1_reg[8] ;
+  input [8:0]\gcc0.gc0.count_d1_reg[8] ;
   input [31:0]dm2linebuf_mm2s_tdata;
-  input [1:0]\GEN_FREE_RUN_MODE.frame_sync_i_reg ;
-  input [2:0]ena_array;
-  input [2:0]enb_array;
-  input [1:0]\GEN_FREE_RUN_MODE.frame_sync_i_reg_0 ;
-  input \gcc0.gc0.count_d1_reg[13] ;
-  input \gc0.count_d1_reg[13]_0 ;
-  input [1:0]\GEN_FREE_RUN_MODE.frame_sync_i_reg_1 ;
-  input [4:0]DIADI;
-  input [0:0]DIPADIP;
-  input out;
-  input p_7_out;
-  input mm2s_halt;
-  input prmry_resetn_i_reg;
+  input [5:0]DIBDI;
 
-  wire [31:0]D;
-  wire [4:0]DIADI;
-  wire [0:0]DIPADIP;
-  wire [1:0]\GEN_FREE_RUN_MODE.frame_sync_i_reg ;
-  wire [1:0]\GEN_FREE_RUN_MODE.frame_sync_i_reg_0 ;
-  wire [1:0]\GEN_FREE_RUN_MODE.frame_sync_i_reg_1 ;
-  wire [13:0]Q;
-  wire [0:0]WEA;
+  wire [5:0]DIBDI;
+  wire \GEN_FREE_RUN_MODE.frame_sync_i_reg ;
   wire [31:0]dm2linebuf_mm2s_tdata;
   wire empty_fwft_i_reg;
-  wire [2:0]ena_array;
-  wire [2:0]enb_array;
-  wire [13:0]\gc0.count_d1_reg[13] ;
-  wire \gc0.count_d1_reg[13]_0 ;
-  wire \gcc0.gc0.count_d1_reg[13] ;
+  wire [8:0]\gc0.count_d1_reg[8] ;
+  wire [8:0]\gcc0.gc0.count_d1_reg[8] ;
   wire m_axi_mm2s_aclk;
-  wire mm2s_halt;
-  wire out;
-  wire [5:0]p_12_out;
-  wire p_7_out;
-  wire prmry_resetn_i_reg;
-  wire ram_empty_fb_i_reg;
-  wire \ramloop[10].ram.r_n_0 ;
-  wire \ramloop[10].ram.r_n_1 ;
-  wire \ramloop[10].ram.r_n_2 ;
-  wire \ramloop[10].ram.r_n_3 ;
-  wire \ramloop[10].ram.r_n_4 ;
-  wire \ramloop[10].ram.r_n_5 ;
-  wire \ramloop[10].ram.r_n_6 ;
-  wire \ramloop[10].ram.r_n_7 ;
-  wire \ramloop[10].ram.r_n_8 ;
-  wire \ramloop[11].ram.r_n_0 ;
-  wire \ramloop[11].ram.r_n_1 ;
-  wire \ramloop[11].ram.r_n_2 ;
-  wire \ramloop[11].ram.r_n_3 ;
-  wire \ramloop[11].ram.r_n_4 ;
-  wire \ramloop[11].ram.r_n_5 ;
-  wire \ramloop[11].ram.r_n_6 ;
-  wire \ramloop[11].ram.r_n_7 ;
-  wire \ramloop[11].ram.r_n_8 ;
-  wire \ramloop[12].ram.r_n_0 ;
-  wire \ramloop[12].ram.r_n_1 ;
-  wire \ramloop[12].ram.r_n_2 ;
-  wire \ramloop[12].ram.r_n_3 ;
-  wire \ramloop[12].ram.r_n_4 ;
-  wire \ramloop[12].ram.r_n_5 ;
-  wire \ramloop[12].ram.r_n_6 ;
-  wire \ramloop[12].ram.r_n_7 ;
-  wire \ramloop[12].ram.r_n_8 ;
-  wire \ramloop[13].ram.r_n_0 ;
-  wire \ramloop[13].ram.r_n_1 ;
-  wire \ramloop[13].ram.r_n_2 ;
-  wire \ramloop[13].ram.r_n_3 ;
-  wire \ramloop[13].ram.r_n_4 ;
-  wire \ramloop[13].ram.r_n_5 ;
-  wire \ramloop[13].ram.r_n_6 ;
-  wire \ramloop[13].ram.r_n_7 ;
-  wire \ramloop[13].ram.r_n_8 ;
-  wire \ramloop[14].ram.r_n_0 ;
-  wire \ramloop[14].ram.r_n_1 ;
-  wire \ramloop[14].ram.r_n_2 ;
-  wire \ramloop[14].ram.r_n_3 ;
-  wire \ramloop[14].ram.r_n_4 ;
-  wire \ramloop[14].ram.r_n_5 ;
-  wire \ramloop[14].ram.r_n_6 ;
-  wire \ramloop[14].ram.r_n_7 ;
-  wire \ramloop[14].ram.r_n_8 ;
-  wire \ramloop[15].ram.r_n_0 ;
-  wire \ramloop[15].ram.r_n_1 ;
-  wire \ramloop[15].ram.r_n_2 ;
-  wire \ramloop[15].ram.r_n_3 ;
-  wire \ramloop[15].ram.r_n_4 ;
-  wire \ramloop[15].ram.r_n_5 ;
-  wire \ramloop[15].ram.r_n_6 ;
-  wire \ramloop[15].ram.r_n_7 ;
-  wire \ramloop[15].ram.r_n_8 ;
-  wire \ramloop[16].ram.r_n_0 ;
-  wire \ramloop[16].ram.r_n_1 ;
-  wire \ramloop[16].ram.r_n_2 ;
-  wire \ramloop[16].ram.r_n_3 ;
-  wire \ramloop[16].ram.r_n_4 ;
-  wire \ramloop[16].ram.r_n_5 ;
-  wire \ramloop[16].ram.r_n_6 ;
-  wire \ramloop[16].ram.r_n_7 ;
-  wire \ramloop[16].ram.r_n_8 ;
-  wire \ramloop[1].ram.r_n_0 ;
-  wire \ramloop[1].ram.r_n_1 ;
-  wire \ramloop[1].ram.r_n_2 ;
-  wire \ramloop[1].ram.r_n_3 ;
-  wire \ramloop[1].ram.r_n_4 ;
-  wire \ramloop[1].ram.r_n_5 ;
-  wire \ramloop[1].ram.r_n_6 ;
-  wire \ramloop[1].ram.r_n_7 ;
-  wire \ramloop[1].ram.r_n_8 ;
-  wire \ramloop[2].ram.r_n_0 ;
-  wire \ramloop[2].ram.r_n_1 ;
-  wire \ramloop[2].ram.r_n_2 ;
-  wire \ramloop[2].ram.r_n_3 ;
-  wire \ramloop[2].ram.r_n_4 ;
-  wire \ramloop[2].ram.r_n_5 ;
-  wire \ramloop[2].ram.r_n_6 ;
-  wire \ramloop[2].ram.r_n_7 ;
-  wire \ramloop[2].ram.r_n_8 ;
-  wire \ramloop[3].ram.r_n_0 ;
-  wire \ramloop[3].ram.r_n_1 ;
-  wire \ramloop[3].ram.r_n_2 ;
-  wire \ramloop[3].ram.r_n_3 ;
-  wire \ramloop[3].ram.r_n_4 ;
-  wire \ramloop[3].ram.r_n_5 ;
-  wire \ramloop[3].ram.r_n_6 ;
-  wire \ramloop[3].ram.r_n_7 ;
-  wire \ramloop[3].ram.r_n_8 ;
-  wire \ramloop[4].ram.r_n_0 ;
-  wire \ramloop[4].ram.r_n_1 ;
-  wire \ramloop[4].ram.r_n_2 ;
-  wire \ramloop[4].ram.r_n_3 ;
-  wire \ramloop[4].ram.r_n_4 ;
-  wire \ramloop[4].ram.r_n_5 ;
-  wire \ramloop[4].ram.r_n_6 ;
-  wire \ramloop[4].ram.r_n_7 ;
-  wire \ramloop[4].ram.r_n_8 ;
-  wire \ramloop[5].ram.r_n_0 ;
-  wire \ramloop[5].ram.r_n_1 ;
-  wire \ramloop[5].ram.r_n_2 ;
-  wire \ramloop[5].ram.r_n_3 ;
-  wire \ramloop[5].ram.r_n_4 ;
-  wire \ramloop[5].ram.r_n_5 ;
-  wire \ramloop[5].ram.r_n_6 ;
-  wire \ramloop[5].ram.r_n_7 ;
-  wire \ramloop[5].ram.r_n_8 ;
-  wire \ramloop[6].ram.r_n_0 ;
-  wire \ramloop[6].ram.r_n_1 ;
-  wire \ramloop[6].ram.r_n_2 ;
-  wire \ramloop[6].ram.r_n_3 ;
-  wire \ramloop[6].ram.r_n_4 ;
-  wire \ramloop[6].ram.r_n_5 ;
-  wire \ramloop[6].ram.r_n_6 ;
-  wire \ramloop[6].ram.r_n_7 ;
-  wire \ramloop[6].ram.r_n_8 ;
-  wire \ramloop[7].ram.r_n_0 ;
-  wire \ramloop[7].ram.r_n_1 ;
-  wire \ramloop[7].ram.r_n_2 ;
-  wire \ramloop[7].ram.r_n_3 ;
-  wire \ramloop[7].ram.r_n_4 ;
-  wire \ramloop[7].ram.r_n_5 ;
-  wire \ramloop[7].ram.r_n_6 ;
-  wire \ramloop[7].ram.r_n_7 ;
-  wire \ramloop[7].ram.r_n_8 ;
-  wire \ramloop[8].ram.r_n_0 ;
-  wire \ramloop[8].ram.r_n_1 ;
-  wire \ramloop[8].ram.r_n_2 ;
-  wire \ramloop[8].ram.r_n_3 ;
-  wire \ramloop[8].ram.r_n_4 ;
-  wire \ramloop[8].ram.r_n_5 ;
-  wire \ramloop[8].ram.r_n_6 ;
-  wire \ramloop[8].ram.r_n_7 ;
-  wire \ramloop[8].ram.r_n_8 ;
-  wire \ramloop[9].ram.r_n_0 ;
-  wire \ramloop[9].ram.r_n_1 ;
-  wire \ramloop[9].ram.r_n_2 ;
-  wire \ramloop[9].ram.r_n_3 ;
-  wire \ramloop[9].ram.r_n_4 ;
-  wire \ramloop[9].ram.r_n_5 ;
-  wire \ramloop[9].ram.r_n_6 ;
-  wire \ramloop[9].ram.r_n_7 ;
-  wire \ramloop[9].ram.r_n_8 ;
+  wire [37:0]p_12_out;
+  wire tmp_ram_rd_en;
 
-  system_axi_vdma_0_0_blk_mem_gen_mux__parameterized0 \has_mux_b.B 
-       (.D(D[31:2]),
-        .\DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram (\ramloop[16].ram.r_n_8 ),
-        .\DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_0 (\ramloop[13].ram.r_n_8 ),
-        .\DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_1 (\ramloop[14].ram.r_n_8 ),
-        .\DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_10 ({\ramloop[12].ram.r_n_0 ,\ramloop[12].ram.r_n_1 ,\ramloop[12].ram.r_n_2 ,\ramloop[12].ram.r_n_3 ,\ramloop[12].ram.r_n_4 ,\ramloop[12].ram.r_n_5 ,\ramloop[12].ram.r_n_6 ,\ramloop[12].ram.r_n_7 }),
-        .\DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_11 ({\ramloop[9].ram.r_n_0 ,\ramloop[9].ram.r_n_1 ,\ramloop[9].ram.r_n_2 ,\ramloop[9].ram.r_n_3 ,\ramloop[9].ram.r_n_4 ,\ramloop[9].ram.r_n_5 ,\ramloop[9].ram.r_n_6 ,\ramloop[9].ram.r_n_7 }),
-        .\DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_12 ({\ramloop[10].ram.r_n_0 ,\ramloop[10].ram.r_n_1 ,\ramloop[10].ram.r_n_2 ,\ramloop[10].ram.r_n_3 ,\ramloop[10].ram.r_n_4 ,\ramloop[10].ram.r_n_5 ,\ramloop[10].ram.r_n_6 ,\ramloop[10].ram.r_n_7 }),
-        .\DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_13 (\ramloop[7].ram.r_n_8 ),
-        .\DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_14 (\ramloop[8].ram.r_n_8 ),
-        .\DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_15 (\ramloop[5].ram.r_n_8 ),
-        .\DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_16 (\ramloop[6].ram.r_n_8 ),
-        .\DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_17 ({\ramloop[7].ram.r_n_0 ,\ramloop[7].ram.r_n_1 ,\ramloop[7].ram.r_n_2 ,\ramloop[7].ram.r_n_3 ,\ramloop[7].ram.r_n_4 ,\ramloop[7].ram.r_n_5 ,\ramloop[7].ram.r_n_6 ,\ramloop[7].ram.r_n_7 }),
-        .\DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_18 ({\ramloop[8].ram.r_n_0 ,\ramloop[8].ram.r_n_1 ,\ramloop[8].ram.r_n_2 ,\ramloop[8].ram.r_n_3 ,\ramloop[8].ram.r_n_4 ,\ramloop[8].ram.r_n_5 ,\ramloop[8].ram.r_n_6 ,\ramloop[8].ram.r_n_7 }),
-        .\DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_19 ({\ramloop[5].ram.r_n_0 ,\ramloop[5].ram.r_n_1 ,\ramloop[5].ram.r_n_2 ,\ramloop[5].ram.r_n_3 ,\ramloop[5].ram.r_n_4 ,\ramloop[5].ram.r_n_5 ,\ramloop[5].ram.r_n_6 ,\ramloop[5].ram.r_n_7 }),
-        .\DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_2 ({\ramloop[16].ram.r_n_0 ,\ramloop[16].ram.r_n_1 ,\ramloop[16].ram.r_n_2 ,\ramloop[16].ram.r_n_3 ,\ramloop[16].ram.r_n_4 ,\ramloop[16].ram.r_n_5 ,\ramloop[16].ram.r_n_6 ,\ramloop[16].ram.r_n_7 }),
-        .\DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_20 ({\ramloop[6].ram.r_n_0 ,\ramloop[6].ram.r_n_1 ,\ramloop[6].ram.r_n_2 ,\ramloop[6].ram.r_n_3 ,\ramloop[6].ram.r_n_4 ,\ramloop[6].ram.r_n_5 ,\ramloop[6].ram.r_n_6 ,\ramloop[6].ram.r_n_7 }),
-        .\DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_21 (\ramloop[3].ram.r_n_8 ),
-        .\DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_22 (\ramloop[4].ram.r_n_8 ),
-        .\DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_23 (\ramloop[1].ram.r_n_8 ),
-        .\DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_24 (\ramloop[2].ram.r_n_8 ),
-        .\DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_25 ({\ramloop[3].ram.r_n_0 ,\ramloop[3].ram.r_n_1 ,\ramloop[3].ram.r_n_2 ,\ramloop[3].ram.r_n_3 ,\ramloop[3].ram.r_n_4 ,\ramloop[3].ram.r_n_5 ,\ramloop[3].ram.r_n_6 ,\ramloop[3].ram.r_n_7 }),
-        .\DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_26 ({\ramloop[4].ram.r_n_0 ,\ramloop[4].ram.r_n_1 ,\ramloop[4].ram.r_n_2 ,\ramloop[4].ram.r_n_3 ,\ramloop[4].ram.r_n_4 ,\ramloop[4].ram.r_n_5 ,\ramloop[4].ram.r_n_6 ,\ramloop[4].ram.r_n_7 }),
-        .\DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_27 ({\ramloop[1].ram.r_n_0 ,\ramloop[1].ram.r_n_1 ,\ramloop[1].ram.r_n_2 ,\ramloop[1].ram.r_n_3 ,\ramloop[1].ram.r_n_4 ,\ramloop[1].ram.r_n_5 ,\ramloop[1].ram.r_n_6 ,\ramloop[1].ram.r_n_7 }),
-        .\DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_28 ({\ramloop[2].ram.r_n_0 ,\ramloop[2].ram.r_n_1 ,\ramloop[2].ram.r_n_2 ,\ramloop[2].ram.r_n_3 ,\ramloop[2].ram.r_n_4 ,\ramloop[2].ram.r_n_5 ,\ramloop[2].ram.r_n_6 ,\ramloop[2].ram.r_n_7 }),
-        .\DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_3 ({\ramloop[13].ram.r_n_0 ,\ramloop[13].ram.r_n_1 ,\ramloop[13].ram.r_n_2 ,\ramloop[13].ram.r_n_3 ,\ramloop[13].ram.r_n_4 ,\ramloop[13].ram.r_n_5 ,\ramloop[13].ram.r_n_6 ,\ramloop[13].ram.r_n_7 }),
-        .\DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_4 ({\ramloop[14].ram.r_n_0 ,\ramloop[14].ram.r_n_1 ,\ramloop[14].ram.r_n_2 ,\ramloop[14].ram.r_n_3 ,\ramloop[14].ram.r_n_4 ,\ramloop[14].ram.r_n_5 ,\ramloop[14].ram.r_n_6 ,\ramloop[14].ram.r_n_7 }),
-        .\DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_5 (\ramloop[11].ram.r_n_8 ),
-        .\DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_6 (\ramloop[12].ram.r_n_8 ),
-        .\DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_7 (\ramloop[9].ram.r_n_8 ),
-        .\DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_8 (\ramloop[10].ram.r_n_8 ),
-        .\DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_9 ({\ramloop[11].ram.r_n_0 ,\ramloop[11].ram.r_n_1 ,\ramloop[11].ram.r_n_2 ,\ramloop[11].ram.r_n_3 ,\ramloop[11].ram.r_n_4 ,\ramloop[11].ram.r_n_5 ,\ramloop[11].ram.r_n_6 ,\ramloop[11].ram.r_n_7 }),
-        .DOBDO({\ramloop[15].ram.r_n_0 ,\ramloop[15].ram.r_n_1 ,\ramloop[15].ram.r_n_2 ,\ramloop[15].ram.r_n_3 ,\ramloop[15].ram.r_n_4 ,\ramloop[15].ram.r_n_5 ,\ramloop[15].ram.r_n_6 ,\ramloop[15].ram.r_n_7 }),
-        .DOPBDOP(\ramloop[15].ram.r_n_8 ),
-        .empty_fwft_i_reg(empty_fwft_i_reg),
-        .\gc0.count_d1_reg[13] (\gc0.count_d1_reg[13] [13:12]),
-        .m_axi_mm2s_aclk(m_axi_mm2s_aclk),
-        .mm2s_halt(mm2s_halt),
-        .out(out),
-        .p_12_out(p_12_out),
-        .p_7_out(p_7_out),
-        .prmry_resetn_i_reg(prmry_resetn_i_reg));
   system_axi_vdma_0_0_blk_mem_gen_prim_width \ramloop[0].ram.r 
-       (.D(D[1:0]),
-        .\GEN_FREE_RUN_MODE.frame_sync_i_reg (\GEN_FREE_RUN_MODE.frame_sync_i_reg [1]),
-        .Q(Q),
-        .WEA(WEA),
-        .dm2linebuf_mm2s_tdata(dm2linebuf_mm2s_tdata[1:0]),
+       (.DIBDI(DIBDI),
+        .\GEN_FREE_RUN_MODE.frame_sync_i_reg (\GEN_FREE_RUN_MODE.frame_sync_i_reg ),
+        .dm2linebuf_mm2s_tdata(dm2linebuf_mm2s_tdata),
         .empty_fwft_i_reg(empty_fwft_i_reg),
-        .\gc0.count_d1_reg[13] (\gc0.count_d1_reg[13] ),
+        .\gc0.count_d1_reg[8] (\gc0.count_d1_reg[8] ),
+        .\gcc0.gc0.count_d1_reg[8] (\gcc0.gc0.count_d1_reg[8] ),
         .m_axi_mm2s_aclk(m_axi_mm2s_aclk),
-        .ram_empty_fb_i_reg(ram_empty_fb_i_reg));
-  system_axi_vdma_0_0_blk_mem_gen_prim_width__parameterized9 \ramloop[10].ram.r 
-       (.\GEN_FREE_RUN_MODE.frame_sync_i_reg (\GEN_FREE_RUN_MODE.frame_sync_i_reg_1 [1]),
-        .Q(Q[11:0]),
-        .dm2linebuf_mm2s_tdata(dm2linebuf_mm2s_tdata[28:20]),
-        .empty_fwft_i_reg(empty_fwft_i_reg),
-        .ena_array(ena_array[1]),
-        .enb_array(enb_array[1]),
-        .\gc0.count_d1_reg[11] (\gc0.count_d1_reg[13] [11:0]),
-        .m_axi_mm2s_aclk(m_axi_mm2s_aclk),
-        .\sig_data_skid_reg_reg[27] ({\ramloop[10].ram.r_n_0 ,\ramloop[10].ram.r_n_1 ,\ramloop[10].ram.r_n_2 ,\ramloop[10].ram.r_n_3 ,\ramloop[10].ram.r_n_4 ,\ramloop[10].ram.r_n_5 ,\ramloop[10].ram.r_n_6 ,\ramloop[10].ram.r_n_7 }),
-        .\sig_data_skid_reg_reg[28] (\ramloop[10].ram.r_n_8 ));
-  system_axi_vdma_0_0_blk_mem_gen_prim_width__parameterized10 \ramloop[11].ram.r 
-       (.\GEN_FREE_RUN_MODE.frame_sync_i_reg (\GEN_FREE_RUN_MODE.frame_sync_i_reg_0 [0]),
-        .Q(Q[11:0]),
-        .dm2linebuf_mm2s_tdata(dm2linebuf_mm2s_tdata[28:20]),
-        .empty_fwft_i_reg(empty_fwft_i_reg),
-        .ena_array(ena_array[2]),
-        .enb_array(enb_array[2]),
-        .\gc0.count_d1_reg[11] (\gc0.count_d1_reg[13] [11:0]),
-        .m_axi_mm2s_aclk(m_axi_mm2s_aclk),
-        .\sig_data_skid_reg_reg[27] ({\ramloop[11].ram.r_n_0 ,\ramloop[11].ram.r_n_1 ,\ramloop[11].ram.r_n_2 ,\ramloop[11].ram.r_n_3 ,\ramloop[11].ram.r_n_4 ,\ramloop[11].ram.r_n_5 ,\ramloop[11].ram.r_n_6 ,\ramloop[11].ram.r_n_7 }),
-        .\sig_data_skid_reg_reg[28] (\ramloop[11].ram.r_n_8 ));
-  system_axi_vdma_0_0_blk_mem_gen_prim_width__parameterized11 \ramloop[12].ram.r 
-       (.\GEN_FREE_RUN_MODE.frame_sync_i_reg (\GEN_FREE_RUN_MODE.frame_sync_i_reg_1 ),
-        .Q(Q[11:0]),
-        .dm2linebuf_mm2s_tdata(dm2linebuf_mm2s_tdata[28:20]),
-        .empty_fwft_i_reg(empty_fwft_i_reg),
-        .\gc0.count_d1_reg[11] (\gc0.count_d1_reg[13] [11:0]),
-        .\gc0.count_d1_reg[13] (\gc0.count_d1_reg[13]_0 ),
-        .\gcc0.gc0.count_d1_reg[13] (\gcc0.gc0.count_d1_reg[13] ),
-        .m_axi_mm2s_aclk(m_axi_mm2s_aclk),
-        .\sig_data_skid_reg_reg[27] ({\ramloop[12].ram.r_n_0 ,\ramloop[12].ram.r_n_1 ,\ramloop[12].ram.r_n_2 ,\ramloop[12].ram.r_n_3 ,\ramloop[12].ram.r_n_4 ,\ramloop[12].ram.r_n_5 ,\ramloop[12].ram.r_n_6 ,\ramloop[12].ram.r_n_7 }),
-        .\sig_data_skid_reg_reg[28] (\ramloop[12].ram.r_n_8 ));
-  system_axi_vdma_0_0_blk_mem_gen_prim_width__parameterized12 \ramloop[13].ram.r 
-       (.DIADI({DIADI,dm2linebuf_mm2s_tdata[31:29]}),
-        .DIPADIP(DIPADIP),
-        .Q(Q[11:0]),
-        .WEA(WEA),
-        .empty_fwft_i_reg(empty_fwft_i_reg),
-        .ena_array(ena_array[0]),
-        .enb_array(enb_array[0]),
-        .\gc0.count_d1_reg[11] (\gc0.count_d1_reg[13] [11:0]),
-        .m_axi_mm2s_aclk(m_axi_mm2s_aclk),
-        .sig_last_skid_reg_reg({\ramloop[13].ram.r_n_0 ,\ramloop[13].ram.r_n_1 ,\ramloop[13].ram.r_n_2 ,\ramloop[13].ram.r_n_3 ,\ramloop[13].ram.r_n_4 ,\ramloop[13].ram.r_n_5 ,\ramloop[13].ram.r_n_6 ,\ramloop[13].ram.r_n_7 }),
-        .\sig_user_skid_reg_reg[0] (\ramloop[13].ram.r_n_8 ));
-  system_axi_vdma_0_0_blk_mem_gen_prim_width__parameterized13 \ramloop[14].ram.r 
-       (.DIADI({DIADI,dm2linebuf_mm2s_tdata[31:29]}),
-        .DIPADIP(DIPADIP),
-        .\GEN_FREE_RUN_MODE.frame_sync_i_reg (\GEN_FREE_RUN_MODE.frame_sync_i_reg_1 [0]),
-        .Q(Q[11:0]),
-        .empty_fwft_i_reg(empty_fwft_i_reg),
-        .ena_array(ena_array[1]),
-        .enb_array(enb_array[1]),
-        .\gc0.count_d1_reg[11] (\gc0.count_d1_reg[13] [11:0]),
-        .m_axi_mm2s_aclk(m_axi_mm2s_aclk),
-        .sig_last_skid_reg_reg({\ramloop[14].ram.r_n_0 ,\ramloop[14].ram.r_n_1 ,\ramloop[14].ram.r_n_2 ,\ramloop[14].ram.r_n_3 ,\ramloop[14].ram.r_n_4 ,\ramloop[14].ram.r_n_5 ,\ramloop[14].ram.r_n_6 ,\ramloop[14].ram.r_n_7 }),
-        .\sig_user_skid_reg_reg[0] (\ramloop[14].ram.r_n_8 ));
-  system_axi_vdma_0_0_blk_mem_gen_prim_width__parameterized14 \ramloop[15].ram.r 
-       (.DIADI({DIADI,dm2linebuf_mm2s_tdata[31:29]}),
-        .DIPADIP(DIPADIP),
-        .DOBDO({\ramloop[15].ram.r_n_0 ,\ramloop[15].ram.r_n_1 ,\ramloop[15].ram.r_n_2 ,\ramloop[15].ram.r_n_3 ,\ramloop[15].ram.r_n_4 ,\ramloop[15].ram.r_n_5 ,\ramloop[15].ram.r_n_6 ,\ramloop[15].ram.r_n_7 }),
-        .DOPBDOP(\ramloop[15].ram.r_n_8 ),
-        .Q(Q[11:0]),
-        .WEA(WEA),
-        .empty_fwft_i_reg(empty_fwft_i_reg),
-        .ena_array(ena_array[2]),
-        .enb_array(enb_array[2]),
-        .\gc0.count_d1_reg[11] (\gc0.count_d1_reg[13] [11:0]),
-        .m_axi_mm2s_aclk(m_axi_mm2s_aclk));
-  system_axi_vdma_0_0_blk_mem_gen_prim_width__parameterized15 \ramloop[16].ram.r 
-       (.DIADI({DIADI,dm2linebuf_mm2s_tdata[31:29]}),
-        .DIPADIP(DIPADIP),
-        .\GEN_FREE_RUN_MODE.frame_sync_i_reg (\GEN_FREE_RUN_MODE.frame_sync_i_reg_1 [0]),
-        .Q(Q[11:0]),
-        .empty_fwft_i_reg(empty_fwft_i_reg),
-        .\gc0.count_d1_reg[11] (\gc0.count_d1_reg[13] [11:0]),
-        .\gc0.count_d1_reg[13] (\gc0.count_d1_reg[13]_0 ),
-        .\gcc0.gc0.count_d1_reg[13] (\gcc0.gc0.count_d1_reg[13] ),
-        .m_axi_mm2s_aclk(m_axi_mm2s_aclk),
-        .sig_last_skid_reg_reg({\ramloop[16].ram.r_n_0 ,\ramloop[16].ram.r_n_1 ,\ramloop[16].ram.r_n_2 ,\ramloop[16].ram.r_n_3 ,\ramloop[16].ram.r_n_4 ,\ramloop[16].ram.r_n_5 ,\ramloop[16].ram.r_n_6 ,\ramloop[16].ram.r_n_7 }),
-        .\sig_user_skid_reg_reg[0] (\ramloop[16].ram.r_n_8 ));
-  system_axi_vdma_0_0_blk_mem_gen_prim_width__parameterized0 \ramloop[1].ram.r 
-       (.\GEN_FREE_RUN_MODE.frame_sync_i_reg (\GEN_FREE_RUN_MODE.frame_sync_i_reg [1]),
-        .Q(Q[11:0]),
-        .dm2linebuf_mm2s_tdata(dm2linebuf_mm2s_tdata[10:2]),
-        .empty_fwft_i_reg(empty_fwft_i_reg),
-        .ena_array(ena_array[0]),
-        .enb_array(enb_array[0]),
-        .\gc0.count_d1_reg[11] (\gc0.count_d1_reg[13] [11:0]),
-        .m_axi_mm2s_aclk(m_axi_mm2s_aclk),
-        .\sig_data_skid_reg_reg[10] (\ramloop[1].ram.r_n_8 ),
-        .\sig_data_skid_reg_reg[9] ({\ramloop[1].ram.r_n_0 ,\ramloop[1].ram.r_n_1 ,\ramloop[1].ram.r_n_2 ,\ramloop[1].ram.r_n_3 ,\ramloop[1].ram.r_n_4 ,\ramloop[1].ram.r_n_5 ,\ramloop[1].ram.r_n_6 ,\ramloop[1].ram.r_n_7 }));
-  system_axi_vdma_0_0_blk_mem_gen_prim_width__parameterized1 \ramloop[2].ram.r 
-       (.\GEN_FREE_RUN_MODE.frame_sync_i_reg (\GEN_FREE_RUN_MODE.frame_sync_i_reg ),
-        .Q(Q[11:0]),
-        .dm2linebuf_mm2s_tdata(dm2linebuf_mm2s_tdata[10:2]),
-        .empty_fwft_i_reg(empty_fwft_i_reg),
-        .ena_array(ena_array[1]),
-        .enb_array(enb_array[1]),
-        .\gc0.count_d1_reg[11] (\gc0.count_d1_reg[13] [11:0]),
-        .m_axi_mm2s_aclk(m_axi_mm2s_aclk),
-        .\sig_data_skid_reg_reg[10] (\ramloop[2].ram.r_n_8 ),
-        .\sig_data_skid_reg_reg[9] ({\ramloop[2].ram.r_n_0 ,\ramloop[2].ram.r_n_1 ,\ramloop[2].ram.r_n_2 ,\ramloop[2].ram.r_n_3 ,\ramloop[2].ram.r_n_4 ,\ramloop[2].ram.r_n_5 ,\ramloop[2].ram.r_n_6 ,\ramloop[2].ram.r_n_7 }));
-  system_axi_vdma_0_0_blk_mem_gen_prim_width__parameterized2 \ramloop[3].ram.r 
-       (.\GEN_FREE_RUN_MODE.frame_sync_i_reg (\GEN_FREE_RUN_MODE.frame_sync_i_reg_0 [1]),
-        .Q(Q[11:0]),
-        .dm2linebuf_mm2s_tdata(dm2linebuf_mm2s_tdata[10:2]),
-        .empty_fwft_i_reg(empty_fwft_i_reg),
-        .ena_array(ena_array[2]),
-        .enb_array(enb_array[2]),
-        .\gc0.count_d1_reg[11] (\gc0.count_d1_reg[13] [11:0]),
-        .m_axi_mm2s_aclk(m_axi_mm2s_aclk),
-        .\sig_data_skid_reg_reg[10] (\ramloop[3].ram.r_n_8 ),
-        .\sig_data_skid_reg_reg[9] ({\ramloop[3].ram.r_n_0 ,\ramloop[3].ram.r_n_1 ,\ramloop[3].ram.r_n_2 ,\ramloop[3].ram.r_n_3 ,\ramloop[3].ram.r_n_4 ,\ramloop[3].ram.r_n_5 ,\ramloop[3].ram.r_n_6 ,\ramloop[3].ram.r_n_7 }));
-  system_axi_vdma_0_0_blk_mem_gen_prim_width__parameterized3 \ramloop[4].ram.r 
-       (.\GEN_FREE_RUN_MODE.frame_sync_i_reg (\GEN_FREE_RUN_MODE.frame_sync_i_reg [0]),
-        .Q(Q[11:0]),
-        .dm2linebuf_mm2s_tdata(dm2linebuf_mm2s_tdata[10:2]),
-        .empty_fwft_i_reg(empty_fwft_i_reg),
-        .\gc0.count_d1_reg[11] (\gc0.count_d1_reg[13] [11:0]),
-        .\gc0.count_d1_reg[13] (\gc0.count_d1_reg[13]_0 ),
-        .\gcc0.gc0.count_d1_reg[13] (\gcc0.gc0.count_d1_reg[13] ),
-        .m_axi_mm2s_aclk(m_axi_mm2s_aclk),
-        .\sig_data_skid_reg_reg[10] (\ramloop[4].ram.r_n_8 ),
-        .\sig_data_skid_reg_reg[9] ({\ramloop[4].ram.r_n_0 ,\ramloop[4].ram.r_n_1 ,\ramloop[4].ram.r_n_2 ,\ramloop[4].ram.r_n_3 ,\ramloop[4].ram.r_n_4 ,\ramloop[4].ram.r_n_5 ,\ramloop[4].ram.r_n_6 ,\ramloop[4].ram.r_n_7 }));
-  system_axi_vdma_0_0_blk_mem_gen_prim_width__parameterized4 \ramloop[5].ram.r 
-       (.\GEN_FREE_RUN_MODE.frame_sync_i_reg (\GEN_FREE_RUN_MODE.frame_sync_i_reg_0 [1]),
-        .Q(Q[11:0]),
-        .dm2linebuf_mm2s_tdata(dm2linebuf_mm2s_tdata[19:11]),
-        .empty_fwft_i_reg(empty_fwft_i_reg),
-        .ena_array(ena_array[0]),
-        .enb_array(enb_array[0]),
-        .\gc0.count_d1_reg[11] (\gc0.count_d1_reg[13] [11:0]),
-        .m_axi_mm2s_aclk(m_axi_mm2s_aclk),
-        .\sig_data_skid_reg_reg[18] ({\ramloop[5].ram.r_n_0 ,\ramloop[5].ram.r_n_1 ,\ramloop[5].ram.r_n_2 ,\ramloop[5].ram.r_n_3 ,\ramloop[5].ram.r_n_4 ,\ramloop[5].ram.r_n_5 ,\ramloop[5].ram.r_n_6 ,\ramloop[5].ram.r_n_7 }),
-        .\sig_data_skid_reg_reg[19] (\ramloop[5].ram.r_n_8 ));
-  system_axi_vdma_0_0_blk_mem_gen_prim_width__parameterized5 \ramloop[6].ram.r 
-       (.\GEN_FREE_RUN_MODE.frame_sync_i_reg (\GEN_FREE_RUN_MODE.frame_sync_i_reg [0]),
-        .Q(Q[11:0]),
-        .dm2linebuf_mm2s_tdata(dm2linebuf_mm2s_tdata[19:11]),
-        .empty_fwft_i_reg(empty_fwft_i_reg),
-        .ena_array(ena_array[1]),
-        .enb_array(enb_array[1]),
-        .\gc0.count_d1_reg[11] (\gc0.count_d1_reg[13] [11:0]),
-        .m_axi_mm2s_aclk(m_axi_mm2s_aclk),
-        .\sig_data_skid_reg_reg[18] ({\ramloop[6].ram.r_n_0 ,\ramloop[6].ram.r_n_1 ,\ramloop[6].ram.r_n_2 ,\ramloop[6].ram.r_n_3 ,\ramloop[6].ram.r_n_4 ,\ramloop[6].ram.r_n_5 ,\ramloop[6].ram.r_n_6 ,\ramloop[6].ram.r_n_7 }),
-        .\sig_data_skid_reg_reg[19] (\ramloop[6].ram.r_n_8 ));
-  system_axi_vdma_0_0_blk_mem_gen_prim_width__parameterized6 \ramloop[7].ram.r 
-       (.\GEN_FREE_RUN_MODE.frame_sync_i_reg (\GEN_FREE_RUN_MODE.frame_sync_i_reg_0 ),
-        .Q(Q[11:0]),
-        .dm2linebuf_mm2s_tdata(dm2linebuf_mm2s_tdata[19:11]),
-        .empty_fwft_i_reg(empty_fwft_i_reg),
-        .ena_array(ena_array[2]),
-        .enb_array(enb_array[2]),
-        .\gc0.count_d1_reg[11] (\gc0.count_d1_reg[13] [11:0]),
-        .m_axi_mm2s_aclk(m_axi_mm2s_aclk),
-        .\sig_data_skid_reg_reg[18] ({\ramloop[7].ram.r_n_0 ,\ramloop[7].ram.r_n_1 ,\ramloop[7].ram.r_n_2 ,\ramloop[7].ram.r_n_3 ,\ramloop[7].ram.r_n_4 ,\ramloop[7].ram.r_n_5 ,\ramloop[7].ram.r_n_6 ,\ramloop[7].ram.r_n_7 }),
-        .\sig_data_skid_reg_reg[19] (\ramloop[7].ram.r_n_8 ));
-  system_axi_vdma_0_0_blk_mem_gen_prim_width__parameterized7 \ramloop[8].ram.r 
-       (.\GEN_FREE_RUN_MODE.frame_sync_i_reg (\GEN_FREE_RUN_MODE.frame_sync_i_reg_1 [1]),
-        .Q(Q[11:0]),
-        .dm2linebuf_mm2s_tdata(dm2linebuf_mm2s_tdata[19:11]),
-        .empty_fwft_i_reg(empty_fwft_i_reg),
-        .\gc0.count_d1_reg[11] (\gc0.count_d1_reg[13] [11:0]),
-        .\gc0.count_d1_reg[13] (\gc0.count_d1_reg[13]_0 ),
-        .\gcc0.gc0.count_d1_reg[13] (\gcc0.gc0.count_d1_reg[13] ),
-        .m_axi_mm2s_aclk(m_axi_mm2s_aclk),
-        .\sig_data_skid_reg_reg[18] ({\ramloop[8].ram.r_n_0 ,\ramloop[8].ram.r_n_1 ,\ramloop[8].ram.r_n_2 ,\ramloop[8].ram.r_n_3 ,\ramloop[8].ram.r_n_4 ,\ramloop[8].ram.r_n_5 ,\ramloop[8].ram.r_n_6 ,\ramloop[8].ram.r_n_7 }),
-        .\sig_data_skid_reg_reg[19] (\ramloop[8].ram.r_n_8 ));
-  system_axi_vdma_0_0_blk_mem_gen_prim_width__parameterized8 \ramloop[9].ram.r 
-       (.\GEN_FREE_RUN_MODE.frame_sync_i_reg (\GEN_FREE_RUN_MODE.frame_sync_i_reg_0 [0]),
-        .Q(Q[11:0]),
-        .dm2linebuf_mm2s_tdata(dm2linebuf_mm2s_tdata[28:20]),
-        .empty_fwft_i_reg(empty_fwft_i_reg),
-        .ena_array(ena_array[0]),
-        .enb_array(enb_array[0]),
-        .\gc0.count_d1_reg[11] (\gc0.count_d1_reg[13] [11:0]),
-        .m_axi_mm2s_aclk(m_axi_mm2s_aclk),
-        .\sig_data_skid_reg_reg[27] ({\ramloop[9].ram.r_n_0 ,\ramloop[9].ram.r_n_1 ,\ramloop[9].ram.r_n_2 ,\ramloop[9].ram.r_n_3 ,\ramloop[9].ram.r_n_4 ,\ramloop[9].ram.r_n_5 ,\ramloop[9].ram.r_n_6 ,\ramloop[9].ram.r_n_7 }),
-        .\sig_data_skid_reg_reg[28] (\ramloop[9].ram.r_n_8 ));
-endmodule
-
-(* ORIG_REF_NAME = "blk_mem_gen_mux" *) 
-module system_axi_vdma_0_0_blk_mem_gen_mux__parameterized0
-   (p_12_out,
-    D,
-    DOPBDOP,
-    \DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram ,
-    \DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_0 ,
-    \DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_1 ,
-    DOBDO,
-    \DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_2 ,
-    \DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_3 ,
-    \DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_4 ,
-    \DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_5 ,
-    \DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_6 ,
-    \DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_7 ,
-    \DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_8 ,
-    \DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_9 ,
-    \DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_10 ,
-    \DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_11 ,
-    \DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_12 ,
-    \DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_13 ,
-    \DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_14 ,
-    \DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_15 ,
-    \DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_16 ,
-    \DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_17 ,
-    \DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_18 ,
-    \DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_19 ,
-    \DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_20 ,
-    \DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_21 ,
-    \DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_22 ,
-    \DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_23 ,
-    \DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_24 ,
-    \DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_25 ,
-    \DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_26 ,
-    \DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_27 ,
-    \DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_28 ,
-    \gc0.count_d1_reg[13] ,
-    out,
-    p_7_out,
-    mm2s_halt,
-    prmry_resetn_i_reg,
-    m_axi_mm2s_aclk,
-    empty_fwft_i_reg);
-  output [5:0]p_12_out;
-  output [29:0]D;
-  input [0:0]DOPBDOP;
-  input [0:0]\DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram ;
-  input [0:0]\DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_0 ;
-  input [0:0]\DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_1 ;
-  input [7:0]DOBDO;
-  input [7:0]\DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_2 ;
-  input [7:0]\DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_3 ;
-  input [7:0]\DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_4 ;
-  input [0:0]\DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_5 ;
-  input [0:0]\DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_6 ;
-  input [0:0]\DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_7 ;
-  input [0:0]\DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_8 ;
-  input [7:0]\DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_9 ;
-  input [7:0]\DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_10 ;
-  input [7:0]\DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_11 ;
-  input [7:0]\DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_12 ;
-  input [0:0]\DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_13 ;
-  input [0:0]\DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_14 ;
-  input [0:0]\DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_15 ;
-  input [0:0]\DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_16 ;
-  input [7:0]\DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_17 ;
-  input [7:0]\DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_18 ;
-  input [7:0]\DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_19 ;
-  input [7:0]\DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_20 ;
-  input [0:0]\DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_21 ;
-  input [0:0]\DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_22 ;
-  input [0:0]\DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_23 ;
-  input [0:0]\DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_24 ;
-  input [7:0]\DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_25 ;
-  input [7:0]\DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_26 ;
-  input [7:0]\DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_27 ;
-  input [7:0]\DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_28 ;
-  input [1:0]\gc0.count_d1_reg[13] ;
-  input out;
-  input p_7_out;
-  input mm2s_halt;
-  input prmry_resetn_i_reg;
-  input m_axi_mm2s_aclk;
-  input empty_fwft_i_reg;
-
-  wire [29:0]D;
-  wire [0:0]\DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram ;
-  wire [0:0]\DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_0 ;
-  wire [0:0]\DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_1 ;
-  wire [7:0]\DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_10 ;
-  wire [7:0]\DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_11 ;
-  wire [7:0]\DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_12 ;
-  wire [0:0]\DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_13 ;
-  wire [0:0]\DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_14 ;
-  wire [0:0]\DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_15 ;
-  wire [0:0]\DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_16 ;
-  wire [7:0]\DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_17 ;
-  wire [7:0]\DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_18 ;
-  wire [7:0]\DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_19 ;
-  wire [7:0]\DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_2 ;
-  wire [7:0]\DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_20 ;
-  wire [0:0]\DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_21 ;
-  wire [0:0]\DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_22 ;
-  wire [0:0]\DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_23 ;
-  wire [0:0]\DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_24 ;
-  wire [7:0]\DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_25 ;
-  wire [7:0]\DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_26 ;
-  wire [7:0]\DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_27 ;
-  wire [7:0]\DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_28 ;
-  wire [7:0]\DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_3 ;
-  wire [7:0]\DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_4 ;
-  wire [0:0]\DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_5 ;
-  wire [0:0]\DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_6 ;
-  wire [0:0]\DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_7 ;
-  wire [0:0]\DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_8 ;
-  wire [7:0]\DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_9 ;
-  wire [7:0]DOBDO;
-  wire [0:0]DOPBDOP;
-  wire empty_fwft_i_reg;
-  wire [1:0]\gc0.count_d1_reg[13] ;
-  wire m_axi_mm2s_aclk;
-  wire mm2s_halt;
-  wire \no_softecc_norm_sel2.has_mem_regs.WITHOUT_ECC_PIPE.ce_pri.sel_pipe_d1[0]_i_1_n_0 ;
-  wire \no_softecc_norm_sel2.has_mem_regs.WITHOUT_ECC_PIPE.ce_pri.sel_pipe_d1[1]_i_1_n_0 ;
-  wire \no_softecc_sel_reg.ce_pri.sel_pipe[0]_i_1_n_0 ;
-  wire \no_softecc_sel_reg.ce_pri.sel_pipe[1]_i_1_n_0 ;
-  wire out;
-  wire [5:0]p_12_out;
-  wire p_7_out;
-  wire prmry_resetn_i_reg;
-  wire [1:0]sel_pipe;
-  wire [1:0]sel_pipe_d1;
-
-  (* SOFT_HLUTNM = "soft_lutpair46" *) 
-  LUT3 #(
-    .INIT(8'hB8)) 
-    \no_softecc_norm_sel2.has_mem_regs.WITHOUT_ECC_PIPE.ce_pri.sel_pipe_d1[0]_i_1 
-       (.I0(sel_pipe[0]),
-        .I1(empty_fwft_i_reg),
-        .I2(sel_pipe_d1[0]),
-        .O(\no_softecc_norm_sel2.has_mem_regs.WITHOUT_ECC_PIPE.ce_pri.sel_pipe_d1[0]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair46" *) 
-  LUT3 #(
-    .INIT(8'hB8)) 
-    \no_softecc_norm_sel2.has_mem_regs.WITHOUT_ECC_PIPE.ce_pri.sel_pipe_d1[1]_i_1 
-       (.I0(sel_pipe[1]),
-        .I1(empty_fwft_i_reg),
-        .I2(sel_pipe_d1[1]),
-        .O(\no_softecc_norm_sel2.has_mem_regs.WITHOUT_ECC_PIPE.ce_pri.sel_pipe_d1[1]_i_1_n_0 ));
-  FDRE #(
-    .INIT(1'b0)) 
-    \no_softecc_norm_sel2.has_mem_regs.WITHOUT_ECC_PIPE.ce_pri.sel_pipe_d1_reg[0] 
-       (.C(m_axi_mm2s_aclk),
-        .CE(1'b1),
-        .D(\no_softecc_norm_sel2.has_mem_regs.WITHOUT_ECC_PIPE.ce_pri.sel_pipe_d1[0]_i_1_n_0 ),
-        .Q(sel_pipe_d1[0]),
-        .R(1'b0));
-  FDRE #(
-    .INIT(1'b0)) 
-    \no_softecc_norm_sel2.has_mem_regs.WITHOUT_ECC_PIPE.ce_pri.sel_pipe_d1_reg[1] 
-       (.C(m_axi_mm2s_aclk),
-        .CE(1'b1),
-        .D(\no_softecc_norm_sel2.has_mem_regs.WITHOUT_ECC_PIPE.ce_pri.sel_pipe_d1[1]_i_1_n_0 ),
-        .Q(sel_pipe_d1[1]),
-        .R(1'b0));
-  LUT6 #(
-    .INIT(64'hFFEFFFFF00200000)) 
-    \no_softecc_sel_reg.ce_pri.sel_pipe[0]_i_1 
-       (.I0(\gc0.count_d1_reg[13] [0]),
-        .I1(out),
-        .I2(p_7_out),
-        .I3(mm2s_halt),
-        .I4(prmry_resetn_i_reg),
-        .I5(sel_pipe[0]),
-        .O(\no_softecc_sel_reg.ce_pri.sel_pipe[0]_i_1_n_0 ));
-  LUT6 #(
-    .INIT(64'hFFEFFFFF00200000)) 
-    \no_softecc_sel_reg.ce_pri.sel_pipe[1]_i_1 
-       (.I0(\gc0.count_d1_reg[13] [1]),
-        .I1(out),
-        .I2(p_7_out),
-        .I3(mm2s_halt),
-        .I4(prmry_resetn_i_reg),
-        .I5(sel_pipe[1]),
-        .O(\no_softecc_sel_reg.ce_pri.sel_pipe[1]_i_1_n_0 ));
-  FDRE #(
-    .INIT(1'b0)) 
-    \no_softecc_sel_reg.ce_pri.sel_pipe_reg[0] 
-       (.C(m_axi_mm2s_aclk),
-        .CE(1'b1),
-        .D(\no_softecc_sel_reg.ce_pri.sel_pipe[0]_i_1_n_0 ),
-        .Q(sel_pipe[0]),
-        .R(1'b0));
-  FDRE #(
-    .INIT(1'b0)) 
-    \no_softecc_sel_reg.ce_pri.sel_pipe_reg[1] 
-       (.C(m_axi_mm2s_aclk),
-        .CE(1'b1),
-        .D(\no_softecc_sel_reg.ce_pri.sel_pipe[1]_i_1_n_0 ),
-        .Q(sel_pipe[1]),
-        .R(1'b0));
-  LUT6 #(
-    .INIT(64'hCCFFAAF0CC00AAF0)) 
-    \sig_data_skid_reg[10]_i_1 
-       (.I0(\DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_21 ),
-        .I1(\DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_22 ),
-        .I2(\DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_23 ),
-        .I3(sel_pipe_d1[1]),
-        .I4(sel_pipe_d1[0]),
-        .I5(\DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_24 ),
-        .O(D[8]));
-  LUT6 #(
-    .INIT(64'hCCFFAAF0CC00AAF0)) 
-    \sig_data_skid_reg[11]_i_1 
-       (.I0(\DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_17 [0]),
-        .I1(\DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_18 [0]),
-        .I2(\DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_19 [0]),
-        .I3(sel_pipe_d1[1]),
-        .I4(sel_pipe_d1[0]),
-        .I5(\DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_20 [0]),
-        .O(D[9]));
-  LUT6 #(
-    .INIT(64'hCCFFAAF0CC00AAF0)) 
-    \sig_data_skid_reg[12]_i_1 
-       (.I0(\DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_17 [1]),
-        .I1(\DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_18 [1]),
-        .I2(\DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_19 [1]),
-        .I3(sel_pipe_d1[1]),
-        .I4(sel_pipe_d1[0]),
-        .I5(\DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_20 [1]),
-        .O(D[10]));
-  LUT6 #(
-    .INIT(64'hCCFFAAF0CC00AAF0)) 
-    \sig_data_skid_reg[13]_i_1 
-       (.I0(\DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_17 [2]),
-        .I1(\DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_18 [2]),
-        .I2(\DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_19 [2]),
-        .I3(sel_pipe_d1[1]),
-        .I4(sel_pipe_d1[0]),
-        .I5(\DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_20 [2]),
-        .O(D[11]));
-  LUT6 #(
-    .INIT(64'hCCFFAAF0CC00AAF0)) 
-    \sig_data_skid_reg[14]_i_1 
-       (.I0(\DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_17 [3]),
-        .I1(\DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_18 [3]),
-        .I2(\DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_19 [3]),
-        .I3(sel_pipe_d1[1]),
-        .I4(sel_pipe_d1[0]),
-        .I5(\DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_20 [3]),
-        .O(D[12]));
-  LUT6 #(
-    .INIT(64'hCCFFAAF0CC00AAF0)) 
-    \sig_data_skid_reg[15]_i_1 
-       (.I0(\DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_17 [4]),
-        .I1(\DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_18 [4]),
-        .I2(\DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_19 [4]),
-        .I3(sel_pipe_d1[1]),
-        .I4(sel_pipe_d1[0]),
-        .I5(\DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_20 [4]),
-        .O(D[13]));
-  LUT6 #(
-    .INIT(64'hCCFFAAF0CC00AAF0)) 
-    \sig_data_skid_reg[16]_i_1 
-       (.I0(\DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_17 [5]),
-        .I1(\DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_18 [5]),
-        .I2(\DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_19 [5]),
-        .I3(sel_pipe_d1[1]),
-        .I4(sel_pipe_d1[0]),
-        .I5(\DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_20 [5]),
-        .O(D[14]));
-  LUT6 #(
-    .INIT(64'hCCFFAAF0CC00AAF0)) 
-    \sig_data_skid_reg[17]_i_1 
-       (.I0(\DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_17 [6]),
-        .I1(\DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_18 [6]),
-        .I2(\DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_19 [6]),
-        .I3(sel_pipe_d1[1]),
-        .I4(sel_pipe_d1[0]),
-        .I5(\DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_20 [6]),
-        .O(D[15]));
-  LUT6 #(
-    .INIT(64'hCCFFAAF0CC00AAF0)) 
-    \sig_data_skid_reg[18]_i_1 
-       (.I0(\DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_17 [7]),
-        .I1(\DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_18 [7]),
-        .I2(\DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_19 [7]),
-        .I3(sel_pipe_d1[1]),
-        .I4(sel_pipe_d1[0]),
-        .I5(\DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_20 [7]),
-        .O(D[16]));
-  LUT6 #(
-    .INIT(64'hCCFFAAF0CC00AAF0)) 
-    \sig_data_skid_reg[19]_i_1 
-       (.I0(\DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_13 ),
-        .I1(\DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_14 ),
-        .I2(\DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_15 ),
-        .I3(sel_pipe_d1[1]),
-        .I4(sel_pipe_d1[0]),
-        .I5(\DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_16 ),
-        .O(D[17]));
-  LUT6 #(
-    .INIT(64'hCCFFAAF0CC00AAF0)) 
-    \sig_data_skid_reg[20]_i_1 
-       (.I0(\DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_9 [0]),
-        .I1(\DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_10 [0]),
-        .I2(\DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_11 [0]),
-        .I3(sel_pipe_d1[1]),
-        .I4(sel_pipe_d1[0]),
-        .I5(\DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_12 [0]),
-        .O(D[18]));
-  LUT6 #(
-    .INIT(64'hCCFFAAF0CC00AAF0)) 
-    \sig_data_skid_reg[21]_i_1 
-       (.I0(\DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_9 [1]),
-        .I1(\DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_10 [1]),
-        .I2(\DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_11 [1]),
-        .I3(sel_pipe_d1[1]),
-        .I4(sel_pipe_d1[0]),
-        .I5(\DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_12 [1]),
-        .O(D[19]));
-  LUT6 #(
-    .INIT(64'hCCFFAAF0CC00AAF0)) 
-    \sig_data_skid_reg[22]_i_1 
-       (.I0(\DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_9 [2]),
-        .I1(\DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_10 [2]),
-        .I2(\DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_11 [2]),
-        .I3(sel_pipe_d1[1]),
-        .I4(sel_pipe_d1[0]),
-        .I5(\DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_12 [2]),
-        .O(D[20]));
-  LUT6 #(
-    .INIT(64'hCCFFAAF0CC00AAF0)) 
-    \sig_data_skid_reg[23]_i_1 
-       (.I0(\DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_9 [3]),
-        .I1(\DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_10 [3]),
-        .I2(\DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_11 [3]),
-        .I3(sel_pipe_d1[1]),
-        .I4(sel_pipe_d1[0]),
-        .I5(\DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_12 [3]),
-        .O(D[21]));
-  LUT6 #(
-    .INIT(64'hCCFFAAF0CC00AAF0)) 
-    \sig_data_skid_reg[24]_i_1 
-       (.I0(\DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_9 [4]),
-        .I1(\DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_10 [4]),
-        .I2(\DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_11 [4]),
-        .I3(sel_pipe_d1[1]),
-        .I4(sel_pipe_d1[0]),
-        .I5(\DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_12 [4]),
-        .O(D[22]));
-  LUT6 #(
-    .INIT(64'hCCFFAAF0CC00AAF0)) 
-    \sig_data_skid_reg[25]_i_1 
-       (.I0(\DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_9 [5]),
-        .I1(\DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_10 [5]),
-        .I2(\DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_11 [5]),
-        .I3(sel_pipe_d1[1]),
-        .I4(sel_pipe_d1[0]),
-        .I5(\DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_12 [5]),
-        .O(D[23]));
-  LUT6 #(
-    .INIT(64'hCCFFAAF0CC00AAF0)) 
-    \sig_data_skid_reg[26]_i_1 
-       (.I0(\DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_9 [6]),
-        .I1(\DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_10 [6]),
-        .I2(\DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_11 [6]),
-        .I3(sel_pipe_d1[1]),
-        .I4(sel_pipe_d1[0]),
-        .I5(\DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_12 [6]),
-        .O(D[24]));
-  LUT6 #(
-    .INIT(64'hCCFFAAF0CC00AAF0)) 
-    \sig_data_skid_reg[27]_i_1 
-       (.I0(\DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_9 [7]),
-        .I1(\DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_10 [7]),
-        .I2(\DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_11 [7]),
-        .I3(sel_pipe_d1[1]),
-        .I4(sel_pipe_d1[0]),
-        .I5(\DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_12 [7]),
-        .O(D[25]));
-  LUT6 #(
-    .INIT(64'hCCFFAAF0CC00AAF0)) 
-    \sig_data_skid_reg[28]_i_1 
-       (.I0(\DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_5 ),
-        .I1(\DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_6 ),
-        .I2(\DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_7 ),
-        .I3(sel_pipe_d1[1]),
-        .I4(sel_pipe_d1[0]),
-        .I5(\DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_8 ),
-        .O(D[26]));
-  LUT6 #(
-    .INIT(64'hCCFFAAF0CC00AAF0)) 
-    \sig_data_skid_reg[29]_i_1 
-       (.I0(DOBDO[0]),
-        .I1(\DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_2 [0]),
-        .I2(\DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_3 [0]),
-        .I3(sel_pipe_d1[1]),
-        .I4(sel_pipe_d1[0]),
-        .I5(\DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_4 [0]),
-        .O(D[27]));
-  LUT6 #(
-    .INIT(64'hCCFFAAF0CC00AAF0)) 
-    \sig_data_skid_reg[2]_i_1 
-       (.I0(\DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_25 [0]),
-        .I1(\DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_26 [0]),
-        .I2(\DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_27 [0]),
-        .I3(sel_pipe_d1[1]),
-        .I4(sel_pipe_d1[0]),
-        .I5(\DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_28 [0]),
-        .O(D[0]));
-  LUT6 #(
-    .INIT(64'hCCFFAAF0CC00AAF0)) 
-    \sig_data_skid_reg[30]_i_1 
-       (.I0(DOBDO[1]),
-        .I1(\DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_2 [1]),
-        .I2(\DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_3 [1]),
-        .I3(sel_pipe_d1[1]),
-        .I4(sel_pipe_d1[0]),
-        .I5(\DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_4 [1]),
-        .O(D[28]));
-  LUT6 #(
-    .INIT(64'hCCFFAAF0CC00AAF0)) 
-    \sig_data_skid_reg[31]_i_1 
-       (.I0(DOBDO[2]),
-        .I1(\DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_2 [2]),
-        .I2(\DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_3 [2]),
-        .I3(sel_pipe_d1[1]),
-        .I4(sel_pipe_d1[0]),
-        .I5(\DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_4 [2]),
-        .O(D[29]));
-  LUT6 #(
-    .INIT(64'hCCFFAAF0CC00AAF0)) 
-    \sig_data_skid_reg[3]_i_1 
-       (.I0(\DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_25 [1]),
-        .I1(\DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_26 [1]),
-        .I2(\DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_27 [1]),
-        .I3(sel_pipe_d1[1]),
-        .I4(sel_pipe_d1[0]),
-        .I5(\DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_28 [1]),
-        .O(D[1]));
-  LUT6 #(
-    .INIT(64'hCCFFAAF0CC00AAF0)) 
-    \sig_data_skid_reg[4]_i_1 
-       (.I0(\DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_25 [2]),
-        .I1(\DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_26 [2]),
-        .I2(\DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_27 [2]),
-        .I3(sel_pipe_d1[1]),
-        .I4(sel_pipe_d1[0]),
-        .I5(\DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_28 [2]),
-        .O(D[2]));
-  LUT6 #(
-    .INIT(64'hCCFFAAF0CC00AAF0)) 
-    \sig_data_skid_reg[5]_i_1 
-       (.I0(\DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_25 [3]),
-        .I1(\DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_26 [3]),
-        .I2(\DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_27 [3]),
-        .I3(sel_pipe_d1[1]),
-        .I4(sel_pipe_d1[0]),
-        .I5(\DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_28 [3]),
-        .O(D[3]));
-  LUT6 #(
-    .INIT(64'hCCFFAAF0CC00AAF0)) 
-    \sig_data_skid_reg[6]_i_1 
-       (.I0(\DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_25 [4]),
-        .I1(\DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_26 [4]),
-        .I2(\DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_27 [4]),
-        .I3(sel_pipe_d1[1]),
-        .I4(sel_pipe_d1[0]),
-        .I5(\DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_28 [4]),
-        .O(D[4]));
-  LUT6 #(
-    .INIT(64'hCCFFAAF0CC00AAF0)) 
-    \sig_data_skid_reg[7]_i_1 
-       (.I0(\DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_25 [5]),
-        .I1(\DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_26 [5]),
-        .I2(\DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_27 [5]),
-        .I3(sel_pipe_d1[1]),
-        .I4(sel_pipe_d1[0]),
-        .I5(\DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_28 [5]),
-        .O(D[5]));
-  LUT6 #(
-    .INIT(64'hCCFFAAF0CC00AAF0)) 
-    \sig_data_skid_reg[8]_i_1 
-       (.I0(\DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_25 [6]),
-        .I1(\DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_26 [6]),
-        .I2(\DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_27 [6]),
-        .I3(sel_pipe_d1[1]),
-        .I4(sel_pipe_d1[0]),
-        .I5(\DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_28 [6]),
-        .O(D[6]));
-  LUT6 #(
-    .INIT(64'hCCFFAAF0CC00AAF0)) 
-    \sig_data_skid_reg[9]_i_1 
-       (.I0(\DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_25 [7]),
-        .I1(\DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_26 [7]),
-        .I2(\DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_27 [7]),
-        .I3(sel_pipe_d1[1]),
-        .I4(sel_pipe_d1[0]),
-        .I5(\DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_28 [7]),
-        .O(D[7]));
-  LUT6 #(
-    .INIT(64'hCCFFAAF0CC00AAF0)) 
-    sig_last_skid_reg_i_1
-       (.I0(DOBDO[7]),
-        .I1(\DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_2 [7]),
-        .I2(\DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_3 [7]),
-        .I3(sel_pipe_d1[1]),
-        .I4(sel_pipe_d1[0]),
-        .I5(\DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_4 [7]),
-        .O(p_12_out[4]));
-  LUT6 #(
-    .INIT(64'hCCFFAAF0CC00AAF0)) 
-    \sig_strb_skid_reg[0]_i_1 
-       (.I0(DOBDO[3]),
-        .I1(\DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_2 [3]),
-        .I2(\DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_3 [3]),
-        .I3(sel_pipe_d1[1]),
-        .I4(sel_pipe_d1[0]),
-        .I5(\DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_4 [3]),
-        .O(p_12_out[0]));
-  LUT6 #(
-    .INIT(64'hCCFFAAF0CC00AAF0)) 
-    \sig_strb_skid_reg[1]_i_1 
-       (.I0(DOBDO[4]),
-        .I1(\DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_2 [4]),
-        .I2(\DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_3 [4]),
-        .I3(sel_pipe_d1[1]),
-        .I4(sel_pipe_d1[0]),
-        .I5(\DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_4 [4]),
-        .O(p_12_out[1]));
-  LUT6 #(
-    .INIT(64'hCCFFAAF0CC00AAF0)) 
-    \sig_strb_skid_reg[2]_i_1 
-       (.I0(DOBDO[5]),
-        .I1(\DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_2 [5]),
-        .I2(\DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_3 [5]),
-        .I3(sel_pipe_d1[1]),
-        .I4(sel_pipe_d1[0]),
-        .I5(\DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_4 [5]),
-        .O(p_12_out[2]));
-  LUT6 #(
-    .INIT(64'hCCFFAAF0CC00AAF0)) 
-    \sig_strb_skid_reg[3]_i_1 
-       (.I0(DOBDO[6]),
-        .I1(\DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_2 [6]),
-        .I2(\DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_3 [6]),
-        .I3(sel_pipe_d1[1]),
-        .I4(sel_pipe_d1[0]),
-        .I5(\DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_4 [6]),
-        .O(p_12_out[3]));
-  LUT6 #(
-    .INIT(64'hCCFFAAF0CC00AAF0)) 
-    \sig_user_skid_reg[0]_i_1 
-       (.I0(DOPBDOP),
-        .I1(\DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram ),
-        .I2(\DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_0 ),
-        .I3(sel_pipe_d1[1]),
-        .I4(sel_pipe_d1[0]),
-        .I5(\DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_1 ),
-        .O(p_12_out[5]));
+        .p_12_out(p_12_out),
+        .tmp_ram_rd_en(tmp_ram_rd_en));
 endmodule
 
 (* ORIG_REF_NAME = "blk_mem_gen_prim_width" *) 
 module system_axi_vdma_0_0_blk_mem_gen_prim_width
-   (D,
+   (p_12_out,
     m_axi_mm2s_aclk,
-    WEA,
-    ram_empty_fb_i_reg,
+    tmp_ram_rd_en,
+    \GEN_FREE_RUN_MODE.frame_sync_i_reg ,
     empty_fwft_i_reg,
-    Q,
-    \gc0.count_d1_reg[13] ,
+    \gc0.count_d1_reg[8] ,
+    \gcc0.gc0.count_d1_reg[8] ,
     dm2linebuf_mm2s_tdata,
-    \GEN_FREE_RUN_MODE.frame_sync_i_reg );
-  output [1:0]D;
+    DIBDI);
+  output [37:0]p_12_out;
   input m_axi_mm2s_aclk;
-  input [0:0]WEA;
-  input ram_empty_fb_i_reg;
+  input tmp_ram_rd_en;
+  input \GEN_FREE_RUN_MODE.frame_sync_i_reg ;
   input empty_fwft_i_reg;
-  input [13:0]Q;
-  input [13:0]\gc0.count_d1_reg[13] ;
-  input [1:0]dm2linebuf_mm2s_tdata;
-  input [0:0]\GEN_FREE_RUN_MODE.frame_sync_i_reg ;
+  input [8:0]\gc0.count_d1_reg[8] ;
+  input [8:0]\gcc0.gc0.count_d1_reg[8] ;
+  input [31:0]dm2linebuf_mm2s_tdata;
+  input [5:0]DIBDI;
 
-  wire [1:0]D;
-  wire [0:0]\GEN_FREE_RUN_MODE.frame_sync_i_reg ;
-  wire [13:0]Q;
-  wire [0:0]WEA;
-  wire [1:0]dm2linebuf_mm2s_tdata;
+  wire [5:0]DIBDI;
+  wire \GEN_FREE_RUN_MODE.frame_sync_i_reg ;
+  wire [31:0]dm2linebuf_mm2s_tdata;
   wire empty_fwft_i_reg;
-  wire [13:0]\gc0.count_d1_reg[13] ;
+  wire [8:0]\gc0.count_d1_reg[8] ;
+  wire [8:0]\gcc0.gc0.count_d1_reg[8] ;
   wire m_axi_mm2s_aclk;
-  wire ram_empty_fb_i_reg;
+  wire [37:0]p_12_out;
+  wire tmp_ram_rd_en;
 
   system_axi_vdma_0_0_blk_mem_gen_prim_wrapper \prim_noinit.ram 
-       (.D(D),
+       (.DIBDI(DIBDI),
         .\GEN_FREE_RUN_MODE.frame_sync_i_reg (\GEN_FREE_RUN_MODE.frame_sync_i_reg ),
-        .Q(Q),
-        .WEA(WEA),
         .dm2linebuf_mm2s_tdata(dm2linebuf_mm2s_tdata),
         .empty_fwft_i_reg(empty_fwft_i_reg),
-        .\gc0.count_d1_reg[13] (\gc0.count_d1_reg[13] ),
+        .\gc0.count_d1_reg[8] (\gc0.count_d1_reg[8] ),
+        .\gcc0.gc0.count_d1_reg[8] (\gcc0.gc0.count_d1_reg[8] ),
         .m_axi_mm2s_aclk(m_axi_mm2s_aclk),
-        .ram_empty_fb_i_reg(ram_empty_fb_i_reg));
-endmodule
-
-(* ORIG_REF_NAME = "blk_mem_gen_prim_width" *) 
-module system_axi_vdma_0_0_blk_mem_gen_prim_width__parameterized0
-   (\sig_data_skid_reg_reg[9] ,
-    \sig_data_skid_reg_reg[10] ,
-    m_axi_mm2s_aclk,
-    ena_array,
-    enb_array,
-    empty_fwft_i_reg,
-    Q,
-    \gc0.count_d1_reg[11] ,
-    dm2linebuf_mm2s_tdata,
-    \GEN_FREE_RUN_MODE.frame_sync_i_reg );
-  output [7:0]\sig_data_skid_reg_reg[9] ;
-  output [0:0]\sig_data_skid_reg_reg[10] ;
-  input m_axi_mm2s_aclk;
-  input [0:0]ena_array;
-  input [0:0]enb_array;
-  input empty_fwft_i_reg;
-  input [11:0]Q;
-  input [11:0]\gc0.count_d1_reg[11] ;
-  input [8:0]dm2linebuf_mm2s_tdata;
-  input [0:0]\GEN_FREE_RUN_MODE.frame_sync_i_reg ;
-
-  wire [0:0]\GEN_FREE_RUN_MODE.frame_sync_i_reg ;
-  wire [11:0]Q;
-  wire [8:0]dm2linebuf_mm2s_tdata;
-  wire empty_fwft_i_reg;
-  wire [0:0]ena_array;
-  wire [0:0]enb_array;
-  wire [11:0]\gc0.count_d1_reg[11] ;
-  wire m_axi_mm2s_aclk;
-  wire [0:0]\sig_data_skid_reg_reg[10] ;
-  wire [7:0]\sig_data_skid_reg_reg[9] ;
-
-  system_axi_vdma_0_0_blk_mem_gen_prim_wrapper__parameterized0 \prim_noinit.ram 
-       (.\GEN_FREE_RUN_MODE.frame_sync_i_reg (\GEN_FREE_RUN_MODE.frame_sync_i_reg ),
-        .Q(Q),
-        .dm2linebuf_mm2s_tdata(dm2linebuf_mm2s_tdata),
-        .empty_fwft_i_reg(empty_fwft_i_reg),
-        .ena_array(ena_array),
-        .enb_array(enb_array),
-        .\gc0.count_d1_reg[11] (\gc0.count_d1_reg[11] ),
-        .m_axi_mm2s_aclk(m_axi_mm2s_aclk),
-        .\sig_data_skid_reg_reg[10] (\sig_data_skid_reg_reg[10] ),
-        .\sig_data_skid_reg_reg[9] (\sig_data_skid_reg_reg[9] ));
-endmodule
-
-(* ORIG_REF_NAME = "blk_mem_gen_prim_width" *) 
-module system_axi_vdma_0_0_blk_mem_gen_prim_width__parameterized1
-   (\sig_data_skid_reg_reg[9] ,
-    \sig_data_skid_reg_reg[10] ,
-    m_axi_mm2s_aclk,
-    ena_array,
-    enb_array,
-    empty_fwft_i_reg,
-    Q,
-    \gc0.count_d1_reg[11] ,
-    dm2linebuf_mm2s_tdata,
-    \GEN_FREE_RUN_MODE.frame_sync_i_reg );
-  output [7:0]\sig_data_skid_reg_reg[9] ;
-  output [0:0]\sig_data_skid_reg_reg[10] ;
-  input m_axi_mm2s_aclk;
-  input [0:0]ena_array;
-  input [0:0]enb_array;
-  input empty_fwft_i_reg;
-  input [11:0]Q;
-  input [11:0]\gc0.count_d1_reg[11] ;
-  input [8:0]dm2linebuf_mm2s_tdata;
-  input [1:0]\GEN_FREE_RUN_MODE.frame_sync_i_reg ;
-
-  wire [1:0]\GEN_FREE_RUN_MODE.frame_sync_i_reg ;
-  wire [11:0]Q;
-  wire [8:0]dm2linebuf_mm2s_tdata;
-  wire empty_fwft_i_reg;
-  wire [0:0]ena_array;
-  wire [0:0]enb_array;
-  wire [11:0]\gc0.count_d1_reg[11] ;
-  wire m_axi_mm2s_aclk;
-  wire [0:0]\sig_data_skid_reg_reg[10] ;
-  wire [7:0]\sig_data_skid_reg_reg[9] ;
-
-  system_axi_vdma_0_0_blk_mem_gen_prim_wrapper__parameterized1 \prim_noinit.ram 
-       (.\GEN_FREE_RUN_MODE.frame_sync_i_reg (\GEN_FREE_RUN_MODE.frame_sync_i_reg ),
-        .Q(Q),
-        .dm2linebuf_mm2s_tdata(dm2linebuf_mm2s_tdata),
-        .empty_fwft_i_reg(empty_fwft_i_reg),
-        .ena_array(ena_array),
-        .enb_array(enb_array),
-        .\gc0.count_d1_reg[11] (\gc0.count_d1_reg[11] ),
-        .m_axi_mm2s_aclk(m_axi_mm2s_aclk),
-        .\sig_data_skid_reg_reg[10] (\sig_data_skid_reg_reg[10] ),
-        .\sig_data_skid_reg_reg[9] (\sig_data_skid_reg_reg[9] ));
-endmodule
-
-(* ORIG_REF_NAME = "blk_mem_gen_prim_width" *) 
-module system_axi_vdma_0_0_blk_mem_gen_prim_width__parameterized10
-   (\sig_data_skid_reg_reg[27] ,
-    \sig_data_skid_reg_reg[28] ,
-    m_axi_mm2s_aclk,
-    ena_array,
-    enb_array,
-    empty_fwft_i_reg,
-    Q,
-    \gc0.count_d1_reg[11] ,
-    dm2linebuf_mm2s_tdata,
-    \GEN_FREE_RUN_MODE.frame_sync_i_reg );
-  output [7:0]\sig_data_skid_reg_reg[27] ;
-  output [0:0]\sig_data_skid_reg_reg[28] ;
-  input m_axi_mm2s_aclk;
-  input [0:0]ena_array;
-  input [0:0]enb_array;
-  input empty_fwft_i_reg;
-  input [11:0]Q;
-  input [11:0]\gc0.count_d1_reg[11] ;
-  input [8:0]dm2linebuf_mm2s_tdata;
-  input [0:0]\GEN_FREE_RUN_MODE.frame_sync_i_reg ;
-
-  wire [0:0]\GEN_FREE_RUN_MODE.frame_sync_i_reg ;
-  wire [11:0]Q;
-  wire [8:0]dm2linebuf_mm2s_tdata;
-  wire empty_fwft_i_reg;
-  wire [0:0]ena_array;
-  wire [0:0]enb_array;
-  wire [11:0]\gc0.count_d1_reg[11] ;
-  wire m_axi_mm2s_aclk;
-  wire [7:0]\sig_data_skid_reg_reg[27] ;
-  wire [0:0]\sig_data_skid_reg_reg[28] ;
-
-  system_axi_vdma_0_0_blk_mem_gen_prim_wrapper__parameterized10 \prim_noinit.ram 
-       (.\GEN_FREE_RUN_MODE.frame_sync_i_reg (\GEN_FREE_RUN_MODE.frame_sync_i_reg ),
-        .Q(Q),
-        .dm2linebuf_mm2s_tdata(dm2linebuf_mm2s_tdata),
-        .empty_fwft_i_reg(empty_fwft_i_reg),
-        .ena_array(ena_array),
-        .enb_array(enb_array),
-        .\gc0.count_d1_reg[11] (\gc0.count_d1_reg[11] ),
-        .m_axi_mm2s_aclk(m_axi_mm2s_aclk),
-        .\sig_data_skid_reg_reg[27] (\sig_data_skid_reg_reg[27] ),
-        .\sig_data_skid_reg_reg[28] (\sig_data_skid_reg_reg[28] ));
-endmodule
-
-(* ORIG_REF_NAME = "blk_mem_gen_prim_width" *) 
-module system_axi_vdma_0_0_blk_mem_gen_prim_width__parameterized11
-   (\sig_data_skid_reg_reg[27] ,
-    \sig_data_skid_reg_reg[28] ,
-    m_axi_mm2s_aclk,
-    \gcc0.gc0.count_d1_reg[13] ,
-    \gc0.count_d1_reg[13] ,
-    empty_fwft_i_reg,
-    Q,
-    \gc0.count_d1_reg[11] ,
-    dm2linebuf_mm2s_tdata,
-    \GEN_FREE_RUN_MODE.frame_sync_i_reg );
-  output [7:0]\sig_data_skid_reg_reg[27] ;
-  output [0:0]\sig_data_skid_reg_reg[28] ;
-  input m_axi_mm2s_aclk;
-  input \gcc0.gc0.count_d1_reg[13] ;
-  input \gc0.count_d1_reg[13] ;
-  input empty_fwft_i_reg;
-  input [11:0]Q;
-  input [11:0]\gc0.count_d1_reg[11] ;
-  input [8:0]dm2linebuf_mm2s_tdata;
-  input [1:0]\GEN_FREE_RUN_MODE.frame_sync_i_reg ;
-
-  wire [1:0]\GEN_FREE_RUN_MODE.frame_sync_i_reg ;
-  wire [11:0]Q;
-  wire [8:0]dm2linebuf_mm2s_tdata;
-  wire empty_fwft_i_reg;
-  wire [11:0]\gc0.count_d1_reg[11] ;
-  wire \gc0.count_d1_reg[13] ;
-  wire \gcc0.gc0.count_d1_reg[13] ;
-  wire m_axi_mm2s_aclk;
-  wire [7:0]\sig_data_skid_reg_reg[27] ;
-  wire [0:0]\sig_data_skid_reg_reg[28] ;
-
-  system_axi_vdma_0_0_blk_mem_gen_prim_wrapper__parameterized11 \prim_noinit.ram 
-       (.\GEN_FREE_RUN_MODE.frame_sync_i_reg (\GEN_FREE_RUN_MODE.frame_sync_i_reg ),
-        .Q(Q),
-        .dm2linebuf_mm2s_tdata(dm2linebuf_mm2s_tdata),
-        .empty_fwft_i_reg(empty_fwft_i_reg),
-        .\gc0.count_d1_reg[11] (\gc0.count_d1_reg[11] ),
-        .\gc0.count_d1_reg[13] (\gc0.count_d1_reg[13] ),
-        .\gcc0.gc0.count_d1_reg[13] (\gcc0.gc0.count_d1_reg[13] ),
-        .m_axi_mm2s_aclk(m_axi_mm2s_aclk),
-        .\sig_data_skid_reg_reg[27] (\sig_data_skid_reg_reg[27] ),
-        .\sig_data_skid_reg_reg[28] (\sig_data_skid_reg_reg[28] ));
-endmodule
-
-(* ORIG_REF_NAME = "blk_mem_gen_prim_width" *) 
-module system_axi_vdma_0_0_blk_mem_gen_prim_width__parameterized12
-   (sig_last_skid_reg_reg,
-    \sig_user_skid_reg_reg[0] ,
-    m_axi_mm2s_aclk,
-    ena_array,
-    enb_array,
-    empty_fwft_i_reg,
-    Q,
-    \gc0.count_d1_reg[11] ,
-    DIADI,
-    DIPADIP,
-    WEA);
-  output [7:0]sig_last_skid_reg_reg;
-  output [0:0]\sig_user_skid_reg_reg[0] ;
-  input m_axi_mm2s_aclk;
-  input [0:0]ena_array;
-  input [0:0]enb_array;
-  input empty_fwft_i_reg;
-  input [11:0]Q;
-  input [11:0]\gc0.count_d1_reg[11] ;
-  input [7:0]DIADI;
-  input [0:0]DIPADIP;
-  input [0:0]WEA;
-
-  wire [7:0]DIADI;
-  wire [0:0]DIPADIP;
-  wire [11:0]Q;
-  wire [0:0]WEA;
-  wire empty_fwft_i_reg;
-  wire [0:0]ena_array;
-  wire [0:0]enb_array;
-  wire [11:0]\gc0.count_d1_reg[11] ;
-  wire m_axi_mm2s_aclk;
-  wire [7:0]sig_last_skid_reg_reg;
-  wire [0:0]\sig_user_skid_reg_reg[0] ;
-
-  system_axi_vdma_0_0_blk_mem_gen_prim_wrapper__parameterized12 \prim_noinit.ram 
-       (.DIADI(DIADI),
-        .DIPADIP(DIPADIP),
-        .Q(Q),
-        .WEA(WEA),
-        .empty_fwft_i_reg(empty_fwft_i_reg),
-        .ena_array(ena_array),
-        .enb_array(enb_array),
-        .\gc0.count_d1_reg[11] (\gc0.count_d1_reg[11] ),
-        .m_axi_mm2s_aclk(m_axi_mm2s_aclk),
-        .sig_last_skid_reg_reg(sig_last_skid_reg_reg),
-        .\sig_user_skid_reg_reg[0] (\sig_user_skid_reg_reg[0] ));
-endmodule
-
-(* ORIG_REF_NAME = "blk_mem_gen_prim_width" *) 
-module system_axi_vdma_0_0_blk_mem_gen_prim_width__parameterized13
-   (sig_last_skid_reg_reg,
-    \sig_user_skid_reg_reg[0] ,
-    m_axi_mm2s_aclk,
-    ena_array,
-    enb_array,
-    empty_fwft_i_reg,
-    Q,
-    \gc0.count_d1_reg[11] ,
-    DIADI,
-    DIPADIP,
-    \GEN_FREE_RUN_MODE.frame_sync_i_reg );
-  output [7:0]sig_last_skid_reg_reg;
-  output [0:0]\sig_user_skid_reg_reg[0] ;
-  input m_axi_mm2s_aclk;
-  input [0:0]ena_array;
-  input [0:0]enb_array;
-  input empty_fwft_i_reg;
-  input [11:0]Q;
-  input [11:0]\gc0.count_d1_reg[11] ;
-  input [7:0]DIADI;
-  input [0:0]DIPADIP;
-  input [0:0]\GEN_FREE_RUN_MODE.frame_sync_i_reg ;
-
-  wire [7:0]DIADI;
-  wire [0:0]DIPADIP;
-  wire [0:0]\GEN_FREE_RUN_MODE.frame_sync_i_reg ;
-  wire [11:0]Q;
-  wire empty_fwft_i_reg;
-  wire [0:0]ena_array;
-  wire [0:0]enb_array;
-  wire [11:0]\gc0.count_d1_reg[11] ;
-  wire m_axi_mm2s_aclk;
-  wire [7:0]sig_last_skid_reg_reg;
-  wire [0:0]\sig_user_skid_reg_reg[0] ;
-
-  system_axi_vdma_0_0_blk_mem_gen_prim_wrapper__parameterized13 \prim_noinit.ram 
-       (.DIADI(DIADI),
-        .DIPADIP(DIPADIP),
-        .\GEN_FREE_RUN_MODE.frame_sync_i_reg (\GEN_FREE_RUN_MODE.frame_sync_i_reg ),
-        .Q(Q),
-        .empty_fwft_i_reg(empty_fwft_i_reg),
-        .ena_array(ena_array),
-        .enb_array(enb_array),
-        .\gc0.count_d1_reg[11] (\gc0.count_d1_reg[11] ),
-        .m_axi_mm2s_aclk(m_axi_mm2s_aclk),
-        .sig_last_skid_reg_reg(sig_last_skid_reg_reg),
-        .\sig_user_skid_reg_reg[0] (\sig_user_skid_reg_reg[0] ));
-endmodule
-
-(* ORIG_REF_NAME = "blk_mem_gen_prim_width" *) 
-module system_axi_vdma_0_0_blk_mem_gen_prim_width__parameterized14
-   (DOBDO,
-    DOPBDOP,
-    m_axi_mm2s_aclk,
-    ena_array,
-    enb_array,
-    empty_fwft_i_reg,
-    Q,
-    \gc0.count_d1_reg[11] ,
-    DIADI,
-    DIPADIP,
-    WEA);
-  output [7:0]DOBDO;
-  output [0:0]DOPBDOP;
-  input m_axi_mm2s_aclk;
-  input [0:0]ena_array;
-  input [0:0]enb_array;
-  input empty_fwft_i_reg;
-  input [11:0]Q;
-  input [11:0]\gc0.count_d1_reg[11] ;
-  input [7:0]DIADI;
-  input [0:0]DIPADIP;
-  input [0:0]WEA;
-
-  wire [7:0]DIADI;
-  wire [0:0]DIPADIP;
-  wire [7:0]DOBDO;
-  wire [0:0]DOPBDOP;
-  wire [11:0]Q;
-  wire [0:0]WEA;
-  wire empty_fwft_i_reg;
-  wire [0:0]ena_array;
-  wire [0:0]enb_array;
-  wire [11:0]\gc0.count_d1_reg[11] ;
-  wire m_axi_mm2s_aclk;
-
-  system_axi_vdma_0_0_blk_mem_gen_prim_wrapper__parameterized14 \prim_noinit.ram 
-       (.DIADI(DIADI),
-        .DIPADIP(DIPADIP),
-        .DOBDO(DOBDO),
-        .DOPBDOP(DOPBDOP),
-        .Q(Q),
-        .WEA(WEA),
-        .empty_fwft_i_reg(empty_fwft_i_reg),
-        .ena_array(ena_array),
-        .enb_array(enb_array),
-        .\gc0.count_d1_reg[11] (\gc0.count_d1_reg[11] ),
-        .m_axi_mm2s_aclk(m_axi_mm2s_aclk));
-endmodule
-
-(* ORIG_REF_NAME = "blk_mem_gen_prim_width" *) 
-module system_axi_vdma_0_0_blk_mem_gen_prim_width__parameterized15
-   (sig_last_skid_reg_reg,
-    \sig_user_skid_reg_reg[0] ,
-    m_axi_mm2s_aclk,
-    \gcc0.gc0.count_d1_reg[13] ,
-    \gc0.count_d1_reg[13] ,
-    empty_fwft_i_reg,
-    Q,
-    \gc0.count_d1_reg[11] ,
-    DIADI,
-    DIPADIP,
-    \GEN_FREE_RUN_MODE.frame_sync_i_reg );
-  output [7:0]sig_last_skid_reg_reg;
-  output [0:0]\sig_user_skid_reg_reg[0] ;
-  input m_axi_mm2s_aclk;
-  input \gcc0.gc0.count_d1_reg[13] ;
-  input \gc0.count_d1_reg[13] ;
-  input empty_fwft_i_reg;
-  input [11:0]Q;
-  input [11:0]\gc0.count_d1_reg[11] ;
-  input [7:0]DIADI;
-  input [0:0]DIPADIP;
-  input [0:0]\GEN_FREE_RUN_MODE.frame_sync_i_reg ;
-
-  wire [7:0]DIADI;
-  wire [0:0]DIPADIP;
-  wire [0:0]\GEN_FREE_RUN_MODE.frame_sync_i_reg ;
-  wire [11:0]Q;
-  wire empty_fwft_i_reg;
-  wire [11:0]\gc0.count_d1_reg[11] ;
-  wire \gc0.count_d1_reg[13] ;
-  wire \gcc0.gc0.count_d1_reg[13] ;
-  wire m_axi_mm2s_aclk;
-  wire [7:0]sig_last_skid_reg_reg;
-  wire [0:0]\sig_user_skid_reg_reg[0] ;
-
-  system_axi_vdma_0_0_blk_mem_gen_prim_wrapper__parameterized15 \prim_noinit.ram 
-       (.DIADI(DIADI),
-        .DIPADIP(DIPADIP),
-        .\GEN_FREE_RUN_MODE.frame_sync_i_reg (\GEN_FREE_RUN_MODE.frame_sync_i_reg ),
-        .Q(Q),
-        .empty_fwft_i_reg(empty_fwft_i_reg),
-        .\gc0.count_d1_reg[11] (\gc0.count_d1_reg[11] ),
-        .\gc0.count_d1_reg[13] (\gc0.count_d1_reg[13] ),
-        .\gcc0.gc0.count_d1_reg[13] (\gcc0.gc0.count_d1_reg[13] ),
-        .m_axi_mm2s_aclk(m_axi_mm2s_aclk),
-        .sig_last_skid_reg_reg(sig_last_skid_reg_reg),
-        .\sig_user_skid_reg_reg[0] (\sig_user_skid_reg_reg[0] ));
-endmodule
-
-(* ORIG_REF_NAME = "blk_mem_gen_prim_width" *) 
-module system_axi_vdma_0_0_blk_mem_gen_prim_width__parameterized2
-   (\sig_data_skid_reg_reg[9] ,
-    \sig_data_skid_reg_reg[10] ,
-    m_axi_mm2s_aclk,
-    ena_array,
-    enb_array,
-    empty_fwft_i_reg,
-    Q,
-    \gc0.count_d1_reg[11] ,
-    dm2linebuf_mm2s_tdata,
-    \GEN_FREE_RUN_MODE.frame_sync_i_reg );
-  output [7:0]\sig_data_skid_reg_reg[9] ;
-  output [0:0]\sig_data_skid_reg_reg[10] ;
-  input m_axi_mm2s_aclk;
-  input [0:0]ena_array;
-  input [0:0]enb_array;
-  input empty_fwft_i_reg;
-  input [11:0]Q;
-  input [11:0]\gc0.count_d1_reg[11] ;
-  input [8:0]dm2linebuf_mm2s_tdata;
-  input [0:0]\GEN_FREE_RUN_MODE.frame_sync_i_reg ;
-
-  wire [0:0]\GEN_FREE_RUN_MODE.frame_sync_i_reg ;
-  wire [11:0]Q;
-  wire [8:0]dm2linebuf_mm2s_tdata;
-  wire empty_fwft_i_reg;
-  wire [0:0]ena_array;
-  wire [0:0]enb_array;
-  wire [11:0]\gc0.count_d1_reg[11] ;
-  wire m_axi_mm2s_aclk;
-  wire [0:0]\sig_data_skid_reg_reg[10] ;
-  wire [7:0]\sig_data_skid_reg_reg[9] ;
-
-  system_axi_vdma_0_0_blk_mem_gen_prim_wrapper__parameterized2 \prim_noinit.ram 
-       (.\GEN_FREE_RUN_MODE.frame_sync_i_reg (\GEN_FREE_RUN_MODE.frame_sync_i_reg ),
-        .Q(Q),
-        .dm2linebuf_mm2s_tdata(dm2linebuf_mm2s_tdata),
-        .empty_fwft_i_reg(empty_fwft_i_reg),
-        .ena_array(ena_array),
-        .enb_array(enb_array),
-        .\gc0.count_d1_reg[11] (\gc0.count_d1_reg[11] ),
-        .m_axi_mm2s_aclk(m_axi_mm2s_aclk),
-        .\sig_data_skid_reg_reg[10] (\sig_data_skid_reg_reg[10] ),
-        .\sig_data_skid_reg_reg[9] (\sig_data_skid_reg_reg[9] ));
-endmodule
-
-(* ORIG_REF_NAME = "blk_mem_gen_prim_width" *) 
-module system_axi_vdma_0_0_blk_mem_gen_prim_width__parameterized3
-   (\sig_data_skid_reg_reg[9] ,
-    \sig_data_skid_reg_reg[10] ,
-    m_axi_mm2s_aclk,
-    \gcc0.gc0.count_d1_reg[13] ,
-    \gc0.count_d1_reg[13] ,
-    empty_fwft_i_reg,
-    Q,
-    \gc0.count_d1_reg[11] ,
-    dm2linebuf_mm2s_tdata,
-    \GEN_FREE_RUN_MODE.frame_sync_i_reg );
-  output [7:0]\sig_data_skid_reg_reg[9] ;
-  output [0:0]\sig_data_skid_reg_reg[10] ;
-  input m_axi_mm2s_aclk;
-  input \gcc0.gc0.count_d1_reg[13] ;
-  input \gc0.count_d1_reg[13] ;
-  input empty_fwft_i_reg;
-  input [11:0]Q;
-  input [11:0]\gc0.count_d1_reg[11] ;
-  input [8:0]dm2linebuf_mm2s_tdata;
-  input [0:0]\GEN_FREE_RUN_MODE.frame_sync_i_reg ;
-
-  wire [0:0]\GEN_FREE_RUN_MODE.frame_sync_i_reg ;
-  wire [11:0]Q;
-  wire [8:0]dm2linebuf_mm2s_tdata;
-  wire empty_fwft_i_reg;
-  wire [11:0]\gc0.count_d1_reg[11] ;
-  wire \gc0.count_d1_reg[13] ;
-  wire \gcc0.gc0.count_d1_reg[13] ;
-  wire m_axi_mm2s_aclk;
-  wire [0:0]\sig_data_skid_reg_reg[10] ;
-  wire [7:0]\sig_data_skid_reg_reg[9] ;
-
-  system_axi_vdma_0_0_blk_mem_gen_prim_wrapper__parameterized3 \prim_noinit.ram 
-       (.\GEN_FREE_RUN_MODE.frame_sync_i_reg (\GEN_FREE_RUN_MODE.frame_sync_i_reg ),
-        .Q(Q),
-        .dm2linebuf_mm2s_tdata(dm2linebuf_mm2s_tdata),
-        .empty_fwft_i_reg(empty_fwft_i_reg),
-        .\gc0.count_d1_reg[11] (\gc0.count_d1_reg[11] ),
-        .\gc0.count_d1_reg[13] (\gc0.count_d1_reg[13] ),
-        .\gcc0.gc0.count_d1_reg[13] (\gcc0.gc0.count_d1_reg[13] ),
-        .m_axi_mm2s_aclk(m_axi_mm2s_aclk),
-        .\sig_data_skid_reg_reg[10] (\sig_data_skid_reg_reg[10] ),
-        .\sig_data_skid_reg_reg[9] (\sig_data_skid_reg_reg[9] ));
-endmodule
-
-(* ORIG_REF_NAME = "blk_mem_gen_prim_width" *) 
-module system_axi_vdma_0_0_blk_mem_gen_prim_width__parameterized4
-   (\sig_data_skid_reg_reg[18] ,
-    \sig_data_skid_reg_reg[19] ,
-    m_axi_mm2s_aclk,
-    ena_array,
-    enb_array,
-    empty_fwft_i_reg,
-    Q,
-    \gc0.count_d1_reg[11] ,
-    dm2linebuf_mm2s_tdata,
-    \GEN_FREE_RUN_MODE.frame_sync_i_reg );
-  output [7:0]\sig_data_skid_reg_reg[18] ;
-  output [0:0]\sig_data_skid_reg_reg[19] ;
-  input m_axi_mm2s_aclk;
-  input [0:0]ena_array;
-  input [0:0]enb_array;
-  input empty_fwft_i_reg;
-  input [11:0]Q;
-  input [11:0]\gc0.count_d1_reg[11] ;
-  input [8:0]dm2linebuf_mm2s_tdata;
-  input [0:0]\GEN_FREE_RUN_MODE.frame_sync_i_reg ;
-
-  wire [0:0]\GEN_FREE_RUN_MODE.frame_sync_i_reg ;
-  wire [11:0]Q;
-  wire [8:0]dm2linebuf_mm2s_tdata;
-  wire empty_fwft_i_reg;
-  wire [0:0]ena_array;
-  wire [0:0]enb_array;
-  wire [11:0]\gc0.count_d1_reg[11] ;
-  wire m_axi_mm2s_aclk;
-  wire [7:0]\sig_data_skid_reg_reg[18] ;
-  wire [0:0]\sig_data_skid_reg_reg[19] ;
-
-  system_axi_vdma_0_0_blk_mem_gen_prim_wrapper__parameterized4 \prim_noinit.ram 
-       (.\GEN_FREE_RUN_MODE.frame_sync_i_reg (\GEN_FREE_RUN_MODE.frame_sync_i_reg ),
-        .Q(Q),
-        .dm2linebuf_mm2s_tdata(dm2linebuf_mm2s_tdata),
-        .empty_fwft_i_reg(empty_fwft_i_reg),
-        .ena_array(ena_array),
-        .enb_array(enb_array),
-        .\gc0.count_d1_reg[11] (\gc0.count_d1_reg[11] ),
-        .m_axi_mm2s_aclk(m_axi_mm2s_aclk),
-        .\sig_data_skid_reg_reg[18] (\sig_data_skid_reg_reg[18] ),
-        .\sig_data_skid_reg_reg[19] (\sig_data_skid_reg_reg[19] ));
-endmodule
-
-(* ORIG_REF_NAME = "blk_mem_gen_prim_width" *) 
-module system_axi_vdma_0_0_blk_mem_gen_prim_width__parameterized5
-   (\sig_data_skid_reg_reg[18] ,
-    \sig_data_skid_reg_reg[19] ,
-    m_axi_mm2s_aclk,
-    ena_array,
-    enb_array,
-    empty_fwft_i_reg,
-    Q,
-    \gc0.count_d1_reg[11] ,
-    dm2linebuf_mm2s_tdata,
-    \GEN_FREE_RUN_MODE.frame_sync_i_reg );
-  output [7:0]\sig_data_skid_reg_reg[18] ;
-  output [0:0]\sig_data_skid_reg_reg[19] ;
-  input m_axi_mm2s_aclk;
-  input [0:0]ena_array;
-  input [0:0]enb_array;
-  input empty_fwft_i_reg;
-  input [11:0]Q;
-  input [11:0]\gc0.count_d1_reg[11] ;
-  input [8:0]dm2linebuf_mm2s_tdata;
-  input [0:0]\GEN_FREE_RUN_MODE.frame_sync_i_reg ;
-
-  wire [0:0]\GEN_FREE_RUN_MODE.frame_sync_i_reg ;
-  wire [11:0]Q;
-  wire [8:0]dm2linebuf_mm2s_tdata;
-  wire empty_fwft_i_reg;
-  wire [0:0]ena_array;
-  wire [0:0]enb_array;
-  wire [11:0]\gc0.count_d1_reg[11] ;
-  wire m_axi_mm2s_aclk;
-  wire [7:0]\sig_data_skid_reg_reg[18] ;
-  wire [0:0]\sig_data_skid_reg_reg[19] ;
-
-  system_axi_vdma_0_0_blk_mem_gen_prim_wrapper__parameterized5 \prim_noinit.ram 
-       (.\GEN_FREE_RUN_MODE.frame_sync_i_reg (\GEN_FREE_RUN_MODE.frame_sync_i_reg ),
-        .Q(Q),
-        .dm2linebuf_mm2s_tdata(dm2linebuf_mm2s_tdata),
-        .empty_fwft_i_reg(empty_fwft_i_reg),
-        .ena_array(ena_array),
-        .enb_array(enb_array),
-        .\gc0.count_d1_reg[11] (\gc0.count_d1_reg[11] ),
-        .m_axi_mm2s_aclk(m_axi_mm2s_aclk),
-        .\sig_data_skid_reg_reg[18] (\sig_data_skid_reg_reg[18] ),
-        .\sig_data_skid_reg_reg[19] (\sig_data_skid_reg_reg[19] ));
-endmodule
-
-(* ORIG_REF_NAME = "blk_mem_gen_prim_width" *) 
-module system_axi_vdma_0_0_blk_mem_gen_prim_width__parameterized6
-   (\sig_data_skid_reg_reg[18] ,
-    \sig_data_skid_reg_reg[19] ,
-    m_axi_mm2s_aclk,
-    ena_array,
-    enb_array,
-    empty_fwft_i_reg,
-    Q,
-    \gc0.count_d1_reg[11] ,
-    dm2linebuf_mm2s_tdata,
-    \GEN_FREE_RUN_MODE.frame_sync_i_reg );
-  output [7:0]\sig_data_skid_reg_reg[18] ;
-  output [0:0]\sig_data_skid_reg_reg[19] ;
-  input m_axi_mm2s_aclk;
-  input [0:0]ena_array;
-  input [0:0]enb_array;
-  input empty_fwft_i_reg;
-  input [11:0]Q;
-  input [11:0]\gc0.count_d1_reg[11] ;
-  input [8:0]dm2linebuf_mm2s_tdata;
-  input [1:0]\GEN_FREE_RUN_MODE.frame_sync_i_reg ;
-
-  wire [1:0]\GEN_FREE_RUN_MODE.frame_sync_i_reg ;
-  wire [11:0]Q;
-  wire [8:0]dm2linebuf_mm2s_tdata;
-  wire empty_fwft_i_reg;
-  wire [0:0]ena_array;
-  wire [0:0]enb_array;
-  wire [11:0]\gc0.count_d1_reg[11] ;
-  wire m_axi_mm2s_aclk;
-  wire [7:0]\sig_data_skid_reg_reg[18] ;
-  wire [0:0]\sig_data_skid_reg_reg[19] ;
-
-  system_axi_vdma_0_0_blk_mem_gen_prim_wrapper__parameterized6 \prim_noinit.ram 
-       (.\GEN_FREE_RUN_MODE.frame_sync_i_reg (\GEN_FREE_RUN_MODE.frame_sync_i_reg ),
-        .Q(Q),
-        .dm2linebuf_mm2s_tdata(dm2linebuf_mm2s_tdata),
-        .empty_fwft_i_reg(empty_fwft_i_reg),
-        .ena_array(ena_array),
-        .enb_array(enb_array),
-        .\gc0.count_d1_reg[11] (\gc0.count_d1_reg[11] ),
-        .m_axi_mm2s_aclk(m_axi_mm2s_aclk),
-        .\sig_data_skid_reg_reg[18] (\sig_data_skid_reg_reg[18] ),
-        .\sig_data_skid_reg_reg[19] (\sig_data_skid_reg_reg[19] ));
-endmodule
-
-(* ORIG_REF_NAME = "blk_mem_gen_prim_width" *) 
-module system_axi_vdma_0_0_blk_mem_gen_prim_width__parameterized7
-   (\sig_data_skid_reg_reg[18] ,
-    \sig_data_skid_reg_reg[19] ,
-    m_axi_mm2s_aclk,
-    \gcc0.gc0.count_d1_reg[13] ,
-    \gc0.count_d1_reg[13] ,
-    empty_fwft_i_reg,
-    Q,
-    \gc0.count_d1_reg[11] ,
-    dm2linebuf_mm2s_tdata,
-    \GEN_FREE_RUN_MODE.frame_sync_i_reg );
-  output [7:0]\sig_data_skid_reg_reg[18] ;
-  output [0:0]\sig_data_skid_reg_reg[19] ;
-  input m_axi_mm2s_aclk;
-  input \gcc0.gc0.count_d1_reg[13] ;
-  input \gc0.count_d1_reg[13] ;
-  input empty_fwft_i_reg;
-  input [11:0]Q;
-  input [11:0]\gc0.count_d1_reg[11] ;
-  input [8:0]dm2linebuf_mm2s_tdata;
-  input [0:0]\GEN_FREE_RUN_MODE.frame_sync_i_reg ;
-
-  wire [0:0]\GEN_FREE_RUN_MODE.frame_sync_i_reg ;
-  wire [11:0]Q;
-  wire [8:0]dm2linebuf_mm2s_tdata;
-  wire empty_fwft_i_reg;
-  wire [11:0]\gc0.count_d1_reg[11] ;
-  wire \gc0.count_d1_reg[13] ;
-  wire \gcc0.gc0.count_d1_reg[13] ;
-  wire m_axi_mm2s_aclk;
-  wire [7:0]\sig_data_skid_reg_reg[18] ;
-  wire [0:0]\sig_data_skid_reg_reg[19] ;
-
-  system_axi_vdma_0_0_blk_mem_gen_prim_wrapper__parameterized7 \prim_noinit.ram 
-       (.\GEN_FREE_RUN_MODE.frame_sync_i_reg (\GEN_FREE_RUN_MODE.frame_sync_i_reg ),
-        .Q(Q),
-        .dm2linebuf_mm2s_tdata(dm2linebuf_mm2s_tdata),
-        .empty_fwft_i_reg(empty_fwft_i_reg),
-        .\gc0.count_d1_reg[11] (\gc0.count_d1_reg[11] ),
-        .\gc0.count_d1_reg[13] (\gc0.count_d1_reg[13] ),
-        .\gcc0.gc0.count_d1_reg[13] (\gcc0.gc0.count_d1_reg[13] ),
-        .m_axi_mm2s_aclk(m_axi_mm2s_aclk),
-        .\sig_data_skid_reg_reg[18] (\sig_data_skid_reg_reg[18] ),
-        .\sig_data_skid_reg_reg[19] (\sig_data_skid_reg_reg[19] ));
-endmodule
-
-(* ORIG_REF_NAME = "blk_mem_gen_prim_width" *) 
-module system_axi_vdma_0_0_blk_mem_gen_prim_width__parameterized8
-   (\sig_data_skid_reg_reg[27] ,
-    \sig_data_skid_reg_reg[28] ,
-    m_axi_mm2s_aclk,
-    ena_array,
-    enb_array,
-    empty_fwft_i_reg,
-    Q,
-    \gc0.count_d1_reg[11] ,
-    dm2linebuf_mm2s_tdata,
-    \GEN_FREE_RUN_MODE.frame_sync_i_reg );
-  output [7:0]\sig_data_skid_reg_reg[27] ;
-  output [0:0]\sig_data_skid_reg_reg[28] ;
-  input m_axi_mm2s_aclk;
-  input [0:0]ena_array;
-  input [0:0]enb_array;
-  input empty_fwft_i_reg;
-  input [11:0]Q;
-  input [11:0]\gc0.count_d1_reg[11] ;
-  input [8:0]dm2linebuf_mm2s_tdata;
-  input [0:0]\GEN_FREE_RUN_MODE.frame_sync_i_reg ;
-
-  wire [0:0]\GEN_FREE_RUN_MODE.frame_sync_i_reg ;
-  wire [11:0]Q;
-  wire [8:0]dm2linebuf_mm2s_tdata;
-  wire empty_fwft_i_reg;
-  wire [0:0]ena_array;
-  wire [0:0]enb_array;
-  wire [11:0]\gc0.count_d1_reg[11] ;
-  wire m_axi_mm2s_aclk;
-  wire [7:0]\sig_data_skid_reg_reg[27] ;
-  wire [0:0]\sig_data_skid_reg_reg[28] ;
-
-  system_axi_vdma_0_0_blk_mem_gen_prim_wrapper__parameterized8 \prim_noinit.ram 
-       (.\GEN_FREE_RUN_MODE.frame_sync_i_reg (\GEN_FREE_RUN_MODE.frame_sync_i_reg ),
-        .Q(Q),
-        .dm2linebuf_mm2s_tdata(dm2linebuf_mm2s_tdata),
-        .empty_fwft_i_reg(empty_fwft_i_reg),
-        .ena_array(ena_array),
-        .enb_array(enb_array),
-        .\gc0.count_d1_reg[11] (\gc0.count_d1_reg[11] ),
-        .m_axi_mm2s_aclk(m_axi_mm2s_aclk),
-        .\sig_data_skid_reg_reg[27] (\sig_data_skid_reg_reg[27] ),
-        .\sig_data_skid_reg_reg[28] (\sig_data_skid_reg_reg[28] ));
-endmodule
-
-(* ORIG_REF_NAME = "blk_mem_gen_prim_width" *) 
-module system_axi_vdma_0_0_blk_mem_gen_prim_width__parameterized9
-   (\sig_data_skid_reg_reg[27] ,
-    \sig_data_skid_reg_reg[28] ,
-    m_axi_mm2s_aclk,
-    ena_array,
-    enb_array,
-    empty_fwft_i_reg,
-    Q,
-    \gc0.count_d1_reg[11] ,
-    dm2linebuf_mm2s_tdata,
-    \GEN_FREE_RUN_MODE.frame_sync_i_reg );
-  output [7:0]\sig_data_skid_reg_reg[27] ;
-  output [0:0]\sig_data_skid_reg_reg[28] ;
-  input m_axi_mm2s_aclk;
-  input [0:0]ena_array;
-  input [0:0]enb_array;
-  input empty_fwft_i_reg;
-  input [11:0]Q;
-  input [11:0]\gc0.count_d1_reg[11] ;
-  input [8:0]dm2linebuf_mm2s_tdata;
-  input [0:0]\GEN_FREE_RUN_MODE.frame_sync_i_reg ;
-
-  wire [0:0]\GEN_FREE_RUN_MODE.frame_sync_i_reg ;
-  wire [11:0]Q;
-  wire [8:0]dm2linebuf_mm2s_tdata;
-  wire empty_fwft_i_reg;
-  wire [0:0]ena_array;
-  wire [0:0]enb_array;
-  wire [11:0]\gc0.count_d1_reg[11] ;
-  wire m_axi_mm2s_aclk;
-  wire [7:0]\sig_data_skid_reg_reg[27] ;
-  wire [0:0]\sig_data_skid_reg_reg[28] ;
-
-  system_axi_vdma_0_0_blk_mem_gen_prim_wrapper__parameterized9 \prim_noinit.ram 
-       (.\GEN_FREE_RUN_MODE.frame_sync_i_reg (\GEN_FREE_RUN_MODE.frame_sync_i_reg ),
-        .Q(Q),
-        .dm2linebuf_mm2s_tdata(dm2linebuf_mm2s_tdata),
-        .empty_fwft_i_reg(empty_fwft_i_reg),
-        .ena_array(ena_array),
-        .enb_array(enb_array),
-        .\gc0.count_d1_reg[11] (\gc0.count_d1_reg[11] ),
-        .m_axi_mm2s_aclk(m_axi_mm2s_aclk),
-        .\sig_data_skid_reg_reg[27] (\sig_data_skid_reg_reg[27] ),
-        .\sig_data_skid_reg_reg[28] (\sig_data_skid_reg_reg[28] ));
+        .p_12_out(p_12_out),
+        .tmp_ram_rd_en(tmp_ram_rd_en));
 endmodule
 
 (* ORIG_REF_NAME = "blk_mem_gen_prim_wrapper" *) 
 module system_axi_vdma_0_0_blk_mem_gen_prim_wrapper
-   (D,
+   (p_12_out,
     m_axi_mm2s_aclk,
-    WEA,
-    ram_empty_fb_i_reg,
+    tmp_ram_rd_en,
+    \GEN_FREE_RUN_MODE.frame_sync_i_reg ,
     empty_fwft_i_reg,
-    Q,
-    \gc0.count_d1_reg[13] ,
+    \gc0.count_d1_reg[8] ,
+    \gcc0.gc0.count_d1_reg[8] ,
     dm2linebuf_mm2s_tdata,
-    \GEN_FREE_RUN_MODE.frame_sync_i_reg );
-  output [1:0]D;
+    DIBDI);
+  output [37:0]p_12_out;
   input m_axi_mm2s_aclk;
-  input [0:0]WEA;
-  input ram_empty_fb_i_reg;
+  input tmp_ram_rd_en;
+  input \GEN_FREE_RUN_MODE.frame_sync_i_reg ;
   input empty_fwft_i_reg;
-  input [13:0]Q;
-  input [13:0]\gc0.count_d1_reg[13] ;
-  input [1:0]dm2linebuf_mm2s_tdata;
-  input [0:0]\GEN_FREE_RUN_MODE.frame_sync_i_reg ;
+  input [8:0]\gc0.count_d1_reg[8] ;
+  input [8:0]\gcc0.gc0.count_d1_reg[8] ;
+  input [31:0]dm2linebuf_mm2s_tdata;
+  input [5:0]DIBDI;
 
-  wire [1:0]D;
-  wire [0:0]\GEN_FREE_RUN_MODE.frame_sync_i_reg ;
-  wire [13:0]Q;
-  wire [0:0]WEA;
-  wire [1:0]dm2linebuf_mm2s_tdata;
+  wire \DEVICE_7SERIES.NO_BMM_INFO.SDP.WIDE_PRIM36_NO_ECC.ram_n_21 ;
+  wire \DEVICE_7SERIES.NO_BMM_INFO.SDP.WIDE_PRIM36_NO_ECC.ram_n_22 ;
+  wire \DEVICE_7SERIES.NO_BMM_INFO.SDP.WIDE_PRIM36_NO_ECC.ram_n_23 ;
+  wire \DEVICE_7SERIES.NO_BMM_INFO.SDP.WIDE_PRIM36_NO_ECC.ram_n_24 ;
+  wire \DEVICE_7SERIES.NO_BMM_INFO.SDP.WIDE_PRIM36_NO_ECC.ram_n_29 ;
+  wire \DEVICE_7SERIES.NO_BMM_INFO.SDP.WIDE_PRIM36_NO_ECC.ram_n_30 ;
+  wire \DEVICE_7SERIES.NO_BMM_INFO.SDP.WIDE_PRIM36_NO_ECC.ram_n_31 ;
+  wire \DEVICE_7SERIES.NO_BMM_INFO.SDP.WIDE_PRIM36_NO_ECC.ram_n_37 ;
+  wire \DEVICE_7SERIES.NO_BMM_INFO.SDP.WIDE_PRIM36_NO_ECC.ram_n_38 ;
+  wire \DEVICE_7SERIES.NO_BMM_INFO.SDP.WIDE_PRIM36_NO_ECC.ram_n_39 ;
+  wire \DEVICE_7SERIES.NO_BMM_INFO.SDP.WIDE_PRIM36_NO_ECC.ram_n_45 ;
+  wire \DEVICE_7SERIES.NO_BMM_INFO.SDP.WIDE_PRIM36_NO_ECC.ram_n_46 ;
+  wire \DEVICE_7SERIES.NO_BMM_INFO.SDP.WIDE_PRIM36_NO_ECC.ram_n_47 ;
+  wire \DEVICE_7SERIES.NO_BMM_INFO.SDP.WIDE_PRIM36_NO_ECC.ram_n_53 ;
+  wire \DEVICE_7SERIES.NO_BMM_INFO.SDP.WIDE_PRIM36_NO_ECC.ram_n_54 ;
+  wire \DEVICE_7SERIES.NO_BMM_INFO.SDP.WIDE_PRIM36_NO_ECC.ram_n_55 ;
+  wire \DEVICE_7SERIES.NO_BMM_INFO.SDP.WIDE_PRIM36_NO_ECC.ram_n_56 ;
+  wire \DEVICE_7SERIES.NO_BMM_INFO.SDP.WIDE_PRIM36_NO_ECC.ram_n_61 ;
+  wire \DEVICE_7SERIES.NO_BMM_INFO.SDP.WIDE_PRIM36_NO_ECC.ram_n_62 ;
+  wire \DEVICE_7SERIES.NO_BMM_INFO.SDP.WIDE_PRIM36_NO_ECC.ram_n_63 ;
+  wire \DEVICE_7SERIES.NO_BMM_INFO.SDP.WIDE_PRIM36_NO_ECC.ram_n_69 ;
+  wire \DEVICE_7SERIES.NO_BMM_INFO.SDP.WIDE_PRIM36_NO_ECC.ram_n_70 ;
+  wire \DEVICE_7SERIES.NO_BMM_INFO.SDP.WIDE_PRIM36_NO_ECC.ram_n_71 ;
+  wire \DEVICE_7SERIES.NO_BMM_INFO.SDP.WIDE_PRIM36_NO_ECC.ram_n_77 ;
+  wire \DEVICE_7SERIES.NO_BMM_INFO.SDP.WIDE_PRIM36_NO_ECC.ram_n_78 ;
+  wire \DEVICE_7SERIES.NO_BMM_INFO.SDP.WIDE_PRIM36_NO_ECC.ram_n_79 ;
+  wire \DEVICE_7SERIES.NO_BMM_INFO.SDP.WIDE_PRIM36_NO_ECC.ram_n_85 ;
+  wire \DEVICE_7SERIES.NO_BMM_INFO.SDP.WIDE_PRIM36_NO_ECC.ram_n_86 ;
+  wire \DEVICE_7SERIES.NO_BMM_INFO.SDP.WIDE_PRIM36_NO_ECC.ram_n_87 ;
+  wire \DEVICE_7SERIES.NO_BMM_INFO.SDP.WIDE_PRIM36_NO_ECC.ram_n_88 ;
+  wire \DEVICE_7SERIES.NO_BMM_INFO.SDP.WIDE_PRIM36_NO_ECC.ram_n_89 ;
+  wire \DEVICE_7SERIES.NO_BMM_INFO.SDP.WIDE_PRIM36_NO_ECC.ram_n_90 ;
+  wire \DEVICE_7SERIES.NO_BMM_INFO.SDP.WIDE_PRIM36_NO_ECC.ram_n_91 ;
+  wire \DEVICE_7SERIES.NO_BMM_INFO.SDP.WIDE_PRIM36_NO_ECC.ram_n_92 ;
+  wire [5:0]DIBDI;
+  wire \GEN_FREE_RUN_MODE.frame_sync_i_reg ;
+  wire [31:0]dm2linebuf_mm2s_tdata;
   wire empty_fwft_i_reg;
-  wire [13:0]\gc0.count_d1_reg[13] ;
+  wire [8:0]\gc0.count_d1_reg[8] ;
+  wire [8:0]\gcc0.gc0.count_d1_reg[8] ;
   wire m_axi_mm2s_aclk;
-  wire ram_empty_fb_i_reg;
-  wire \NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_CASCADEOUTA_UNCONNECTED ;
-  wire \NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_CASCADEOUTB_UNCONNECTED ;
-  wire \NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_DBITERR_UNCONNECTED ;
-  wire \NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_SBITERR_UNCONNECTED ;
-  wire [31:0]\NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_DOADO_UNCONNECTED ;
-  wire [31:2]\NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_DOBDO_UNCONNECTED ;
-  wire [3:0]\NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_DOPADOP_UNCONNECTED ;
-  wire [3:0]\NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_DOPBDOP_UNCONNECTED ;
-  wire [7:0]\NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_ECCPARITY_UNCONNECTED ;
-  wire [8:0]\NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_RDADDRECC_UNCONNECTED ;
+  wire [37:0]p_12_out;
+  wire tmp_ram_rd_en;
+  wire \NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.WIDE_PRIM36_NO_ECC.ram_CASCADEOUTA_UNCONNECTED ;
+  wire \NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.WIDE_PRIM36_NO_ECC.ram_CASCADEOUTB_UNCONNECTED ;
+  wire \NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.WIDE_PRIM36_NO_ECC.ram_DBITERR_UNCONNECTED ;
+  wire \NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.WIDE_PRIM36_NO_ECC.ram_SBITERR_UNCONNECTED ;
+  wire [7:0]\NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.WIDE_PRIM36_NO_ECC.ram_ECCPARITY_UNCONNECTED ;
+  wire [8:0]\NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.WIDE_PRIM36_NO_ECC.ram_RDADDRECC_UNCONNECTED ;
 
   (* box_type = "PRIMITIVE" *) 
   RAMB36E1 #(
@@ -44579,4481 +42581,218 @@ module system_axi_vdma_0_0_blk_mem_gen_prim_wrapper
     .IS_RSTREGB_INVERTED(1'b0),
     .RAM_EXTENSION_A("NONE"),
     .RAM_EXTENSION_B("NONE"),
-    .RAM_MODE("TDP"),
+    .RAM_MODE("SDP"),
     .RDADDR_COLLISION_HWCONFIG("DELAYED_WRITE"),
-    .READ_WIDTH_A(2),
-    .READ_WIDTH_B(2),
+    .READ_WIDTH_A(72),
+    .READ_WIDTH_B(0),
     .RSTREG_PRIORITY_A("REGCE"),
     .RSTREG_PRIORITY_B("REGCE"),
     .SIM_COLLISION_CHECK("ALL"),
     .SIM_DEVICE("7SERIES"),
     .SRVAL_A(36'h000000000),
     .SRVAL_B(36'h000000000),
-    .WRITE_MODE_A("WRITE_FIRST"),
-    .WRITE_MODE_B("WRITE_FIRST"),
-    .WRITE_WIDTH_A(2),
-    .WRITE_WIDTH_B(2)) 
-    \DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram 
-       (.ADDRARDADDR({1'b1,Q,1'b1}),
-        .ADDRBWRADDR({1'b1,\gc0.count_d1_reg[13] ,1'b1}),
+    .WRITE_MODE_A("READ_FIRST"),
+    .WRITE_MODE_B("READ_FIRST"),
+    .WRITE_WIDTH_A(0),
+    .WRITE_WIDTH_B(72)) 
+    \DEVICE_7SERIES.NO_BMM_INFO.SDP.WIDE_PRIM36_NO_ECC.ram 
+       (.ADDRARDADDR({1'b1,\gc0.count_d1_reg[8] ,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1}),
+        .ADDRBWRADDR({1'b1,\gcc0.gc0.count_d1_reg[8] ,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1}),
         .CASCADEINA(1'b0),
         .CASCADEINB(1'b0),
-        .CASCADEOUTA(\NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_CASCADEOUTA_UNCONNECTED ),
-        .CASCADEOUTB(\NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_CASCADEOUTB_UNCONNECTED ),
+        .CASCADEOUTA(\NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.WIDE_PRIM36_NO_ECC.ram_CASCADEOUTA_UNCONNECTED ),
+        .CASCADEOUTB(\NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.WIDE_PRIM36_NO_ECC.ram_CASCADEOUTB_UNCONNECTED ),
         .CLKARDCLK(m_axi_mm2s_aclk),
         .CLKBWRCLK(m_axi_mm2s_aclk),
-        .DBITERR(\NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_DBITERR_UNCONNECTED ),
-        .DIADI({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,dm2linebuf_mm2s_tdata}),
-        .DIBDI({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0}),
+        .DBITERR(\NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.WIDE_PRIM36_NO_ECC.ram_DBITERR_UNCONNECTED ),
+        .DIADI({1'b0,1'b0,1'b0,1'b0,dm2linebuf_mm2s_tdata[18:15],1'b0,1'b0,1'b0,dm2linebuf_mm2s_tdata[14:10],1'b0,1'b0,1'b0,dm2linebuf_mm2s_tdata[9:5],1'b0,1'b0,1'b0,dm2linebuf_mm2s_tdata[4:0]}),
+        .DIBDI({1'b0,1'b0,1'b0,1'b0,DIBDI[5:2],1'b0,1'b0,1'b0,DIBDI[1:0],dm2linebuf_mm2s_tdata[31:29],1'b0,1'b0,1'b0,dm2linebuf_mm2s_tdata[28:24],1'b0,1'b0,1'b0,dm2linebuf_mm2s_tdata[23:19]}),
         .DIPADIP({1'b0,1'b0,1'b0,1'b0}),
         .DIPBDIP({1'b0,1'b0,1'b0,1'b0}),
-        .DOADO(\NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_DOADO_UNCONNECTED [31:0]),
-        .DOBDO({\NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_DOBDO_UNCONNECTED [31:2],D}),
-        .DOPADOP(\NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_DOPADOP_UNCONNECTED [3:0]),
-        .DOPBDOP(\NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_DOPBDOP_UNCONNECTED [3:0]),
-        .ECCPARITY(\NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_ECCPARITY_UNCONNECTED [7:0]),
-        .ENARDEN(WEA),
-        .ENBWREN(ram_empty_fb_i_reg),
+        .DOADO({\DEVICE_7SERIES.NO_BMM_INFO.SDP.WIDE_PRIM36_NO_ECC.ram_n_21 ,\DEVICE_7SERIES.NO_BMM_INFO.SDP.WIDE_PRIM36_NO_ECC.ram_n_22 ,\DEVICE_7SERIES.NO_BMM_INFO.SDP.WIDE_PRIM36_NO_ECC.ram_n_23 ,\DEVICE_7SERIES.NO_BMM_INFO.SDP.WIDE_PRIM36_NO_ECC.ram_n_24 ,p_12_out[18:15],\DEVICE_7SERIES.NO_BMM_INFO.SDP.WIDE_PRIM36_NO_ECC.ram_n_29 ,\DEVICE_7SERIES.NO_BMM_INFO.SDP.WIDE_PRIM36_NO_ECC.ram_n_30 ,\DEVICE_7SERIES.NO_BMM_INFO.SDP.WIDE_PRIM36_NO_ECC.ram_n_31 ,p_12_out[14:10],\DEVICE_7SERIES.NO_BMM_INFO.SDP.WIDE_PRIM36_NO_ECC.ram_n_37 ,\DEVICE_7SERIES.NO_BMM_INFO.SDP.WIDE_PRIM36_NO_ECC.ram_n_38 ,\DEVICE_7SERIES.NO_BMM_INFO.SDP.WIDE_PRIM36_NO_ECC.ram_n_39 ,p_12_out[9:5],\DEVICE_7SERIES.NO_BMM_INFO.SDP.WIDE_PRIM36_NO_ECC.ram_n_45 ,\DEVICE_7SERIES.NO_BMM_INFO.SDP.WIDE_PRIM36_NO_ECC.ram_n_46 ,\DEVICE_7SERIES.NO_BMM_INFO.SDP.WIDE_PRIM36_NO_ECC.ram_n_47 ,p_12_out[4:0]}),
+        .DOBDO({\DEVICE_7SERIES.NO_BMM_INFO.SDP.WIDE_PRIM36_NO_ECC.ram_n_53 ,\DEVICE_7SERIES.NO_BMM_INFO.SDP.WIDE_PRIM36_NO_ECC.ram_n_54 ,\DEVICE_7SERIES.NO_BMM_INFO.SDP.WIDE_PRIM36_NO_ECC.ram_n_55 ,\DEVICE_7SERIES.NO_BMM_INFO.SDP.WIDE_PRIM36_NO_ECC.ram_n_56 ,p_12_out[37:34],\DEVICE_7SERIES.NO_BMM_INFO.SDP.WIDE_PRIM36_NO_ECC.ram_n_61 ,\DEVICE_7SERIES.NO_BMM_INFO.SDP.WIDE_PRIM36_NO_ECC.ram_n_62 ,\DEVICE_7SERIES.NO_BMM_INFO.SDP.WIDE_PRIM36_NO_ECC.ram_n_63 ,p_12_out[33:29],\DEVICE_7SERIES.NO_BMM_INFO.SDP.WIDE_PRIM36_NO_ECC.ram_n_69 ,\DEVICE_7SERIES.NO_BMM_INFO.SDP.WIDE_PRIM36_NO_ECC.ram_n_70 ,\DEVICE_7SERIES.NO_BMM_INFO.SDP.WIDE_PRIM36_NO_ECC.ram_n_71 ,p_12_out[28:24],\DEVICE_7SERIES.NO_BMM_INFO.SDP.WIDE_PRIM36_NO_ECC.ram_n_77 ,\DEVICE_7SERIES.NO_BMM_INFO.SDP.WIDE_PRIM36_NO_ECC.ram_n_78 ,\DEVICE_7SERIES.NO_BMM_INFO.SDP.WIDE_PRIM36_NO_ECC.ram_n_79 ,p_12_out[23:19]}),
+        .DOPADOP({\DEVICE_7SERIES.NO_BMM_INFO.SDP.WIDE_PRIM36_NO_ECC.ram_n_85 ,\DEVICE_7SERIES.NO_BMM_INFO.SDP.WIDE_PRIM36_NO_ECC.ram_n_86 ,\DEVICE_7SERIES.NO_BMM_INFO.SDP.WIDE_PRIM36_NO_ECC.ram_n_87 ,\DEVICE_7SERIES.NO_BMM_INFO.SDP.WIDE_PRIM36_NO_ECC.ram_n_88 }),
+        .DOPBDOP({\DEVICE_7SERIES.NO_BMM_INFO.SDP.WIDE_PRIM36_NO_ECC.ram_n_89 ,\DEVICE_7SERIES.NO_BMM_INFO.SDP.WIDE_PRIM36_NO_ECC.ram_n_90 ,\DEVICE_7SERIES.NO_BMM_INFO.SDP.WIDE_PRIM36_NO_ECC.ram_n_91 ,\DEVICE_7SERIES.NO_BMM_INFO.SDP.WIDE_PRIM36_NO_ECC.ram_n_92 }),
+        .ECCPARITY(\NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.WIDE_PRIM36_NO_ECC.ram_ECCPARITY_UNCONNECTED [7:0]),
+        .ENARDEN(tmp_ram_rd_en),
+        .ENBWREN(\GEN_FREE_RUN_MODE.frame_sync_i_reg ),
         .INJECTDBITERR(1'b0),
         .INJECTSBITERR(1'b0),
-        .RDADDRECC(\NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_RDADDRECC_UNCONNECTED [8:0]),
-        .REGCEAREGCE(1'b0),
-        .REGCEB(empty_fwft_i_reg),
+        .RDADDRECC(\NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.WIDE_PRIM36_NO_ECC.ram_RDADDRECC_UNCONNECTED [8:0]),
+        .REGCEAREGCE(empty_fwft_i_reg),
+        .REGCEB(1'b0),
         .RSTRAMARSTRAM(1'b0),
         .RSTRAMB(1'b0),
         .RSTREGARSTREG(1'b0),
         .RSTREGB(1'b0),
-        .SBITERR(\NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_SBITERR_UNCONNECTED ),
-        .WEA({\GEN_FREE_RUN_MODE.frame_sync_i_reg ,\GEN_FREE_RUN_MODE.frame_sync_i_reg ,\GEN_FREE_RUN_MODE.frame_sync_i_reg ,\GEN_FREE_RUN_MODE.frame_sync_i_reg }),
-        .WEBWE({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0}));
-endmodule
-
-(* ORIG_REF_NAME = "blk_mem_gen_prim_wrapper" *) 
-module system_axi_vdma_0_0_blk_mem_gen_prim_wrapper__parameterized0
-   (\sig_data_skid_reg_reg[9] ,
-    \sig_data_skid_reg_reg[10] ,
-    m_axi_mm2s_aclk,
-    ena_array,
-    enb_array,
-    empty_fwft_i_reg,
-    Q,
-    \gc0.count_d1_reg[11] ,
-    dm2linebuf_mm2s_tdata,
-    \GEN_FREE_RUN_MODE.frame_sync_i_reg );
-  output [7:0]\sig_data_skid_reg_reg[9] ;
-  output [0:0]\sig_data_skid_reg_reg[10] ;
-  input m_axi_mm2s_aclk;
-  input [0:0]ena_array;
-  input [0:0]enb_array;
-  input empty_fwft_i_reg;
-  input [11:0]Q;
-  input [11:0]\gc0.count_d1_reg[11] ;
-  input [8:0]dm2linebuf_mm2s_tdata;
-  input [0:0]\GEN_FREE_RUN_MODE.frame_sync_i_reg ;
-
-  wire [0:0]\GEN_FREE_RUN_MODE.frame_sync_i_reg ;
-  wire [11:0]Q;
-  wire [8:0]dm2linebuf_mm2s_tdata;
-  wire empty_fwft_i_reg;
-  wire [0:0]ena_array;
-  wire [0:0]enb_array;
-  wire [11:0]\gc0.count_d1_reg[11] ;
-  wire m_axi_mm2s_aclk;
-  wire [0:0]\sig_data_skid_reg_reg[10] ;
-  wire [7:0]\sig_data_skid_reg_reg[9] ;
-  wire \NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_CASCADEOUTA_UNCONNECTED ;
-  wire \NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_CASCADEOUTB_UNCONNECTED ;
-  wire \NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_DBITERR_UNCONNECTED ;
-  wire \NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_SBITERR_UNCONNECTED ;
-  wire [31:0]\NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_DOADO_UNCONNECTED ;
-  wire [31:8]\NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_DOBDO_UNCONNECTED ;
-  wire [3:0]\NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_DOPADOP_UNCONNECTED ;
-  wire [3:1]\NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_DOPBDOP_UNCONNECTED ;
-  wire [7:0]\NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_ECCPARITY_UNCONNECTED ;
-  wire [8:0]\NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_RDADDRECC_UNCONNECTED ;
-
-  (* box_type = "PRIMITIVE" *) 
-  RAMB36E1 #(
-    .DOA_REG(1),
-    .DOB_REG(1),
-    .EN_ECC_READ("FALSE"),
-    .EN_ECC_WRITE("FALSE"),
-    .INITP_00(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INITP_01(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INITP_02(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INITP_03(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INITP_04(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INITP_05(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INITP_06(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INITP_07(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INITP_08(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INITP_09(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INITP_0A(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INITP_0B(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INITP_0C(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INITP_0D(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INITP_0E(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INITP_0F(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_00(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_01(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_02(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_03(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_04(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_05(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_06(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_07(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_08(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_09(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_0A(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_0B(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_0C(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_0D(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_0E(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_0F(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_10(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_11(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_12(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_13(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_14(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_15(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_16(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_17(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_18(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_19(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_1A(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_1B(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_1C(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_1D(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_1E(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_1F(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_20(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_21(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_22(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_23(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_24(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_25(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_26(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_27(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_28(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_29(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_2A(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_2B(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_2C(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_2D(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_2E(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_2F(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_30(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_31(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_32(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_33(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_34(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_35(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_36(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_37(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_38(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_39(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_3A(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_3B(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_3C(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_3D(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_3E(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_3F(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_40(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_41(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_42(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_43(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_44(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_45(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_46(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_47(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_48(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_49(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_4A(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_4B(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_4C(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_4D(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_4E(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_4F(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_50(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_51(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_52(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_53(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_54(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_55(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_56(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_57(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_58(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_59(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_5A(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_5B(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_5C(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_5D(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_5E(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_5F(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_60(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_61(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_62(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_63(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_64(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_65(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_66(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_67(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_68(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_69(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_6A(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_6B(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_6C(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_6D(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_6E(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_6F(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_70(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_71(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_72(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_73(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_74(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_75(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_76(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_77(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_78(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_79(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_7A(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_7B(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_7C(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_7D(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_7E(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_7F(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_A(36'h000000000),
-    .INIT_B(36'h000000000),
-    .INIT_FILE("NONE"),
-    .IS_CLKARDCLK_INVERTED(1'b0),
-    .IS_CLKBWRCLK_INVERTED(1'b0),
-    .IS_ENARDEN_INVERTED(1'b0),
-    .IS_ENBWREN_INVERTED(1'b0),
-    .IS_RSTRAMARSTRAM_INVERTED(1'b0),
-    .IS_RSTRAMB_INVERTED(1'b0),
-    .IS_RSTREGARSTREG_INVERTED(1'b0),
-    .IS_RSTREGB_INVERTED(1'b0),
-    .RAM_EXTENSION_A("NONE"),
-    .RAM_EXTENSION_B("NONE"),
-    .RAM_MODE("TDP"),
-    .RDADDR_COLLISION_HWCONFIG("DELAYED_WRITE"),
-    .READ_WIDTH_A(9),
-    .READ_WIDTH_B(9),
-    .RSTREG_PRIORITY_A("REGCE"),
-    .RSTREG_PRIORITY_B("REGCE"),
-    .SIM_COLLISION_CHECK("ALL"),
-    .SIM_DEVICE("7SERIES"),
-    .SRVAL_A(36'h000000000),
-    .SRVAL_B(36'h000000000),
-    .WRITE_MODE_A("WRITE_FIRST"),
-    .WRITE_MODE_B("WRITE_FIRST"),
-    .WRITE_WIDTH_A(9),
-    .WRITE_WIDTH_B(9)) 
-    \DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram 
-       (.ADDRARDADDR({1'b1,Q,1'b1,1'b1,1'b1}),
-        .ADDRBWRADDR({1'b1,\gc0.count_d1_reg[11] ,1'b1,1'b1,1'b1}),
-        .CASCADEINA(1'b0),
-        .CASCADEINB(1'b0),
-        .CASCADEOUTA(\NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_CASCADEOUTA_UNCONNECTED ),
-        .CASCADEOUTB(\NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_CASCADEOUTB_UNCONNECTED ),
-        .CLKARDCLK(m_axi_mm2s_aclk),
-        .CLKBWRCLK(m_axi_mm2s_aclk),
-        .DBITERR(\NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_DBITERR_UNCONNECTED ),
-        .DIADI({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,dm2linebuf_mm2s_tdata[7:0]}),
-        .DIBDI({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0}),
-        .DIPADIP({1'b0,1'b0,1'b0,dm2linebuf_mm2s_tdata[8]}),
-        .DIPBDIP({1'b0,1'b0,1'b0,1'b0}),
-        .DOADO(\NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_DOADO_UNCONNECTED [31:0]),
-        .DOBDO({\NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_DOBDO_UNCONNECTED [31:8],\sig_data_skid_reg_reg[9] }),
-        .DOPADOP(\NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_DOPADOP_UNCONNECTED [3:0]),
-        .DOPBDOP({\NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_DOPBDOP_UNCONNECTED [3:1],\sig_data_skid_reg_reg[10] }),
-        .ECCPARITY(\NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_ECCPARITY_UNCONNECTED [7:0]),
-        .ENARDEN(ena_array),
-        .ENBWREN(enb_array),
-        .INJECTDBITERR(1'b0),
-        .INJECTSBITERR(1'b0),
-        .RDADDRECC(\NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_RDADDRECC_UNCONNECTED [8:0]),
-        .REGCEAREGCE(1'b0),
-        .REGCEB(empty_fwft_i_reg),
-        .RSTRAMARSTRAM(1'b0),
-        .RSTRAMB(1'b0),
-        .RSTREGARSTREG(1'b0),
-        .RSTREGB(1'b0),
-        .SBITERR(\NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_SBITERR_UNCONNECTED ),
-        .WEA({\GEN_FREE_RUN_MODE.frame_sync_i_reg ,\GEN_FREE_RUN_MODE.frame_sync_i_reg ,\GEN_FREE_RUN_MODE.frame_sync_i_reg ,\GEN_FREE_RUN_MODE.frame_sync_i_reg }),
-        .WEBWE({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0}));
-endmodule
-
-(* ORIG_REF_NAME = "blk_mem_gen_prim_wrapper" *) 
-module system_axi_vdma_0_0_blk_mem_gen_prim_wrapper__parameterized1
-   (\sig_data_skid_reg_reg[9] ,
-    \sig_data_skid_reg_reg[10] ,
-    m_axi_mm2s_aclk,
-    ena_array,
-    enb_array,
-    empty_fwft_i_reg,
-    Q,
-    \gc0.count_d1_reg[11] ,
-    dm2linebuf_mm2s_tdata,
-    \GEN_FREE_RUN_MODE.frame_sync_i_reg );
-  output [7:0]\sig_data_skid_reg_reg[9] ;
-  output [0:0]\sig_data_skid_reg_reg[10] ;
-  input m_axi_mm2s_aclk;
-  input [0:0]ena_array;
-  input [0:0]enb_array;
-  input empty_fwft_i_reg;
-  input [11:0]Q;
-  input [11:0]\gc0.count_d1_reg[11] ;
-  input [8:0]dm2linebuf_mm2s_tdata;
-  input [1:0]\GEN_FREE_RUN_MODE.frame_sync_i_reg ;
-
-  wire [1:0]\GEN_FREE_RUN_MODE.frame_sync_i_reg ;
-  wire [11:0]Q;
-  wire [8:0]dm2linebuf_mm2s_tdata;
-  wire empty_fwft_i_reg;
-  wire [0:0]ena_array;
-  wire [0:0]enb_array;
-  wire [11:0]\gc0.count_d1_reg[11] ;
-  wire m_axi_mm2s_aclk;
-  wire [0:0]\sig_data_skid_reg_reg[10] ;
-  wire [7:0]\sig_data_skid_reg_reg[9] ;
-  wire \NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_CASCADEOUTA_UNCONNECTED ;
-  wire \NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_CASCADEOUTB_UNCONNECTED ;
-  wire \NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_DBITERR_UNCONNECTED ;
-  wire \NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_SBITERR_UNCONNECTED ;
-  wire [31:0]\NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_DOADO_UNCONNECTED ;
-  wire [31:8]\NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_DOBDO_UNCONNECTED ;
-  wire [3:0]\NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_DOPADOP_UNCONNECTED ;
-  wire [3:1]\NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_DOPBDOP_UNCONNECTED ;
-  wire [7:0]\NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_ECCPARITY_UNCONNECTED ;
-  wire [8:0]\NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_RDADDRECC_UNCONNECTED ;
-
-  (* box_type = "PRIMITIVE" *) 
-  RAMB36E1 #(
-    .DOA_REG(1),
-    .DOB_REG(1),
-    .EN_ECC_READ("FALSE"),
-    .EN_ECC_WRITE("FALSE"),
-    .INITP_00(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INITP_01(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INITP_02(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INITP_03(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INITP_04(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INITP_05(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INITP_06(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INITP_07(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INITP_08(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INITP_09(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INITP_0A(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INITP_0B(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INITP_0C(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INITP_0D(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INITP_0E(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INITP_0F(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_00(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_01(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_02(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_03(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_04(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_05(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_06(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_07(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_08(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_09(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_0A(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_0B(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_0C(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_0D(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_0E(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_0F(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_10(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_11(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_12(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_13(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_14(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_15(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_16(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_17(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_18(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_19(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_1A(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_1B(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_1C(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_1D(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_1E(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_1F(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_20(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_21(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_22(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_23(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_24(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_25(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_26(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_27(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_28(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_29(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_2A(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_2B(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_2C(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_2D(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_2E(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_2F(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_30(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_31(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_32(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_33(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_34(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_35(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_36(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_37(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_38(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_39(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_3A(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_3B(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_3C(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_3D(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_3E(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_3F(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_40(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_41(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_42(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_43(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_44(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_45(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_46(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_47(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_48(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_49(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_4A(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_4B(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_4C(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_4D(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_4E(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_4F(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_50(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_51(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_52(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_53(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_54(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_55(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_56(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_57(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_58(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_59(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_5A(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_5B(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_5C(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_5D(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_5E(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_5F(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_60(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_61(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_62(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_63(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_64(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_65(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_66(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_67(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_68(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_69(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_6A(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_6B(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_6C(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_6D(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_6E(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_6F(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_70(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_71(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_72(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_73(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_74(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_75(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_76(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_77(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_78(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_79(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_7A(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_7B(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_7C(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_7D(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_7E(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_7F(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_A(36'h000000000),
-    .INIT_B(36'h000000000),
-    .INIT_FILE("NONE"),
-    .IS_CLKARDCLK_INVERTED(1'b0),
-    .IS_CLKBWRCLK_INVERTED(1'b0),
-    .IS_ENARDEN_INVERTED(1'b0),
-    .IS_ENBWREN_INVERTED(1'b0),
-    .IS_RSTRAMARSTRAM_INVERTED(1'b0),
-    .IS_RSTRAMB_INVERTED(1'b0),
-    .IS_RSTREGARSTREG_INVERTED(1'b0),
-    .IS_RSTREGB_INVERTED(1'b0),
-    .RAM_EXTENSION_A("NONE"),
-    .RAM_EXTENSION_B("NONE"),
-    .RAM_MODE("TDP"),
-    .RDADDR_COLLISION_HWCONFIG("DELAYED_WRITE"),
-    .READ_WIDTH_A(9),
-    .READ_WIDTH_B(9),
-    .RSTREG_PRIORITY_A("REGCE"),
-    .RSTREG_PRIORITY_B("REGCE"),
-    .SIM_COLLISION_CHECK("ALL"),
-    .SIM_DEVICE("7SERIES"),
-    .SRVAL_A(36'h000000000),
-    .SRVAL_B(36'h000000000),
-    .WRITE_MODE_A("WRITE_FIRST"),
-    .WRITE_MODE_B("WRITE_FIRST"),
-    .WRITE_WIDTH_A(9),
-    .WRITE_WIDTH_B(9)) 
-    \DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram 
-       (.ADDRARDADDR({1'b1,Q,1'b1,1'b1,1'b1}),
-        .ADDRBWRADDR({1'b1,\gc0.count_d1_reg[11] ,1'b1,1'b1,1'b1}),
-        .CASCADEINA(1'b0),
-        .CASCADEINB(1'b0),
-        .CASCADEOUTA(\NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_CASCADEOUTA_UNCONNECTED ),
-        .CASCADEOUTB(\NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_CASCADEOUTB_UNCONNECTED ),
-        .CLKARDCLK(m_axi_mm2s_aclk),
-        .CLKBWRCLK(m_axi_mm2s_aclk),
-        .DBITERR(\NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_DBITERR_UNCONNECTED ),
-        .DIADI({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,dm2linebuf_mm2s_tdata[7:0]}),
-        .DIBDI({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0}),
-        .DIPADIP({1'b0,1'b0,1'b0,dm2linebuf_mm2s_tdata[8]}),
-        .DIPBDIP({1'b0,1'b0,1'b0,1'b0}),
-        .DOADO(\NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_DOADO_UNCONNECTED [31:0]),
-        .DOBDO({\NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_DOBDO_UNCONNECTED [31:8],\sig_data_skid_reg_reg[9] }),
-        .DOPADOP(\NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_DOPADOP_UNCONNECTED [3:0]),
-        .DOPBDOP({\NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_DOPBDOP_UNCONNECTED [3:1],\sig_data_skid_reg_reg[10] }),
-        .ECCPARITY(\NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_ECCPARITY_UNCONNECTED [7:0]),
-        .ENARDEN(ena_array),
-        .ENBWREN(enb_array),
-        .INJECTDBITERR(1'b0),
-        .INJECTSBITERR(1'b0),
-        .RDADDRECC(\NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_RDADDRECC_UNCONNECTED [8:0]),
-        .REGCEAREGCE(1'b0),
-        .REGCEB(empty_fwft_i_reg),
-        .RSTRAMARSTRAM(1'b0),
-        .RSTRAMB(1'b0),
-        .RSTREGARSTREG(1'b0),
-        .RSTREGB(1'b0),
-        .SBITERR(\NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_SBITERR_UNCONNECTED ),
-        .WEA({\GEN_FREE_RUN_MODE.frame_sync_i_reg [1],\GEN_FREE_RUN_MODE.frame_sync_i_reg ,\GEN_FREE_RUN_MODE.frame_sync_i_reg [0]}),
-        .WEBWE({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0}));
-endmodule
-
-(* ORIG_REF_NAME = "blk_mem_gen_prim_wrapper" *) 
-module system_axi_vdma_0_0_blk_mem_gen_prim_wrapper__parameterized10
-   (\sig_data_skid_reg_reg[27] ,
-    \sig_data_skid_reg_reg[28] ,
-    m_axi_mm2s_aclk,
-    ena_array,
-    enb_array,
-    empty_fwft_i_reg,
-    Q,
-    \gc0.count_d1_reg[11] ,
-    dm2linebuf_mm2s_tdata,
-    \GEN_FREE_RUN_MODE.frame_sync_i_reg );
-  output [7:0]\sig_data_skid_reg_reg[27] ;
-  output [0:0]\sig_data_skid_reg_reg[28] ;
-  input m_axi_mm2s_aclk;
-  input [0:0]ena_array;
-  input [0:0]enb_array;
-  input empty_fwft_i_reg;
-  input [11:0]Q;
-  input [11:0]\gc0.count_d1_reg[11] ;
-  input [8:0]dm2linebuf_mm2s_tdata;
-  input [0:0]\GEN_FREE_RUN_MODE.frame_sync_i_reg ;
-
-  wire [0:0]\GEN_FREE_RUN_MODE.frame_sync_i_reg ;
-  wire [11:0]Q;
-  wire [8:0]dm2linebuf_mm2s_tdata;
-  wire empty_fwft_i_reg;
-  wire [0:0]ena_array;
-  wire [0:0]enb_array;
-  wire [11:0]\gc0.count_d1_reg[11] ;
-  wire m_axi_mm2s_aclk;
-  wire [7:0]\sig_data_skid_reg_reg[27] ;
-  wire [0:0]\sig_data_skid_reg_reg[28] ;
-  wire \NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_CASCADEOUTA_UNCONNECTED ;
-  wire \NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_CASCADEOUTB_UNCONNECTED ;
-  wire \NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_DBITERR_UNCONNECTED ;
-  wire \NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_SBITERR_UNCONNECTED ;
-  wire [31:0]\NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_DOADO_UNCONNECTED ;
-  wire [31:8]\NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_DOBDO_UNCONNECTED ;
-  wire [3:0]\NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_DOPADOP_UNCONNECTED ;
-  wire [3:1]\NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_DOPBDOP_UNCONNECTED ;
-  wire [7:0]\NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_ECCPARITY_UNCONNECTED ;
-  wire [8:0]\NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_RDADDRECC_UNCONNECTED ;
-
-  (* box_type = "PRIMITIVE" *) 
-  RAMB36E1 #(
-    .DOA_REG(1),
-    .DOB_REG(1),
-    .EN_ECC_READ("FALSE"),
-    .EN_ECC_WRITE("FALSE"),
-    .INITP_00(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INITP_01(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INITP_02(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INITP_03(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INITP_04(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INITP_05(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INITP_06(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INITP_07(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INITP_08(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INITP_09(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INITP_0A(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INITP_0B(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INITP_0C(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INITP_0D(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INITP_0E(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INITP_0F(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_00(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_01(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_02(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_03(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_04(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_05(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_06(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_07(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_08(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_09(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_0A(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_0B(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_0C(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_0D(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_0E(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_0F(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_10(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_11(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_12(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_13(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_14(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_15(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_16(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_17(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_18(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_19(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_1A(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_1B(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_1C(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_1D(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_1E(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_1F(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_20(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_21(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_22(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_23(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_24(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_25(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_26(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_27(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_28(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_29(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_2A(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_2B(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_2C(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_2D(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_2E(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_2F(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_30(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_31(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_32(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_33(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_34(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_35(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_36(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_37(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_38(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_39(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_3A(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_3B(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_3C(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_3D(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_3E(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_3F(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_40(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_41(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_42(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_43(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_44(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_45(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_46(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_47(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_48(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_49(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_4A(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_4B(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_4C(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_4D(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_4E(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_4F(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_50(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_51(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_52(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_53(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_54(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_55(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_56(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_57(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_58(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_59(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_5A(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_5B(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_5C(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_5D(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_5E(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_5F(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_60(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_61(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_62(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_63(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_64(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_65(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_66(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_67(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_68(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_69(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_6A(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_6B(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_6C(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_6D(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_6E(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_6F(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_70(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_71(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_72(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_73(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_74(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_75(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_76(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_77(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_78(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_79(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_7A(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_7B(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_7C(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_7D(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_7E(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_7F(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_A(36'h000000000),
-    .INIT_B(36'h000000000),
-    .INIT_FILE("NONE"),
-    .IS_CLKARDCLK_INVERTED(1'b0),
-    .IS_CLKBWRCLK_INVERTED(1'b0),
-    .IS_ENARDEN_INVERTED(1'b0),
-    .IS_ENBWREN_INVERTED(1'b0),
-    .IS_RSTRAMARSTRAM_INVERTED(1'b0),
-    .IS_RSTRAMB_INVERTED(1'b0),
-    .IS_RSTREGARSTREG_INVERTED(1'b0),
-    .IS_RSTREGB_INVERTED(1'b0),
-    .RAM_EXTENSION_A("NONE"),
-    .RAM_EXTENSION_B("NONE"),
-    .RAM_MODE("TDP"),
-    .RDADDR_COLLISION_HWCONFIG("DELAYED_WRITE"),
-    .READ_WIDTH_A(9),
-    .READ_WIDTH_B(9),
-    .RSTREG_PRIORITY_A("REGCE"),
-    .RSTREG_PRIORITY_B("REGCE"),
-    .SIM_COLLISION_CHECK("ALL"),
-    .SIM_DEVICE("7SERIES"),
-    .SRVAL_A(36'h000000000),
-    .SRVAL_B(36'h000000000),
-    .WRITE_MODE_A("WRITE_FIRST"),
-    .WRITE_MODE_B("WRITE_FIRST"),
-    .WRITE_WIDTH_A(9),
-    .WRITE_WIDTH_B(9)) 
-    \DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram 
-       (.ADDRARDADDR({1'b1,Q,1'b1,1'b1,1'b1}),
-        .ADDRBWRADDR({1'b1,\gc0.count_d1_reg[11] ,1'b1,1'b1,1'b1}),
-        .CASCADEINA(1'b0),
-        .CASCADEINB(1'b0),
-        .CASCADEOUTA(\NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_CASCADEOUTA_UNCONNECTED ),
-        .CASCADEOUTB(\NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_CASCADEOUTB_UNCONNECTED ),
-        .CLKARDCLK(m_axi_mm2s_aclk),
-        .CLKBWRCLK(m_axi_mm2s_aclk),
-        .DBITERR(\NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_DBITERR_UNCONNECTED ),
-        .DIADI({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,dm2linebuf_mm2s_tdata[7:0]}),
-        .DIBDI({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0}),
-        .DIPADIP({1'b0,1'b0,1'b0,dm2linebuf_mm2s_tdata[8]}),
-        .DIPBDIP({1'b0,1'b0,1'b0,1'b0}),
-        .DOADO(\NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_DOADO_UNCONNECTED [31:0]),
-        .DOBDO({\NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_DOBDO_UNCONNECTED [31:8],\sig_data_skid_reg_reg[27] }),
-        .DOPADOP(\NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_DOPADOP_UNCONNECTED [3:0]),
-        .DOPBDOP({\NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_DOPBDOP_UNCONNECTED [3:1],\sig_data_skid_reg_reg[28] }),
-        .ECCPARITY(\NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_ECCPARITY_UNCONNECTED [7:0]),
-        .ENARDEN(ena_array),
-        .ENBWREN(enb_array),
-        .INJECTDBITERR(1'b0),
-        .INJECTSBITERR(1'b0),
-        .RDADDRECC(\NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_RDADDRECC_UNCONNECTED [8:0]),
-        .REGCEAREGCE(1'b0),
-        .REGCEB(empty_fwft_i_reg),
-        .RSTRAMARSTRAM(1'b0),
-        .RSTRAMB(1'b0),
-        .RSTREGARSTREG(1'b0),
-        .RSTREGB(1'b0),
-        .SBITERR(\NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_SBITERR_UNCONNECTED ),
-        .WEA({\GEN_FREE_RUN_MODE.frame_sync_i_reg ,\GEN_FREE_RUN_MODE.frame_sync_i_reg ,\GEN_FREE_RUN_MODE.frame_sync_i_reg ,\GEN_FREE_RUN_MODE.frame_sync_i_reg }),
-        .WEBWE({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0}));
-endmodule
-
-(* ORIG_REF_NAME = "blk_mem_gen_prim_wrapper" *) 
-module system_axi_vdma_0_0_blk_mem_gen_prim_wrapper__parameterized11
-   (\sig_data_skid_reg_reg[27] ,
-    \sig_data_skid_reg_reg[28] ,
-    m_axi_mm2s_aclk,
-    \gcc0.gc0.count_d1_reg[13] ,
-    \gc0.count_d1_reg[13] ,
-    empty_fwft_i_reg,
-    Q,
-    \gc0.count_d1_reg[11] ,
-    dm2linebuf_mm2s_tdata,
-    \GEN_FREE_RUN_MODE.frame_sync_i_reg );
-  output [7:0]\sig_data_skid_reg_reg[27] ;
-  output [0:0]\sig_data_skid_reg_reg[28] ;
-  input m_axi_mm2s_aclk;
-  input \gcc0.gc0.count_d1_reg[13] ;
-  input \gc0.count_d1_reg[13] ;
-  input empty_fwft_i_reg;
-  input [11:0]Q;
-  input [11:0]\gc0.count_d1_reg[11] ;
-  input [8:0]dm2linebuf_mm2s_tdata;
-  input [1:0]\GEN_FREE_RUN_MODE.frame_sync_i_reg ;
-
-  wire [1:0]\GEN_FREE_RUN_MODE.frame_sync_i_reg ;
-  wire [11:0]Q;
-  wire [8:0]dm2linebuf_mm2s_tdata;
-  wire empty_fwft_i_reg;
-  wire [11:0]\gc0.count_d1_reg[11] ;
-  wire \gc0.count_d1_reg[13] ;
-  wire \gcc0.gc0.count_d1_reg[13] ;
-  wire m_axi_mm2s_aclk;
-  wire [7:0]\sig_data_skid_reg_reg[27] ;
-  wire [0:0]\sig_data_skid_reg_reg[28] ;
-  wire \NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_CASCADEOUTA_UNCONNECTED ;
-  wire \NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_CASCADEOUTB_UNCONNECTED ;
-  wire \NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_DBITERR_UNCONNECTED ;
-  wire \NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_SBITERR_UNCONNECTED ;
-  wire [31:0]\NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_DOADO_UNCONNECTED ;
-  wire [31:8]\NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_DOBDO_UNCONNECTED ;
-  wire [3:0]\NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_DOPADOP_UNCONNECTED ;
-  wire [3:1]\NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_DOPBDOP_UNCONNECTED ;
-  wire [7:0]\NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_ECCPARITY_UNCONNECTED ;
-  wire [8:0]\NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_RDADDRECC_UNCONNECTED ;
-
-  (* box_type = "PRIMITIVE" *) 
-  RAMB36E1 #(
-    .DOA_REG(1),
-    .DOB_REG(1),
-    .EN_ECC_READ("FALSE"),
-    .EN_ECC_WRITE("FALSE"),
-    .INITP_00(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INITP_01(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INITP_02(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INITP_03(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INITP_04(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INITP_05(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INITP_06(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INITP_07(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INITP_08(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INITP_09(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INITP_0A(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INITP_0B(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INITP_0C(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INITP_0D(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INITP_0E(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INITP_0F(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_00(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_01(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_02(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_03(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_04(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_05(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_06(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_07(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_08(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_09(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_0A(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_0B(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_0C(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_0D(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_0E(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_0F(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_10(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_11(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_12(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_13(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_14(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_15(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_16(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_17(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_18(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_19(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_1A(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_1B(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_1C(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_1D(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_1E(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_1F(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_20(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_21(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_22(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_23(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_24(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_25(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_26(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_27(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_28(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_29(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_2A(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_2B(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_2C(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_2D(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_2E(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_2F(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_30(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_31(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_32(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_33(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_34(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_35(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_36(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_37(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_38(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_39(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_3A(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_3B(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_3C(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_3D(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_3E(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_3F(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_40(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_41(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_42(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_43(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_44(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_45(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_46(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_47(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_48(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_49(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_4A(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_4B(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_4C(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_4D(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_4E(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_4F(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_50(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_51(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_52(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_53(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_54(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_55(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_56(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_57(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_58(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_59(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_5A(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_5B(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_5C(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_5D(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_5E(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_5F(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_60(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_61(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_62(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_63(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_64(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_65(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_66(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_67(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_68(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_69(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_6A(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_6B(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_6C(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_6D(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_6E(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_6F(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_70(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_71(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_72(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_73(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_74(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_75(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_76(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_77(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_78(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_79(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_7A(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_7B(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_7C(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_7D(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_7E(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_7F(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_A(36'h000000000),
-    .INIT_B(36'h000000000),
-    .INIT_FILE("NONE"),
-    .IS_CLKARDCLK_INVERTED(1'b0),
-    .IS_CLKBWRCLK_INVERTED(1'b0),
-    .IS_ENARDEN_INVERTED(1'b0),
-    .IS_ENBWREN_INVERTED(1'b0),
-    .IS_RSTRAMARSTRAM_INVERTED(1'b0),
-    .IS_RSTRAMB_INVERTED(1'b0),
-    .IS_RSTREGARSTREG_INVERTED(1'b0),
-    .IS_RSTREGB_INVERTED(1'b0),
-    .RAM_EXTENSION_A("NONE"),
-    .RAM_EXTENSION_B("NONE"),
-    .RAM_MODE("TDP"),
-    .RDADDR_COLLISION_HWCONFIG("DELAYED_WRITE"),
-    .READ_WIDTH_A(9),
-    .READ_WIDTH_B(9),
-    .RSTREG_PRIORITY_A("REGCE"),
-    .RSTREG_PRIORITY_B("REGCE"),
-    .SIM_COLLISION_CHECK("ALL"),
-    .SIM_DEVICE("7SERIES"),
-    .SRVAL_A(36'h000000000),
-    .SRVAL_B(36'h000000000),
-    .WRITE_MODE_A("WRITE_FIRST"),
-    .WRITE_MODE_B("WRITE_FIRST"),
-    .WRITE_WIDTH_A(9),
-    .WRITE_WIDTH_B(9)) 
-    \DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram 
-       (.ADDRARDADDR({1'b1,Q,1'b1,1'b1,1'b1}),
-        .ADDRBWRADDR({1'b1,\gc0.count_d1_reg[11] ,1'b1,1'b1,1'b1}),
-        .CASCADEINA(1'b0),
-        .CASCADEINB(1'b0),
-        .CASCADEOUTA(\NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_CASCADEOUTA_UNCONNECTED ),
-        .CASCADEOUTB(\NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_CASCADEOUTB_UNCONNECTED ),
-        .CLKARDCLK(m_axi_mm2s_aclk),
-        .CLKBWRCLK(m_axi_mm2s_aclk),
-        .DBITERR(\NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_DBITERR_UNCONNECTED ),
-        .DIADI({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,dm2linebuf_mm2s_tdata[7:0]}),
-        .DIBDI({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0}),
-        .DIPADIP({1'b0,1'b0,1'b0,dm2linebuf_mm2s_tdata[8]}),
-        .DIPBDIP({1'b0,1'b0,1'b0,1'b0}),
-        .DOADO(\NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_DOADO_UNCONNECTED [31:0]),
-        .DOBDO({\NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_DOBDO_UNCONNECTED [31:8],\sig_data_skid_reg_reg[27] }),
-        .DOPADOP(\NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_DOPADOP_UNCONNECTED [3:0]),
-        .DOPBDOP({\NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_DOPBDOP_UNCONNECTED [3:1],\sig_data_skid_reg_reg[28] }),
-        .ECCPARITY(\NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_ECCPARITY_UNCONNECTED [7:0]),
-        .ENARDEN(\gcc0.gc0.count_d1_reg[13] ),
-        .ENBWREN(\gc0.count_d1_reg[13] ),
-        .INJECTDBITERR(1'b0),
-        .INJECTSBITERR(1'b0),
-        .RDADDRECC(\NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_RDADDRECC_UNCONNECTED [8:0]),
-        .REGCEAREGCE(1'b0),
-        .REGCEB(empty_fwft_i_reg),
-        .RSTRAMARSTRAM(1'b0),
-        .RSTRAMB(1'b0),
-        .RSTREGARSTREG(1'b0),
-        .RSTREGB(1'b0),
-        .SBITERR(\NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_SBITERR_UNCONNECTED ),
-        .WEA({\GEN_FREE_RUN_MODE.frame_sync_i_reg [1],\GEN_FREE_RUN_MODE.frame_sync_i_reg ,\GEN_FREE_RUN_MODE.frame_sync_i_reg [0]}),
-        .WEBWE({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0}));
-endmodule
-
-(* ORIG_REF_NAME = "blk_mem_gen_prim_wrapper" *) 
-module system_axi_vdma_0_0_blk_mem_gen_prim_wrapper__parameterized12
-   (sig_last_skid_reg_reg,
-    \sig_user_skid_reg_reg[0] ,
-    m_axi_mm2s_aclk,
-    ena_array,
-    enb_array,
-    empty_fwft_i_reg,
-    Q,
-    \gc0.count_d1_reg[11] ,
-    DIADI,
-    DIPADIP,
-    WEA);
-  output [7:0]sig_last_skid_reg_reg;
-  output [0:0]\sig_user_skid_reg_reg[0] ;
-  input m_axi_mm2s_aclk;
-  input [0:0]ena_array;
-  input [0:0]enb_array;
-  input empty_fwft_i_reg;
-  input [11:0]Q;
-  input [11:0]\gc0.count_d1_reg[11] ;
-  input [7:0]DIADI;
-  input [0:0]DIPADIP;
-  input [0:0]WEA;
-
-  wire [7:0]DIADI;
-  wire [0:0]DIPADIP;
-  wire [11:0]Q;
-  wire [0:0]WEA;
-  wire empty_fwft_i_reg;
-  wire [0:0]ena_array;
-  wire [0:0]enb_array;
-  wire [11:0]\gc0.count_d1_reg[11] ;
-  wire m_axi_mm2s_aclk;
-  wire [7:0]sig_last_skid_reg_reg;
-  wire [0:0]\sig_user_skid_reg_reg[0] ;
-  wire \NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_CASCADEOUTA_UNCONNECTED ;
-  wire \NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_CASCADEOUTB_UNCONNECTED ;
-  wire \NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_DBITERR_UNCONNECTED ;
-  wire \NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_SBITERR_UNCONNECTED ;
-  wire [31:0]\NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_DOADO_UNCONNECTED ;
-  wire [31:8]\NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_DOBDO_UNCONNECTED ;
-  wire [3:0]\NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_DOPADOP_UNCONNECTED ;
-  wire [3:1]\NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_DOPBDOP_UNCONNECTED ;
-  wire [7:0]\NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_ECCPARITY_UNCONNECTED ;
-  wire [8:0]\NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_RDADDRECC_UNCONNECTED ;
-
-  (* box_type = "PRIMITIVE" *) 
-  RAMB36E1 #(
-    .DOA_REG(1),
-    .DOB_REG(1),
-    .EN_ECC_READ("FALSE"),
-    .EN_ECC_WRITE("FALSE"),
-    .INITP_00(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INITP_01(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INITP_02(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INITP_03(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INITP_04(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INITP_05(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INITP_06(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INITP_07(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INITP_08(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INITP_09(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INITP_0A(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INITP_0B(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INITP_0C(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INITP_0D(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INITP_0E(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INITP_0F(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_00(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_01(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_02(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_03(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_04(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_05(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_06(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_07(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_08(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_09(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_0A(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_0B(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_0C(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_0D(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_0E(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_0F(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_10(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_11(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_12(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_13(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_14(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_15(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_16(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_17(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_18(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_19(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_1A(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_1B(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_1C(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_1D(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_1E(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_1F(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_20(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_21(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_22(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_23(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_24(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_25(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_26(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_27(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_28(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_29(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_2A(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_2B(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_2C(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_2D(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_2E(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_2F(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_30(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_31(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_32(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_33(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_34(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_35(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_36(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_37(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_38(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_39(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_3A(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_3B(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_3C(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_3D(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_3E(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_3F(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_40(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_41(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_42(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_43(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_44(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_45(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_46(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_47(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_48(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_49(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_4A(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_4B(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_4C(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_4D(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_4E(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_4F(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_50(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_51(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_52(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_53(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_54(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_55(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_56(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_57(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_58(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_59(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_5A(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_5B(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_5C(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_5D(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_5E(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_5F(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_60(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_61(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_62(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_63(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_64(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_65(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_66(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_67(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_68(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_69(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_6A(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_6B(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_6C(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_6D(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_6E(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_6F(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_70(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_71(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_72(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_73(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_74(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_75(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_76(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_77(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_78(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_79(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_7A(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_7B(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_7C(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_7D(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_7E(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_7F(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_A(36'h000000000),
-    .INIT_B(36'h000000000),
-    .INIT_FILE("NONE"),
-    .IS_CLKARDCLK_INVERTED(1'b0),
-    .IS_CLKBWRCLK_INVERTED(1'b0),
-    .IS_ENARDEN_INVERTED(1'b0),
-    .IS_ENBWREN_INVERTED(1'b0),
-    .IS_RSTRAMARSTRAM_INVERTED(1'b0),
-    .IS_RSTRAMB_INVERTED(1'b0),
-    .IS_RSTREGARSTREG_INVERTED(1'b0),
-    .IS_RSTREGB_INVERTED(1'b0),
-    .RAM_EXTENSION_A("NONE"),
-    .RAM_EXTENSION_B("NONE"),
-    .RAM_MODE("TDP"),
-    .RDADDR_COLLISION_HWCONFIG("DELAYED_WRITE"),
-    .READ_WIDTH_A(9),
-    .READ_WIDTH_B(9),
-    .RSTREG_PRIORITY_A("REGCE"),
-    .RSTREG_PRIORITY_B("REGCE"),
-    .SIM_COLLISION_CHECK("ALL"),
-    .SIM_DEVICE("7SERIES"),
-    .SRVAL_A(36'h000000000),
-    .SRVAL_B(36'h000000000),
-    .WRITE_MODE_A("WRITE_FIRST"),
-    .WRITE_MODE_B("WRITE_FIRST"),
-    .WRITE_WIDTH_A(9),
-    .WRITE_WIDTH_B(9)) 
-    \DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram 
-       (.ADDRARDADDR({1'b1,Q,1'b1,1'b1,1'b1}),
-        .ADDRBWRADDR({1'b1,\gc0.count_d1_reg[11] ,1'b1,1'b1,1'b1}),
-        .CASCADEINA(1'b0),
-        .CASCADEINB(1'b0),
-        .CASCADEOUTA(\NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_CASCADEOUTA_UNCONNECTED ),
-        .CASCADEOUTB(\NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_CASCADEOUTB_UNCONNECTED ),
-        .CLKARDCLK(m_axi_mm2s_aclk),
-        .CLKBWRCLK(m_axi_mm2s_aclk),
-        .DBITERR(\NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_DBITERR_UNCONNECTED ),
-        .DIADI({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,DIADI}),
-        .DIBDI({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0}),
-        .DIPADIP({1'b0,1'b0,1'b0,DIPADIP}),
-        .DIPBDIP({1'b0,1'b0,1'b0,1'b0}),
-        .DOADO(\NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_DOADO_UNCONNECTED [31:0]),
-        .DOBDO({\NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_DOBDO_UNCONNECTED [31:8],sig_last_skid_reg_reg}),
-        .DOPADOP(\NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_DOPADOP_UNCONNECTED [3:0]),
-        .DOPBDOP({\NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_DOPBDOP_UNCONNECTED [3:1],\sig_user_skid_reg_reg[0] }),
-        .ECCPARITY(\NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_ECCPARITY_UNCONNECTED [7:0]),
-        .ENARDEN(ena_array),
-        .ENBWREN(enb_array),
-        .INJECTDBITERR(1'b0),
-        .INJECTSBITERR(1'b0),
-        .RDADDRECC(\NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_RDADDRECC_UNCONNECTED [8:0]),
-        .REGCEAREGCE(1'b0),
-        .REGCEB(empty_fwft_i_reg),
-        .RSTRAMARSTRAM(1'b0),
-        .RSTRAMB(1'b0),
-        .RSTREGARSTREG(1'b0),
-        .RSTREGB(1'b0),
-        .SBITERR(\NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_SBITERR_UNCONNECTED ),
-        .WEA({WEA,WEA,WEA,WEA}),
-        .WEBWE({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0}));
-endmodule
-
-(* ORIG_REF_NAME = "blk_mem_gen_prim_wrapper" *) 
-module system_axi_vdma_0_0_blk_mem_gen_prim_wrapper__parameterized13
-   (sig_last_skid_reg_reg,
-    \sig_user_skid_reg_reg[0] ,
-    m_axi_mm2s_aclk,
-    ena_array,
-    enb_array,
-    empty_fwft_i_reg,
-    Q,
-    \gc0.count_d1_reg[11] ,
-    DIADI,
-    DIPADIP,
-    \GEN_FREE_RUN_MODE.frame_sync_i_reg );
-  output [7:0]sig_last_skid_reg_reg;
-  output [0:0]\sig_user_skid_reg_reg[0] ;
-  input m_axi_mm2s_aclk;
-  input [0:0]ena_array;
-  input [0:0]enb_array;
-  input empty_fwft_i_reg;
-  input [11:0]Q;
-  input [11:0]\gc0.count_d1_reg[11] ;
-  input [7:0]DIADI;
-  input [0:0]DIPADIP;
-  input [0:0]\GEN_FREE_RUN_MODE.frame_sync_i_reg ;
-
-  wire [7:0]DIADI;
-  wire [0:0]DIPADIP;
-  wire [0:0]\GEN_FREE_RUN_MODE.frame_sync_i_reg ;
-  wire [11:0]Q;
-  wire empty_fwft_i_reg;
-  wire [0:0]ena_array;
-  wire [0:0]enb_array;
-  wire [11:0]\gc0.count_d1_reg[11] ;
-  wire m_axi_mm2s_aclk;
-  wire [7:0]sig_last_skid_reg_reg;
-  wire [0:0]\sig_user_skid_reg_reg[0] ;
-  wire \NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_CASCADEOUTA_UNCONNECTED ;
-  wire \NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_CASCADEOUTB_UNCONNECTED ;
-  wire \NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_DBITERR_UNCONNECTED ;
-  wire \NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_SBITERR_UNCONNECTED ;
-  wire [31:0]\NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_DOADO_UNCONNECTED ;
-  wire [31:8]\NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_DOBDO_UNCONNECTED ;
-  wire [3:0]\NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_DOPADOP_UNCONNECTED ;
-  wire [3:1]\NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_DOPBDOP_UNCONNECTED ;
-  wire [7:0]\NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_ECCPARITY_UNCONNECTED ;
-  wire [8:0]\NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_RDADDRECC_UNCONNECTED ;
-
-  (* box_type = "PRIMITIVE" *) 
-  RAMB36E1 #(
-    .DOA_REG(1),
-    .DOB_REG(1),
-    .EN_ECC_READ("FALSE"),
-    .EN_ECC_WRITE("FALSE"),
-    .INITP_00(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INITP_01(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INITP_02(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INITP_03(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INITP_04(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INITP_05(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INITP_06(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INITP_07(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INITP_08(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INITP_09(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INITP_0A(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INITP_0B(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INITP_0C(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INITP_0D(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INITP_0E(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INITP_0F(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_00(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_01(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_02(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_03(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_04(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_05(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_06(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_07(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_08(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_09(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_0A(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_0B(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_0C(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_0D(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_0E(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_0F(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_10(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_11(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_12(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_13(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_14(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_15(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_16(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_17(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_18(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_19(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_1A(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_1B(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_1C(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_1D(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_1E(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_1F(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_20(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_21(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_22(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_23(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_24(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_25(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_26(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_27(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_28(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_29(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_2A(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_2B(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_2C(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_2D(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_2E(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_2F(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_30(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_31(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_32(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_33(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_34(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_35(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_36(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_37(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_38(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_39(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_3A(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_3B(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_3C(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_3D(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_3E(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_3F(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_40(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_41(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_42(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_43(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_44(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_45(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_46(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_47(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_48(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_49(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_4A(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_4B(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_4C(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_4D(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_4E(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_4F(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_50(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_51(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_52(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_53(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_54(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_55(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_56(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_57(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_58(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_59(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_5A(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_5B(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_5C(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_5D(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_5E(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_5F(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_60(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_61(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_62(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_63(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_64(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_65(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_66(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_67(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_68(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_69(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_6A(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_6B(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_6C(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_6D(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_6E(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_6F(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_70(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_71(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_72(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_73(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_74(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_75(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_76(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_77(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_78(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_79(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_7A(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_7B(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_7C(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_7D(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_7E(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_7F(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_A(36'h000000000),
-    .INIT_B(36'h000000000),
-    .INIT_FILE("NONE"),
-    .IS_CLKARDCLK_INVERTED(1'b0),
-    .IS_CLKBWRCLK_INVERTED(1'b0),
-    .IS_ENARDEN_INVERTED(1'b0),
-    .IS_ENBWREN_INVERTED(1'b0),
-    .IS_RSTRAMARSTRAM_INVERTED(1'b0),
-    .IS_RSTRAMB_INVERTED(1'b0),
-    .IS_RSTREGARSTREG_INVERTED(1'b0),
-    .IS_RSTREGB_INVERTED(1'b0),
-    .RAM_EXTENSION_A("NONE"),
-    .RAM_EXTENSION_B("NONE"),
-    .RAM_MODE("TDP"),
-    .RDADDR_COLLISION_HWCONFIG("DELAYED_WRITE"),
-    .READ_WIDTH_A(9),
-    .READ_WIDTH_B(9),
-    .RSTREG_PRIORITY_A("REGCE"),
-    .RSTREG_PRIORITY_B("REGCE"),
-    .SIM_COLLISION_CHECK("ALL"),
-    .SIM_DEVICE("7SERIES"),
-    .SRVAL_A(36'h000000000),
-    .SRVAL_B(36'h000000000),
-    .WRITE_MODE_A("WRITE_FIRST"),
-    .WRITE_MODE_B("WRITE_FIRST"),
-    .WRITE_WIDTH_A(9),
-    .WRITE_WIDTH_B(9)) 
-    \DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram 
-       (.ADDRARDADDR({1'b1,Q,1'b1,1'b1,1'b1}),
-        .ADDRBWRADDR({1'b1,\gc0.count_d1_reg[11] ,1'b1,1'b1,1'b1}),
-        .CASCADEINA(1'b0),
-        .CASCADEINB(1'b0),
-        .CASCADEOUTA(\NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_CASCADEOUTA_UNCONNECTED ),
-        .CASCADEOUTB(\NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_CASCADEOUTB_UNCONNECTED ),
-        .CLKARDCLK(m_axi_mm2s_aclk),
-        .CLKBWRCLK(m_axi_mm2s_aclk),
-        .DBITERR(\NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_DBITERR_UNCONNECTED ),
-        .DIADI({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,DIADI}),
-        .DIBDI({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0}),
-        .DIPADIP({1'b0,1'b0,1'b0,DIPADIP}),
-        .DIPBDIP({1'b0,1'b0,1'b0,1'b0}),
-        .DOADO(\NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_DOADO_UNCONNECTED [31:0]),
-        .DOBDO({\NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_DOBDO_UNCONNECTED [31:8],sig_last_skid_reg_reg}),
-        .DOPADOP(\NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_DOPADOP_UNCONNECTED [3:0]),
-        .DOPBDOP({\NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_DOPBDOP_UNCONNECTED [3:1],\sig_user_skid_reg_reg[0] }),
-        .ECCPARITY(\NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_ECCPARITY_UNCONNECTED [7:0]),
-        .ENARDEN(ena_array),
-        .ENBWREN(enb_array),
-        .INJECTDBITERR(1'b0),
-        .INJECTSBITERR(1'b0),
-        .RDADDRECC(\NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_RDADDRECC_UNCONNECTED [8:0]),
-        .REGCEAREGCE(1'b0),
-        .REGCEB(empty_fwft_i_reg),
-        .RSTRAMARSTRAM(1'b0),
-        .RSTRAMB(1'b0),
-        .RSTREGARSTREG(1'b0),
-        .RSTREGB(1'b0),
-        .SBITERR(\NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_SBITERR_UNCONNECTED ),
-        .WEA({\GEN_FREE_RUN_MODE.frame_sync_i_reg ,\GEN_FREE_RUN_MODE.frame_sync_i_reg ,\GEN_FREE_RUN_MODE.frame_sync_i_reg ,\GEN_FREE_RUN_MODE.frame_sync_i_reg }),
-        .WEBWE({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0}));
-endmodule
-
-(* ORIG_REF_NAME = "blk_mem_gen_prim_wrapper" *) 
-module system_axi_vdma_0_0_blk_mem_gen_prim_wrapper__parameterized14
-   (DOBDO,
-    DOPBDOP,
-    m_axi_mm2s_aclk,
-    ena_array,
-    enb_array,
-    empty_fwft_i_reg,
-    Q,
-    \gc0.count_d1_reg[11] ,
-    DIADI,
-    DIPADIP,
-    WEA);
-  output [7:0]DOBDO;
-  output [0:0]DOPBDOP;
-  input m_axi_mm2s_aclk;
-  input [0:0]ena_array;
-  input [0:0]enb_array;
-  input empty_fwft_i_reg;
-  input [11:0]Q;
-  input [11:0]\gc0.count_d1_reg[11] ;
-  input [7:0]DIADI;
-  input [0:0]DIPADIP;
-  input [0:0]WEA;
-
-  wire [7:0]DIADI;
-  wire [0:0]DIPADIP;
-  wire [7:0]DOBDO;
-  wire [0:0]DOPBDOP;
-  wire [11:0]Q;
-  wire [0:0]WEA;
-  wire empty_fwft_i_reg;
-  wire [0:0]ena_array;
-  wire [0:0]enb_array;
-  wire [11:0]\gc0.count_d1_reg[11] ;
-  wire m_axi_mm2s_aclk;
-  wire \NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_CASCADEOUTA_UNCONNECTED ;
-  wire \NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_CASCADEOUTB_UNCONNECTED ;
-  wire \NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_DBITERR_UNCONNECTED ;
-  wire \NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_SBITERR_UNCONNECTED ;
-  wire [31:0]\NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_DOADO_UNCONNECTED ;
-  wire [31:8]\NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_DOBDO_UNCONNECTED ;
-  wire [3:0]\NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_DOPADOP_UNCONNECTED ;
-  wire [3:1]\NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_DOPBDOP_UNCONNECTED ;
-  wire [7:0]\NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_ECCPARITY_UNCONNECTED ;
-  wire [8:0]\NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_RDADDRECC_UNCONNECTED ;
-
-  (* box_type = "PRIMITIVE" *) 
-  RAMB36E1 #(
-    .DOA_REG(1),
-    .DOB_REG(1),
-    .EN_ECC_READ("FALSE"),
-    .EN_ECC_WRITE("FALSE"),
-    .INITP_00(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INITP_01(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INITP_02(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INITP_03(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INITP_04(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INITP_05(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INITP_06(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INITP_07(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INITP_08(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INITP_09(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INITP_0A(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INITP_0B(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INITP_0C(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INITP_0D(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INITP_0E(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INITP_0F(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_00(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_01(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_02(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_03(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_04(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_05(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_06(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_07(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_08(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_09(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_0A(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_0B(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_0C(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_0D(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_0E(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_0F(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_10(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_11(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_12(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_13(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_14(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_15(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_16(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_17(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_18(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_19(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_1A(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_1B(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_1C(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_1D(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_1E(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_1F(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_20(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_21(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_22(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_23(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_24(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_25(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_26(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_27(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_28(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_29(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_2A(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_2B(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_2C(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_2D(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_2E(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_2F(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_30(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_31(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_32(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_33(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_34(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_35(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_36(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_37(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_38(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_39(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_3A(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_3B(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_3C(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_3D(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_3E(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_3F(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_40(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_41(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_42(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_43(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_44(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_45(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_46(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_47(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_48(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_49(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_4A(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_4B(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_4C(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_4D(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_4E(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_4F(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_50(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_51(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_52(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_53(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_54(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_55(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_56(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_57(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_58(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_59(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_5A(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_5B(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_5C(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_5D(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_5E(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_5F(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_60(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_61(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_62(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_63(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_64(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_65(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_66(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_67(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_68(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_69(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_6A(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_6B(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_6C(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_6D(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_6E(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_6F(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_70(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_71(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_72(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_73(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_74(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_75(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_76(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_77(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_78(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_79(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_7A(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_7B(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_7C(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_7D(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_7E(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_7F(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_A(36'h000000000),
-    .INIT_B(36'h000000000),
-    .INIT_FILE("NONE"),
-    .IS_CLKARDCLK_INVERTED(1'b0),
-    .IS_CLKBWRCLK_INVERTED(1'b0),
-    .IS_ENARDEN_INVERTED(1'b0),
-    .IS_ENBWREN_INVERTED(1'b0),
-    .IS_RSTRAMARSTRAM_INVERTED(1'b0),
-    .IS_RSTRAMB_INVERTED(1'b0),
-    .IS_RSTREGARSTREG_INVERTED(1'b0),
-    .IS_RSTREGB_INVERTED(1'b0),
-    .RAM_EXTENSION_A("NONE"),
-    .RAM_EXTENSION_B("NONE"),
-    .RAM_MODE("TDP"),
-    .RDADDR_COLLISION_HWCONFIG("DELAYED_WRITE"),
-    .READ_WIDTH_A(9),
-    .READ_WIDTH_B(9),
-    .RSTREG_PRIORITY_A("REGCE"),
-    .RSTREG_PRIORITY_B("REGCE"),
-    .SIM_COLLISION_CHECK("ALL"),
-    .SIM_DEVICE("7SERIES"),
-    .SRVAL_A(36'h000000000),
-    .SRVAL_B(36'h000000000),
-    .WRITE_MODE_A("WRITE_FIRST"),
-    .WRITE_MODE_B("WRITE_FIRST"),
-    .WRITE_WIDTH_A(9),
-    .WRITE_WIDTH_B(9)) 
-    \DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram 
-       (.ADDRARDADDR({1'b1,Q,1'b1,1'b1,1'b1}),
-        .ADDRBWRADDR({1'b1,\gc0.count_d1_reg[11] ,1'b1,1'b1,1'b1}),
-        .CASCADEINA(1'b0),
-        .CASCADEINB(1'b0),
-        .CASCADEOUTA(\NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_CASCADEOUTA_UNCONNECTED ),
-        .CASCADEOUTB(\NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_CASCADEOUTB_UNCONNECTED ),
-        .CLKARDCLK(m_axi_mm2s_aclk),
-        .CLKBWRCLK(m_axi_mm2s_aclk),
-        .DBITERR(\NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_DBITERR_UNCONNECTED ),
-        .DIADI({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,DIADI}),
-        .DIBDI({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0}),
-        .DIPADIP({1'b0,1'b0,1'b0,DIPADIP}),
-        .DIPBDIP({1'b0,1'b0,1'b0,1'b0}),
-        .DOADO(\NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_DOADO_UNCONNECTED [31:0]),
-        .DOBDO({\NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_DOBDO_UNCONNECTED [31:8],DOBDO}),
-        .DOPADOP(\NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_DOPADOP_UNCONNECTED [3:0]),
-        .DOPBDOP({\NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_DOPBDOP_UNCONNECTED [3:1],DOPBDOP}),
-        .ECCPARITY(\NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_ECCPARITY_UNCONNECTED [7:0]),
-        .ENARDEN(ena_array),
-        .ENBWREN(enb_array),
-        .INJECTDBITERR(1'b0),
-        .INJECTSBITERR(1'b0),
-        .RDADDRECC(\NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_RDADDRECC_UNCONNECTED [8:0]),
-        .REGCEAREGCE(1'b0),
-        .REGCEB(empty_fwft_i_reg),
-        .RSTRAMARSTRAM(1'b0),
-        .RSTRAMB(1'b0),
-        .RSTREGARSTREG(1'b0),
-        .RSTREGB(1'b0),
-        .SBITERR(\NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_SBITERR_UNCONNECTED ),
-        .WEA({WEA,WEA,WEA,WEA}),
-        .WEBWE({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0}));
-endmodule
-
-(* ORIG_REF_NAME = "blk_mem_gen_prim_wrapper" *) 
-module system_axi_vdma_0_0_blk_mem_gen_prim_wrapper__parameterized15
-   (sig_last_skid_reg_reg,
-    \sig_user_skid_reg_reg[0] ,
-    m_axi_mm2s_aclk,
-    \gcc0.gc0.count_d1_reg[13] ,
-    \gc0.count_d1_reg[13] ,
-    empty_fwft_i_reg,
-    Q,
-    \gc0.count_d1_reg[11] ,
-    DIADI,
-    DIPADIP,
-    \GEN_FREE_RUN_MODE.frame_sync_i_reg );
-  output [7:0]sig_last_skid_reg_reg;
-  output [0:0]\sig_user_skid_reg_reg[0] ;
-  input m_axi_mm2s_aclk;
-  input \gcc0.gc0.count_d1_reg[13] ;
-  input \gc0.count_d1_reg[13] ;
-  input empty_fwft_i_reg;
-  input [11:0]Q;
-  input [11:0]\gc0.count_d1_reg[11] ;
-  input [7:0]DIADI;
-  input [0:0]DIPADIP;
-  input [0:0]\GEN_FREE_RUN_MODE.frame_sync_i_reg ;
-
-  wire [7:0]DIADI;
-  wire [0:0]DIPADIP;
-  wire [0:0]\GEN_FREE_RUN_MODE.frame_sync_i_reg ;
-  wire [11:0]Q;
-  wire empty_fwft_i_reg;
-  wire [11:0]\gc0.count_d1_reg[11] ;
-  wire \gc0.count_d1_reg[13] ;
-  wire \gcc0.gc0.count_d1_reg[13] ;
-  wire m_axi_mm2s_aclk;
-  wire [7:0]sig_last_skid_reg_reg;
-  wire [0:0]\sig_user_skid_reg_reg[0] ;
-  wire \NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_CASCADEOUTA_UNCONNECTED ;
-  wire \NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_CASCADEOUTB_UNCONNECTED ;
-  wire \NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_DBITERR_UNCONNECTED ;
-  wire \NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_SBITERR_UNCONNECTED ;
-  wire [31:0]\NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_DOADO_UNCONNECTED ;
-  wire [31:8]\NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_DOBDO_UNCONNECTED ;
-  wire [3:0]\NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_DOPADOP_UNCONNECTED ;
-  wire [3:1]\NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_DOPBDOP_UNCONNECTED ;
-  wire [7:0]\NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_ECCPARITY_UNCONNECTED ;
-  wire [8:0]\NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_RDADDRECC_UNCONNECTED ;
-
-  (* box_type = "PRIMITIVE" *) 
-  RAMB36E1 #(
-    .DOA_REG(1),
-    .DOB_REG(1),
-    .EN_ECC_READ("FALSE"),
-    .EN_ECC_WRITE("FALSE"),
-    .INITP_00(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INITP_01(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INITP_02(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INITP_03(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INITP_04(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INITP_05(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INITP_06(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INITP_07(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INITP_08(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INITP_09(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INITP_0A(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INITP_0B(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INITP_0C(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INITP_0D(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INITP_0E(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INITP_0F(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_00(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_01(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_02(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_03(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_04(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_05(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_06(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_07(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_08(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_09(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_0A(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_0B(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_0C(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_0D(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_0E(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_0F(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_10(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_11(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_12(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_13(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_14(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_15(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_16(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_17(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_18(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_19(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_1A(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_1B(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_1C(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_1D(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_1E(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_1F(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_20(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_21(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_22(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_23(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_24(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_25(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_26(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_27(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_28(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_29(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_2A(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_2B(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_2C(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_2D(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_2E(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_2F(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_30(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_31(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_32(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_33(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_34(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_35(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_36(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_37(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_38(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_39(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_3A(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_3B(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_3C(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_3D(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_3E(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_3F(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_40(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_41(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_42(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_43(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_44(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_45(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_46(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_47(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_48(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_49(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_4A(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_4B(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_4C(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_4D(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_4E(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_4F(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_50(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_51(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_52(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_53(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_54(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_55(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_56(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_57(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_58(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_59(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_5A(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_5B(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_5C(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_5D(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_5E(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_5F(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_60(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_61(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_62(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_63(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_64(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_65(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_66(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_67(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_68(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_69(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_6A(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_6B(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_6C(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_6D(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_6E(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_6F(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_70(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_71(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_72(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_73(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_74(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_75(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_76(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_77(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_78(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_79(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_7A(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_7B(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_7C(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_7D(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_7E(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_7F(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_A(36'h000000000),
-    .INIT_B(36'h000000000),
-    .INIT_FILE("NONE"),
-    .IS_CLKARDCLK_INVERTED(1'b0),
-    .IS_CLKBWRCLK_INVERTED(1'b0),
-    .IS_ENARDEN_INVERTED(1'b0),
-    .IS_ENBWREN_INVERTED(1'b0),
-    .IS_RSTRAMARSTRAM_INVERTED(1'b0),
-    .IS_RSTRAMB_INVERTED(1'b0),
-    .IS_RSTREGARSTREG_INVERTED(1'b0),
-    .IS_RSTREGB_INVERTED(1'b0),
-    .RAM_EXTENSION_A("NONE"),
-    .RAM_EXTENSION_B("NONE"),
-    .RAM_MODE("TDP"),
-    .RDADDR_COLLISION_HWCONFIG("DELAYED_WRITE"),
-    .READ_WIDTH_A(9),
-    .READ_WIDTH_B(9),
-    .RSTREG_PRIORITY_A("REGCE"),
-    .RSTREG_PRIORITY_B("REGCE"),
-    .SIM_COLLISION_CHECK("ALL"),
-    .SIM_DEVICE("7SERIES"),
-    .SRVAL_A(36'h000000000),
-    .SRVAL_B(36'h000000000),
-    .WRITE_MODE_A("WRITE_FIRST"),
-    .WRITE_MODE_B("WRITE_FIRST"),
-    .WRITE_WIDTH_A(9),
-    .WRITE_WIDTH_B(9)) 
-    \DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram 
-       (.ADDRARDADDR({1'b1,Q,1'b1,1'b1,1'b1}),
-        .ADDRBWRADDR({1'b1,\gc0.count_d1_reg[11] ,1'b1,1'b1,1'b1}),
-        .CASCADEINA(1'b0),
-        .CASCADEINB(1'b0),
-        .CASCADEOUTA(\NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_CASCADEOUTA_UNCONNECTED ),
-        .CASCADEOUTB(\NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_CASCADEOUTB_UNCONNECTED ),
-        .CLKARDCLK(m_axi_mm2s_aclk),
-        .CLKBWRCLK(m_axi_mm2s_aclk),
-        .DBITERR(\NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_DBITERR_UNCONNECTED ),
-        .DIADI({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,DIADI}),
-        .DIBDI({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0}),
-        .DIPADIP({1'b0,1'b0,1'b0,DIPADIP}),
-        .DIPBDIP({1'b0,1'b0,1'b0,1'b0}),
-        .DOADO(\NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_DOADO_UNCONNECTED [31:0]),
-        .DOBDO({\NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_DOBDO_UNCONNECTED [31:8],sig_last_skid_reg_reg}),
-        .DOPADOP(\NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_DOPADOP_UNCONNECTED [3:0]),
-        .DOPBDOP({\NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_DOPBDOP_UNCONNECTED [3:1],\sig_user_skid_reg_reg[0] }),
-        .ECCPARITY(\NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_ECCPARITY_UNCONNECTED [7:0]),
-        .ENARDEN(\gcc0.gc0.count_d1_reg[13] ),
-        .ENBWREN(\gc0.count_d1_reg[13] ),
-        .INJECTDBITERR(1'b0),
-        .INJECTSBITERR(1'b0),
-        .RDADDRECC(\NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_RDADDRECC_UNCONNECTED [8:0]),
-        .REGCEAREGCE(1'b0),
-        .REGCEB(empty_fwft_i_reg),
-        .RSTRAMARSTRAM(1'b0),
-        .RSTRAMB(1'b0),
-        .RSTREGARSTREG(1'b0),
-        .RSTREGB(1'b0),
-        .SBITERR(\NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_SBITERR_UNCONNECTED ),
-        .WEA({\GEN_FREE_RUN_MODE.frame_sync_i_reg ,\GEN_FREE_RUN_MODE.frame_sync_i_reg ,\GEN_FREE_RUN_MODE.frame_sync_i_reg ,\GEN_FREE_RUN_MODE.frame_sync_i_reg }),
-        .WEBWE({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0}));
-endmodule
-
-(* ORIG_REF_NAME = "blk_mem_gen_prim_wrapper" *) 
-module system_axi_vdma_0_0_blk_mem_gen_prim_wrapper__parameterized2
-   (\sig_data_skid_reg_reg[9] ,
-    \sig_data_skid_reg_reg[10] ,
-    m_axi_mm2s_aclk,
-    ena_array,
-    enb_array,
-    empty_fwft_i_reg,
-    Q,
-    \gc0.count_d1_reg[11] ,
-    dm2linebuf_mm2s_tdata,
-    \GEN_FREE_RUN_MODE.frame_sync_i_reg );
-  output [7:0]\sig_data_skid_reg_reg[9] ;
-  output [0:0]\sig_data_skid_reg_reg[10] ;
-  input m_axi_mm2s_aclk;
-  input [0:0]ena_array;
-  input [0:0]enb_array;
-  input empty_fwft_i_reg;
-  input [11:0]Q;
-  input [11:0]\gc0.count_d1_reg[11] ;
-  input [8:0]dm2linebuf_mm2s_tdata;
-  input [0:0]\GEN_FREE_RUN_MODE.frame_sync_i_reg ;
-
-  wire [0:0]\GEN_FREE_RUN_MODE.frame_sync_i_reg ;
-  wire [11:0]Q;
-  wire [8:0]dm2linebuf_mm2s_tdata;
-  wire empty_fwft_i_reg;
-  wire [0:0]ena_array;
-  wire [0:0]enb_array;
-  wire [11:0]\gc0.count_d1_reg[11] ;
-  wire m_axi_mm2s_aclk;
-  wire [0:0]\sig_data_skid_reg_reg[10] ;
-  wire [7:0]\sig_data_skid_reg_reg[9] ;
-  wire \NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_CASCADEOUTA_UNCONNECTED ;
-  wire \NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_CASCADEOUTB_UNCONNECTED ;
-  wire \NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_DBITERR_UNCONNECTED ;
-  wire \NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_SBITERR_UNCONNECTED ;
-  wire [31:0]\NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_DOADO_UNCONNECTED ;
-  wire [31:8]\NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_DOBDO_UNCONNECTED ;
-  wire [3:0]\NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_DOPADOP_UNCONNECTED ;
-  wire [3:1]\NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_DOPBDOP_UNCONNECTED ;
-  wire [7:0]\NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_ECCPARITY_UNCONNECTED ;
-  wire [8:0]\NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_RDADDRECC_UNCONNECTED ;
-
-  (* box_type = "PRIMITIVE" *) 
-  RAMB36E1 #(
-    .DOA_REG(1),
-    .DOB_REG(1),
-    .EN_ECC_READ("FALSE"),
-    .EN_ECC_WRITE("FALSE"),
-    .INITP_00(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INITP_01(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INITP_02(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INITP_03(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INITP_04(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INITP_05(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INITP_06(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INITP_07(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INITP_08(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INITP_09(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INITP_0A(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INITP_0B(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INITP_0C(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INITP_0D(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INITP_0E(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INITP_0F(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_00(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_01(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_02(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_03(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_04(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_05(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_06(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_07(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_08(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_09(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_0A(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_0B(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_0C(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_0D(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_0E(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_0F(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_10(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_11(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_12(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_13(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_14(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_15(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_16(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_17(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_18(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_19(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_1A(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_1B(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_1C(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_1D(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_1E(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_1F(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_20(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_21(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_22(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_23(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_24(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_25(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_26(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_27(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_28(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_29(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_2A(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_2B(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_2C(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_2D(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_2E(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_2F(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_30(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_31(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_32(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_33(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_34(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_35(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_36(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_37(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_38(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_39(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_3A(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_3B(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_3C(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_3D(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_3E(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_3F(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_40(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_41(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_42(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_43(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_44(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_45(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_46(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_47(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_48(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_49(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_4A(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_4B(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_4C(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_4D(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_4E(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_4F(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_50(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_51(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_52(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_53(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_54(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_55(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_56(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_57(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_58(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_59(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_5A(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_5B(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_5C(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_5D(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_5E(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_5F(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_60(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_61(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_62(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_63(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_64(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_65(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_66(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_67(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_68(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_69(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_6A(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_6B(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_6C(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_6D(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_6E(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_6F(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_70(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_71(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_72(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_73(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_74(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_75(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_76(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_77(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_78(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_79(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_7A(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_7B(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_7C(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_7D(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_7E(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_7F(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_A(36'h000000000),
-    .INIT_B(36'h000000000),
-    .INIT_FILE("NONE"),
-    .IS_CLKARDCLK_INVERTED(1'b0),
-    .IS_CLKBWRCLK_INVERTED(1'b0),
-    .IS_ENARDEN_INVERTED(1'b0),
-    .IS_ENBWREN_INVERTED(1'b0),
-    .IS_RSTRAMARSTRAM_INVERTED(1'b0),
-    .IS_RSTRAMB_INVERTED(1'b0),
-    .IS_RSTREGARSTREG_INVERTED(1'b0),
-    .IS_RSTREGB_INVERTED(1'b0),
-    .RAM_EXTENSION_A("NONE"),
-    .RAM_EXTENSION_B("NONE"),
-    .RAM_MODE("TDP"),
-    .RDADDR_COLLISION_HWCONFIG("DELAYED_WRITE"),
-    .READ_WIDTH_A(9),
-    .READ_WIDTH_B(9),
-    .RSTREG_PRIORITY_A("REGCE"),
-    .RSTREG_PRIORITY_B("REGCE"),
-    .SIM_COLLISION_CHECK("ALL"),
-    .SIM_DEVICE("7SERIES"),
-    .SRVAL_A(36'h000000000),
-    .SRVAL_B(36'h000000000),
-    .WRITE_MODE_A("WRITE_FIRST"),
-    .WRITE_MODE_B("WRITE_FIRST"),
-    .WRITE_WIDTH_A(9),
-    .WRITE_WIDTH_B(9)) 
-    \DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram 
-       (.ADDRARDADDR({1'b1,Q,1'b1,1'b1,1'b1}),
-        .ADDRBWRADDR({1'b1,\gc0.count_d1_reg[11] ,1'b1,1'b1,1'b1}),
-        .CASCADEINA(1'b0),
-        .CASCADEINB(1'b0),
-        .CASCADEOUTA(\NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_CASCADEOUTA_UNCONNECTED ),
-        .CASCADEOUTB(\NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_CASCADEOUTB_UNCONNECTED ),
-        .CLKARDCLK(m_axi_mm2s_aclk),
-        .CLKBWRCLK(m_axi_mm2s_aclk),
-        .DBITERR(\NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_DBITERR_UNCONNECTED ),
-        .DIADI({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,dm2linebuf_mm2s_tdata[7:0]}),
-        .DIBDI({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0}),
-        .DIPADIP({1'b0,1'b0,1'b0,dm2linebuf_mm2s_tdata[8]}),
-        .DIPBDIP({1'b0,1'b0,1'b0,1'b0}),
-        .DOADO(\NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_DOADO_UNCONNECTED [31:0]),
-        .DOBDO({\NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_DOBDO_UNCONNECTED [31:8],\sig_data_skid_reg_reg[9] }),
-        .DOPADOP(\NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_DOPADOP_UNCONNECTED [3:0]),
-        .DOPBDOP({\NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_DOPBDOP_UNCONNECTED [3:1],\sig_data_skid_reg_reg[10] }),
-        .ECCPARITY(\NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_ECCPARITY_UNCONNECTED [7:0]),
-        .ENARDEN(ena_array),
-        .ENBWREN(enb_array),
-        .INJECTDBITERR(1'b0),
-        .INJECTSBITERR(1'b0),
-        .RDADDRECC(\NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_RDADDRECC_UNCONNECTED [8:0]),
-        .REGCEAREGCE(1'b0),
-        .REGCEB(empty_fwft_i_reg),
-        .RSTRAMARSTRAM(1'b0),
-        .RSTRAMB(1'b0),
-        .RSTREGARSTREG(1'b0),
-        .RSTREGB(1'b0),
-        .SBITERR(\NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_SBITERR_UNCONNECTED ),
-        .WEA({\GEN_FREE_RUN_MODE.frame_sync_i_reg ,\GEN_FREE_RUN_MODE.frame_sync_i_reg ,\GEN_FREE_RUN_MODE.frame_sync_i_reg ,\GEN_FREE_RUN_MODE.frame_sync_i_reg }),
-        .WEBWE({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0}));
-endmodule
-
-(* ORIG_REF_NAME = "blk_mem_gen_prim_wrapper" *) 
-module system_axi_vdma_0_0_blk_mem_gen_prim_wrapper__parameterized3
-   (\sig_data_skid_reg_reg[9] ,
-    \sig_data_skid_reg_reg[10] ,
-    m_axi_mm2s_aclk,
-    \gcc0.gc0.count_d1_reg[13] ,
-    \gc0.count_d1_reg[13] ,
-    empty_fwft_i_reg,
-    Q,
-    \gc0.count_d1_reg[11] ,
-    dm2linebuf_mm2s_tdata,
-    \GEN_FREE_RUN_MODE.frame_sync_i_reg );
-  output [7:0]\sig_data_skid_reg_reg[9] ;
-  output [0:0]\sig_data_skid_reg_reg[10] ;
-  input m_axi_mm2s_aclk;
-  input \gcc0.gc0.count_d1_reg[13] ;
-  input \gc0.count_d1_reg[13] ;
-  input empty_fwft_i_reg;
-  input [11:0]Q;
-  input [11:0]\gc0.count_d1_reg[11] ;
-  input [8:0]dm2linebuf_mm2s_tdata;
-  input [0:0]\GEN_FREE_RUN_MODE.frame_sync_i_reg ;
-
-  wire [0:0]\GEN_FREE_RUN_MODE.frame_sync_i_reg ;
-  wire [11:0]Q;
-  wire [8:0]dm2linebuf_mm2s_tdata;
-  wire empty_fwft_i_reg;
-  wire [11:0]\gc0.count_d1_reg[11] ;
-  wire \gc0.count_d1_reg[13] ;
-  wire \gcc0.gc0.count_d1_reg[13] ;
-  wire m_axi_mm2s_aclk;
-  wire [0:0]\sig_data_skid_reg_reg[10] ;
-  wire [7:0]\sig_data_skid_reg_reg[9] ;
-  wire \NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_CASCADEOUTA_UNCONNECTED ;
-  wire \NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_CASCADEOUTB_UNCONNECTED ;
-  wire \NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_DBITERR_UNCONNECTED ;
-  wire \NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_SBITERR_UNCONNECTED ;
-  wire [31:0]\NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_DOADO_UNCONNECTED ;
-  wire [31:8]\NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_DOBDO_UNCONNECTED ;
-  wire [3:0]\NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_DOPADOP_UNCONNECTED ;
-  wire [3:1]\NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_DOPBDOP_UNCONNECTED ;
-  wire [7:0]\NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_ECCPARITY_UNCONNECTED ;
-  wire [8:0]\NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_RDADDRECC_UNCONNECTED ;
-
-  (* box_type = "PRIMITIVE" *) 
-  RAMB36E1 #(
-    .DOA_REG(1),
-    .DOB_REG(1),
-    .EN_ECC_READ("FALSE"),
-    .EN_ECC_WRITE("FALSE"),
-    .INITP_00(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INITP_01(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INITP_02(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INITP_03(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INITP_04(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INITP_05(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INITP_06(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INITP_07(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INITP_08(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INITP_09(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INITP_0A(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INITP_0B(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INITP_0C(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INITP_0D(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INITP_0E(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INITP_0F(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_00(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_01(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_02(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_03(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_04(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_05(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_06(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_07(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_08(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_09(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_0A(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_0B(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_0C(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_0D(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_0E(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_0F(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_10(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_11(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_12(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_13(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_14(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_15(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_16(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_17(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_18(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_19(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_1A(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_1B(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_1C(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_1D(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_1E(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_1F(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_20(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_21(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_22(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_23(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_24(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_25(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_26(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_27(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_28(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_29(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_2A(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_2B(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_2C(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_2D(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_2E(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_2F(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_30(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_31(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_32(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_33(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_34(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_35(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_36(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_37(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_38(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_39(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_3A(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_3B(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_3C(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_3D(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_3E(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_3F(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_40(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_41(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_42(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_43(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_44(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_45(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_46(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_47(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_48(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_49(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_4A(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_4B(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_4C(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_4D(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_4E(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_4F(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_50(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_51(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_52(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_53(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_54(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_55(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_56(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_57(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_58(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_59(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_5A(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_5B(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_5C(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_5D(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_5E(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_5F(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_60(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_61(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_62(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_63(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_64(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_65(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_66(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_67(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_68(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_69(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_6A(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_6B(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_6C(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_6D(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_6E(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_6F(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_70(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_71(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_72(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_73(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_74(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_75(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_76(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_77(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_78(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_79(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_7A(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_7B(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_7C(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_7D(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_7E(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_7F(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_A(36'h000000000),
-    .INIT_B(36'h000000000),
-    .INIT_FILE("NONE"),
-    .IS_CLKARDCLK_INVERTED(1'b0),
-    .IS_CLKBWRCLK_INVERTED(1'b0),
-    .IS_ENARDEN_INVERTED(1'b0),
-    .IS_ENBWREN_INVERTED(1'b0),
-    .IS_RSTRAMARSTRAM_INVERTED(1'b0),
-    .IS_RSTRAMB_INVERTED(1'b0),
-    .IS_RSTREGARSTREG_INVERTED(1'b0),
-    .IS_RSTREGB_INVERTED(1'b0),
-    .RAM_EXTENSION_A("NONE"),
-    .RAM_EXTENSION_B("NONE"),
-    .RAM_MODE("TDP"),
-    .RDADDR_COLLISION_HWCONFIG("DELAYED_WRITE"),
-    .READ_WIDTH_A(9),
-    .READ_WIDTH_B(9),
-    .RSTREG_PRIORITY_A("REGCE"),
-    .RSTREG_PRIORITY_B("REGCE"),
-    .SIM_COLLISION_CHECK("ALL"),
-    .SIM_DEVICE("7SERIES"),
-    .SRVAL_A(36'h000000000),
-    .SRVAL_B(36'h000000000),
-    .WRITE_MODE_A("WRITE_FIRST"),
-    .WRITE_MODE_B("WRITE_FIRST"),
-    .WRITE_WIDTH_A(9),
-    .WRITE_WIDTH_B(9)) 
-    \DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram 
-       (.ADDRARDADDR({1'b1,Q,1'b1,1'b1,1'b1}),
-        .ADDRBWRADDR({1'b1,\gc0.count_d1_reg[11] ,1'b1,1'b1,1'b1}),
-        .CASCADEINA(1'b0),
-        .CASCADEINB(1'b0),
-        .CASCADEOUTA(\NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_CASCADEOUTA_UNCONNECTED ),
-        .CASCADEOUTB(\NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_CASCADEOUTB_UNCONNECTED ),
-        .CLKARDCLK(m_axi_mm2s_aclk),
-        .CLKBWRCLK(m_axi_mm2s_aclk),
-        .DBITERR(\NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_DBITERR_UNCONNECTED ),
-        .DIADI({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,dm2linebuf_mm2s_tdata[7:0]}),
-        .DIBDI({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0}),
-        .DIPADIP({1'b0,1'b0,1'b0,dm2linebuf_mm2s_tdata[8]}),
-        .DIPBDIP({1'b0,1'b0,1'b0,1'b0}),
-        .DOADO(\NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_DOADO_UNCONNECTED [31:0]),
-        .DOBDO({\NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_DOBDO_UNCONNECTED [31:8],\sig_data_skid_reg_reg[9] }),
-        .DOPADOP(\NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_DOPADOP_UNCONNECTED [3:0]),
-        .DOPBDOP({\NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_DOPBDOP_UNCONNECTED [3:1],\sig_data_skid_reg_reg[10] }),
-        .ECCPARITY(\NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_ECCPARITY_UNCONNECTED [7:0]),
-        .ENARDEN(\gcc0.gc0.count_d1_reg[13] ),
-        .ENBWREN(\gc0.count_d1_reg[13] ),
-        .INJECTDBITERR(1'b0),
-        .INJECTSBITERR(1'b0),
-        .RDADDRECC(\NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_RDADDRECC_UNCONNECTED [8:0]),
-        .REGCEAREGCE(1'b0),
-        .REGCEB(empty_fwft_i_reg),
-        .RSTRAMARSTRAM(1'b0),
-        .RSTRAMB(1'b0),
-        .RSTREGARSTREG(1'b0),
-        .RSTREGB(1'b0),
-        .SBITERR(\NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_SBITERR_UNCONNECTED ),
-        .WEA({\GEN_FREE_RUN_MODE.frame_sync_i_reg ,\GEN_FREE_RUN_MODE.frame_sync_i_reg ,\GEN_FREE_RUN_MODE.frame_sync_i_reg ,\GEN_FREE_RUN_MODE.frame_sync_i_reg }),
-        .WEBWE({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0}));
-endmodule
-
-(* ORIG_REF_NAME = "blk_mem_gen_prim_wrapper" *) 
-module system_axi_vdma_0_0_blk_mem_gen_prim_wrapper__parameterized4
-   (\sig_data_skid_reg_reg[18] ,
-    \sig_data_skid_reg_reg[19] ,
-    m_axi_mm2s_aclk,
-    ena_array,
-    enb_array,
-    empty_fwft_i_reg,
-    Q,
-    \gc0.count_d1_reg[11] ,
-    dm2linebuf_mm2s_tdata,
-    \GEN_FREE_RUN_MODE.frame_sync_i_reg );
-  output [7:0]\sig_data_skid_reg_reg[18] ;
-  output [0:0]\sig_data_skid_reg_reg[19] ;
-  input m_axi_mm2s_aclk;
-  input [0:0]ena_array;
-  input [0:0]enb_array;
-  input empty_fwft_i_reg;
-  input [11:0]Q;
-  input [11:0]\gc0.count_d1_reg[11] ;
-  input [8:0]dm2linebuf_mm2s_tdata;
-  input [0:0]\GEN_FREE_RUN_MODE.frame_sync_i_reg ;
-
-  wire [0:0]\GEN_FREE_RUN_MODE.frame_sync_i_reg ;
-  wire [11:0]Q;
-  wire [8:0]dm2linebuf_mm2s_tdata;
-  wire empty_fwft_i_reg;
-  wire [0:0]ena_array;
-  wire [0:0]enb_array;
-  wire [11:0]\gc0.count_d1_reg[11] ;
-  wire m_axi_mm2s_aclk;
-  wire [7:0]\sig_data_skid_reg_reg[18] ;
-  wire [0:0]\sig_data_skid_reg_reg[19] ;
-  wire \NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_CASCADEOUTA_UNCONNECTED ;
-  wire \NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_CASCADEOUTB_UNCONNECTED ;
-  wire \NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_DBITERR_UNCONNECTED ;
-  wire \NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_SBITERR_UNCONNECTED ;
-  wire [31:0]\NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_DOADO_UNCONNECTED ;
-  wire [31:8]\NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_DOBDO_UNCONNECTED ;
-  wire [3:0]\NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_DOPADOP_UNCONNECTED ;
-  wire [3:1]\NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_DOPBDOP_UNCONNECTED ;
-  wire [7:0]\NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_ECCPARITY_UNCONNECTED ;
-  wire [8:0]\NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_RDADDRECC_UNCONNECTED ;
-
-  (* box_type = "PRIMITIVE" *) 
-  RAMB36E1 #(
-    .DOA_REG(1),
-    .DOB_REG(1),
-    .EN_ECC_READ("FALSE"),
-    .EN_ECC_WRITE("FALSE"),
-    .INITP_00(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INITP_01(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INITP_02(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INITP_03(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INITP_04(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INITP_05(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INITP_06(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INITP_07(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INITP_08(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INITP_09(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INITP_0A(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INITP_0B(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INITP_0C(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INITP_0D(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INITP_0E(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INITP_0F(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_00(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_01(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_02(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_03(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_04(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_05(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_06(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_07(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_08(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_09(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_0A(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_0B(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_0C(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_0D(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_0E(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_0F(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_10(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_11(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_12(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_13(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_14(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_15(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_16(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_17(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_18(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_19(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_1A(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_1B(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_1C(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_1D(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_1E(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_1F(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_20(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_21(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_22(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_23(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_24(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_25(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_26(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_27(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_28(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_29(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_2A(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_2B(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_2C(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_2D(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_2E(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_2F(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_30(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_31(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_32(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_33(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_34(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_35(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_36(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_37(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_38(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_39(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_3A(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_3B(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_3C(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_3D(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_3E(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_3F(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_40(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_41(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_42(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_43(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_44(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_45(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_46(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_47(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_48(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_49(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_4A(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_4B(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_4C(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_4D(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_4E(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_4F(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_50(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_51(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_52(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_53(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_54(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_55(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_56(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_57(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_58(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_59(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_5A(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_5B(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_5C(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_5D(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_5E(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_5F(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_60(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_61(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_62(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_63(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_64(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_65(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_66(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_67(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_68(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_69(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_6A(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_6B(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_6C(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_6D(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_6E(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_6F(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_70(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_71(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_72(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_73(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_74(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_75(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_76(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_77(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_78(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_79(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_7A(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_7B(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_7C(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_7D(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_7E(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_7F(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_A(36'h000000000),
-    .INIT_B(36'h000000000),
-    .INIT_FILE("NONE"),
-    .IS_CLKARDCLK_INVERTED(1'b0),
-    .IS_CLKBWRCLK_INVERTED(1'b0),
-    .IS_ENARDEN_INVERTED(1'b0),
-    .IS_ENBWREN_INVERTED(1'b0),
-    .IS_RSTRAMARSTRAM_INVERTED(1'b0),
-    .IS_RSTRAMB_INVERTED(1'b0),
-    .IS_RSTREGARSTREG_INVERTED(1'b0),
-    .IS_RSTREGB_INVERTED(1'b0),
-    .RAM_EXTENSION_A("NONE"),
-    .RAM_EXTENSION_B("NONE"),
-    .RAM_MODE("TDP"),
-    .RDADDR_COLLISION_HWCONFIG("DELAYED_WRITE"),
-    .READ_WIDTH_A(9),
-    .READ_WIDTH_B(9),
-    .RSTREG_PRIORITY_A("REGCE"),
-    .RSTREG_PRIORITY_B("REGCE"),
-    .SIM_COLLISION_CHECK("ALL"),
-    .SIM_DEVICE("7SERIES"),
-    .SRVAL_A(36'h000000000),
-    .SRVAL_B(36'h000000000),
-    .WRITE_MODE_A("WRITE_FIRST"),
-    .WRITE_MODE_B("WRITE_FIRST"),
-    .WRITE_WIDTH_A(9),
-    .WRITE_WIDTH_B(9)) 
-    \DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram 
-       (.ADDRARDADDR({1'b1,Q,1'b1,1'b1,1'b1}),
-        .ADDRBWRADDR({1'b1,\gc0.count_d1_reg[11] ,1'b1,1'b1,1'b1}),
-        .CASCADEINA(1'b0),
-        .CASCADEINB(1'b0),
-        .CASCADEOUTA(\NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_CASCADEOUTA_UNCONNECTED ),
-        .CASCADEOUTB(\NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_CASCADEOUTB_UNCONNECTED ),
-        .CLKARDCLK(m_axi_mm2s_aclk),
-        .CLKBWRCLK(m_axi_mm2s_aclk),
-        .DBITERR(\NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_DBITERR_UNCONNECTED ),
-        .DIADI({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,dm2linebuf_mm2s_tdata[7:0]}),
-        .DIBDI({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0}),
-        .DIPADIP({1'b0,1'b0,1'b0,dm2linebuf_mm2s_tdata[8]}),
-        .DIPBDIP({1'b0,1'b0,1'b0,1'b0}),
-        .DOADO(\NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_DOADO_UNCONNECTED [31:0]),
-        .DOBDO({\NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_DOBDO_UNCONNECTED [31:8],\sig_data_skid_reg_reg[18] }),
-        .DOPADOP(\NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_DOPADOP_UNCONNECTED [3:0]),
-        .DOPBDOP({\NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_DOPBDOP_UNCONNECTED [3:1],\sig_data_skid_reg_reg[19] }),
-        .ECCPARITY(\NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_ECCPARITY_UNCONNECTED [7:0]),
-        .ENARDEN(ena_array),
-        .ENBWREN(enb_array),
-        .INJECTDBITERR(1'b0),
-        .INJECTSBITERR(1'b0),
-        .RDADDRECC(\NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_RDADDRECC_UNCONNECTED [8:0]),
-        .REGCEAREGCE(1'b0),
-        .REGCEB(empty_fwft_i_reg),
-        .RSTRAMARSTRAM(1'b0),
-        .RSTRAMB(1'b0),
-        .RSTREGARSTREG(1'b0),
-        .RSTREGB(1'b0),
-        .SBITERR(\NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_SBITERR_UNCONNECTED ),
-        .WEA({\GEN_FREE_RUN_MODE.frame_sync_i_reg ,\GEN_FREE_RUN_MODE.frame_sync_i_reg ,\GEN_FREE_RUN_MODE.frame_sync_i_reg ,\GEN_FREE_RUN_MODE.frame_sync_i_reg }),
-        .WEBWE({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0}));
-endmodule
-
-(* ORIG_REF_NAME = "blk_mem_gen_prim_wrapper" *) 
-module system_axi_vdma_0_0_blk_mem_gen_prim_wrapper__parameterized5
-   (\sig_data_skid_reg_reg[18] ,
-    \sig_data_skid_reg_reg[19] ,
-    m_axi_mm2s_aclk,
-    ena_array,
-    enb_array,
-    empty_fwft_i_reg,
-    Q,
-    \gc0.count_d1_reg[11] ,
-    dm2linebuf_mm2s_tdata,
-    \GEN_FREE_RUN_MODE.frame_sync_i_reg );
-  output [7:0]\sig_data_skid_reg_reg[18] ;
-  output [0:0]\sig_data_skid_reg_reg[19] ;
-  input m_axi_mm2s_aclk;
-  input [0:0]ena_array;
-  input [0:0]enb_array;
-  input empty_fwft_i_reg;
-  input [11:0]Q;
-  input [11:0]\gc0.count_d1_reg[11] ;
-  input [8:0]dm2linebuf_mm2s_tdata;
-  input [0:0]\GEN_FREE_RUN_MODE.frame_sync_i_reg ;
-
-  wire [0:0]\GEN_FREE_RUN_MODE.frame_sync_i_reg ;
-  wire [11:0]Q;
-  wire [8:0]dm2linebuf_mm2s_tdata;
-  wire empty_fwft_i_reg;
-  wire [0:0]ena_array;
-  wire [0:0]enb_array;
-  wire [11:0]\gc0.count_d1_reg[11] ;
-  wire m_axi_mm2s_aclk;
-  wire [7:0]\sig_data_skid_reg_reg[18] ;
-  wire [0:0]\sig_data_skid_reg_reg[19] ;
-  wire \NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_CASCADEOUTA_UNCONNECTED ;
-  wire \NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_CASCADEOUTB_UNCONNECTED ;
-  wire \NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_DBITERR_UNCONNECTED ;
-  wire \NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_SBITERR_UNCONNECTED ;
-  wire [31:0]\NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_DOADO_UNCONNECTED ;
-  wire [31:8]\NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_DOBDO_UNCONNECTED ;
-  wire [3:0]\NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_DOPADOP_UNCONNECTED ;
-  wire [3:1]\NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_DOPBDOP_UNCONNECTED ;
-  wire [7:0]\NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_ECCPARITY_UNCONNECTED ;
-  wire [8:0]\NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_RDADDRECC_UNCONNECTED ;
-
-  (* box_type = "PRIMITIVE" *) 
-  RAMB36E1 #(
-    .DOA_REG(1),
-    .DOB_REG(1),
-    .EN_ECC_READ("FALSE"),
-    .EN_ECC_WRITE("FALSE"),
-    .INITP_00(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INITP_01(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INITP_02(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INITP_03(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INITP_04(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INITP_05(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INITP_06(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INITP_07(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INITP_08(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INITP_09(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INITP_0A(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INITP_0B(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INITP_0C(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INITP_0D(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INITP_0E(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INITP_0F(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_00(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_01(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_02(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_03(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_04(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_05(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_06(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_07(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_08(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_09(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_0A(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_0B(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_0C(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_0D(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_0E(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_0F(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_10(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_11(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_12(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_13(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_14(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_15(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_16(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_17(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_18(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_19(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_1A(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_1B(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_1C(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_1D(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_1E(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_1F(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_20(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_21(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_22(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_23(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_24(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_25(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_26(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_27(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_28(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_29(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_2A(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_2B(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_2C(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_2D(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_2E(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_2F(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_30(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_31(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_32(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_33(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_34(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_35(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_36(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_37(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_38(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_39(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_3A(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_3B(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_3C(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_3D(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_3E(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_3F(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_40(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_41(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_42(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_43(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_44(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_45(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_46(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_47(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_48(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_49(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_4A(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_4B(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_4C(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_4D(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_4E(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_4F(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_50(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_51(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_52(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_53(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_54(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_55(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_56(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_57(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_58(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_59(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_5A(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_5B(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_5C(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_5D(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_5E(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_5F(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_60(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_61(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_62(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_63(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_64(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_65(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_66(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_67(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_68(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_69(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_6A(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_6B(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_6C(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_6D(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_6E(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_6F(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_70(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_71(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_72(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_73(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_74(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_75(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_76(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_77(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_78(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_79(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_7A(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_7B(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_7C(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_7D(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_7E(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_7F(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_A(36'h000000000),
-    .INIT_B(36'h000000000),
-    .INIT_FILE("NONE"),
-    .IS_CLKARDCLK_INVERTED(1'b0),
-    .IS_CLKBWRCLK_INVERTED(1'b0),
-    .IS_ENARDEN_INVERTED(1'b0),
-    .IS_ENBWREN_INVERTED(1'b0),
-    .IS_RSTRAMARSTRAM_INVERTED(1'b0),
-    .IS_RSTRAMB_INVERTED(1'b0),
-    .IS_RSTREGARSTREG_INVERTED(1'b0),
-    .IS_RSTREGB_INVERTED(1'b0),
-    .RAM_EXTENSION_A("NONE"),
-    .RAM_EXTENSION_B("NONE"),
-    .RAM_MODE("TDP"),
-    .RDADDR_COLLISION_HWCONFIG("DELAYED_WRITE"),
-    .READ_WIDTH_A(9),
-    .READ_WIDTH_B(9),
-    .RSTREG_PRIORITY_A("REGCE"),
-    .RSTREG_PRIORITY_B("REGCE"),
-    .SIM_COLLISION_CHECK("ALL"),
-    .SIM_DEVICE("7SERIES"),
-    .SRVAL_A(36'h000000000),
-    .SRVAL_B(36'h000000000),
-    .WRITE_MODE_A("WRITE_FIRST"),
-    .WRITE_MODE_B("WRITE_FIRST"),
-    .WRITE_WIDTH_A(9),
-    .WRITE_WIDTH_B(9)) 
-    \DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram 
-       (.ADDRARDADDR({1'b1,Q,1'b1,1'b1,1'b1}),
-        .ADDRBWRADDR({1'b1,\gc0.count_d1_reg[11] ,1'b1,1'b1,1'b1}),
-        .CASCADEINA(1'b0),
-        .CASCADEINB(1'b0),
-        .CASCADEOUTA(\NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_CASCADEOUTA_UNCONNECTED ),
-        .CASCADEOUTB(\NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_CASCADEOUTB_UNCONNECTED ),
-        .CLKARDCLK(m_axi_mm2s_aclk),
-        .CLKBWRCLK(m_axi_mm2s_aclk),
-        .DBITERR(\NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_DBITERR_UNCONNECTED ),
-        .DIADI({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,dm2linebuf_mm2s_tdata[7:0]}),
-        .DIBDI({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0}),
-        .DIPADIP({1'b0,1'b0,1'b0,dm2linebuf_mm2s_tdata[8]}),
-        .DIPBDIP({1'b0,1'b0,1'b0,1'b0}),
-        .DOADO(\NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_DOADO_UNCONNECTED [31:0]),
-        .DOBDO({\NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_DOBDO_UNCONNECTED [31:8],\sig_data_skid_reg_reg[18] }),
-        .DOPADOP(\NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_DOPADOP_UNCONNECTED [3:0]),
-        .DOPBDOP({\NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_DOPBDOP_UNCONNECTED [3:1],\sig_data_skid_reg_reg[19] }),
-        .ECCPARITY(\NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_ECCPARITY_UNCONNECTED [7:0]),
-        .ENARDEN(ena_array),
-        .ENBWREN(enb_array),
-        .INJECTDBITERR(1'b0),
-        .INJECTSBITERR(1'b0),
-        .RDADDRECC(\NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_RDADDRECC_UNCONNECTED [8:0]),
-        .REGCEAREGCE(1'b0),
-        .REGCEB(empty_fwft_i_reg),
-        .RSTRAMARSTRAM(1'b0),
-        .RSTRAMB(1'b0),
-        .RSTREGARSTREG(1'b0),
-        .RSTREGB(1'b0),
-        .SBITERR(\NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_SBITERR_UNCONNECTED ),
-        .WEA({\GEN_FREE_RUN_MODE.frame_sync_i_reg ,\GEN_FREE_RUN_MODE.frame_sync_i_reg ,\GEN_FREE_RUN_MODE.frame_sync_i_reg ,\GEN_FREE_RUN_MODE.frame_sync_i_reg }),
-        .WEBWE({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0}));
-endmodule
-
-(* ORIG_REF_NAME = "blk_mem_gen_prim_wrapper" *) 
-module system_axi_vdma_0_0_blk_mem_gen_prim_wrapper__parameterized6
-   (\sig_data_skid_reg_reg[18] ,
-    \sig_data_skid_reg_reg[19] ,
-    m_axi_mm2s_aclk,
-    ena_array,
-    enb_array,
-    empty_fwft_i_reg,
-    Q,
-    \gc0.count_d1_reg[11] ,
-    dm2linebuf_mm2s_tdata,
-    \GEN_FREE_RUN_MODE.frame_sync_i_reg );
-  output [7:0]\sig_data_skid_reg_reg[18] ;
-  output [0:0]\sig_data_skid_reg_reg[19] ;
-  input m_axi_mm2s_aclk;
-  input [0:0]ena_array;
-  input [0:0]enb_array;
-  input empty_fwft_i_reg;
-  input [11:0]Q;
-  input [11:0]\gc0.count_d1_reg[11] ;
-  input [8:0]dm2linebuf_mm2s_tdata;
-  input [1:0]\GEN_FREE_RUN_MODE.frame_sync_i_reg ;
-
-  wire [1:0]\GEN_FREE_RUN_MODE.frame_sync_i_reg ;
-  wire [11:0]Q;
-  wire [8:0]dm2linebuf_mm2s_tdata;
-  wire empty_fwft_i_reg;
-  wire [0:0]ena_array;
-  wire [0:0]enb_array;
-  wire [11:0]\gc0.count_d1_reg[11] ;
-  wire m_axi_mm2s_aclk;
-  wire [7:0]\sig_data_skid_reg_reg[18] ;
-  wire [0:0]\sig_data_skid_reg_reg[19] ;
-  wire \NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_CASCADEOUTA_UNCONNECTED ;
-  wire \NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_CASCADEOUTB_UNCONNECTED ;
-  wire \NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_DBITERR_UNCONNECTED ;
-  wire \NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_SBITERR_UNCONNECTED ;
-  wire [31:0]\NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_DOADO_UNCONNECTED ;
-  wire [31:8]\NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_DOBDO_UNCONNECTED ;
-  wire [3:0]\NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_DOPADOP_UNCONNECTED ;
-  wire [3:1]\NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_DOPBDOP_UNCONNECTED ;
-  wire [7:0]\NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_ECCPARITY_UNCONNECTED ;
-  wire [8:0]\NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_RDADDRECC_UNCONNECTED ;
-
-  (* box_type = "PRIMITIVE" *) 
-  RAMB36E1 #(
-    .DOA_REG(1),
-    .DOB_REG(1),
-    .EN_ECC_READ("FALSE"),
-    .EN_ECC_WRITE("FALSE"),
-    .INITP_00(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INITP_01(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INITP_02(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INITP_03(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INITP_04(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INITP_05(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INITP_06(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INITP_07(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INITP_08(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INITP_09(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INITP_0A(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INITP_0B(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INITP_0C(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INITP_0D(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INITP_0E(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INITP_0F(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_00(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_01(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_02(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_03(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_04(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_05(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_06(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_07(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_08(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_09(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_0A(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_0B(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_0C(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_0D(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_0E(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_0F(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_10(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_11(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_12(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_13(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_14(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_15(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_16(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_17(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_18(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_19(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_1A(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_1B(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_1C(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_1D(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_1E(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_1F(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_20(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_21(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_22(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_23(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_24(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_25(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_26(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_27(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_28(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_29(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_2A(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_2B(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_2C(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_2D(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_2E(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_2F(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_30(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_31(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_32(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_33(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_34(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_35(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_36(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_37(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_38(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_39(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_3A(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_3B(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_3C(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_3D(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_3E(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_3F(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_40(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_41(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_42(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_43(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_44(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_45(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_46(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_47(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_48(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_49(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_4A(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_4B(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_4C(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_4D(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_4E(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_4F(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_50(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_51(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_52(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_53(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_54(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_55(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_56(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_57(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_58(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_59(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_5A(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_5B(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_5C(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_5D(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_5E(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_5F(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_60(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_61(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_62(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_63(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_64(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_65(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_66(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_67(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_68(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_69(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_6A(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_6B(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_6C(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_6D(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_6E(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_6F(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_70(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_71(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_72(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_73(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_74(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_75(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_76(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_77(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_78(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_79(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_7A(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_7B(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_7C(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_7D(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_7E(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_7F(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_A(36'h000000000),
-    .INIT_B(36'h000000000),
-    .INIT_FILE("NONE"),
-    .IS_CLKARDCLK_INVERTED(1'b0),
-    .IS_CLKBWRCLK_INVERTED(1'b0),
-    .IS_ENARDEN_INVERTED(1'b0),
-    .IS_ENBWREN_INVERTED(1'b0),
-    .IS_RSTRAMARSTRAM_INVERTED(1'b0),
-    .IS_RSTRAMB_INVERTED(1'b0),
-    .IS_RSTREGARSTREG_INVERTED(1'b0),
-    .IS_RSTREGB_INVERTED(1'b0),
-    .RAM_EXTENSION_A("NONE"),
-    .RAM_EXTENSION_B("NONE"),
-    .RAM_MODE("TDP"),
-    .RDADDR_COLLISION_HWCONFIG("DELAYED_WRITE"),
-    .READ_WIDTH_A(9),
-    .READ_WIDTH_B(9),
-    .RSTREG_PRIORITY_A("REGCE"),
-    .RSTREG_PRIORITY_B("REGCE"),
-    .SIM_COLLISION_CHECK("ALL"),
-    .SIM_DEVICE("7SERIES"),
-    .SRVAL_A(36'h000000000),
-    .SRVAL_B(36'h000000000),
-    .WRITE_MODE_A("WRITE_FIRST"),
-    .WRITE_MODE_B("WRITE_FIRST"),
-    .WRITE_WIDTH_A(9),
-    .WRITE_WIDTH_B(9)) 
-    \DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram 
-       (.ADDRARDADDR({1'b1,Q,1'b1,1'b1,1'b1}),
-        .ADDRBWRADDR({1'b1,\gc0.count_d1_reg[11] ,1'b1,1'b1,1'b1}),
-        .CASCADEINA(1'b0),
-        .CASCADEINB(1'b0),
-        .CASCADEOUTA(\NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_CASCADEOUTA_UNCONNECTED ),
-        .CASCADEOUTB(\NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_CASCADEOUTB_UNCONNECTED ),
-        .CLKARDCLK(m_axi_mm2s_aclk),
-        .CLKBWRCLK(m_axi_mm2s_aclk),
-        .DBITERR(\NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_DBITERR_UNCONNECTED ),
-        .DIADI({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,dm2linebuf_mm2s_tdata[7:0]}),
-        .DIBDI({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0}),
-        .DIPADIP({1'b0,1'b0,1'b0,dm2linebuf_mm2s_tdata[8]}),
-        .DIPBDIP({1'b0,1'b0,1'b0,1'b0}),
-        .DOADO(\NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_DOADO_UNCONNECTED [31:0]),
-        .DOBDO({\NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_DOBDO_UNCONNECTED [31:8],\sig_data_skid_reg_reg[18] }),
-        .DOPADOP(\NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_DOPADOP_UNCONNECTED [3:0]),
-        .DOPBDOP({\NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_DOPBDOP_UNCONNECTED [3:1],\sig_data_skid_reg_reg[19] }),
-        .ECCPARITY(\NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_ECCPARITY_UNCONNECTED [7:0]),
-        .ENARDEN(ena_array),
-        .ENBWREN(enb_array),
-        .INJECTDBITERR(1'b0),
-        .INJECTSBITERR(1'b0),
-        .RDADDRECC(\NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_RDADDRECC_UNCONNECTED [8:0]),
-        .REGCEAREGCE(1'b0),
-        .REGCEB(empty_fwft_i_reg),
-        .RSTRAMARSTRAM(1'b0),
-        .RSTRAMB(1'b0),
-        .RSTREGARSTREG(1'b0),
-        .RSTREGB(1'b0),
-        .SBITERR(\NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_SBITERR_UNCONNECTED ),
-        .WEA({\GEN_FREE_RUN_MODE.frame_sync_i_reg [1],\GEN_FREE_RUN_MODE.frame_sync_i_reg ,\GEN_FREE_RUN_MODE.frame_sync_i_reg [0]}),
-        .WEBWE({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0}));
-endmodule
-
-(* ORIG_REF_NAME = "blk_mem_gen_prim_wrapper" *) 
-module system_axi_vdma_0_0_blk_mem_gen_prim_wrapper__parameterized7
-   (\sig_data_skid_reg_reg[18] ,
-    \sig_data_skid_reg_reg[19] ,
-    m_axi_mm2s_aclk,
-    \gcc0.gc0.count_d1_reg[13] ,
-    \gc0.count_d1_reg[13] ,
-    empty_fwft_i_reg,
-    Q,
-    \gc0.count_d1_reg[11] ,
-    dm2linebuf_mm2s_tdata,
-    \GEN_FREE_RUN_MODE.frame_sync_i_reg );
-  output [7:0]\sig_data_skid_reg_reg[18] ;
-  output [0:0]\sig_data_skid_reg_reg[19] ;
-  input m_axi_mm2s_aclk;
-  input \gcc0.gc0.count_d1_reg[13] ;
-  input \gc0.count_d1_reg[13] ;
-  input empty_fwft_i_reg;
-  input [11:0]Q;
-  input [11:0]\gc0.count_d1_reg[11] ;
-  input [8:0]dm2linebuf_mm2s_tdata;
-  input [0:0]\GEN_FREE_RUN_MODE.frame_sync_i_reg ;
-
-  wire [0:0]\GEN_FREE_RUN_MODE.frame_sync_i_reg ;
-  wire [11:0]Q;
-  wire [8:0]dm2linebuf_mm2s_tdata;
-  wire empty_fwft_i_reg;
-  wire [11:0]\gc0.count_d1_reg[11] ;
-  wire \gc0.count_d1_reg[13] ;
-  wire \gcc0.gc0.count_d1_reg[13] ;
-  wire m_axi_mm2s_aclk;
-  wire [7:0]\sig_data_skid_reg_reg[18] ;
-  wire [0:0]\sig_data_skid_reg_reg[19] ;
-  wire \NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_CASCADEOUTA_UNCONNECTED ;
-  wire \NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_CASCADEOUTB_UNCONNECTED ;
-  wire \NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_DBITERR_UNCONNECTED ;
-  wire \NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_SBITERR_UNCONNECTED ;
-  wire [31:0]\NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_DOADO_UNCONNECTED ;
-  wire [31:8]\NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_DOBDO_UNCONNECTED ;
-  wire [3:0]\NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_DOPADOP_UNCONNECTED ;
-  wire [3:1]\NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_DOPBDOP_UNCONNECTED ;
-  wire [7:0]\NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_ECCPARITY_UNCONNECTED ;
-  wire [8:0]\NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_RDADDRECC_UNCONNECTED ;
-
-  (* box_type = "PRIMITIVE" *) 
-  RAMB36E1 #(
-    .DOA_REG(1),
-    .DOB_REG(1),
-    .EN_ECC_READ("FALSE"),
-    .EN_ECC_WRITE("FALSE"),
-    .INITP_00(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INITP_01(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INITP_02(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INITP_03(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INITP_04(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INITP_05(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INITP_06(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INITP_07(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INITP_08(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INITP_09(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INITP_0A(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INITP_0B(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INITP_0C(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INITP_0D(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INITP_0E(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INITP_0F(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_00(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_01(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_02(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_03(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_04(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_05(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_06(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_07(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_08(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_09(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_0A(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_0B(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_0C(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_0D(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_0E(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_0F(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_10(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_11(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_12(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_13(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_14(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_15(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_16(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_17(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_18(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_19(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_1A(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_1B(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_1C(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_1D(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_1E(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_1F(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_20(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_21(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_22(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_23(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_24(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_25(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_26(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_27(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_28(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_29(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_2A(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_2B(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_2C(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_2D(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_2E(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_2F(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_30(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_31(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_32(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_33(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_34(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_35(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_36(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_37(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_38(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_39(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_3A(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_3B(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_3C(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_3D(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_3E(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_3F(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_40(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_41(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_42(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_43(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_44(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_45(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_46(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_47(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_48(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_49(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_4A(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_4B(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_4C(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_4D(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_4E(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_4F(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_50(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_51(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_52(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_53(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_54(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_55(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_56(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_57(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_58(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_59(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_5A(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_5B(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_5C(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_5D(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_5E(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_5F(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_60(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_61(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_62(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_63(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_64(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_65(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_66(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_67(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_68(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_69(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_6A(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_6B(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_6C(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_6D(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_6E(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_6F(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_70(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_71(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_72(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_73(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_74(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_75(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_76(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_77(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_78(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_79(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_7A(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_7B(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_7C(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_7D(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_7E(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_7F(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_A(36'h000000000),
-    .INIT_B(36'h000000000),
-    .INIT_FILE("NONE"),
-    .IS_CLKARDCLK_INVERTED(1'b0),
-    .IS_CLKBWRCLK_INVERTED(1'b0),
-    .IS_ENARDEN_INVERTED(1'b0),
-    .IS_ENBWREN_INVERTED(1'b0),
-    .IS_RSTRAMARSTRAM_INVERTED(1'b0),
-    .IS_RSTRAMB_INVERTED(1'b0),
-    .IS_RSTREGARSTREG_INVERTED(1'b0),
-    .IS_RSTREGB_INVERTED(1'b0),
-    .RAM_EXTENSION_A("NONE"),
-    .RAM_EXTENSION_B("NONE"),
-    .RAM_MODE("TDP"),
-    .RDADDR_COLLISION_HWCONFIG("DELAYED_WRITE"),
-    .READ_WIDTH_A(9),
-    .READ_WIDTH_B(9),
-    .RSTREG_PRIORITY_A("REGCE"),
-    .RSTREG_PRIORITY_B("REGCE"),
-    .SIM_COLLISION_CHECK("ALL"),
-    .SIM_DEVICE("7SERIES"),
-    .SRVAL_A(36'h000000000),
-    .SRVAL_B(36'h000000000),
-    .WRITE_MODE_A("WRITE_FIRST"),
-    .WRITE_MODE_B("WRITE_FIRST"),
-    .WRITE_WIDTH_A(9),
-    .WRITE_WIDTH_B(9)) 
-    \DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram 
-       (.ADDRARDADDR({1'b1,Q,1'b1,1'b1,1'b1}),
-        .ADDRBWRADDR({1'b1,\gc0.count_d1_reg[11] ,1'b1,1'b1,1'b1}),
-        .CASCADEINA(1'b0),
-        .CASCADEINB(1'b0),
-        .CASCADEOUTA(\NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_CASCADEOUTA_UNCONNECTED ),
-        .CASCADEOUTB(\NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_CASCADEOUTB_UNCONNECTED ),
-        .CLKARDCLK(m_axi_mm2s_aclk),
-        .CLKBWRCLK(m_axi_mm2s_aclk),
-        .DBITERR(\NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_DBITERR_UNCONNECTED ),
-        .DIADI({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,dm2linebuf_mm2s_tdata[7:0]}),
-        .DIBDI({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0}),
-        .DIPADIP({1'b0,1'b0,1'b0,dm2linebuf_mm2s_tdata[8]}),
-        .DIPBDIP({1'b0,1'b0,1'b0,1'b0}),
-        .DOADO(\NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_DOADO_UNCONNECTED [31:0]),
-        .DOBDO({\NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_DOBDO_UNCONNECTED [31:8],\sig_data_skid_reg_reg[18] }),
-        .DOPADOP(\NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_DOPADOP_UNCONNECTED [3:0]),
-        .DOPBDOP({\NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_DOPBDOP_UNCONNECTED [3:1],\sig_data_skid_reg_reg[19] }),
-        .ECCPARITY(\NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_ECCPARITY_UNCONNECTED [7:0]),
-        .ENARDEN(\gcc0.gc0.count_d1_reg[13] ),
-        .ENBWREN(\gc0.count_d1_reg[13] ),
-        .INJECTDBITERR(1'b0),
-        .INJECTSBITERR(1'b0),
-        .RDADDRECC(\NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_RDADDRECC_UNCONNECTED [8:0]),
-        .REGCEAREGCE(1'b0),
-        .REGCEB(empty_fwft_i_reg),
-        .RSTRAMARSTRAM(1'b0),
-        .RSTRAMB(1'b0),
-        .RSTREGARSTREG(1'b0),
-        .RSTREGB(1'b0),
-        .SBITERR(\NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_SBITERR_UNCONNECTED ),
-        .WEA({\GEN_FREE_RUN_MODE.frame_sync_i_reg ,\GEN_FREE_RUN_MODE.frame_sync_i_reg ,\GEN_FREE_RUN_MODE.frame_sync_i_reg ,\GEN_FREE_RUN_MODE.frame_sync_i_reg }),
-        .WEBWE({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0}));
-endmodule
-
-(* ORIG_REF_NAME = "blk_mem_gen_prim_wrapper" *) 
-module system_axi_vdma_0_0_blk_mem_gen_prim_wrapper__parameterized8
-   (\sig_data_skid_reg_reg[27] ,
-    \sig_data_skid_reg_reg[28] ,
-    m_axi_mm2s_aclk,
-    ena_array,
-    enb_array,
-    empty_fwft_i_reg,
-    Q,
-    \gc0.count_d1_reg[11] ,
-    dm2linebuf_mm2s_tdata,
-    \GEN_FREE_RUN_MODE.frame_sync_i_reg );
-  output [7:0]\sig_data_skid_reg_reg[27] ;
-  output [0:0]\sig_data_skid_reg_reg[28] ;
-  input m_axi_mm2s_aclk;
-  input [0:0]ena_array;
-  input [0:0]enb_array;
-  input empty_fwft_i_reg;
-  input [11:0]Q;
-  input [11:0]\gc0.count_d1_reg[11] ;
-  input [8:0]dm2linebuf_mm2s_tdata;
-  input [0:0]\GEN_FREE_RUN_MODE.frame_sync_i_reg ;
-
-  wire [0:0]\GEN_FREE_RUN_MODE.frame_sync_i_reg ;
-  wire [11:0]Q;
-  wire [8:0]dm2linebuf_mm2s_tdata;
-  wire empty_fwft_i_reg;
-  wire [0:0]ena_array;
-  wire [0:0]enb_array;
-  wire [11:0]\gc0.count_d1_reg[11] ;
-  wire m_axi_mm2s_aclk;
-  wire [7:0]\sig_data_skid_reg_reg[27] ;
-  wire [0:0]\sig_data_skid_reg_reg[28] ;
-  wire \NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_CASCADEOUTA_UNCONNECTED ;
-  wire \NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_CASCADEOUTB_UNCONNECTED ;
-  wire \NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_DBITERR_UNCONNECTED ;
-  wire \NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_SBITERR_UNCONNECTED ;
-  wire [31:0]\NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_DOADO_UNCONNECTED ;
-  wire [31:8]\NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_DOBDO_UNCONNECTED ;
-  wire [3:0]\NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_DOPADOP_UNCONNECTED ;
-  wire [3:1]\NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_DOPBDOP_UNCONNECTED ;
-  wire [7:0]\NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_ECCPARITY_UNCONNECTED ;
-  wire [8:0]\NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_RDADDRECC_UNCONNECTED ;
-
-  (* box_type = "PRIMITIVE" *) 
-  RAMB36E1 #(
-    .DOA_REG(1),
-    .DOB_REG(1),
-    .EN_ECC_READ("FALSE"),
-    .EN_ECC_WRITE("FALSE"),
-    .INITP_00(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INITP_01(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INITP_02(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INITP_03(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INITP_04(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INITP_05(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INITP_06(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INITP_07(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INITP_08(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INITP_09(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INITP_0A(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INITP_0B(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INITP_0C(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INITP_0D(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INITP_0E(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INITP_0F(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_00(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_01(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_02(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_03(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_04(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_05(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_06(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_07(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_08(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_09(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_0A(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_0B(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_0C(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_0D(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_0E(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_0F(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_10(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_11(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_12(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_13(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_14(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_15(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_16(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_17(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_18(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_19(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_1A(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_1B(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_1C(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_1D(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_1E(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_1F(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_20(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_21(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_22(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_23(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_24(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_25(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_26(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_27(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_28(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_29(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_2A(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_2B(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_2C(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_2D(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_2E(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_2F(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_30(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_31(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_32(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_33(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_34(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_35(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_36(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_37(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_38(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_39(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_3A(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_3B(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_3C(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_3D(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_3E(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_3F(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_40(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_41(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_42(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_43(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_44(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_45(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_46(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_47(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_48(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_49(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_4A(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_4B(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_4C(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_4D(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_4E(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_4F(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_50(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_51(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_52(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_53(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_54(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_55(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_56(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_57(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_58(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_59(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_5A(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_5B(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_5C(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_5D(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_5E(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_5F(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_60(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_61(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_62(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_63(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_64(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_65(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_66(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_67(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_68(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_69(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_6A(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_6B(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_6C(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_6D(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_6E(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_6F(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_70(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_71(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_72(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_73(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_74(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_75(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_76(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_77(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_78(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_79(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_7A(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_7B(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_7C(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_7D(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_7E(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_7F(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_A(36'h000000000),
-    .INIT_B(36'h000000000),
-    .INIT_FILE("NONE"),
-    .IS_CLKARDCLK_INVERTED(1'b0),
-    .IS_CLKBWRCLK_INVERTED(1'b0),
-    .IS_ENARDEN_INVERTED(1'b0),
-    .IS_ENBWREN_INVERTED(1'b0),
-    .IS_RSTRAMARSTRAM_INVERTED(1'b0),
-    .IS_RSTRAMB_INVERTED(1'b0),
-    .IS_RSTREGARSTREG_INVERTED(1'b0),
-    .IS_RSTREGB_INVERTED(1'b0),
-    .RAM_EXTENSION_A("NONE"),
-    .RAM_EXTENSION_B("NONE"),
-    .RAM_MODE("TDP"),
-    .RDADDR_COLLISION_HWCONFIG("DELAYED_WRITE"),
-    .READ_WIDTH_A(9),
-    .READ_WIDTH_B(9),
-    .RSTREG_PRIORITY_A("REGCE"),
-    .RSTREG_PRIORITY_B("REGCE"),
-    .SIM_COLLISION_CHECK("ALL"),
-    .SIM_DEVICE("7SERIES"),
-    .SRVAL_A(36'h000000000),
-    .SRVAL_B(36'h000000000),
-    .WRITE_MODE_A("WRITE_FIRST"),
-    .WRITE_MODE_B("WRITE_FIRST"),
-    .WRITE_WIDTH_A(9),
-    .WRITE_WIDTH_B(9)) 
-    \DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram 
-       (.ADDRARDADDR({1'b1,Q,1'b1,1'b1,1'b1}),
-        .ADDRBWRADDR({1'b1,\gc0.count_d1_reg[11] ,1'b1,1'b1,1'b1}),
-        .CASCADEINA(1'b0),
-        .CASCADEINB(1'b0),
-        .CASCADEOUTA(\NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_CASCADEOUTA_UNCONNECTED ),
-        .CASCADEOUTB(\NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_CASCADEOUTB_UNCONNECTED ),
-        .CLKARDCLK(m_axi_mm2s_aclk),
-        .CLKBWRCLK(m_axi_mm2s_aclk),
-        .DBITERR(\NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_DBITERR_UNCONNECTED ),
-        .DIADI({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,dm2linebuf_mm2s_tdata[7:0]}),
-        .DIBDI({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0}),
-        .DIPADIP({1'b0,1'b0,1'b0,dm2linebuf_mm2s_tdata[8]}),
-        .DIPBDIP({1'b0,1'b0,1'b0,1'b0}),
-        .DOADO(\NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_DOADO_UNCONNECTED [31:0]),
-        .DOBDO({\NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_DOBDO_UNCONNECTED [31:8],\sig_data_skid_reg_reg[27] }),
-        .DOPADOP(\NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_DOPADOP_UNCONNECTED [3:0]),
-        .DOPBDOP({\NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_DOPBDOP_UNCONNECTED [3:1],\sig_data_skid_reg_reg[28] }),
-        .ECCPARITY(\NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_ECCPARITY_UNCONNECTED [7:0]),
-        .ENARDEN(ena_array),
-        .ENBWREN(enb_array),
-        .INJECTDBITERR(1'b0),
-        .INJECTSBITERR(1'b0),
-        .RDADDRECC(\NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_RDADDRECC_UNCONNECTED [8:0]),
-        .REGCEAREGCE(1'b0),
-        .REGCEB(empty_fwft_i_reg),
-        .RSTRAMARSTRAM(1'b0),
-        .RSTRAMB(1'b0),
-        .RSTREGARSTREG(1'b0),
-        .RSTREGB(1'b0),
-        .SBITERR(\NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_SBITERR_UNCONNECTED ),
-        .WEA({\GEN_FREE_RUN_MODE.frame_sync_i_reg ,\GEN_FREE_RUN_MODE.frame_sync_i_reg ,\GEN_FREE_RUN_MODE.frame_sync_i_reg ,\GEN_FREE_RUN_MODE.frame_sync_i_reg }),
-        .WEBWE({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0}));
-endmodule
-
-(* ORIG_REF_NAME = "blk_mem_gen_prim_wrapper" *) 
-module system_axi_vdma_0_0_blk_mem_gen_prim_wrapper__parameterized9
-   (\sig_data_skid_reg_reg[27] ,
-    \sig_data_skid_reg_reg[28] ,
-    m_axi_mm2s_aclk,
-    ena_array,
-    enb_array,
-    empty_fwft_i_reg,
-    Q,
-    \gc0.count_d1_reg[11] ,
-    dm2linebuf_mm2s_tdata,
-    \GEN_FREE_RUN_MODE.frame_sync_i_reg );
-  output [7:0]\sig_data_skid_reg_reg[27] ;
-  output [0:0]\sig_data_skid_reg_reg[28] ;
-  input m_axi_mm2s_aclk;
-  input [0:0]ena_array;
-  input [0:0]enb_array;
-  input empty_fwft_i_reg;
-  input [11:0]Q;
-  input [11:0]\gc0.count_d1_reg[11] ;
-  input [8:0]dm2linebuf_mm2s_tdata;
-  input [0:0]\GEN_FREE_RUN_MODE.frame_sync_i_reg ;
-
-  wire [0:0]\GEN_FREE_RUN_MODE.frame_sync_i_reg ;
-  wire [11:0]Q;
-  wire [8:0]dm2linebuf_mm2s_tdata;
-  wire empty_fwft_i_reg;
-  wire [0:0]ena_array;
-  wire [0:0]enb_array;
-  wire [11:0]\gc0.count_d1_reg[11] ;
-  wire m_axi_mm2s_aclk;
-  wire [7:0]\sig_data_skid_reg_reg[27] ;
-  wire [0:0]\sig_data_skid_reg_reg[28] ;
-  wire \NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_CASCADEOUTA_UNCONNECTED ;
-  wire \NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_CASCADEOUTB_UNCONNECTED ;
-  wire \NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_DBITERR_UNCONNECTED ;
-  wire \NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_SBITERR_UNCONNECTED ;
-  wire [31:0]\NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_DOADO_UNCONNECTED ;
-  wire [31:8]\NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_DOBDO_UNCONNECTED ;
-  wire [3:0]\NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_DOPADOP_UNCONNECTED ;
-  wire [3:1]\NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_DOPBDOP_UNCONNECTED ;
-  wire [7:0]\NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_ECCPARITY_UNCONNECTED ;
-  wire [8:0]\NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_RDADDRECC_UNCONNECTED ;
-
-  (* box_type = "PRIMITIVE" *) 
-  RAMB36E1 #(
-    .DOA_REG(1),
-    .DOB_REG(1),
-    .EN_ECC_READ("FALSE"),
-    .EN_ECC_WRITE("FALSE"),
-    .INITP_00(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INITP_01(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INITP_02(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INITP_03(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INITP_04(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INITP_05(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INITP_06(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INITP_07(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INITP_08(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INITP_09(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INITP_0A(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INITP_0B(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INITP_0C(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INITP_0D(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INITP_0E(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INITP_0F(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_00(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_01(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_02(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_03(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_04(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_05(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_06(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_07(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_08(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_09(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_0A(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_0B(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_0C(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_0D(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_0E(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_0F(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_10(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_11(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_12(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_13(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_14(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_15(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_16(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_17(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_18(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_19(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_1A(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_1B(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_1C(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_1D(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_1E(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_1F(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_20(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_21(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_22(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_23(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_24(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_25(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_26(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_27(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_28(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_29(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_2A(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_2B(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_2C(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_2D(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_2E(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_2F(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_30(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_31(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_32(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_33(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_34(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_35(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_36(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_37(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_38(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_39(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_3A(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_3B(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_3C(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_3D(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_3E(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_3F(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_40(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_41(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_42(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_43(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_44(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_45(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_46(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_47(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_48(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_49(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_4A(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_4B(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_4C(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_4D(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_4E(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_4F(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_50(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_51(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_52(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_53(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_54(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_55(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_56(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_57(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_58(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_59(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_5A(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_5B(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_5C(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_5D(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_5E(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_5F(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_60(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_61(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_62(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_63(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_64(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_65(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_66(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_67(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_68(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_69(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_6A(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_6B(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_6C(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_6D(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_6E(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_6F(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_70(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_71(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_72(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_73(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_74(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_75(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_76(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_77(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_78(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_79(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_7A(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_7B(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_7C(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_7D(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_7E(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_7F(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_A(36'h000000000),
-    .INIT_B(36'h000000000),
-    .INIT_FILE("NONE"),
-    .IS_CLKARDCLK_INVERTED(1'b0),
-    .IS_CLKBWRCLK_INVERTED(1'b0),
-    .IS_ENARDEN_INVERTED(1'b0),
-    .IS_ENBWREN_INVERTED(1'b0),
-    .IS_RSTRAMARSTRAM_INVERTED(1'b0),
-    .IS_RSTRAMB_INVERTED(1'b0),
-    .IS_RSTREGARSTREG_INVERTED(1'b0),
-    .IS_RSTREGB_INVERTED(1'b0),
-    .RAM_EXTENSION_A("NONE"),
-    .RAM_EXTENSION_B("NONE"),
-    .RAM_MODE("TDP"),
-    .RDADDR_COLLISION_HWCONFIG("DELAYED_WRITE"),
-    .READ_WIDTH_A(9),
-    .READ_WIDTH_B(9),
-    .RSTREG_PRIORITY_A("REGCE"),
-    .RSTREG_PRIORITY_B("REGCE"),
-    .SIM_COLLISION_CHECK("ALL"),
-    .SIM_DEVICE("7SERIES"),
-    .SRVAL_A(36'h000000000),
-    .SRVAL_B(36'h000000000),
-    .WRITE_MODE_A("WRITE_FIRST"),
-    .WRITE_MODE_B("WRITE_FIRST"),
-    .WRITE_WIDTH_A(9),
-    .WRITE_WIDTH_B(9)) 
-    \DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram 
-       (.ADDRARDADDR({1'b1,Q,1'b1,1'b1,1'b1}),
-        .ADDRBWRADDR({1'b1,\gc0.count_d1_reg[11] ,1'b1,1'b1,1'b1}),
-        .CASCADEINA(1'b0),
-        .CASCADEINB(1'b0),
-        .CASCADEOUTA(\NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_CASCADEOUTA_UNCONNECTED ),
-        .CASCADEOUTB(\NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_CASCADEOUTB_UNCONNECTED ),
-        .CLKARDCLK(m_axi_mm2s_aclk),
-        .CLKBWRCLK(m_axi_mm2s_aclk),
-        .DBITERR(\NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_DBITERR_UNCONNECTED ),
-        .DIADI({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,dm2linebuf_mm2s_tdata[7:0]}),
-        .DIBDI({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0}),
-        .DIPADIP({1'b0,1'b0,1'b0,dm2linebuf_mm2s_tdata[8]}),
-        .DIPBDIP({1'b0,1'b0,1'b0,1'b0}),
-        .DOADO(\NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_DOADO_UNCONNECTED [31:0]),
-        .DOBDO({\NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_DOBDO_UNCONNECTED [31:8],\sig_data_skid_reg_reg[27] }),
-        .DOPADOP(\NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_DOPADOP_UNCONNECTED [3:0]),
-        .DOPBDOP({\NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_DOPBDOP_UNCONNECTED [3:1],\sig_data_skid_reg_reg[28] }),
-        .ECCPARITY(\NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_ECCPARITY_UNCONNECTED [7:0]),
-        .ENARDEN(ena_array),
-        .ENBWREN(enb_array),
-        .INJECTDBITERR(1'b0),
-        .INJECTSBITERR(1'b0),
-        .RDADDRECC(\NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_RDADDRECC_UNCONNECTED [8:0]),
-        .REGCEAREGCE(1'b0),
-        .REGCEB(empty_fwft_i_reg),
-        .RSTRAMARSTRAM(1'b0),
-        .RSTRAMB(1'b0),
-        .RSTREGARSTREG(1'b0),
-        .RSTREGB(1'b0),
-        .SBITERR(\NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_SBITERR_UNCONNECTED ),
-        .WEA({\GEN_FREE_RUN_MODE.frame_sync_i_reg ,\GEN_FREE_RUN_MODE.frame_sync_i_reg ,\GEN_FREE_RUN_MODE.frame_sync_i_reg ,\GEN_FREE_RUN_MODE.frame_sync_i_reg }),
-        .WEBWE({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0}));
+        .SBITERR(\NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.WIDE_PRIM36_NO_ECC.ram_SBITERR_UNCONNECTED ),
+        .WEA({1'b0,1'b0,1'b0,1'b0}),
+        .WEBWE({\GEN_FREE_RUN_MODE.frame_sync_i_reg ,\GEN_FREE_RUN_MODE.frame_sync_i_reg ,\GEN_FREE_RUN_MODE.frame_sync_i_reg ,\GEN_FREE_RUN_MODE.frame_sync_i_reg ,\GEN_FREE_RUN_MODE.frame_sync_i_reg ,\GEN_FREE_RUN_MODE.frame_sync_i_reg ,\GEN_FREE_RUN_MODE.frame_sync_i_reg ,\GEN_FREE_RUN_MODE.frame_sync_i_reg }));
 endmodule
 
 (* ORIG_REF_NAME = "blk_mem_gen_top" *) 
 module system_axi_vdma_0_0_blk_mem_gen_top
-   (D,
-    p_12_out,
+   (p_12_out,
     m_axi_mm2s_aclk,
-    WEA,
-    ram_empty_fb_i_reg,
-    empty_fwft_i_reg,
-    Q,
-    \gc0.count_d1_reg[13] ,
-    dm2linebuf_mm2s_tdata,
+    tmp_ram_rd_en,
     \GEN_FREE_RUN_MODE.frame_sync_i_reg ,
-    ena_array,
-    enb_array,
-    \GEN_FREE_RUN_MODE.frame_sync_i_reg_0 ,
-    \gcc0.gc0.count_d1_reg[13] ,
-    \gc0.count_d1_reg[13]_0 ,
-    \GEN_FREE_RUN_MODE.frame_sync_i_reg_1 ,
-    DIADI,
-    DIPADIP,
-    out,
-    p_7_out,
-    mm2s_halt,
-    prmry_resetn_i_reg);
-  output [31:0]D;
-  output [5:0]p_12_out;
+    empty_fwft_i_reg,
+    \gc0.count_d1_reg[8] ,
+    \gcc0.gc0.count_d1_reg[8] ,
+    dm2linebuf_mm2s_tdata,
+    DIBDI);
+  output [37:0]p_12_out;
   input m_axi_mm2s_aclk;
-  input [0:0]WEA;
-  input ram_empty_fb_i_reg;
+  input tmp_ram_rd_en;
+  input \GEN_FREE_RUN_MODE.frame_sync_i_reg ;
   input empty_fwft_i_reg;
-  input [13:0]Q;
-  input [13:0]\gc0.count_d1_reg[13] ;
+  input [8:0]\gc0.count_d1_reg[8] ;
+  input [8:0]\gcc0.gc0.count_d1_reg[8] ;
   input [31:0]dm2linebuf_mm2s_tdata;
-  input [1:0]\GEN_FREE_RUN_MODE.frame_sync_i_reg ;
-  input [2:0]ena_array;
-  input [2:0]enb_array;
-  input [1:0]\GEN_FREE_RUN_MODE.frame_sync_i_reg_0 ;
-  input \gcc0.gc0.count_d1_reg[13] ;
-  input \gc0.count_d1_reg[13]_0 ;
-  input [1:0]\GEN_FREE_RUN_MODE.frame_sync_i_reg_1 ;
-  input [4:0]DIADI;
-  input [0:0]DIPADIP;
-  input out;
-  input p_7_out;
-  input mm2s_halt;
-  input prmry_resetn_i_reg;
+  input [5:0]DIBDI;
 
-  wire [31:0]D;
-  wire [4:0]DIADI;
-  wire [0:0]DIPADIP;
-  wire [1:0]\GEN_FREE_RUN_MODE.frame_sync_i_reg ;
-  wire [1:0]\GEN_FREE_RUN_MODE.frame_sync_i_reg_0 ;
-  wire [1:0]\GEN_FREE_RUN_MODE.frame_sync_i_reg_1 ;
-  wire [13:0]Q;
-  wire [0:0]WEA;
+  wire [5:0]DIBDI;
+  wire \GEN_FREE_RUN_MODE.frame_sync_i_reg ;
   wire [31:0]dm2linebuf_mm2s_tdata;
   wire empty_fwft_i_reg;
-  wire [2:0]ena_array;
-  wire [2:0]enb_array;
-  wire [13:0]\gc0.count_d1_reg[13] ;
-  wire \gc0.count_d1_reg[13]_0 ;
-  wire \gcc0.gc0.count_d1_reg[13] ;
+  wire [8:0]\gc0.count_d1_reg[8] ;
+  wire [8:0]\gcc0.gc0.count_d1_reg[8] ;
   wire m_axi_mm2s_aclk;
-  wire mm2s_halt;
-  wire out;
-  wire [5:0]p_12_out;
-  wire p_7_out;
-  wire prmry_resetn_i_reg;
-  wire ram_empty_fb_i_reg;
+  wire [37:0]p_12_out;
+  wire tmp_ram_rd_en;
 
   system_axi_vdma_0_0_blk_mem_gen_generic_cstr \valid.cstr 
-       (.D(D),
-        .DIADI(DIADI),
-        .DIPADIP(DIPADIP),
+       (.DIBDI(DIBDI),
         .\GEN_FREE_RUN_MODE.frame_sync_i_reg (\GEN_FREE_RUN_MODE.frame_sync_i_reg ),
-        .\GEN_FREE_RUN_MODE.frame_sync_i_reg_0 (\GEN_FREE_RUN_MODE.frame_sync_i_reg_0 ),
-        .\GEN_FREE_RUN_MODE.frame_sync_i_reg_1 (\GEN_FREE_RUN_MODE.frame_sync_i_reg_1 ),
-        .Q(Q),
-        .WEA(WEA),
         .dm2linebuf_mm2s_tdata(dm2linebuf_mm2s_tdata),
         .empty_fwft_i_reg(empty_fwft_i_reg),
-        .ena_array(ena_array),
-        .enb_array(enb_array),
-        .\gc0.count_d1_reg[13] (\gc0.count_d1_reg[13] ),
-        .\gc0.count_d1_reg[13]_0 (\gc0.count_d1_reg[13]_0 ),
-        .\gcc0.gc0.count_d1_reg[13] (\gcc0.gc0.count_d1_reg[13] ),
+        .\gc0.count_d1_reg[8] (\gc0.count_d1_reg[8] ),
+        .\gcc0.gc0.count_d1_reg[8] (\gcc0.gc0.count_d1_reg[8] ),
         .m_axi_mm2s_aclk(m_axi_mm2s_aclk),
-        .mm2s_halt(mm2s_halt),
-        .out(out),
         .p_12_out(p_12_out),
-        .p_7_out(p_7_out),
-        .prmry_resetn_i_reg(prmry_resetn_i_reg),
-        .ram_empty_fb_i_reg(ram_empty_fb_i_reg));
+        .tmp_ram_rd_en(tmp_ram_rd_en));
 endmodule
 
 (* ORIG_REF_NAME = "blk_mem_gen_v8_4_1" *) 
 module system_axi_vdma_0_0_blk_mem_gen_v8_4_1
-   (D,
-    p_12_out,
+   (p_12_out,
     m_axi_mm2s_aclk,
-    WEA,
-    ram_empty_fb_i_reg,
-    empty_fwft_i_reg,
-    Q,
-    \gc0.count_d1_reg[13] ,
-    dm2linebuf_mm2s_tdata,
+    tmp_ram_rd_en,
     \GEN_FREE_RUN_MODE.frame_sync_i_reg ,
-    ena_array,
-    enb_array,
-    \GEN_FREE_RUN_MODE.frame_sync_i_reg_0 ,
-    \gcc0.gc0.count_d1_reg[13] ,
-    \gc0.count_d1_reg[13]_0 ,
-    \GEN_FREE_RUN_MODE.frame_sync_i_reg_1 ,
-    DIADI,
-    DIPADIP,
-    out,
-    p_7_out,
-    mm2s_halt,
-    prmry_resetn_i_reg);
-  output [31:0]D;
-  output [5:0]p_12_out;
+    empty_fwft_i_reg,
+    \gc0.count_d1_reg[8] ,
+    \gcc0.gc0.count_d1_reg[8] ,
+    dm2linebuf_mm2s_tdata,
+    DIBDI);
+  output [37:0]p_12_out;
   input m_axi_mm2s_aclk;
-  input [0:0]WEA;
-  input ram_empty_fb_i_reg;
+  input tmp_ram_rd_en;
+  input \GEN_FREE_RUN_MODE.frame_sync_i_reg ;
   input empty_fwft_i_reg;
-  input [13:0]Q;
-  input [13:0]\gc0.count_d1_reg[13] ;
+  input [8:0]\gc0.count_d1_reg[8] ;
+  input [8:0]\gcc0.gc0.count_d1_reg[8] ;
   input [31:0]dm2linebuf_mm2s_tdata;
-  input [1:0]\GEN_FREE_RUN_MODE.frame_sync_i_reg ;
-  input [2:0]ena_array;
-  input [2:0]enb_array;
-  input [1:0]\GEN_FREE_RUN_MODE.frame_sync_i_reg_0 ;
-  input \gcc0.gc0.count_d1_reg[13] ;
-  input \gc0.count_d1_reg[13]_0 ;
-  input [1:0]\GEN_FREE_RUN_MODE.frame_sync_i_reg_1 ;
-  input [4:0]DIADI;
-  input [0:0]DIPADIP;
-  input out;
-  input p_7_out;
-  input mm2s_halt;
-  input prmry_resetn_i_reg;
+  input [5:0]DIBDI;
 
-  wire [31:0]D;
-  wire [4:0]DIADI;
-  wire [0:0]DIPADIP;
-  wire [1:0]\GEN_FREE_RUN_MODE.frame_sync_i_reg ;
-  wire [1:0]\GEN_FREE_RUN_MODE.frame_sync_i_reg_0 ;
-  wire [1:0]\GEN_FREE_RUN_MODE.frame_sync_i_reg_1 ;
-  wire [13:0]Q;
-  wire [0:0]WEA;
+  wire [5:0]DIBDI;
+  wire \GEN_FREE_RUN_MODE.frame_sync_i_reg ;
   wire [31:0]dm2linebuf_mm2s_tdata;
   wire empty_fwft_i_reg;
-  wire [2:0]ena_array;
-  wire [2:0]enb_array;
-  wire [13:0]\gc0.count_d1_reg[13] ;
-  wire \gc0.count_d1_reg[13]_0 ;
-  wire \gcc0.gc0.count_d1_reg[13] ;
+  wire [8:0]\gc0.count_d1_reg[8] ;
+  wire [8:0]\gcc0.gc0.count_d1_reg[8] ;
   wire m_axi_mm2s_aclk;
-  wire mm2s_halt;
-  wire out;
-  wire [5:0]p_12_out;
-  wire p_7_out;
-  wire prmry_resetn_i_reg;
-  wire ram_empty_fb_i_reg;
+  wire [37:0]p_12_out;
+  wire tmp_ram_rd_en;
 
   system_axi_vdma_0_0_blk_mem_gen_v8_4_1_synth inst_blk_mem_gen
-       (.D(D),
-        .DIADI(DIADI),
-        .DIPADIP(DIPADIP),
+       (.DIBDI(DIBDI),
         .\GEN_FREE_RUN_MODE.frame_sync_i_reg (\GEN_FREE_RUN_MODE.frame_sync_i_reg ),
-        .\GEN_FREE_RUN_MODE.frame_sync_i_reg_0 (\GEN_FREE_RUN_MODE.frame_sync_i_reg_0 ),
-        .\GEN_FREE_RUN_MODE.frame_sync_i_reg_1 (\GEN_FREE_RUN_MODE.frame_sync_i_reg_1 ),
-        .Q(Q),
-        .WEA(WEA),
         .dm2linebuf_mm2s_tdata(dm2linebuf_mm2s_tdata),
         .empty_fwft_i_reg(empty_fwft_i_reg),
-        .ena_array(ena_array),
-        .enb_array(enb_array),
-        .\gc0.count_d1_reg[13] (\gc0.count_d1_reg[13] ),
-        .\gc0.count_d1_reg[13]_0 (\gc0.count_d1_reg[13]_0 ),
-        .\gcc0.gc0.count_d1_reg[13] (\gcc0.gc0.count_d1_reg[13] ),
+        .\gc0.count_d1_reg[8] (\gc0.count_d1_reg[8] ),
+        .\gcc0.gc0.count_d1_reg[8] (\gcc0.gc0.count_d1_reg[8] ),
         .m_axi_mm2s_aclk(m_axi_mm2s_aclk),
-        .mm2s_halt(mm2s_halt),
-        .out(out),
         .p_12_out(p_12_out),
-        .p_7_out(p_7_out),
-        .prmry_resetn_i_reg(prmry_resetn_i_reg),
-        .ram_empty_fb_i_reg(ram_empty_fb_i_reg));
+        .tmp_ram_rd_en(tmp_ram_rd_en));
 endmodule
 
 (* ORIG_REF_NAME = "blk_mem_gen_v8_4_1_synth" *) 
 module system_axi_vdma_0_0_blk_mem_gen_v8_4_1_synth
-   (D,
-    p_12_out,
+   (p_12_out,
     m_axi_mm2s_aclk,
-    WEA,
-    ram_empty_fb_i_reg,
-    empty_fwft_i_reg,
-    Q,
-    \gc0.count_d1_reg[13] ,
-    dm2linebuf_mm2s_tdata,
+    tmp_ram_rd_en,
     \GEN_FREE_RUN_MODE.frame_sync_i_reg ,
-    ena_array,
-    enb_array,
-    \GEN_FREE_RUN_MODE.frame_sync_i_reg_0 ,
-    \gcc0.gc0.count_d1_reg[13] ,
-    \gc0.count_d1_reg[13]_0 ,
-    \GEN_FREE_RUN_MODE.frame_sync_i_reg_1 ,
-    DIADI,
-    DIPADIP,
-    out,
-    p_7_out,
-    mm2s_halt,
-    prmry_resetn_i_reg);
-  output [31:0]D;
-  output [5:0]p_12_out;
+    empty_fwft_i_reg,
+    \gc0.count_d1_reg[8] ,
+    \gcc0.gc0.count_d1_reg[8] ,
+    dm2linebuf_mm2s_tdata,
+    DIBDI);
+  output [37:0]p_12_out;
   input m_axi_mm2s_aclk;
-  input [0:0]WEA;
-  input ram_empty_fb_i_reg;
+  input tmp_ram_rd_en;
+  input \GEN_FREE_RUN_MODE.frame_sync_i_reg ;
   input empty_fwft_i_reg;
-  input [13:0]Q;
-  input [13:0]\gc0.count_d1_reg[13] ;
+  input [8:0]\gc0.count_d1_reg[8] ;
+  input [8:0]\gcc0.gc0.count_d1_reg[8] ;
   input [31:0]dm2linebuf_mm2s_tdata;
-  input [1:0]\GEN_FREE_RUN_MODE.frame_sync_i_reg ;
-  input [2:0]ena_array;
-  input [2:0]enb_array;
-  input [1:0]\GEN_FREE_RUN_MODE.frame_sync_i_reg_0 ;
-  input \gcc0.gc0.count_d1_reg[13] ;
-  input \gc0.count_d1_reg[13]_0 ;
-  input [1:0]\GEN_FREE_RUN_MODE.frame_sync_i_reg_1 ;
-  input [4:0]DIADI;
-  input [0:0]DIPADIP;
-  input out;
-  input p_7_out;
-  input mm2s_halt;
-  input prmry_resetn_i_reg;
+  input [5:0]DIBDI;
 
-  wire [31:0]D;
-  wire [4:0]DIADI;
-  wire [0:0]DIPADIP;
-  wire [1:0]\GEN_FREE_RUN_MODE.frame_sync_i_reg ;
-  wire [1:0]\GEN_FREE_RUN_MODE.frame_sync_i_reg_0 ;
-  wire [1:0]\GEN_FREE_RUN_MODE.frame_sync_i_reg_1 ;
-  wire [13:0]Q;
-  wire [0:0]WEA;
+  wire [5:0]DIBDI;
+  wire \GEN_FREE_RUN_MODE.frame_sync_i_reg ;
   wire [31:0]dm2linebuf_mm2s_tdata;
   wire empty_fwft_i_reg;
-  wire [2:0]ena_array;
-  wire [2:0]enb_array;
-  wire [13:0]\gc0.count_d1_reg[13] ;
-  wire \gc0.count_d1_reg[13]_0 ;
-  wire \gcc0.gc0.count_d1_reg[13] ;
+  wire [8:0]\gc0.count_d1_reg[8] ;
+  wire [8:0]\gcc0.gc0.count_d1_reg[8] ;
   wire m_axi_mm2s_aclk;
-  wire mm2s_halt;
-  wire out;
-  wire [5:0]p_12_out;
-  wire p_7_out;
-  wire prmry_resetn_i_reg;
-  wire ram_empty_fb_i_reg;
+  wire [37:0]p_12_out;
+  wire tmp_ram_rd_en;
 
   system_axi_vdma_0_0_blk_mem_gen_top \gnbram.gnativebmg.native_blk_mem_gen 
-       (.D(D),
-        .DIADI(DIADI),
-        .DIPADIP(DIPADIP),
+       (.DIBDI(DIBDI),
         .\GEN_FREE_RUN_MODE.frame_sync_i_reg (\GEN_FREE_RUN_MODE.frame_sync_i_reg ),
-        .\GEN_FREE_RUN_MODE.frame_sync_i_reg_0 (\GEN_FREE_RUN_MODE.frame_sync_i_reg_0 ),
-        .\GEN_FREE_RUN_MODE.frame_sync_i_reg_1 (\GEN_FREE_RUN_MODE.frame_sync_i_reg_1 ),
-        .Q(Q),
-        .WEA(WEA),
         .dm2linebuf_mm2s_tdata(dm2linebuf_mm2s_tdata),
         .empty_fwft_i_reg(empty_fwft_i_reg),
-        .ena_array(ena_array),
-        .enb_array(enb_array),
-        .\gc0.count_d1_reg[13] (\gc0.count_d1_reg[13] ),
-        .\gc0.count_d1_reg[13]_0 (\gc0.count_d1_reg[13]_0 ),
-        .\gcc0.gc0.count_d1_reg[13] (\gcc0.gc0.count_d1_reg[13] ),
+        .\gc0.count_d1_reg[8] (\gc0.count_d1_reg[8] ),
+        .\gcc0.gc0.count_d1_reg[8] (\gcc0.gc0.count_d1_reg[8] ),
         .m_axi_mm2s_aclk(m_axi_mm2s_aclk),
-        .mm2s_halt(mm2s_halt),
-        .out(out),
         .p_12_out(p_12_out),
-        .p_7_out(p_7_out),
-        .prmry_resetn_i_reg(prmry_resetn_i_reg),
-        .ram_empty_fb_i_reg(ram_empty_fb_i_reg));
+        .tmp_ram_rd_en(tmp_ram_rd_en));
 endmodule
 
 (* ORIG_REF_NAME = "compare" *) 
 module system_axi_vdma_0_0_compare
    (ram_full_fb_i_reg,
     v1_reg,
+    \gc0.count_d1_reg[8] ,
     \GEN_FREE_RUN_MODE.frame_sync_i_reg ,
     comp1,
     ram_full_fb_i_reg_0,
-    p_7_out);
+    E);
   output ram_full_fb_i_reg;
-  input [6:0]v1_reg;
+  input [3:0]v1_reg;
+  input \gc0.count_d1_reg[8] ;
   input \GEN_FREE_RUN_MODE.frame_sync_i_reg ;
   input comp1;
   input ram_full_fb_i_reg_0;
-  input p_7_out;
+  input [0:0]E;
 
+  wire [0:0]E;
   wire \GEN_FREE_RUN_MODE.frame_sync_i_reg ;
   wire carrynet_0;
   wire carrynet_1;
   wire carrynet_2;
   wire carrynet_3;
-  wire carrynet_4;
-  wire carrynet_5;
   wire comp0;
   wire comp1;
-  wire p_7_out;
+  wire \gc0.count_d1_reg[8] ;
   wire ram_full_fb_i_reg;
   wire ram_full_fb_i_reg_0;
-  wire [6:0]v1_reg;
+  wire [3:0]v1_reg;
   wire [3:0]\NLW_gmux.gm[0].gm1.m1_CARRY4_O_UNCONNECTED ;
-  wire [3:3]\NLW_gmux.gm[4].gms.ms_CARRY4_CO_UNCONNECTED ;
-  wire [3:3]\NLW_gmux.gm[4].gms.ms_CARRY4_DI_UNCONNECTED ;
+  wire [3:1]\NLW_gmux.gm[4].gms.ms_CARRY4_CO_UNCONNECTED ;
+  wire [3:1]\NLW_gmux.gm[4].gms.ms_CARRY4_DI_UNCONNECTED ;
   wire [3:0]\NLW_gmux.gm[4].gms.ms_CARRY4_O_UNCONNECTED ;
-  wire [3:3]\NLW_gmux.gm[4].gms.ms_CARRY4_S_UNCONNECTED ;
+  wire [3:1]\NLW_gmux.gm[4].gms.ms_CARRY4_S_UNCONNECTED ;
 
   (* XILINX_LEGACY_PRIM = "(MUXCY,XORCY)" *) 
   (* box_type = "PRIMITIVE" *) 
@@ -49063,16 +42802,16 @@ module system_axi_vdma_0_0_compare
         .CYINIT(1'b1),
         .DI({1'b0,1'b0,1'b0,1'b0}),
         .O(\NLW_gmux.gm[0].gm1.m1_CARRY4_O_UNCONNECTED [3:0]),
-        .S(v1_reg[3:0]));
+        .S(v1_reg));
   (* XILINX_LEGACY_PRIM = "(MUXCY,XORCY)" *) 
   (* box_type = "PRIMITIVE" *) 
   CARRY4 \gmux.gm[4].gms.ms_CARRY4 
        (.CI(carrynet_3),
-        .CO({\NLW_gmux.gm[4].gms.ms_CARRY4_CO_UNCONNECTED [3],comp0,carrynet_5,carrynet_4}),
+        .CO({\NLW_gmux.gm[4].gms.ms_CARRY4_CO_UNCONNECTED [3:1],comp0}),
         .CYINIT(1'b0),
-        .DI({\NLW_gmux.gm[4].gms.ms_CARRY4_DI_UNCONNECTED [3],1'b0,1'b0,1'b0}),
+        .DI({\NLW_gmux.gm[4].gms.ms_CARRY4_DI_UNCONNECTED [3:1],1'b0}),
         .O(\NLW_gmux.gm[4].gms.ms_CARRY4_O_UNCONNECTED [3:0]),
-        .S({\NLW_gmux.gm[4].gms.ms_CARRY4_S_UNCONNECTED [3],v1_reg[6:4]}));
+        .S({\NLW_gmux.gm[4].gms.ms_CARRY4_S_UNCONNECTED [3:1],\gc0.count_d1_reg[8] }));
   LUT5 #(
     .INIT(32'h5500FFC0)) 
     ram_full_fb_i_i_1
@@ -49080,30 +42819,31 @@ module system_axi_vdma_0_0_compare
         .I1(\GEN_FREE_RUN_MODE.frame_sync_i_reg ),
         .I2(comp1),
         .I3(ram_full_fb_i_reg_0),
-        .I4(p_7_out),
+        .I4(E),
         .O(ram_full_fb_i_reg));
 endmodule
 
 (* ORIG_REF_NAME = "compare" *) 
 module system_axi_vdma_0_0_compare_14
    (comp1,
-    v1_reg_0);
+    v1_reg_0,
+    \gc0.count_d1_reg[8] );
   output comp1;
-  input [6:0]v1_reg_0;
+  input [3:0]v1_reg_0;
+  input \gc0.count_d1_reg[8] ;
 
   wire carrynet_0;
   wire carrynet_1;
   wire carrynet_2;
   wire carrynet_3;
-  wire carrynet_4;
-  wire carrynet_5;
   wire comp1;
-  wire [6:0]v1_reg_0;
+  wire \gc0.count_d1_reg[8] ;
+  wire [3:0]v1_reg_0;
   wire [3:0]\NLW_gmux.gm[0].gm1.m1_CARRY4_O_UNCONNECTED ;
-  wire [3:3]\NLW_gmux.gm[4].gms.ms_CARRY4_CO_UNCONNECTED ;
-  wire [3:3]\NLW_gmux.gm[4].gms.ms_CARRY4_DI_UNCONNECTED ;
+  wire [3:1]\NLW_gmux.gm[4].gms.ms_CARRY4_CO_UNCONNECTED ;
+  wire [3:1]\NLW_gmux.gm[4].gms.ms_CARRY4_DI_UNCONNECTED ;
   wire [3:0]\NLW_gmux.gm[4].gms.ms_CARRY4_O_UNCONNECTED ;
-  wire [3:3]\NLW_gmux.gm[4].gms.ms_CARRY4_S_UNCONNECTED ;
+  wire [3:1]\NLW_gmux.gm[4].gms.ms_CARRY4_S_UNCONNECTED ;
 
   (* XILINX_LEGACY_PRIM = "(MUXCY,XORCY)" *) 
   (* box_type = "PRIMITIVE" *) 
@@ -49113,16 +42853,16 @@ module system_axi_vdma_0_0_compare_14
         .CYINIT(1'b1),
         .DI({1'b0,1'b0,1'b0,1'b0}),
         .O(\NLW_gmux.gm[0].gm1.m1_CARRY4_O_UNCONNECTED [3:0]),
-        .S(v1_reg_0[3:0]));
+        .S(v1_reg_0));
   (* XILINX_LEGACY_PRIM = "(MUXCY,XORCY)" *) 
   (* box_type = "PRIMITIVE" *) 
   CARRY4 \gmux.gm[4].gms.ms_CARRY4 
        (.CI(carrynet_3),
-        .CO({\NLW_gmux.gm[4].gms.ms_CARRY4_CO_UNCONNECTED [3],comp1,carrynet_5,carrynet_4}),
+        .CO({\NLW_gmux.gm[4].gms.ms_CARRY4_CO_UNCONNECTED [3:1],comp1}),
         .CYINIT(1'b0),
-        .DI({\NLW_gmux.gm[4].gms.ms_CARRY4_DI_UNCONNECTED [3],1'b0,1'b0,1'b0}),
+        .DI({\NLW_gmux.gm[4].gms.ms_CARRY4_DI_UNCONNECTED [3:1],1'b0}),
         .O(\NLW_gmux.gm[4].gms.ms_CARRY4_O_UNCONNECTED [3:0]),
-        .S({\NLW_gmux.gm[4].gms.ms_CARRY4_S_UNCONNECTED [3],v1_reg_0[6:4]}));
+        .S({\NLW_gmux.gm[4].gms.ms_CARRY4_S_UNCONNECTED [3:1],\gc0.count_d1_reg[8] }));
 endmodule
 
 (* ORIG_REF_NAME = "compare" *) 
@@ -49132,9 +42872,7 @@ module system_axi_vdma_0_0_compare_15
     \gcc0.gc0.count_d1_reg[2] ,
     \gcc0.gc0.count_d1_reg[4] ,
     \gcc0.gc0.count_d1_reg[6] ,
-    \gcc0.gc0.count_d1_reg[8] ,
-    \gcc0.gc0.count_d1_reg[10] ,
-    \gcc0.gc0.count_d1_reg[12] ,
+    \gc0.count_d1_reg[8] ,
     out,
     E,
     comp1,
@@ -49144,9 +42882,7 @@ module system_axi_vdma_0_0_compare_15
   input \gcc0.gc0.count_d1_reg[2] ;
   input \gcc0.gc0.count_d1_reg[4] ;
   input \gcc0.gc0.count_d1_reg[6] ;
-  input \gcc0.gc0.count_d1_reg[8] ;
-  input \gcc0.gc0.count_d1_reg[10] ;
-  input \gcc0.gc0.count_d1_reg[12] ;
+  input \gc0.count_d1_reg[8] ;
   input out;
   input [0:0]E;
   input comp1;
@@ -49158,24 +42894,20 @@ module system_axi_vdma_0_0_compare_15
   wire carrynet_1;
   wire carrynet_2;
   wire carrynet_3;
-  wire carrynet_4;
-  wire carrynet_5;
   wire comp0;
   wire comp1;
+  wire \gc0.count_d1_reg[8] ;
   wire \gcc0.gc0.count_d1_reg[0] ;
-  wire \gcc0.gc0.count_d1_reg[10] ;
-  wire \gcc0.gc0.count_d1_reg[12] ;
   wire \gcc0.gc0.count_d1_reg[2] ;
   wire \gcc0.gc0.count_d1_reg[4] ;
   wire \gcc0.gc0.count_d1_reg[6] ;
-  wire \gcc0.gc0.count_d1_reg[8] ;
   wire out;
   wire ram_empty_i_reg;
   wire [3:0]\NLW_gmux.gm[0].gm1.m1_CARRY4_O_UNCONNECTED ;
-  wire [3:3]\NLW_gmux.gm[4].gms.ms_CARRY4_CO_UNCONNECTED ;
-  wire [3:3]\NLW_gmux.gm[4].gms.ms_CARRY4_DI_UNCONNECTED ;
+  wire [3:1]\NLW_gmux.gm[4].gms.ms_CARRY4_CO_UNCONNECTED ;
+  wire [3:1]\NLW_gmux.gm[4].gms.ms_CARRY4_DI_UNCONNECTED ;
   wire [3:0]\NLW_gmux.gm[4].gms.ms_CARRY4_O_UNCONNECTED ;
-  wire [3:3]\NLW_gmux.gm[4].gms.ms_CARRY4_S_UNCONNECTED ;
+  wire [3:1]\NLW_gmux.gm[4].gms.ms_CARRY4_S_UNCONNECTED ;
 
   (* XILINX_LEGACY_PRIM = "(MUXCY,XORCY)" *) 
   (* box_type = "PRIMITIVE" *) 
@@ -49190,11 +42922,11 @@ module system_axi_vdma_0_0_compare_15
   (* box_type = "PRIMITIVE" *) 
   CARRY4 \gmux.gm[4].gms.ms_CARRY4 
        (.CI(carrynet_3),
-        .CO({\NLW_gmux.gm[4].gms.ms_CARRY4_CO_UNCONNECTED [3],comp0,carrynet_5,carrynet_4}),
+        .CO({\NLW_gmux.gm[4].gms.ms_CARRY4_CO_UNCONNECTED [3:1],comp0}),
         .CYINIT(1'b0),
-        .DI({\NLW_gmux.gm[4].gms.ms_CARRY4_DI_UNCONNECTED [3],1'b0,1'b0,1'b0}),
+        .DI({\NLW_gmux.gm[4].gms.ms_CARRY4_DI_UNCONNECTED [3:1],1'b0}),
         .O(\NLW_gmux.gm[4].gms.ms_CARRY4_O_UNCONNECTED [3:0]),
-        .S({\NLW_gmux.gm[4].gms.ms_CARRY4_S_UNCONNECTED [3],\gcc0.gc0.count_d1_reg[12] ,\gcc0.gc0.count_d1_reg[10] ,\gcc0.gc0.count_d1_reg[8] }));
+        .S({\NLW_gmux.gm[4].gms.ms_CARRY4_S_UNCONNECTED [3:1],\gc0.count_d1_reg[8] }));
   LUT5 #(
     .INIT(32'h4444FCCC)) 
     ram_empty_fb_i_i_1
@@ -49209,23 +42941,24 @@ endmodule
 (* ORIG_REF_NAME = "compare" *) 
 module system_axi_vdma_0_0_compare_16
    (comp1,
-    v1_reg);
+    v1_reg,
+    \gc0.count_reg[8] );
   output comp1;
-  input [6:0]v1_reg;
+  input [3:0]v1_reg;
+  input \gc0.count_reg[8] ;
 
   wire carrynet_0;
   wire carrynet_1;
   wire carrynet_2;
   wire carrynet_3;
-  wire carrynet_4;
-  wire carrynet_5;
   wire comp1;
-  wire [6:0]v1_reg;
+  wire \gc0.count_reg[8] ;
+  wire [3:0]v1_reg;
   wire [3:0]\NLW_gmux.gm[0].gm1.m1_CARRY4_O_UNCONNECTED ;
-  wire [3:3]\NLW_gmux.gm[4].gms.ms_CARRY4_CO_UNCONNECTED ;
-  wire [3:3]\NLW_gmux.gm[4].gms.ms_CARRY4_DI_UNCONNECTED ;
+  wire [3:1]\NLW_gmux.gm[4].gms.ms_CARRY4_CO_UNCONNECTED ;
+  wire [3:1]\NLW_gmux.gm[4].gms.ms_CARRY4_DI_UNCONNECTED ;
   wire [3:0]\NLW_gmux.gm[4].gms.ms_CARRY4_O_UNCONNECTED ;
-  wire [3:3]\NLW_gmux.gm[4].gms.ms_CARRY4_S_UNCONNECTED ;
+  wire [3:1]\NLW_gmux.gm[4].gms.ms_CARRY4_S_UNCONNECTED ;
 
   (* XILINX_LEGACY_PRIM = "(MUXCY,XORCY)" *) 
   (* box_type = "PRIMITIVE" *) 
@@ -49235,265 +42968,193 @@ module system_axi_vdma_0_0_compare_16
         .CYINIT(1'b1),
         .DI({1'b0,1'b0,1'b0,1'b0}),
         .O(\NLW_gmux.gm[0].gm1.m1_CARRY4_O_UNCONNECTED [3:0]),
-        .S(v1_reg[3:0]));
+        .S(v1_reg));
   (* XILINX_LEGACY_PRIM = "(MUXCY,XORCY)" *) 
   (* box_type = "PRIMITIVE" *) 
   CARRY4 \gmux.gm[4].gms.ms_CARRY4 
        (.CI(carrynet_3),
-        .CO({\NLW_gmux.gm[4].gms.ms_CARRY4_CO_UNCONNECTED [3],comp1,carrynet_5,carrynet_4}),
+        .CO({\NLW_gmux.gm[4].gms.ms_CARRY4_CO_UNCONNECTED [3:1],comp1}),
         .CYINIT(1'b0),
-        .DI({\NLW_gmux.gm[4].gms.ms_CARRY4_DI_UNCONNECTED [3],1'b0,1'b0,1'b0}),
+        .DI({\NLW_gmux.gm[4].gms.ms_CARRY4_DI_UNCONNECTED [3:1],1'b0}),
         .O(\NLW_gmux.gm[4].gms.ms_CARRY4_O_UNCONNECTED [3:0]),
-        .S({\NLW_gmux.gm[4].gms.ms_CARRY4_S_UNCONNECTED [3],v1_reg[6:4]}));
+        .S({\NLW_gmux.gm[4].gms.ms_CARRY4_S_UNCONNECTED [3:1],\gc0.count_reg[8] }));
 endmodule
 
 (* ORIG_REF_NAME = "fifo_generator_ramfifo" *) 
 module system_axi_vdma_0_0_fifo_generator_ramfifo
-   (D,
+   (p_12_out,
     out,
     ram_full_fb_i_reg,
     \GEN_LINEBUF_NO_SOF.GEN_LINEBUFFER.GEN_SOF.sof_flag_reg ,
     \GEN_LINEBUF_NO_SOF.GEN_LINEBUFFER.GEN_SOF.sof_flag_reg_0 ,
-    p_12_out,
     m_axi_mm2s_aclk,
-    WEA,
-    dm2linebuf_mm2s_tdata,
     \GEN_FREE_RUN_MODE.frame_sync_i_reg ,
-    \GEN_FREE_RUN_MODE.frame_sync_i_reg_0 ,
-    \GEN_FREE_RUN_MODE.frame_sync_i_reg_1 ,
-    DIADI,
-    DIPADIP,
+    dm2linebuf_mm2s_tdata,
+    DIBDI,
     halt_i_reg,
-    \GEN_FREE_RUN_MODE.frame_sync_i_reg_2 ,
     sig_s_ready_out_reg,
-    \GEN_FREE_RUN_MODE.frame_sync_i_reg_3 ,
     mm2s_halt,
     prmry_resetn_i_reg,
     dm2linebuf_mm2s_tvalid,
     p_27_out);
-  output [31:0]D;
+  output [37:0]p_12_out;
   output out;
   output ram_full_fb_i_reg;
   output \GEN_LINEBUF_NO_SOF.GEN_LINEBUFFER.GEN_SOF.sof_flag_reg ;
   output \GEN_LINEBUF_NO_SOF.GEN_LINEBUFFER.GEN_SOF.sof_flag_reg_0 ;
-  output [5:0]p_12_out;
   input m_axi_mm2s_aclk;
-  input [0:0]WEA;
+  input \GEN_FREE_RUN_MODE.frame_sync_i_reg ;
   input [31:0]dm2linebuf_mm2s_tdata;
-  input [1:0]\GEN_FREE_RUN_MODE.frame_sync_i_reg ;
-  input [1:0]\GEN_FREE_RUN_MODE.frame_sync_i_reg_0 ;
-  input [1:0]\GEN_FREE_RUN_MODE.frame_sync_i_reg_1 ;
-  input [4:0]DIADI;
-  input [0:0]DIPADIP;
+  input [5:0]DIBDI;
   input halt_i_reg;
-  input \GEN_FREE_RUN_MODE.frame_sync_i_reg_2 ;
   input sig_s_ready_out_reg;
-  input \GEN_FREE_RUN_MODE.frame_sync_i_reg_3 ;
   input mm2s_halt;
   input prmry_resetn_i_reg;
   input dm2linebuf_mm2s_tvalid;
   input p_27_out;
 
-  wire [31:0]D;
-  wire [4:0]DIADI;
-  wire [0:0]DIPADIP;
-  wire [1:0]\GEN_FREE_RUN_MODE.frame_sync_i_reg ;
-  wire [1:0]\GEN_FREE_RUN_MODE.frame_sync_i_reg_0 ;
-  wire [1:0]\GEN_FREE_RUN_MODE.frame_sync_i_reg_1 ;
-  wire \GEN_FREE_RUN_MODE.frame_sync_i_reg_2 ;
-  wire \GEN_FREE_RUN_MODE.frame_sync_i_reg_3 ;
+  wire [5:0]DIBDI;
+  wire \GEN_FREE_RUN_MODE.frame_sync_i_reg ;
   wire \GEN_LINEBUF_NO_SOF.GEN_LINEBUFFER.GEN_SOF.sof_flag_reg ;
   wire \GEN_LINEBUF_NO_SOF.GEN_LINEBUFFER.GEN_SOF.sof_flag_reg_0 ;
-  wire [0:0]WEA;
   wire [31:0]dm2linebuf_mm2s_tdata;
   wire dm2linebuf_mm2s_tvalid;
-  wire [2:0]\gbm.gbmg.gbmgb.ngecc.bmg/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ena_array ;
-  wire [2:0]\gbm.gbmg.gbmgb.ngecc.bmg/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/enb_array ;
-  wire \gntv_or_sync_fifo.gl0.rd_n_34 ;
-  wire \gntv_or_sync_fifo.gl0.rd_n_35 ;
-  wire \gntv_or_sync_fifo.gl0.rd_n_36 ;
-  wire \gntv_or_sync_fifo.gl0.wr_n_27 ;
-  wire \gntv_or_sync_fifo.gl0.wr_n_28 ;
-  wire \gntv_or_sync_fifo.gl0.wr_n_29 ;
-  wire \gntv_or_sync_fifo.gl0.wr_n_30 ;
-  wire \gntv_or_sync_fifo.gl0.wr_n_31 ;
-  wire \gntv_or_sync_fifo.gl0.wr_n_32 ;
-  wire \gntv_or_sync_fifo.gl0.wr_n_33 ;
-  wire \gntv_or_sync_fifo.gl0.wr_n_34 ;
-  wire [6:0]\grss.rsts/c2/v1_reg ;
+  wire \gntv_or_sync_fifo.gl0.rd_n_11 ;
+  wire \gntv_or_sync_fifo.gl0.rd_n_12 ;
+  wire \gntv_or_sync_fifo.gl0.rd_n_22 ;
+  wire \gntv_or_sync_fifo.gl0.wr_n_17 ;
+  wire \gntv_or_sync_fifo.gl0.wr_n_18 ;
+  wire \gntv_or_sync_fifo.gl0.wr_n_19 ;
+  wire \gntv_or_sync_fifo.gl0.wr_n_20 ;
+  wire [3:0]\grss.rsts/c2/v1_reg ;
   wire halt_i_reg;
   wire m_axi_mm2s_aclk;
   wire mm2s_halt;
   wire out;
-  wire [13:0]p_0_out;
-  wire [13:0]p_11_out;
-  wire [5:0]p_12_out;
+  wire [8:0]p_0_out;
+  wire [8:0]p_11_out;
+  wire [37:0]p_12_out;
+  wire [8:8]p_12_out_0;
   wire p_27_out;
-  wire p_2_out;
   wire p_7_out;
   wire prmry_resetn_i_reg;
   wire ram_full_fb_i_reg;
-  wire [13:0]rd_pntr_plus1;
+  wire [7:0]rd_pntr_plus1;
   wire sig_s_ready_out_reg;
+  wire tmp_ram_rd_en;
 
   system_axi_vdma_0_0_rd_logic \gntv_or_sync_fifo.gl0.rd 
-       (.D(rd_pntr_plus1),
-        .\DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram (\gntv_or_sync_fifo.gl0.rd_n_34 ),
-        .\DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_0 (\gntv_or_sync_fifo.gl0.rd_n_35 ),
-        .\DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_1 (\gntv_or_sync_fifo.gl0.rd_n_36 ),
-        .\GEN_FREE_RUN_MODE.frame_sync_i_reg (\GEN_FREE_RUN_MODE.frame_sync_i_reg_3 ),
-        .Q(p_0_out),
-        .enb_array(\gbm.gbmg.gbmgb.ngecc.bmg/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/enb_array ),
-        .\gcc0.gc0.count_d1_reg[0] (\gntv_or_sync_fifo.gl0.wr_n_27 ),
-        .\gcc0.gc0.count_d1_reg[10] (\gntv_or_sync_fifo.gl0.wr_n_32 ),
-        .\gcc0.gc0.count_d1_reg[12] (\gntv_or_sync_fifo.gl0.wr_n_33 ),
-        .\gcc0.gc0.count_d1_reg[2] (\gntv_or_sync_fifo.gl0.wr_n_28 ),
-        .\gcc0.gc0.count_d1_reg[4] (\gntv_or_sync_fifo.gl0.wr_n_29 ),
-        .\gcc0.gc0.count_d1_reg[6] (\gntv_or_sync_fifo.gl0.wr_n_30 ),
-        .\gcc0.gc0.count_d1_reg[8] (\gntv_or_sync_fifo.gl0.wr_n_31 ),
-        .\gpregsm1.curr_fwft_state_reg[1] (out),
+       (.\DEVICE_7SERIES.NO_BMM_INFO.SDP.WIDE_PRIM36_NO_ECC.ram (\gntv_or_sync_fifo.gl0.rd_n_11 ),
+        .\DEVICE_7SERIES.NO_BMM_INFO.SDP.WIDE_PRIM36_NO_ECC.ram_0 (p_0_out),
+        .E(p_7_out),
+        .\GEN_FREE_RUN_MODE.frame_sync_i_reg (\GEN_FREE_RUN_MODE.frame_sync_i_reg ),
+        .Q(rd_pntr_plus1),
+        .\gcc0.gc0.count_d1_reg[0] (\gntv_or_sync_fifo.gl0.wr_n_17 ),
+        .\gcc0.gc0.count_d1_reg[2] (\gntv_or_sync_fifo.gl0.wr_n_18 ),
+        .\gcc0.gc0.count_d1_reg[4] (\gntv_or_sync_fifo.gl0.wr_n_19 ),
+        .\gcc0.gc0.count_d1_reg[6] (\gntv_or_sync_fifo.gl0.wr_n_20 ),
+        .\gcc0.gc0.count_d1_reg[8] (p_11_out[8]),
+        .\gcc0.gc0.count_reg[8] (p_12_out_0),
         .halt_i_reg(halt_i_reg),
         .m_axi_mm2s_aclk(m_axi_mm2s_aclk),
         .mm2s_halt(mm2s_halt),
-        .out(p_2_out),
-        .p_7_out(p_7_out),
+        .out(out),
         .prmry_resetn_i_reg(prmry_resetn_i_reg),
+        .ram_full_fb_i_reg(\gntv_or_sync_fifo.gl0.rd_n_12 ),
+        .ram_full_fb_i_reg_0(\gntv_or_sync_fifo.gl0.rd_n_22 ),
         .sig_s_ready_out_reg(sig_s_ready_out_reg),
+        .tmp_ram_rd_en(tmp_ram_rd_en),
         .v1_reg(\grss.rsts/c2/v1_reg ));
   system_axi_vdma_0_0_wr_logic \gntv_or_sync_fifo.gl0.wr 
-       (.D(rd_pntr_plus1),
-        .\DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram (\gntv_or_sync_fifo.gl0.wr_n_34 ),
-        .DIPADIP(DIPADIP),
-        .\GEN_FREE_RUN_MODE.frame_sync_i_reg (\GEN_FREE_RUN_MODE.frame_sync_i_reg_2 ),
-        .\GEN_FREE_RUN_MODE.frame_sync_i_reg_0 (\GEN_FREE_RUN_MODE.frame_sync_i_reg_3 ),
+       (.\DEVICE_7SERIES.NO_BMM_INFO.SDP.WIDE_PRIM36_NO_ECC.ram (p_11_out),
+        .DIBDI(DIBDI[5]),
+        .E(p_7_out),
+        .\GEN_FREE_RUN_MODE.frame_sync_i_reg (\GEN_FREE_RUN_MODE.frame_sync_i_reg ),
         .\GEN_LINEBUF_NO_SOF.GEN_LINEBUFFER.GEN_SOF.sof_flag_reg (\GEN_LINEBUF_NO_SOF.GEN_LINEBUFFER.GEN_SOF.sof_flag_reg ),
         .\GEN_LINEBUF_NO_SOF.GEN_LINEBUFFER.GEN_SOF.sof_flag_reg_0 (\GEN_LINEBUF_NO_SOF.GEN_LINEBUFFER.GEN_SOF.sof_flag_reg_0 ),
-        .Q(p_11_out),
+        .Q(p_12_out_0),
         .dm2linebuf_mm2s_tvalid(dm2linebuf_mm2s_tvalid),
-        .ena_array(\gbm.gbmg.gbmgb.ngecc.bmg/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ena_array ),
-        .\gc0.count_d1_reg[13] (p_0_out),
+        .\gc0.count_d1_reg[7] (p_0_out[7:0]),
+        .\gc0.count_d1_reg[8] (\gntv_or_sync_fifo.gl0.rd_n_12 ),
+        .\gc0.count_d1_reg[8]_0 (\gntv_or_sync_fifo.gl0.rd_n_22 ),
+        .\gc0.count_reg[7] (rd_pntr_plus1),
         .halt_i_reg(halt_i_reg),
         .m_axi_mm2s_aclk(m_axi_mm2s_aclk),
         .mm2s_halt(mm2s_halt),
         .p_27_out(p_27_out),
-        .p_7_out(p_7_out),
         .prmry_resetn_i_reg(prmry_resetn_i_reg),
-        .ram_empty_i_reg(\gntv_or_sync_fifo.gl0.wr_n_27 ),
-        .ram_empty_i_reg_0(\gntv_or_sync_fifo.gl0.wr_n_28 ),
-        .ram_empty_i_reg_1(\gntv_or_sync_fifo.gl0.wr_n_29 ),
-        .ram_empty_i_reg_2(\gntv_or_sync_fifo.gl0.wr_n_30 ),
-        .ram_empty_i_reg_3(\gntv_or_sync_fifo.gl0.wr_n_31 ),
-        .ram_empty_i_reg_4(\gntv_or_sync_fifo.gl0.wr_n_32 ),
-        .ram_empty_i_reg_5(\gntv_or_sync_fifo.gl0.wr_n_33 ),
+        .ram_empty_i_reg(\gntv_or_sync_fifo.gl0.wr_n_17 ),
+        .ram_empty_i_reg_0(\gntv_or_sync_fifo.gl0.wr_n_18 ),
+        .ram_empty_i_reg_1(\gntv_or_sync_fifo.gl0.wr_n_19 ),
+        .ram_empty_i_reg_2(\gntv_or_sync_fifo.gl0.wr_n_20 ),
         .ram_full_fb_i_reg(ram_full_fb_i_reg),
         .v1_reg(\grss.rsts/c2/v1_reg ));
   system_axi_vdma_0_0_memory \gntv_or_sync_fifo.mem 
-       (.D(D),
-        .DIADI(DIADI),
-        .DIPADIP(DIPADIP),
+       (.DIBDI(DIBDI),
         .\GEN_FREE_RUN_MODE.frame_sync_i_reg (\GEN_FREE_RUN_MODE.frame_sync_i_reg ),
-        .\GEN_FREE_RUN_MODE.frame_sync_i_reg_0 (\GEN_FREE_RUN_MODE.frame_sync_i_reg_0 ),
-        .\GEN_FREE_RUN_MODE.frame_sync_i_reg_1 (\GEN_FREE_RUN_MODE.frame_sync_i_reg_1 ),
-        .Q(p_11_out),
-        .WEA(WEA),
         .dm2linebuf_mm2s_tdata(dm2linebuf_mm2s_tdata),
-        .empty_fwft_i_reg(\gntv_or_sync_fifo.gl0.rd_n_36 ),
-        .ena_array(\gbm.gbmg.gbmgb.ngecc.bmg/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ena_array ),
-        .enb_array(\gbm.gbmg.gbmgb.ngecc.bmg/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/enb_array ),
-        .\gc0.count_d1_reg[13] (p_0_out),
-        .\gc0.count_d1_reg[13]_0 (\gntv_or_sync_fifo.gl0.rd_n_35 ),
-        .\gcc0.gc0.count_d1_reg[13] (\gntv_or_sync_fifo.gl0.wr_n_34 ),
+        .empty_fwft_i_reg(\gntv_or_sync_fifo.gl0.rd_n_11 ),
+        .\gc0.count_d1_reg[8] (p_0_out),
+        .\gcc0.gc0.count_d1_reg[8] (p_11_out),
         .m_axi_mm2s_aclk(m_axi_mm2s_aclk),
-        .mm2s_halt(mm2s_halt),
-        .out(p_2_out),
         .p_12_out(p_12_out),
-        .p_7_out(p_7_out),
-        .prmry_resetn_i_reg(prmry_resetn_i_reg),
-        .ram_empty_fb_i_reg(\gntv_or_sync_fifo.gl0.rd_n_34 ));
+        .tmp_ram_rd_en(tmp_ram_rd_en));
 endmodule
 
 (* ORIG_REF_NAME = "fifo_generator_top" *) 
 module system_axi_vdma_0_0_fifo_generator_top
-   (D,
+   (p_12_out,
     out,
     ram_full_fb_i_reg,
     \GEN_LINEBUF_NO_SOF.GEN_LINEBUFFER.GEN_SOF.sof_flag_reg ,
     \GEN_LINEBUF_NO_SOF.GEN_LINEBUFFER.GEN_SOF.sof_flag_reg_0 ,
-    p_12_out,
     m_axi_mm2s_aclk,
-    WEA,
-    dm2linebuf_mm2s_tdata,
     \GEN_FREE_RUN_MODE.frame_sync_i_reg ,
-    \GEN_FREE_RUN_MODE.frame_sync_i_reg_0 ,
-    \GEN_FREE_RUN_MODE.frame_sync_i_reg_1 ,
-    DIADI,
-    DIPADIP,
+    dm2linebuf_mm2s_tdata,
+    DIBDI,
     halt_i_reg,
-    \GEN_FREE_RUN_MODE.frame_sync_i_reg_2 ,
     sig_s_ready_out_reg,
-    \GEN_FREE_RUN_MODE.frame_sync_i_reg_3 ,
     mm2s_halt,
     prmry_resetn_i_reg,
     dm2linebuf_mm2s_tvalid,
     p_27_out);
-  output [31:0]D;
+  output [37:0]p_12_out;
   output out;
   output ram_full_fb_i_reg;
   output \GEN_LINEBUF_NO_SOF.GEN_LINEBUFFER.GEN_SOF.sof_flag_reg ;
   output \GEN_LINEBUF_NO_SOF.GEN_LINEBUFFER.GEN_SOF.sof_flag_reg_0 ;
-  output [5:0]p_12_out;
   input m_axi_mm2s_aclk;
-  input [0:0]WEA;
+  input \GEN_FREE_RUN_MODE.frame_sync_i_reg ;
   input [31:0]dm2linebuf_mm2s_tdata;
-  input [1:0]\GEN_FREE_RUN_MODE.frame_sync_i_reg ;
-  input [1:0]\GEN_FREE_RUN_MODE.frame_sync_i_reg_0 ;
-  input [1:0]\GEN_FREE_RUN_MODE.frame_sync_i_reg_1 ;
-  input [4:0]DIADI;
-  input [0:0]DIPADIP;
+  input [5:0]DIBDI;
   input halt_i_reg;
-  input \GEN_FREE_RUN_MODE.frame_sync_i_reg_2 ;
   input sig_s_ready_out_reg;
-  input \GEN_FREE_RUN_MODE.frame_sync_i_reg_3 ;
   input mm2s_halt;
   input prmry_resetn_i_reg;
   input dm2linebuf_mm2s_tvalid;
   input p_27_out;
 
-  wire [31:0]D;
-  wire [4:0]DIADI;
-  wire [0:0]DIPADIP;
-  wire [1:0]\GEN_FREE_RUN_MODE.frame_sync_i_reg ;
-  wire [1:0]\GEN_FREE_RUN_MODE.frame_sync_i_reg_0 ;
-  wire [1:0]\GEN_FREE_RUN_MODE.frame_sync_i_reg_1 ;
-  wire \GEN_FREE_RUN_MODE.frame_sync_i_reg_2 ;
-  wire \GEN_FREE_RUN_MODE.frame_sync_i_reg_3 ;
+  wire [5:0]DIBDI;
+  wire \GEN_FREE_RUN_MODE.frame_sync_i_reg ;
   wire \GEN_LINEBUF_NO_SOF.GEN_LINEBUFFER.GEN_SOF.sof_flag_reg ;
   wire \GEN_LINEBUF_NO_SOF.GEN_LINEBUFFER.GEN_SOF.sof_flag_reg_0 ;
-  wire [0:0]WEA;
   wire [31:0]dm2linebuf_mm2s_tdata;
   wire dm2linebuf_mm2s_tvalid;
   wire halt_i_reg;
   wire m_axi_mm2s_aclk;
   wire mm2s_halt;
   wire out;
-  wire [5:0]p_12_out;
+  wire [37:0]p_12_out;
   wire p_27_out;
   wire prmry_resetn_i_reg;
   wire ram_full_fb_i_reg;
   wire sig_s_ready_out_reg;
 
   system_axi_vdma_0_0_fifo_generator_ramfifo \grf.rf 
-       (.D(D),
-        .DIADI(DIADI),
-        .DIPADIP(DIPADIP),
+       (.DIBDI(DIBDI),
         .\GEN_FREE_RUN_MODE.frame_sync_i_reg (\GEN_FREE_RUN_MODE.frame_sync_i_reg ),
-        .\GEN_FREE_RUN_MODE.frame_sync_i_reg_0 (\GEN_FREE_RUN_MODE.frame_sync_i_reg_0 ),
-        .\GEN_FREE_RUN_MODE.frame_sync_i_reg_1 (\GEN_FREE_RUN_MODE.frame_sync_i_reg_1 ),
-        .\GEN_FREE_RUN_MODE.frame_sync_i_reg_2 (\GEN_FREE_RUN_MODE.frame_sync_i_reg_2 ),
-        .\GEN_FREE_RUN_MODE.frame_sync_i_reg_3 (\GEN_FREE_RUN_MODE.frame_sync_i_reg_3 ),
         .\GEN_LINEBUF_NO_SOF.GEN_LINEBUFFER.GEN_SOF.sof_flag_reg (\GEN_LINEBUF_NO_SOF.GEN_LINEBUFFER.GEN_SOF.sof_flag_reg ),
         .\GEN_LINEBUF_NO_SOF.GEN_LINEBUFFER.GEN_SOF.sof_flag_reg_0 (\GEN_LINEBUF_NO_SOF.GEN_LINEBUFFER.GEN_SOF.sof_flag_reg_0 ),
-        .WEA(WEA),
         .dm2linebuf_mm2s_tdata(dm2linebuf_mm2s_tdata),
         .dm2linebuf_mm2s_tvalid(dm2linebuf_mm2s_tvalid),
         .halt_i_reg(halt_i_reg),
@@ -49509,86 +43170,58 @@ endmodule
 
 (* ORIG_REF_NAME = "fifo_generator_v13_2_1" *) 
 module system_axi_vdma_0_0_fifo_generator_v13_2_1
-   (D,
+   (p_12_out,
     out,
     ram_full_fb_i_reg,
     \GEN_LINEBUF_NO_SOF.GEN_LINEBUFFER.GEN_SOF.sof_flag_reg ,
     \GEN_LINEBUF_NO_SOF.GEN_LINEBUFFER.GEN_SOF.sof_flag_reg_0 ,
-    p_12_out,
     m_axi_mm2s_aclk,
-    WEA,
-    dm2linebuf_mm2s_tdata,
     \GEN_FREE_RUN_MODE.frame_sync_i_reg ,
-    \GEN_FREE_RUN_MODE.frame_sync_i_reg_0 ,
-    \GEN_FREE_RUN_MODE.frame_sync_i_reg_1 ,
-    DIADI,
-    DIPADIP,
+    dm2linebuf_mm2s_tdata,
+    DIBDI,
     halt_i_reg,
-    \GEN_FREE_RUN_MODE.frame_sync_i_reg_2 ,
     sig_s_ready_out_reg,
-    \GEN_FREE_RUN_MODE.frame_sync_i_reg_3 ,
     mm2s_halt,
     prmry_resetn_i_reg,
     dm2linebuf_mm2s_tvalid,
     p_27_out);
-  output [31:0]D;
+  output [37:0]p_12_out;
   output out;
   output ram_full_fb_i_reg;
   output \GEN_LINEBUF_NO_SOF.GEN_LINEBUFFER.GEN_SOF.sof_flag_reg ;
   output \GEN_LINEBUF_NO_SOF.GEN_LINEBUFFER.GEN_SOF.sof_flag_reg_0 ;
-  output [5:0]p_12_out;
   input m_axi_mm2s_aclk;
-  input [0:0]WEA;
+  input \GEN_FREE_RUN_MODE.frame_sync_i_reg ;
   input [31:0]dm2linebuf_mm2s_tdata;
-  input [1:0]\GEN_FREE_RUN_MODE.frame_sync_i_reg ;
-  input [1:0]\GEN_FREE_RUN_MODE.frame_sync_i_reg_0 ;
-  input [1:0]\GEN_FREE_RUN_MODE.frame_sync_i_reg_1 ;
-  input [4:0]DIADI;
-  input [0:0]DIPADIP;
+  input [5:0]DIBDI;
   input halt_i_reg;
-  input \GEN_FREE_RUN_MODE.frame_sync_i_reg_2 ;
   input sig_s_ready_out_reg;
-  input \GEN_FREE_RUN_MODE.frame_sync_i_reg_3 ;
   input mm2s_halt;
   input prmry_resetn_i_reg;
   input dm2linebuf_mm2s_tvalid;
   input p_27_out;
 
-  wire [31:0]D;
-  wire [4:0]DIADI;
-  wire [0:0]DIPADIP;
-  wire [1:0]\GEN_FREE_RUN_MODE.frame_sync_i_reg ;
-  wire [1:0]\GEN_FREE_RUN_MODE.frame_sync_i_reg_0 ;
-  wire [1:0]\GEN_FREE_RUN_MODE.frame_sync_i_reg_1 ;
-  wire \GEN_FREE_RUN_MODE.frame_sync_i_reg_2 ;
-  wire \GEN_FREE_RUN_MODE.frame_sync_i_reg_3 ;
+  wire [5:0]DIBDI;
+  wire \GEN_FREE_RUN_MODE.frame_sync_i_reg ;
   wire \GEN_LINEBUF_NO_SOF.GEN_LINEBUFFER.GEN_SOF.sof_flag_reg ;
   wire \GEN_LINEBUF_NO_SOF.GEN_LINEBUFFER.GEN_SOF.sof_flag_reg_0 ;
-  wire [0:0]WEA;
   wire [31:0]dm2linebuf_mm2s_tdata;
   wire dm2linebuf_mm2s_tvalid;
   wire halt_i_reg;
   wire m_axi_mm2s_aclk;
   wire mm2s_halt;
   wire out;
-  wire [5:0]p_12_out;
+  wire [37:0]p_12_out;
   wire p_27_out;
   wire prmry_resetn_i_reg;
   wire ram_full_fb_i_reg;
   wire sig_s_ready_out_reg;
 
   system_axi_vdma_0_0_fifo_generator_v13_2_1_synth inst_fifo_gen
-       (.D(D),
-        .DIADI(DIADI),
-        .DIPADIP(DIPADIP),
+       (.DIBDI(DIBDI),
         .\GEN_FREE_RUN_MODE.frame_sync_i_reg (\GEN_FREE_RUN_MODE.frame_sync_i_reg ),
-        .\GEN_FREE_RUN_MODE.frame_sync_i_reg_0 (\GEN_FREE_RUN_MODE.frame_sync_i_reg_0 ),
-        .\GEN_FREE_RUN_MODE.frame_sync_i_reg_1 (\GEN_FREE_RUN_MODE.frame_sync_i_reg_1 ),
-        .\GEN_FREE_RUN_MODE.frame_sync_i_reg_2 (\GEN_FREE_RUN_MODE.frame_sync_i_reg_2 ),
-        .\GEN_FREE_RUN_MODE.frame_sync_i_reg_3 (\GEN_FREE_RUN_MODE.frame_sync_i_reg_3 ),
         .\GEN_LINEBUF_NO_SOF.GEN_LINEBUFFER.GEN_SOF.sof_flag_reg (\GEN_LINEBUF_NO_SOF.GEN_LINEBUFFER.GEN_SOF.sof_flag_reg ),
         .\GEN_LINEBUF_NO_SOF.GEN_LINEBUFFER.GEN_SOF.sof_flag_reg_0 (\GEN_LINEBUF_NO_SOF.GEN_LINEBUFFER.GEN_SOF.sof_flag_reg_0 ),
-        .WEA(WEA),
         .dm2linebuf_mm2s_tdata(dm2linebuf_mm2s_tdata),
         .dm2linebuf_mm2s_tvalid(dm2linebuf_mm2s_tvalid),
         .halt_i_reg(halt_i_reg),
@@ -49604,86 +43237,58 @@ endmodule
 
 (* ORIG_REF_NAME = "fifo_generator_v13_2_1_synth" *) 
 module system_axi_vdma_0_0_fifo_generator_v13_2_1_synth
-   (D,
+   (p_12_out,
     out,
     ram_full_fb_i_reg,
     \GEN_LINEBUF_NO_SOF.GEN_LINEBUFFER.GEN_SOF.sof_flag_reg ,
     \GEN_LINEBUF_NO_SOF.GEN_LINEBUFFER.GEN_SOF.sof_flag_reg_0 ,
-    p_12_out,
     m_axi_mm2s_aclk,
-    WEA,
-    dm2linebuf_mm2s_tdata,
     \GEN_FREE_RUN_MODE.frame_sync_i_reg ,
-    \GEN_FREE_RUN_MODE.frame_sync_i_reg_0 ,
-    \GEN_FREE_RUN_MODE.frame_sync_i_reg_1 ,
-    DIADI,
-    DIPADIP,
+    dm2linebuf_mm2s_tdata,
+    DIBDI,
     halt_i_reg,
-    \GEN_FREE_RUN_MODE.frame_sync_i_reg_2 ,
     sig_s_ready_out_reg,
-    \GEN_FREE_RUN_MODE.frame_sync_i_reg_3 ,
     mm2s_halt,
     prmry_resetn_i_reg,
     dm2linebuf_mm2s_tvalid,
     p_27_out);
-  output [31:0]D;
+  output [37:0]p_12_out;
   output out;
   output ram_full_fb_i_reg;
   output \GEN_LINEBUF_NO_SOF.GEN_LINEBUFFER.GEN_SOF.sof_flag_reg ;
   output \GEN_LINEBUF_NO_SOF.GEN_LINEBUFFER.GEN_SOF.sof_flag_reg_0 ;
-  output [5:0]p_12_out;
   input m_axi_mm2s_aclk;
-  input [0:0]WEA;
+  input \GEN_FREE_RUN_MODE.frame_sync_i_reg ;
   input [31:0]dm2linebuf_mm2s_tdata;
-  input [1:0]\GEN_FREE_RUN_MODE.frame_sync_i_reg ;
-  input [1:0]\GEN_FREE_RUN_MODE.frame_sync_i_reg_0 ;
-  input [1:0]\GEN_FREE_RUN_MODE.frame_sync_i_reg_1 ;
-  input [4:0]DIADI;
-  input [0:0]DIPADIP;
+  input [5:0]DIBDI;
   input halt_i_reg;
-  input \GEN_FREE_RUN_MODE.frame_sync_i_reg_2 ;
   input sig_s_ready_out_reg;
-  input \GEN_FREE_RUN_MODE.frame_sync_i_reg_3 ;
   input mm2s_halt;
   input prmry_resetn_i_reg;
   input dm2linebuf_mm2s_tvalid;
   input p_27_out;
 
-  wire [31:0]D;
-  wire [4:0]DIADI;
-  wire [0:0]DIPADIP;
-  wire [1:0]\GEN_FREE_RUN_MODE.frame_sync_i_reg ;
-  wire [1:0]\GEN_FREE_RUN_MODE.frame_sync_i_reg_0 ;
-  wire [1:0]\GEN_FREE_RUN_MODE.frame_sync_i_reg_1 ;
-  wire \GEN_FREE_RUN_MODE.frame_sync_i_reg_2 ;
-  wire \GEN_FREE_RUN_MODE.frame_sync_i_reg_3 ;
+  wire [5:0]DIBDI;
+  wire \GEN_FREE_RUN_MODE.frame_sync_i_reg ;
   wire \GEN_LINEBUF_NO_SOF.GEN_LINEBUFFER.GEN_SOF.sof_flag_reg ;
   wire \GEN_LINEBUF_NO_SOF.GEN_LINEBUFFER.GEN_SOF.sof_flag_reg_0 ;
-  wire [0:0]WEA;
   wire [31:0]dm2linebuf_mm2s_tdata;
   wire dm2linebuf_mm2s_tvalid;
   wire halt_i_reg;
   wire m_axi_mm2s_aclk;
   wire mm2s_halt;
   wire out;
-  wire [5:0]p_12_out;
+  wire [37:0]p_12_out;
   wire p_27_out;
   wire prmry_resetn_i_reg;
   wire ram_full_fb_i_reg;
   wire sig_s_ready_out_reg;
 
   system_axi_vdma_0_0_fifo_generator_top \gconvfifo.rf 
-       (.D(D),
-        .DIADI(DIADI),
-        .DIPADIP(DIPADIP),
+       (.DIBDI(DIBDI),
         .\GEN_FREE_RUN_MODE.frame_sync_i_reg (\GEN_FREE_RUN_MODE.frame_sync_i_reg ),
-        .\GEN_FREE_RUN_MODE.frame_sync_i_reg_0 (\GEN_FREE_RUN_MODE.frame_sync_i_reg_0 ),
-        .\GEN_FREE_RUN_MODE.frame_sync_i_reg_1 (\GEN_FREE_RUN_MODE.frame_sync_i_reg_1 ),
-        .\GEN_FREE_RUN_MODE.frame_sync_i_reg_2 (\GEN_FREE_RUN_MODE.frame_sync_i_reg_2 ),
-        .\GEN_FREE_RUN_MODE.frame_sync_i_reg_3 (\GEN_FREE_RUN_MODE.frame_sync_i_reg_3 ),
         .\GEN_LINEBUF_NO_SOF.GEN_LINEBUFFER.GEN_SOF.sof_flag_reg (\GEN_LINEBUF_NO_SOF.GEN_LINEBUFFER.GEN_SOF.sof_flag_reg ),
         .\GEN_LINEBUF_NO_SOF.GEN_LINEBUFFER.GEN_SOF.sof_flag_reg_0 (\GEN_LINEBUF_NO_SOF.GEN_LINEBUFFER.GEN_SOF.sof_flag_reg_0 ),
-        .WEA(WEA),
         .dm2linebuf_mm2s_tdata(dm2linebuf_mm2s_tdata),
         .dm2linebuf_mm2s_tvalid(dm2linebuf_mm2s_tvalid),
         .halt_i_reg(halt_i_reg),
@@ -49699,467 +43304,345 @@ endmodule
 
 (* ORIG_REF_NAME = "memory" *) 
 module system_axi_vdma_0_0_memory
-   (D,
-    p_12_out,
+   (p_12_out,
     m_axi_mm2s_aclk,
-    WEA,
-    ram_empty_fb_i_reg,
-    empty_fwft_i_reg,
-    Q,
-    \gc0.count_d1_reg[13] ,
-    dm2linebuf_mm2s_tdata,
+    tmp_ram_rd_en,
     \GEN_FREE_RUN_MODE.frame_sync_i_reg ,
-    ena_array,
-    enb_array,
-    \GEN_FREE_RUN_MODE.frame_sync_i_reg_0 ,
-    \gcc0.gc0.count_d1_reg[13] ,
-    \gc0.count_d1_reg[13]_0 ,
-    \GEN_FREE_RUN_MODE.frame_sync_i_reg_1 ,
-    DIADI,
-    DIPADIP,
-    out,
-    p_7_out,
-    mm2s_halt,
-    prmry_resetn_i_reg);
-  output [31:0]D;
-  output [5:0]p_12_out;
+    empty_fwft_i_reg,
+    \gc0.count_d1_reg[8] ,
+    \gcc0.gc0.count_d1_reg[8] ,
+    dm2linebuf_mm2s_tdata,
+    DIBDI);
+  output [37:0]p_12_out;
   input m_axi_mm2s_aclk;
-  input [0:0]WEA;
-  input ram_empty_fb_i_reg;
+  input tmp_ram_rd_en;
+  input \GEN_FREE_RUN_MODE.frame_sync_i_reg ;
   input empty_fwft_i_reg;
-  input [13:0]Q;
-  input [13:0]\gc0.count_d1_reg[13] ;
+  input [8:0]\gc0.count_d1_reg[8] ;
+  input [8:0]\gcc0.gc0.count_d1_reg[8] ;
   input [31:0]dm2linebuf_mm2s_tdata;
-  input [1:0]\GEN_FREE_RUN_MODE.frame_sync_i_reg ;
-  input [2:0]ena_array;
-  input [2:0]enb_array;
-  input [1:0]\GEN_FREE_RUN_MODE.frame_sync_i_reg_0 ;
-  input \gcc0.gc0.count_d1_reg[13] ;
-  input \gc0.count_d1_reg[13]_0 ;
-  input [1:0]\GEN_FREE_RUN_MODE.frame_sync_i_reg_1 ;
-  input [4:0]DIADI;
-  input [0:0]DIPADIP;
-  input out;
-  input p_7_out;
-  input mm2s_halt;
-  input prmry_resetn_i_reg;
+  input [5:0]DIBDI;
 
-  wire [31:0]D;
-  wire [4:0]DIADI;
-  wire [0:0]DIPADIP;
-  wire [1:0]\GEN_FREE_RUN_MODE.frame_sync_i_reg ;
-  wire [1:0]\GEN_FREE_RUN_MODE.frame_sync_i_reg_0 ;
-  wire [1:0]\GEN_FREE_RUN_MODE.frame_sync_i_reg_1 ;
-  wire [13:0]Q;
-  wire [0:0]WEA;
+  wire [5:0]DIBDI;
+  wire \GEN_FREE_RUN_MODE.frame_sync_i_reg ;
   wire [31:0]dm2linebuf_mm2s_tdata;
   wire empty_fwft_i_reg;
-  wire [2:0]ena_array;
-  wire [2:0]enb_array;
-  wire [13:0]\gc0.count_d1_reg[13] ;
-  wire \gc0.count_d1_reg[13]_0 ;
-  wire \gcc0.gc0.count_d1_reg[13] ;
+  wire [8:0]\gc0.count_d1_reg[8] ;
+  wire [8:0]\gcc0.gc0.count_d1_reg[8] ;
   wire m_axi_mm2s_aclk;
-  wire mm2s_halt;
-  wire out;
-  wire [5:0]p_12_out;
-  wire p_7_out;
-  wire prmry_resetn_i_reg;
-  wire ram_empty_fb_i_reg;
+  wire [37:0]p_12_out;
+  wire tmp_ram_rd_en;
 
   system_axi_vdma_0_0_blk_mem_gen_v8_4_1 \gbm.gbmg.gbmgb.ngecc.bmg 
-       (.D(D),
-        .DIADI(DIADI),
-        .DIPADIP(DIPADIP),
+       (.DIBDI(DIBDI),
         .\GEN_FREE_RUN_MODE.frame_sync_i_reg (\GEN_FREE_RUN_MODE.frame_sync_i_reg ),
-        .\GEN_FREE_RUN_MODE.frame_sync_i_reg_0 (\GEN_FREE_RUN_MODE.frame_sync_i_reg_0 ),
-        .\GEN_FREE_RUN_MODE.frame_sync_i_reg_1 (\GEN_FREE_RUN_MODE.frame_sync_i_reg_1 ),
-        .Q(Q),
-        .WEA(WEA),
         .dm2linebuf_mm2s_tdata(dm2linebuf_mm2s_tdata),
         .empty_fwft_i_reg(empty_fwft_i_reg),
-        .ena_array(ena_array),
-        .enb_array(enb_array),
-        .\gc0.count_d1_reg[13] (\gc0.count_d1_reg[13] ),
-        .\gc0.count_d1_reg[13]_0 (\gc0.count_d1_reg[13]_0 ),
-        .\gcc0.gc0.count_d1_reg[13] (\gcc0.gc0.count_d1_reg[13] ),
+        .\gc0.count_d1_reg[8] (\gc0.count_d1_reg[8] ),
+        .\gcc0.gc0.count_d1_reg[8] (\gcc0.gc0.count_d1_reg[8] ),
         .m_axi_mm2s_aclk(m_axi_mm2s_aclk),
-        .mm2s_halt(mm2s_halt),
-        .out(out),
         .p_12_out(p_12_out),
-        .p_7_out(p_7_out),
-        .prmry_resetn_i_reg(prmry_resetn_i_reg),
-        .ram_empty_fb_i_reg(ram_empty_fb_i_reg));
+        .tmp_ram_rd_en(tmp_ram_rd_en));
 endmodule
 
 (* ORIG_REF_NAME = "rd_bin_cntr" *) 
 module system_axi_vdma_0_0_rd_bin_cntr
-   (D,
-    enb_array,
-    Q,
-    \DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram ,
+   (Q,
+    ram_full_fb_i_reg,
+    \DEVICE_7SERIES.NO_BMM_INFO.SDP.WIDE_PRIM36_NO_ECC.ram ,
+    ram_empty_i_reg,
+    ram_full_fb_i_reg_0,
+    ram_empty_i_reg_0,
+    \gcc0.gc0.count_d1_reg[8] ,
+    \gcc0.gc0.count_reg[8] ,
     halt_i_reg,
     E,
-    m_axi_mm2s_aclk,
-    prmry_resetn_i_reg,
-    mm2s_halt,
-    out);
-  output [13:0]D;
-  output [2:0]enb_array;
-  output [13:0]Q;
-  output \DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram ;
+    m_axi_mm2s_aclk);
+  output [7:0]Q;
+  output ram_full_fb_i_reg;
+  output [8:0]\DEVICE_7SERIES.NO_BMM_INFO.SDP.WIDE_PRIM36_NO_ECC.ram ;
+  output ram_empty_i_reg;
+  output ram_full_fb_i_reg_0;
+  output ram_empty_i_reg_0;
+  input [0:0]\gcc0.gc0.count_d1_reg[8] ;
+  input [0:0]\gcc0.gc0.count_reg[8] ;
   input halt_i_reg;
   input [0:0]E;
   input m_axi_mm2s_aclk;
-  input prmry_resetn_i_reg;
-  input mm2s_halt;
-  input out;
 
-  wire [13:0]D;
-  wire \DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram ;
+  wire [8:0]\DEVICE_7SERIES.NO_BMM_INFO.SDP.WIDE_PRIM36_NO_ECC.ram ;
   wire [0:0]E;
-  wire [13:0]Q;
-  wire [2:0]enb_array;
-  wire \gc0.count[0]_i_2_n_0 ;
-  wire \gc0.count_reg[0]_i_1_n_0 ;
-  wire \gc0.count_reg[0]_i_1_n_1 ;
-  wire \gc0.count_reg[0]_i_1_n_2 ;
-  wire \gc0.count_reg[0]_i_1_n_3 ;
-  wire \gc0.count_reg[0]_i_1_n_4 ;
-  wire \gc0.count_reg[0]_i_1_n_5 ;
-  wire \gc0.count_reg[0]_i_1_n_6 ;
-  wire \gc0.count_reg[0]_i_1_n_7 ;
-  wire \gc0.count_reg[12]_i_1_n_3 ;
-  wire \gc0.count_reg[12]_i_1_n_6 ;
-  wire \gc0.count_reg[12]_i_1_n_7 ;
-  wire \gc0.count_reg[4]_i_1_n_0 ;
-  wire \gc0.count_reg[4]_i_1_n_1 ;
-  wire \gc0.count_reg[4]_i_1_n_2 ;
-  wire \gc0.count_reg[4]_i_1_n_3 ;
-  wire \gc0.count_reg[4]_i_1_n_4 ;
-  wire \gc0.count_reg[4]_i_1_n_5 ;
-  wire \gc0.count_reg[4]_i_1_n_6 ;
-  wire \gc0.count_reg[4]_i_1_n_7 ;
-  wire \gc0.count_reg[8]_i_1_n_0 ;
-  wire \gc0.count_reg[8]_i_1_n_1 ;
-  wire \gc0.count_reg[8]_i_1_n_2 ;
-  wire \gc0.count_reg[8]_i_1_n_3 ;
-  wire \gc0.count_reg[8]_i_1_n_4 ;
-  wire \gc0.count_reg[8]_i_1_n_5 ;
-  wire \gc0.count_reg[8]_i_1_n_6 ;
-  wire \gc0.count_reg[8]_i_1_n_7 ;
+  wire [7:0]Q;
+  wire \gc0.count[8]_i_2_n_0 ;
+  wire [0:0]\gcc0.gc0.count_d1_reg[8] ;
+  wire [0:0]\gcc0.gc0.count_reg[8] ;
   wire halt_i_reg;
   wire m_axi_mm2s_aclk;
-  wire mm2s_halt;
-  wire out;
-  wire prmry_resetn_i_reg;
-  wire [3:1]\NLW_gc0.count_reg[12]_i_1_CO_UNCONNECTED ;
-  wire [3:2]\NLW_gc0.count_reg[12]_i_1_O_UNCONNECTED ;
+  wire [8:0]plusOp;
+  wire ram_empty_i_reg;
+  wire ram_empty_i_reg_0;
+  wire ram_full_fb_i_reg;
+  wire ram_full_fb_i_reg_0;
+  wire [8:8]rd_pntr_plus1;
 
-  LUT6 #(
-    .INIT(64'h0000000000000020)) 
-    \DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_i_2 
-       (.I0(prmry_resetn_i_reg),
-        .I1(mm2s_halt),
-        .I2(E),
-        .I3(out),
-        .I4(Q[12]),
-        .I5(Q[13]),
-        .O(enb_array[0]));
-  LUT6 #(
-    .INIT(64'h0000040000000000)) 
-    \DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_i_2__0 
-       (.I0(Q[13]),
-        .I1(Q[12]),
-        .I2(out),
-        .I3(E),
-        .I4(mm2s_halt),
-        .I5(prmry_resetn_i_reg),
-        .O(enb_array[1]));
-  LUT6 #(
-    .INIT(64'h0010000000000000)) 
-    \DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_i_2__1 
-       (.I0(Q[12]),
-        .I1(out),
-        .I2(E),
-        .I3(mm2s_halt),
-        .I4(prmry_resetn_i_reg),
-        .I5(Q[13]),
-        .O(enb_array[2]));
-  LUT6 #(
-    .INIT(64'h0000080000000000)) 
-    \DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_i_2__3 
-       (.I0(Q[13]),
-        .I1(Q[12]),
-        .I2(out),
-        .I3(E),
-        .I4(mm2s_halt),
-        .I5(prmry_resetn_i_reg),
-        .O(\DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram ));
   LUT1 #(
     .INIT(2'h1)) 
-    \gc0.count[0]_i_2 
-       (.I0(D[0]),
-        .O(\gc0.count[0]_i_2_n_0 ));
+    \gc0.count[0]_i_1 
+       (.I0(Q[0]),
+        .O(plusOp[0]));
+  (* SOFT_HLUTNM = "soft_lutpair48" *) 
+  LUT2 #(
+    .INIT(4'h6)) 
+    \gc0.count[1]_i_1 
+       (.I0(Q[0]),
+        .I1(Q[1]),
+        .O(plusOp[1]));
+  (* SOFT_HLUTNM = "soft_lutpair48" *) 
+  LUT3 #(
+    .INIT(8'h78)) 
+    \gc0.count[2]_i_1 
+       (.I0(Q[0]),
+        .I1(Q[1]),
+        .I2(Q[2]),
+        .O(plusOp[2]));
+  (* SOFT_HLUTNM = "soft_lutpair46" *) 
+  LUT4 #(
+    .INIT(16'h7F80)) 
+    \gc0.count[3]_i_1 
+       (.I0(Q[1]),
+        .I1(Q[0]),
+        .I2(Q[2]),
+        .I3(Q[3]),
+        .O(plusOp[3]));
+  (* SOFT_HLUTNM = "soft_lutpair46" *) 
+  LUT5 #(
+    .INIT(32'h7FFF8000)) 
+    \gc0.count[4]_i_1 
+       (.I0(Q[2]),
+        .I1(Q[0]),
+        .I2(Q[1]),
+        .I3(Q[3]),
+        .I4(Q[4]),
+        .O(plusOp[4]));
+  LUT6 #(
+    .INIT(64'h7FFFFFFF80000000)) 
+    \gc0.count[5]_i_1 
+       (.I0(Q[3]),
+        .I1(Q[1]),
+        .I2(Q[0]),
+        .I3(Q[2]),
+        .I4(Q[4]),
+        .I5(Q[5]),
+        .O(plusOp[5]));
+  LUT2 #(
+    .INIT(4'h6)) 
+    \gc0.count[6]_i_1 
+       (.I0(\gc0.count[8]_i_2_n_0 ),
+        .I1(Q[6]),
+        .O(plusOp[6]));
+  (* SOFT_HLUTNM = "soft_lutpair47" *) 
+  LUT3 #(
+    .INIT(8'h78)) 
+    \gc0.count[7]_i_1 
+       (.I0(\gc0.count[8]_i_2_n_0 ),
+        .I1(Q[6]),
+        .I2(Q[7]),
+        .O(plusOp[7]));
+  (* SOFT_HLUTNM = "soft_lutpair47" *) 
+  LUT4 #(
+    .INIT(16'h7F80)) 
+    \gc0.count[8]_i_1 
+       (.I0(Q[6]),
+        .I1(\gc0.count[8]_i_2_n_0 ),
+        .I2(Q[7]),
+        .I3(rd_pntr_plus1),
+        .O(plusOp[8]));
+  LUT6 #(
+    .INIT(64'h8000000000000000)) 
+    \gc0.count[8]_i_2 
+       (.I0(Q[5]),
+        .I1(Q[3]),
+        .I2(Q[1]),
+        .I3(Q[0]),
+        .I4(Q[2]),
+        .I5(Q[4]),
+        .O(\gc0.count[8]_i_2_n_0 ));
   FDRE #(
     .INIT(1'b0)) 
     \gc0.count_d1_reg[0] 
        (.C(m_axi_mm2s_aclk),
         .CE(E),
-        .D(D[0]),
-        .Q(Q[0]),
-        .R(halt_i_reg));
-  FDRE #(
-    .INIT(1'b0)) 
-    \gc0.count_d1_reg[10] 
-       (.C(m_axi_mm2s_aclk),
-        .CE(E),
-        .D(D[10]),
-        .Q(Q[10]),
-        .R(halt_i_reg));
-  FDRE #(
-    .INIT(1'b0)) 
-    \gc0.count_d1_reg[11] 
-       (.C(m_axi_mm2s_aclk),
-        .CE(E),
-        .D(D[11]),
-        .Q(Q[11]),
-        .R(halt_i_reg));
-  FDRE #(
-    .INIT(1'b0)) 
-    \gc0.count_d1_reg[12] 
-       (.C(m_axi_mm2s_aclk),
-        .CE(E),
-        .D(D[12]),
-        .Q(Q[12]),
-        .R(halt_i_reg));
-  FDRE #(
-    .INIT(1'b0)) 
-    \gc0.count_d1_reg[13] 
-       (.C(m_axi_mm2s_aclk),
-        .CE(E),
-        .D(D[13]),
-        .Q(Q[13]),
+        .D(Q[0]),
+        .Q(\DEVICE_7SERIES.NO_BMM_INFO.SDP.WIDE_PRIM36_NO_ECC.ram [0]),
         .R(halt_i_reg));
   FDRE #(
     .INIT(1'b0)) 
     \gc0.count_d1_reg[1] 
        (.C(m_axi_mm2s_aclk),
         .CE(E),
-        .D(D[1]),
-        .Q(Q[1]),
+        .D(Q[1]),
+        .Q(\DEVICE_7SERIES.NO_BMM_INFO.SDP.WIDE_PRIM36_NO_ECC.ram [1]),
         .R(halt_i_reg));
   FDRE #(
     .INIT(1'b0)) 
     \gc0.count_d1_reg[2] 
        (.C(m_axi_mm2s_aclk),
         .CE(E),
-        .D(D[2]),
-        .Q(Q[2]),
+        .D(Q[2]),
+        .Q(\DEVICE_7SERIES.NO_BMM_INFO.SDP.WIDE_PRIM36_NO_ECC.ram [2]),
         .R(halt_i_reg));
   FDRE #(
     .INIT(1'b0)) 
     \gc0.count_d1_reg[3] 
        (.C(m_axi_mm2s_aclk),
         .CE(E),
-        .D(D[3]),
-        .Q(Q[3]),
+        .D(Q[3]),
+        .Q(\DEVICE_7SERIES.NO_BMM_INFO.SDP.WIDE_PRIM36_NO_ECC.ram [3]),
         .R(halt_i_reg));
   FDRE #(
     .INIT(1'b0)) 
     \gc0.count_d1_reg[4] 
        (.C(m_axi_mm2s_aclk),
         .CE(E),
-        .D(D[4]),
-        .Q(Q[4]),
+        .D(Q[4]),
+        .Q(\DEVICE_7SERIES.NO_BMM_INFO.SDP.WIDE_PRIM36_NO_ECC.ram [4]),
         .R(halt_i_reg));
   FDRE #(
     .INIT(1'b0)) 
     \gc0.count_d1_reg[5] 
        (.C(m_axi_mm2s_aclk),
         .CE(E),
-        .D(D[5]),
-        .Q(Q[5]),
+        .D(Q[5]),
+        .Q(\DEVICE_7SERIES.NO_BMM_INFO.SDP.WIDE_PRIM36_NO_ECC.ram [5]),
         .R(halt_i_reg));
   FDRE #(
     .INIT(1'b0)) 
     \gc0.count_d1_reg[6] 
        (.C(m_axi_mm2s_aclk),
         .CE(E),
-        .D(D[6]),
-        .Q(Q[6]),
+        .D(Q[6]),
+        .Q(\DEVICE_7SERIES.NO_BMM_INFO.SDP.WIDE_PRIM36_NO_ECC.ram [6]),
         .R(halt_i_reg));
   FDRE #(
     .INIT(1'b0)) 
     \gc0.count_d1_reg[7] 
        (.C(m_axi_mm2s_aclk),
         .CE(E),
-        .D(D[7]),
-        .Q(Q[7]),
+        .D(Q[7]),
+        .Q(\DEVICE_7SERIES.NO_BMM_INFO.SDP.WIDE_PRIM36_NO_ECC.ram [7]),
         .R(halt_i_reg));
   FDRE #(
     .INIT(1'b0)) 
     \gc0.count_d1_reg[8] 
        (.C(m_axi_mm2s_aclk),
         .CE(E),
-        .D(D[8]),
-        .Q(Q[8]),
-        .R(halt_i_reg));
-  FDRE #(
-    .INIT(1'b0)) 
-    \gc0.count_d1_reg[9] 
-       (.C(m_axi_mm2s_aclk),
-        .CE(E),
-        .D(D[9]),
-        .Q(Q[9]),
+        .D(rd_pntr_plus1),
+        .Q(\DEVICE_7SERIES.NO_BMM_INFO.SDP.WIDE_PRIM36_NO_ECC.ram [8]),
         .R(halt_i_reg));
   FDSE #(
     .INIT(1'b1)) 
     \gc0.count_reg[0] 
        (.C(m_axi_mm2s_aclk),
         .CE(E),
-        .D(\gc0.count_reg[0]_i_1_n_7 ),
-        .Q(D[0]),
+        .D(plusOp[0]),
+        .Q(Q[0]),
         .S(halt_i_reg));
-  CARRY4 \gc0.count_reg[0]_i_1 
-       (.CI(1'b0),
-        .CO({\gc0.count_reg[0]_i_1_n_0 ,\gc0.count_reg[0]_i_1_n_1 ,\gc0.count_reg[0]_i_1_n_2 ,\gc0.count_reg[0]_i_1_n_3 }),
-        .CYINIT(1'b0),
-        .DI({1'b0,1'b0,1'b0,1'b1}),
-        .O({\gc0.count_reg[0]_i_1_n_4 ,\gc0.count_reg[0]_i_1_n_5 ,\gc0.count_reg[0]_i_1_n_6 ,\gc0.count_reg[0]_i_1_n_7 }),
-        .S({D[3:1],\gc0.count[0]_i_2_n_0 }));
-  FDRE #(
-    .INIT(1'b0)) 
-    \gc0.count_reg[10] 
-       (.C(m_axi_mm2s_aclk),
-        .CE(E),
-        .D(\gc0.count_reg[8]_i_1_n_5 ),
-        .Q(D[10]),
-        .R(halt_i_reg));
-  FDRE #(
-    .INIT(1'b0)) 
-    \gc0.count_reg[11] 
-       (.C(m_axi_mm2s_aclk),
-        .CE(E),
-        .D(\gc0.count_reg[8]_i_1_n_4 ),
-        .Q(D[11]),
-        .R(halt_i_reg));
-  FDRE #(
-    .INIT(1'b0)) 
-    \gc0.count_reg[12] 
-       (.C(m_axi_mm2s_aclk),
-        .CE(E),
-        .D(\gc0.count_reg[12]_i_1_n_7 ),
-        .Q(D[12]),
-        .R(halt_i_reg));
-  CARRY4 \gc0.count_reg[12]_i_1 
-       (.CI(\gc0.count_reg[8]_i_1_n_0 ),
-        .CO({\NLW_gc0.count_reg[12]_i_1_CO_UNCONNECTED [3:1],\gc0.count_reg[12]_i_1_n_3 }),
-        .CYINIT(1'b0),
-        .DI({1'b0,1'b0,1'b0,1'b0}),
-        .O({\NLW_gc0.count_reg[12]_i_1_O_UNCONNECTED [3:2],\gc0.count_reg[12]_i_1_n_6 ,\gc0.count_reg[12]_i_1_n_7 }),
-        .S({1'b0,1'b0,D[13:12]}));
-  FDRE #(
-    .INIT(1'b0)) 
-    \gc0.count_reg[13] 
-       (.C(m_axi_mm2s_aclk),
-        .CE(E),
-        .D(\gc0.count_reg[12]_i_1_n_6 ),
-        .Q(D[13]),
-        .R(halt_i_reg));
   FDRE #(
     .INIT(1'b0)) 
     \gc0.count_reg[1] 
        (.C(m_axi_mm2s_aclk),
         .CE(E),
-        .D(\gc0.count_reg[0]_i_1_n_6 ),
-        .Q(D[1]),
+        .D(plusOp[1]),
+        .Q(Q[1]),
         .R(halt_i_reg));
   FDRE #(
     .INIT(1'b0)) 
     \gc0.count_reg[2] 
        (.C(m_axi_mm2s_aclk),
         .CE(E),
-        .D(\gc0.count_reg[0]_i_1_n_5 ),
-        .Q(D[2]),
+        .D(plusOp[2]),
+        .Q(Q[2]),
         .R(halt_i_reg));
   FDRE #(
     .INIT(1'b0)) 
     \gc0.count_reg[3] 
        (.C(m_axi_mm2s_aclk),
         .CE(E),
-        .D(\gc0.count_reg[0]_i_1_n_4 ),
-        .Q(D[3]),
+        .D(plusOp[3]),
+        .Q(Q[3]),
         .R(halt_i_reg));
   FDRE #(
     .INIT(1'b0)) 
     \gc0.count_reg[4] 
        (.C(m_axi_mm2s_aclk),
         .CE(E),
-        .D(\gc0.count_reg[4]_i_1_n_7 ),
-        .Q(D[4]),
+        .D(plusOp[4]),
+        .Q(Q[4]),
         .R(halt_i_reg));
-  CARRY4 \gc0.count_reg[4]_i_1 
-       (.CI(\gc0.count_reg[0]_i_1_n_0 ),
-        .CO({\gc0.count_reg[4]_i_1_n_0 ,\gc0.count_reg[4]_i_1_n_1 ,\gc0.count_reg[4]_i_1_n_2 ,\gc0.count_reg[4]_i_1_n_3 }),
-        .CYINIT(1'b0),
-        .DI({1'b0,1'b0,1'b0,1'b0}),
-        .O({\gc0.count_reg[4]_i_1_n_4 ,\gc0.count_reg[4]_i_1_n_5 ,\gc0.count_reg[4]_i_1_n_6 ,\gc0.count_reg[4]_i_1_n_7 }),
-        .S(D[7:4]));
   FDRE #(
     .INIT(1'b0)) 
     \gc0.count_reg[5] 
        (.C(m_axi_mm2s_aclk),
         .CE(E),
-        .D(\gc0.count_reg[4]_i_1_n_6 ),
-        .Q(D[5]),
+        .D(plusOp[5]),
+        .Q(Q[5]),
         .R(halt_i_reg));
   FDRE #(
     .INIT(1'b0)) 
     \gc0.count_reg[6] 
        (.C(m_axi_mm2s_aclk),
         .CE(E),
-        .D(\gc0.count_reg[4]_i_1_n_5 ),
-        .Q(D[6]),
+        .D(plusOp[6]),
+        .Q(Q[6]),
         .R(halt_i_reg));
   FDRE #(
     .INIT(1'b0)) 
     \gc0.count_reg[7] 
        (.C(m_axi_mm2s_aclk),
         .CE(E),
-        .D(\gc0.count_reg[4]_i_1_n_4 ),
-        .Q(D[7]),
+        .D(plusOp[7]),
+        .Q(Q[7]),
         .R(halt_i_reg));
   FDRE #(
     .INIT(1'b0)) 
     \gc0.count_reg[8] 
        (.C(m_axi_mm2s_aclk),
         .CE(E),
-        .D(\gc0.count_reg[8]_i_1_n_7 ),
-        .Q(D[8]),
+        .D(plusOp[8]),
+        .Q(rd_pntr_plus1),
         .R(halt_i_reg));
-  CARRY4 \gc0.count_reg[8]_i_1 
-       (.CI(\gc0.count_reg[4]_i_1_n_0 ),
-        .CO({\gc0.count_reg[8]_i_1_n_0 ,\gc0.count_reg[8]_i_1_n_1 ,\gc0.count_reg[8]_i_1_n_2 ,\gc0.count_reg[8]_i_1_n_3 }),
-        .CYINIT(1'b0),
-        .DI({1'b0,1'b0,1'b0,1'b0}),
-        .O({\gc0.count_reg[8]_i_1_n_4 ,\gc0.count_reg[8]_i_1_n_5 ,\gc0.count_reg[8]_i_1_n_6 ,\gc0.count_reg[8]_i_1_n_7 }),
-        .S(D[11:8]));
-  FDRE #(
-    .INIT(1'b0)) 
-    \gc0.count_reg[9] 
-       (.C(m_axi_mm2s_aclk),
-        .CE(E),
-        .D(\gc0.count_reg[8]_i_1_n_6 ),
-        .Q(D[9]),
-        .R(halt_i_reg));
+  LUT2 #(
+    .INIT(4'h9)) 
+    \gmux.gm[4].gms.ms_i_1 
+       (.I0(\DEVICE_7SERIES.NO_BMM_INFO.SDP.WIDE_PRIM36_NO_ECC.ram [8]),
+        .I1(\gcc0.gc0.count_d1_reg[8] ),
+        .O(ram_full_fb_i_reg));
+  LUT2 #(
+    .INIT(4'h9)) 
+    \gmux.gm[4].gms.ms_i_1__0 
+       (.I0(rd_pntr_plus1),
+        .I1(\gcc0.gc0.count_d1_reg[8] ),
+        .O(ram_empty_i_reg));
+  LUT2 #(
+    .INIT(4'h9)) 
+    \gmux.gm[4].gms.ms_i_1__1 
+       (.I0(\DEVICE_7SERIES.NO_BMM_INFO.SDP.WIDE_PRIM36_NO_ECC.ram [8]),
+        .I1(\gcc0.gc0.count_reg[8] ),
+        .O(ram_full_fb_i_reg_0));
+  LUT2 #(
+    .INIT(4'h9)) 
+    \gmux.gm[4].gms.ms_i_1__2 
+       (.I0(\DEVICE_7SERIES.NO_BMM_INFO.SDP.WIDE_PRIM36_NO_ECC.ram [8]),
+        .I1(\gcc0.gc0.count_d1_reg[8] ),
+        .O(ram_empty_i_reg_0));
 endmodule
 
 (* ORIG_REF_NAME = "rd_fwft" *) 
 module system_axi_vdma_0_0_rd_fwft
    (out,
+    tmp_ram_rd_en,
     E,
-    \DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram ,
+    \DEVICE_7SERIES.NO_BMM_INFO.SDP.WIDE_PRIM36_NO_ECC.ram ,
     halt_i_reg,
     m_axi_mm2s_aclk,
     sig_s_ready_out_reg,
@@ -50167,8 +43650,9 @@ module system_axi_vdma_0_0_rd_fwft
     prmry_resetn_i_reg,
     mm2s_halt);
   output out;
+  output tmp_ram_rd_en;
   output [0:0]E;
-  output \DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram ;
+  output \DEVICE_7SERIES.NO_BMM_INFO.SDP.WIDE_PRIM36_NO_ECC.ram ;
   input halt_i_reg;
   input m_axi_mm2s_aclk;
   input sig_s_ready_out_reg;
@@ -50176,7 +43660,7 @@ module system_axi_vdma_0_0_rd_fwft
   input prmry_resetn_i_reg;
   input mm2s_halt;
 
-  wire \DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram ;
+  wire \DEVICE_7SERIES.NO_BMM_INFO.SDP.WIDE_PRIM36_NO_ECC.ram ;
   wire [0:0]E;
   (* DONT_TOUCH *) wire aempty_fwft_fb_i;
   (* DONT_TOUCH *) wire aempty_fwft_i;
@@ -50194,19 +43678,30 @@ module system_axi_vdma_0_0_rd_fwft
   wire prmry_resetn_i_reg;
   wire ram_empty_fb_i_reg;
   wire sig_s_ready_out_reg;
+  wire tmp_ram_rd_en;
   (* DONT_TOUCH *) wire user_valid;
 
   assign out = empty_fwft_i;
   LUT6 #(
+    .INIT(64'h0000000004555555)) 
+    \DEVICE_7SERIES.NO_BMM_INFO.SDP.WIDE_PRIM36_NO_ECC.ram_i_1 
+       (.I0(ram_empty_fb_i_reg),
+        .I1(sig_s_ready_out_reg),
+        .I2(empty_fwft_i),
+        .I3(curr_fwft_state[1]),
+        .I4(curr_fwft_state[0]),
+        .I5(halt_i_reg),
+        .O(tmp_ram_rd_en));
+  LUT6 #(
     .INIT(64'h000000004F000000)) 
-    \DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_i_3 
+    \DEVICE_7SERIES.NO_BMM_INFO.SDP.WIDE_PRIM36_NO_ECC.ram_i_3 
        (.I0(empty_fwft_i),
         .I1(sig_s_ready_out_reg),
         .I2(curr_fwft_state[0]),
         .I3(curr_fwft_state[1]),
         .I4(prmry_resetn_i_reg),
         .I5(mm2s_halt),
-        .O(\DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram ));
+        .O(\DEVICE_7SERIES.NO_BMM_INFO.SDP.WIDE_PRIM36_NO_ECC.ram ));
   LUT6 #(
     .INIT(64'hFFFFF02F20000000)) 
     aempty_fwft_fb_i_i_1
@@ -50292,7 +43787,7 @@ module system_axi_vdma_0_0_rd_fwft
         .S(halt_i_reg));
   LUT5 #(
     .INIT(32'h04555555)) 
-    \gc0.count_d1[13]_i_2 
+    \gc0.count_d1[8]_i_1 
        (.I0(ram_empty_fb_i_reg),
         .I1(sig_s_ready_out_reg),
         .I2(empty_fwft_i),
@@ -50309,7 +43804,7 @@ module system_axi_vdma_0_0_rd_fwft
         .O(next_fwft_state[0]));
   LUT5 #(
     .INIT(32'hA200FFFF)) 
-    \gpregsm1.curr_fwft_state[1]_i_1 
+    \gpregsm1.curr_fwft_state[1]_i_2 
        (.I0(curr_fwft_state[1]),
         .I1(sig_s_ready_out_reg),
         .I2(empty_fwft_i),
@@ -50354,195 +43849,169 @@ endmodule
 (* ORIG_REF_NAME = "rd_logic" *) 
 module system_axi_vdma_0_0_rd_logic
    (out,
-    \gpregsm1.curr_fwft_state_reg[1] ,
-    D,
-    p_7_out,
-    enb_array,
+    E,
     Q,
-    \DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram ,
-    \DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_0 ,
-    \DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_1 ,
+    tmp_ram_rd_en,
+    \DEVICE_7SERIES.NO_BMM_INFO.SDP.WIDE_PRIM36_NO_ECC.ram ,
+    ram_full_fb_i_reg,
+    \DEVICE_7SERIES.NO_BMM_INFO.SDP.WIDE_PRIM36_NO_ECC.ram_0 ,
+    ram_full_fb_i_reg_0,
     \gcc0.gc0.count_d1_reg[0] ,
     \gcc0.gc0.count_d1_reg[2] ,
     \gcc0.gc0.count_d1_reg[4] ,
     \gcc0.gc0.count_d1_reg[6] ,
-    \gcc0.gc0.count_d1_reg[8] ,
-    \gcc0.gc0.count_d1_reg[10] ,
-    \gcc0.gc0.count_d1_reg[12] ,
     v1_reg,
     halt_i_reg,
     m_axi_mm2s_aclk,
     sig_s_ready_out_reg,
     \GEN_FREE_RUN_MODE.frame_sync_i_reg ,
     prmry_resetn_i_reg,
-    mm2s_halt);
+    mm2s_halt,
+    \gcc0.gc0.count_d1_reg[8] ,
+    \gcc0.gc0.count_reg[8] );
   output out;
-  output \gpregsm1.curr_fwft_state_reg[1] ;
-  output [13:0]D;
-  output p_7_out;
-  output [2:0]enb_array;
-  output [13:0]Q;
-  output \DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram ;
-  output \DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_0 ;
-  output \DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_1 ;
+  output [0:0]E;
+  output [7:0]Q;
+  output tmp_ram_rd_en;
+  output \DEVICE_7SERIES.NO_BMM_INFO.SDP.WIDE_PRIM36_NO_ECC.ram ;
+  output ram_full_fb_i_reg;
+  output [8:0]\DEVICE_7SERIES.NO_BMM_INFO.SDP.WIDE_PRIM36_NO_ECC.ram_0 ;
+  output ram_full_fb_i_reg_0;
   input \gcc0.gc0.count_d1_reg[0] ;
   input \gcc0.gc0.count_d1_reg[2] ;
   input \gcc0.gc0.count_d1_reg[4] ;
   input \gcc0.gc0.count_d1_reg[6] ;
-  input \gcc0.gc0.count_d1_reg[8] ;
-  input \gcc0.gc0.count_d1_reg[10] ;
-  input \gcc0.gc0.count_d1_reg[12] ;
-  input [6:0]v1_reg;
+  input [3:0]v1_reg;
   input halt_i_reg;
   input m_axi_mm2s_aclk;
   input sig_s_ready_out_reg;
   input \GEN_FREE_RUN_MODE.frame_sync_i_reg ;
   input prmry_resetn_i_reg;
   input mm2s_halt;
+  input [0:0]\gcc0.gc0.count_d1_reg[8] ;
+  input [0:0]\gcc0.gc0.count_reg[8] ;
 
-  wire [13:0]D;
-  wire \DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram ;
-  wire \DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_0 ;
-  wire \DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_1 ;
+  wire \DEVICE_7SERIES.NO_BMM_INFO.SDP.WIDE_PRIM36_NO_ECC.ram ;
+  wire [8:0]\DEVICE_7SERIES.NO_BMM_INFO.SDP.WIDE_PRIM36_NO_ECC.ram_0 ;
+  wire [0:0]E;
   wire \GEN_FREE_RUN_MODE.frame_sync_i_reg ;
-  wire [13:0]Q;
-  wire [2:0]enb_array;
+  wire [7:0]Q;
   wire \gcc0.gc0.count_d1_reg[0] ;
-  wire \gcc0.gc0.count_d1_reg[10] ;
-  wire \gcc0.gc0.count_d1_reg[12] ;
   wire \gcc0.gc0.count_d1_reg[2] ;
   wire \gcc0.gc0.count_d1_reg[4] ;
   wire \gcc0.gc0.count_d1_reg[6] ;
-  wire \gcc0.gc0.count_d1_reg[8] ;
-  wire \gpregsm1.curr_fwft_state_reg[1] ;
+  wire [0:0]\gcc0.gc0.count_d1_reg[8] ;
+  wire [0:0]\gcc0.gc0.count_reg[8] ;
   wire halt_i_reg;
   wire m_axi_mm2s_aclk;
   wire mm2s_halt;
   wire out;
-  wire p_7_out;
+  wire p_2_out;
   wire prmry_resetn_i_reg;
+  wire ram_full_fb_i_reg;
+  wire ram_full_fb_i_reg_0;
+  wire rpntr_n_18;
+  wire rpntr_n_20;
   wire sig_s_ready_out_reg;
-  wire [6:0]v1_reg;
+  wire tmp_ram_rd_en;
+  wire [3:0]v1_reg;
 
   system_axi_vdma_0_0_rd_fwft \gr1.gr1_int.rfwft 
-       (.\DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram (\DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_1 ),
-        .E(p_7_out),
+       (.\DEVICE_7SERIES.NO_BMM_INFO.SDP.WIDE_PRIM36_NO_ECC.ram (\DEVICE_7SERIES.NO_BMM_INFO.SDP.WIDE_PRIM36_NO_ECC.ram ),
+        .E(E),
         .halt_i_reg(halt_i_reg),
         .m_axi_mm2s_aclk(m_axi_mm2s_aclk),
         .mm2s_halt(mm2s_halt),
-        .out(\gpregsm1.curr_fwft_state_reg[1] ),
+        .out(out),
         .prmry_resetn_i_reg(prmry_resetn_i_reg),
-        .ram_empty_fb_i_reg(out),
-        .sig_s_ready_out_reg(sig_s_ready_out_reg));
+        .ram_empty_fb_i_reg(p_2_out),
+        .sig_s_ready_out_reg(sig_s_ready_out_reg),
+        .tmp_ram_rd_en(tmp_ram_rd_en));
   system_axi_vdma_0_0_rd_status_flags_ss \grss.rsts 
-       (.\DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram (\DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram ),
-        .E(p_7_out),
+       (.E(E),
         .\GEN_FREE_RUN_MODE.frame_sync_i_reg (\GEN_FREE_RUN_MODE.frame_sync_i_reg ),
+        .\gc0.count_d1_reg[8] (rpntr_n_20),
+        .\gc0.count_reg[8] (rpntr_n_18),
         .\gcc0.gc0.count_d1_reg[0] (\gcc0.gc0.count_d1_reg[0] ),
-        .\gcc0.gc0.count_d1_reg[10] (\gcc0.gc0.count_d1_reg[10] ),
-        .\gcc0.gc0.count_d1_reg[12] (\gcc0.gc0.count_d1_reg[12] ),
         .\gcc0.gc0.count_d1_reg[2] (\gcc0.gc0.count_d1_reg[2] ),
         .\gcc0.gc0.count_d1_reg[4] (\gcc0.gc0.count_d1_reg[4] ),
         .\gcc0.gc0.count_d1_reg[6] (\gcc0.gc0.count_d1_reg[6] ),
-        .\gcc0.gc0.count_d1_reg[8] (\gcc0.gc0.count_d1_reg[8] ),
         .halt_i_reg(halt_i_reg),
         .m_axi_mm2s_aclk(m_axi_mm2s_aclk),
-        .mm2s_halt(mm2s_halt),
-        .out(out),
-        .prmry_resetn_i_reg(prmry_resetn_i_reg),
+        .out(p_2_out),
         .v1_reg(v1_reg));
   system_axi_vdma_0_0_rd_bin_cntr rpntr
-       (.D(D),
-        .\DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram (\DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_0 ),
-        .E(p_7_out),
+       (.\DEVICE_7SERIES.NO_BMM_INFO.SDP.WIDE_PRIM36_NO_ECC.ram (\DEVICE_7SERIES.NO_BMM_INFO.SDP.WIDE_PRIM36_NO_ECC.ram_0 ),
+        .E(E),
         .Q(Q),
-        .enb_array(enb_array),
+        .\gcc0.gc0.count_d1_reg[8] (\gcc0.gc0.count_d1_reg[8] ),
+        .\gcc0.gc0.count_reg[8] (\gcc0.gc0.count_reg[8] ),
         .halt_i_reg(halt_i_reg),
         .m_axi_mm2s_aclk(m_axi_mm2s_aclk),
-        .mm2s_halt(mm2s_halt),
-        .out(out),
-        .prmry_resetn_i_reg(prmry_resetn_i_reg));
+        .ram_empty_i_reg(rpntr_n_18),
+        .ram_empty_i_reg_0(rpntr_n_20),
+        .ram_full_fb_i_reg(ram_full_fb_i_reg),
+        .ram_full_fb_i_reg_0(ram_full_fb_i_reg_0));
 endmodule
 
 (* ORIG_REF_NAME = "rd_status_flags_ss" *) 
 module system_axi_vdma_0_0_rd_status_flags_ss
    (out,
-    \DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram ,
     \gcc0.gc0.count_d1_reg[0] ,
     \gcc0.gc0.count_d1_reg[2] ,
     \gcc0.gc0.count_d1_reg[4] ,
     \gcc0.gc0.count_d1_reg[6] ,
-    \gcc0.gc0.count_d1_reg[8] ,
-    \gcc0.gc0.count_d1_reg[10] ,
-    \gcc0.gc0.count_d1_reg[12] ,
+    \gc0.count_d1_reg[8] ,
     v1_reg,
+    \gc0.count_reg[8] ,
     halt_i_reg,
     m_axi_mm2s_aclk,
     E,
-    \GEN_FREE_RUN_MODE.frame_sync_i_reg ,
-    mm2s_halt,
-    prmry_resetn_i_reg);
+    \GEN_FREE_RUN_MODE.frame_sync_i_reg );
   output out;
-  output \DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram ;
   input \gcc0.gc0.count_d1_reg[0] ;
   input \gcc0.gc0.count_d1_reg[2] ;
   input \gcc0.gc0.count_d1_reg[4] ;
   input \gcc0.gc0.count_d1_reg[6] ;
-  input \gcc0.gc0.count_d1_reg[8] ;
-  input \gcc0.gc0.count_d1_reg[10] ;
-  input \gcc0.gc0.count_d1_reg[12] ;
-  input [6:0]v1_reg;
+  input \gc0.count_d1_reg[8] ;
+  input [3:0]v1_reg;
+  input \gc0.count_reg[8] ;
   input halt_i_reg;
   input m_axi_mm2s_aclk;
   input [0:0]E;
   input \GEN_FREE_RUN_MODE.frame_sync_i_reg ;
-  input mm2s_halt;
-  input prmry_resetn_i_reg;
 
-  wire \DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram ;
   wire [0:0]E;
   wire \GEN_FREE_RUN_MODE.frame_sync_i_reg ;
   wire c1_n_0;
   wire comp1;
+  wire \gc0.count_d1_reg[8] ;
+  wire \gc0.count_reg[8] ;
   wire \gcc0.gc0.count_d1_reg[0] ;
-  wire \gcc0.gc0.count_d1_reg[10] ;
-  wire \gcc0.gc0.count_d1_reg[12] ;
   wire \gcc0.gc0.count_d1_reg[2] ;
   wire \gcc0.gc0.count_d1_reg[4] ;
   wire \gcc0.gc0.count_d1_reg[6] ;
-  wire \gcc0.gc0.count_d1_reg[8] ;
   wire halt_i_reg;
   wire m_axi_mm2s_aclk;
-  wire mm2s_halt;
-  wire prmry_resetn_i_reg;
   (* DONT_TOUCH *) wire ram_empty_fb_i;
   (* DONT_TOUCH *) wire ram_empty_i;
-  wire [6:0]v1_reg;
+  wire [3:0]v1_reg;
 
   assign out = ram_empty_fb_i;
-  LUT4 #(
-    .INIT(16'h0400)) 
-    \DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_i_2__2 
-       (.I0(ram_empty_fb_i),
-        .I1(E),
-        .I2(mm2s_halt),
-        .I3(prmry_resetn_i_reg),
-        .O(\DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram ));
   system_axi_vdma_0_0_compare_15 c1
        (.E(E),
         .\GEN_FREE_RUN_MODE.frame_sync_i_reg (\GEN_FREE_RUN_MODE.frame_sync_i_reg ),
         .comp1(comp1),
+        .\gc0.count_d1_reg[8] (\gc0.count_d1_reg[8] ),
         .\gcc0.gc0.count_d1_reg[0] (\gcc0.gc0.count_d1_reg[0] ),
-        .\gcc0.gc0.count_d1_reg[10] (\gcc0.gc0.count_d1_reg[10] ),
-        .\gcc0.gc0.count_d1_reg[12] (\gcc0.gc0.count_d1_reg[12] ),
         .\gcc0.gc0.count_d1_reg[2] (\gcc0.gc0.count_d1_reg[2] ),
         .\gcc0.gc0.count_d1_reg[4] (\gcc0.gc0.count_d1_reg[4] ),
         .\gcc0.gc0.count_d1_reg[6] (\gcc0.gc0.count_d1_reg[6] ),
-        .\gcc0.gc0.count_d1_reg[8] (\gcc0.gc0.count_d1_reg[8] ),
         .out(ram_empty_fb_i),
         .ram_empty_i_reg(c1_n_0));
   system_axi_vdma_0_0_compare_16 c2
        (.comp1(comp1),
+        .\gc0.count_reg[8] (\gc0.count_reg[8] ),
         .v1_reg(v1_reg));
   (* DONT_TOUCH *) 
   (* KEEP = "yes" *) 
@@ -50570,168 +44039,142 @@ endmodule
 
 (* ORIG_REF_NAME = "wr_bin_cntr" *) 
 module system_axi_vdma_0_0_wr_bin_cntr
-   (ena_array,
-    Q,
+   (Q,
     v1_reg_0,
+    \DEVICE_7SERIES.NO_BMM_INFO.SDP.WIDE_PRIM36_NO_ECC.ram ,
     v1_reg,
     v1_reg_1,
     ram_empty_i_reg,
     ram_empty_i_reg_0,
     ram_empty_i_reg_1,
     ram_empty_i_reg_2,
-    ram_empty_i_reg_3,
-    ram_empty_i_reg_4,
-    ram_empty_i_reg_5,
-    \DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram ,
+    \gc0.count_d1_reg[7] ,
+    \gc0.count_reg[7] ,
     halt_i_reg,
     \GEN_FREE_RUN_MODE.frame_sync_i_reg ,
-    m_axi_mm2s_aclk,
-    \GEN_FREE_RUN_MODE.frame_sync_i_reg_0 ,
-    \gc0.count_d1_reg[13] ,
-    D);
-  output [2:0]ena_array;
-  output [13:0]Q;
-  output [6:0]v1_reg_0;
-  output [6:0]v1_reg;
-  output [6:0]v1_reg_1;
+    m_axi_mm2s_aclk);
+  output [0:0]Q;
+  output [3:0]v1_reg_0;
+  output [8:0]\DEVICE_7SERIES.NO_BMM_INFO.SDP.WIDE_PRIM36_NO_ECC.ram ;
+  output [3:0]v1_reg;
+  output [3:0]v1_reg_1;
   output ram_empty_i_reg;
   output ram_empty_i_reg_0;
   output ram_empty_i_reg_1;
   output ram_empty_i_reg_2;
-  output ram_empty_i_reg_3;
-  output ram_empty_i_reg_4;
-  output ram_empty_i_reg_5;
-  output \DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram ;
+  input [7:0]\gc0.count_d1_reg[7] ;
+  input [7:0]\gc0.count_reg[7] ;
   input halt_i_reg;
   input \GEN_FREE_RUN_MODE.frame_sync_i_reg ;
   input m_axi_mm2s_aclk;
-  input \GEN_FREE_RUN_MODE.frame_sync_i_reg_0 ;
-  input [13:0]\gc0.count_d1_reg[13] ;
-  input [13:0]D;
 
-  wire [13:0]D;
-  wire \DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram ;
+  wire [8:0]\DEVICE_7SERIES.NO_BMM_INFO.SDP.WIDE_PRIM36_NO_ECC.ram ;
   wire \GEN_FREE_RUN_MODE.frame_sync_i_reg ;
-  wire \GEN_FREE_RUN_MODE.frame_sync_i_reg_0 ;
-  wire [13:0]Q;
-  wire [2:0]ena_array;
-  wire [13:0]\gc0.count_d1_reg[13] ;
-  wire \gcc0.gc0.count[0]_i_2_n_0 ;
-  wire \gcc0.gc0.count_reg[0]_i_1_n_0 ;
-  wire \gcc0.gc0.count_reg[0]_i_1_n_1 ;
-  wire \gcc0.gc0.count_reg[0]_i_1_n_2 ;
-  wire \gcc0.gc0.count_reg[0]_i_1_n_3 ;
-  wire \gcc0.gc0.count_reg[0]_i_1_n_4 ;
-  wire \gcc0.gc0.count_reg[0]_i_1_n_5 ;
-  wire \gcc0.gc0.count_reg[0]_i_1_n_6 ;
-  wire \gcc0.gc0.count_reg[0]_i_1_n_7 ;
-  wire \gcc0.gc0.count_reg[12]_i_1_n_3 ;
-  wire \gcc0.gc0.count_reg[12]_i_1_n_6 ;
-  wire \gcc0.gc0.count_reg[12]_i_1_n_7 ;
-  wire \gcc0.gc0.count_reg[4]_i_1_n_0 ;
-  wire \gcc0.gc0.count_reg[4]_i_1_n_1 ;
-  wire \gcc0.gc0.count_reg[4]_i_1_n_2 ;
-  wire \gcc0.gc0.count_reg[4]_i_1_n_3 ;
-  wire \gcc0.gc0.count_reg[4]_i_1_n_4 ;
-  wire \gcc0.gc0.count_reg[4]_i_1_n_5 ;
-  wire \gcc0.gc0.count_reg[4]_i_1_n_6 ;
-  wire \gcc0.gc0.count_reg[4]_i_1_n_7 ;
-  wire \gcc0.gc0.count_reg[8]_i_1_n_0 ;
-  wire \gcc0.gc0.count_reg[8]_i_1_n_1 ;
-  wire \gcc0.gc0.count_reg[8]_i_1_n_2 ;
-  wire \gcc0.gc0.count_reg[8]_i_1_n_3 ;
-  wire \gcc0.gc0.count_reg[8]_i_1_n_4 ;
-  wire \gcc0.gc0.count_reg[8]_i_1_n_5 ;
-  wire \gcc0.gc0.count_reg[8]_i_1_n_6 ;
-  wire \gcc0.gc0.count_reg[8]_i_1_n_7 ;
+  wire [0:0]Q;
+  wire [7:0]\gc0.count_d1_reg[7] ;
+  wire [7:0]\gc0.count_reg[7] ;
+  wire \gcc0.gc0.count[8]_i_2_n_0 ;
   wire halt_i_reg;
   wire m_axi_mm2s_aclk;
-  wire [13:0]p_12_out_0;
+  wire [7:0]p_12_out_0;
+  wire [8:0]plusOp__0;
   wire ram_empty_i_reg;
   wire ram_empty_i_reg_0;
   wire ram_empty_i_reg_1;
   wire ram_empty_i_reg_2;
-  wire ram_empty_i_reg_3;
-  wire ram_empty_i_reg_4;
-  wire ram_empty_i_reg_5;
-  wire [6:0]v1_reg;
-  wire [6:0]v1_reg_0;
-  wire [6:0]v1_reg_1;
-  wire [3:1]\NLW_gcc0.gc0.count_reg[12]_i_1_CO_UNCONNECTED ;
-  wire [3:2]\NLW_gcc0.gc0.count_reg[12]_i_1_O_UNCONNECTED ;
+  wire [3:0]v1_reg;
+  wire [3:0]v1_reg_0;
+  wire [3:0]v1_reg_1;
 
-  LUT3 #(
-    .INIT(8'h40)) 
-    \DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_i_1 
-       (.I0(Q[12]),
-        .I1(\GEN_FREE_RUN_MODE.frame_sync_i_reg_0 ),
-        .I2(Q[13]),
-        .O(ena_array[2]));
-  LUT3 #(
-    .INIT(8'h02)) 
-    \DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_i_1__0 
-       (.I0(\GEN_FREE_RUN_MODE.frame_sync_i_reg_0 ),
-        .I1(Q[12]),
-        .I2(Q[13]),
-        .O(ena_array[0]));
-  LUT3 #(
-    .INIT(8'h40)) 
-    \DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_i_1__1 
-       (.I0(Q[13]),
-        .I1(Q[12]),
-        .I2(\GEN_FREE_RUN_MODE.frame_sync_i_reg_0 ),
-        .O(ena_array[1]));
-  LUT3 #(
-    .INIT(8'h80)) 
-    \DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_i_1__2 
-       (.I0(Q[13]),
-        .I1(Q[12]),
-        .I2(\GEN_FREE_RUN_MODE.frame_sync_i_reg_0 ),
-        .O(\DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram ));
   LUT1 #(
     .INIT(2'h1)) 
-    \gcc0.gc0.count[0]_i_2 
+    \gcc0.gc0.count[0]_i_1 
        (.I0(p_12_out_0[0]),
-        .O(\gcc0.gc0.count[0]_i_2_n_0 ));
+        .O(plusOp__0[0]));
+  (* SOFT_HLUTNM = "soft_lutpair51" *) 
+  LUT2 #(
+    .INIT(4'h6)) 
+    \gcc0.gc0.count[1]_i_1 
+       (.I0(p_12_out_0[0]),
+        .I1(p_12_out_0[1]),
+        .O(plusOp__0[1]));
+  (* SOFT_HLUTNM = "soft_lutpair51" *) 
+  LUT3 #(
+    .INIT(8'h78)) 
+    \gcc0.gc0.count[2]_i_1 
+       (.I0(p_12_out_0[0]),
+        .I1(p_12_out_0[1]),
+        .I2(p_12_out_0[2]),
+        .O(plusOp__0[2]));
+  (* SOFT_HLUTNM = "soft_lutpair49" *) 
+  LUT4 #(
+    .INIT(16'h7F80)) 
+    \gcc0.gc0.count[3]_i_1 
+       (.I0(p_12_out_0[1]),
+        .I1(p_12_out_0[0]),
+        .I2(p_12_out_0[2]),
+        .I3(p_12_out_0[3]),
+        .O(plusOp__0[3]));
+  (* SOFT_HLUTNM = "soft_lutpair49" *) 
+  LUT5 #(
+    .INIT(32'h7FFF8000)) 
+    \gcc0.gc0.count[4]_i_1 
+       (.I0(p_12_out_0[2]),
+        .I1(p_12_out_0[0]),
+        .I2(p_12_out_0[1]),
+        .I3(p_12_out_0[3]),
+        .I4(p_12_out_0[4]),
+        .O(plusOp__0[4]));
+  LUT6 #(
+    .INIT(64'h7FFFFFFF80000000)) 
+    \gcc0.gc0.count[5]_i_1 
+       (.I0(p_12_out_0[3]),
+        .I1(p_12_out_0[1]),
+        .I2(p_12_out_0[0]),
+        .I3(p_12_out_0[2]),
+        .I4(p_12_out_0[4]),
+        .I5(p_12_out_0[5]),
+        .O(plusOp__0[5]));
+  LUT2 #(
+    .INIT(4'h6)) 
+    \gcc0.gc0.count[6]_i_1 
+       (.I0(\gcc0.gc0.count[8]_i_2_n_0 ),
+        .I1(p_12_out_0[6]),
+        .O(plusOp__0[6]));
+  (* SOFT_HLUTNM = "soft_lutpair50" *) 
+  LUT3 #(
+    .INIT(8'h78)) 
+    \gcc0.gc0.count[7]_i_1 
+       (.I0(\gcc0.gc0.count[8]_i_2_n_0 ),
+        .I1(p_12_out_0[6]),
+        .I2(p_12_out_0[7]),
+        .O(plusOp__0[7]));
+  (* SOFT_HLUTNM = "soft_lutpair50" *) 
+  LUT4 #(
+    .INIT(16'h7F80)) 
+    \gcc0.gc0.count[8]_i_1 
+       (.I0(p_12_out_0[6]),
+        .I1(\gcc0.gc0.count[8]_i_2_n_0 ),
+        .I2(p_12_out_0[7]),
+        .I3(Q),
+        .O(plusOp__0[8]));
+  LUT6 #(
+    .INIT(64'h8000000000000000)) 
+    \gcc0.gc0.count[8]_i_2 
+       (.I0(p_12_out_0[5]),
+        .I1(p_12_out_0[3]),
+        .I2(p_12_out_0[1]),
+        .I3(p_12_out_0[0]),
+        .I4(p_12_out_0[2]),
+        .I5(p_12_out_0[4]),
+        .O(\gcc0.gc0.count[8]_i_2_n_0 ));
   FDRE #(
     .INIT(1'b0)) 
     \gcc0.gc0.count_d1_reg[0] 
        (.C(m_axi_mm2s_aclk),
         .CE(\GEN_FREE_RUN_MODE.frame_sync_i_reg ),
         .D(p_12_out_0[0]),
-        .Q(Q[0]),
-        .R(halt_i_reg));
-  FDRE #(
-    .INIT(1'b0)) 
-    \gcc0.gc0.count_d1_reg[10] 
-       (.C(m_axi_mm2s_aclk),
-        .CE(\GEN_FREE_RUN_MODE.frame_sync_i_reg ),
-        .D(p_12_out_0[10]),
-        .Q(Q[10]),
-        .R(halt_i_reg));
-  FDRE #(
-    .INIT(1'b0)) 
-    \gcc0.gc0.count_d1_reg[11] 
-       (.C(m_axi_mm2s_aclk),
-        .CE(\GEN_FREE_RUN_MODE.frame_sync_i_reg ),
-        .D(p_12_out_0[11]),
-        .Q(Q[11]),
-        .R(halt_i_reg));
-  FDRE #(
-    .INIT(1'b0)) 
-    \gcc0.gc0.count_d1_reg[12] 
-       (.C(m_axi_mm2s_aclk),
-        .CE(\GEN_FREE_RUN_MODE.frame_sync_i_reg ),
-        .D(p_12_out_0[12]),
-        .Q(Q[12]),
-        .R(halt_i_reg));
-  FDRE #(
-    .INIT(1'b0)) 
-    \gcc0.gc0.count_d1_reg[13] 
-       (.C(m_axi_mm2s_aclk),
-        .CE(\GEN_FREE_RUN_MODE.frame_sync_i_reg ),
-        .D(p_12_out_0[13]),
-        .Q(Q[13]),
+        .Q(\DEVICE_7SERIES.NO_BMM_INFO.SDP.WIDE_PRIM36_NO_ECC.ram [0]),
         .R(halt_i_reg));
   FDRE #(
     .INIT(1'b0)) 
@@ -50739,7 +44182,7 @@ module system_axi_vdma_0_0_wr_bin_cntr
        (.C(m_axi_mm2s_aclk),
         .CE(\GEN_FREE_RUN_MODE.frame_sync_i_reg ),
         .D(p_12_out_0[1]),
-        .Q(Q[1]),
+        .Q(\DEVICE_7SERIES.NO_BMM_INFO.SDP.WIDE_PRIM36_NO_ECC.ram [1]),
         .R(halt_i_reg));
   FDRE #(
     .INIT(1'b0)) 
@@ -50747,7 +44190,7 @@ module system_axi_vdma_0_0_wr_bin_cntr
        (.C(m_axi_mm2s_aclk),
         .CE(\GEN_FREE_RUN_MODE.frame_sync_i_reg ),
         .D(p_12_out_0[2]),
-        .Q(Q[2]),
+        .Q(\DEVICE_7SERIES.NO_BMM_INFO.SDP.WIDE_PRIM36_NO_ECC.ram [2]),
         .R(halt_i_reg));
   FDRE #(
     .INIT(1'b0)) 
@@ -50755,7 +44198,7 @@ module system_axi_vdma_0_0_wr_bin_cntr
        (.C(m_axi_mm2s_aclk),
         .CE(\GEN_FREE_RUN_MODE.frame_sync_i_reg ),
         .D(p_12_out_0[3]),
-        .Q(Q[3]),
+        .Q(\DEVICE_7SERIES.NO_BMM_INFO.SDP.WIDE_PRIM36_NO_ECC.ram [3]),
         .R(halt_i_reg));
   FDRE #(
     .INIT(1'b0)) 
@@ -50763,7 +44206,7 @@ module system_axi_vdma_0_0_wr_bin_cntr
        (.C(m_axi_mm2s_aclk),
         .CE(\GEN_FREE_RUN_MODE.frame_sync_i_reg ),
         .D(p_12_out_0[4]),
-        .Q(Q[4]),
+        .Q(\DEVICE_7SERIES.NO_BMM_INFO.SDP.WIDE_PRIM36_NO_ECC.ram [4]),
         .R(halt_i_reg));
   FDRE #(
     .INIT(1'b0)) 
@@ -50771,7 +44214,7 @@ module system_axi_vdma_0_0_wr_bin_cntr
        (.C(m_axi_mm2s_aclk),
         .CE(\GEN_FREE_RUN_MODE.frame_sync_i_reg ),
         .D(p_12_out_0[5]),
-        .Q(Q[5]),
+        .Q(\DEVICE_7SERIES.NO_BMM_INFO.SDP.WIDE_PRIM36_NO_ECC.ram [5]),
         .R(halt_i_reg));
   FDRE #(
     .INIT(1'b0)) 
@@ -50779,7 +44222,7 @@ module system_axi_vdma_0_0_wr_bin_cntr
        (.C(m_axi_mm2s_aclk),
         .CE(\GEN_FREE_RUN_MODE.frame_sync_i_reg ),
         .D(p_12_out_0[6]),
-        .Q(Q[6]),
+        .Q(\DEVICE_7SERIES.NO_BMM_INFO.SDP.WIDE_PRIM36_NO_ECC.ram [6]),
         .R(halt_i_reg));
   FDRE #(
     .INIT(1'b0)) 
@@ -50787,84 +44230,30 @@ module system_axi_vdma_0_0_wr_bin_cntr
        (.C(m_axi_mm2s_aclk),
         .CE(\GEN_FREE_RUN_MODE.frame_sync_i_reg ),
         .D(p_12_out_0[7]),
-        .Q(Q[7]),
+        .Q(\DEVICE_7SERIES.NO_BMM_INFO.SDP.WIDE_PRIM36_NO_ECC.ram [7]),
         .R(halt_i_reg));
   FDRE #(
     .INIT(1'b0)) 
     \gcc0.gc0.count_d1_reg[8] 
        (.C(m_axi_mm2s_aclk),
         .CE(\GEN_FREE_RUN_MODE.frame_sync_i_reg ),
-        .D(p_12_out_0[8]),
-        .Q(Q[8]),
-        .R(halt_i_reg));
-  FDRE #(
-    .INIT(1'b0)) 
-    \gcc0.gc0.count_d1_reg[9] 
-       (.C(m_axi_mm2s_aclk),
-        .CE(\GEN_FREE_RUN_MODE.frame_sync_i_reg ),
-        .D(p_12_out_0[9]),
-        .Q(Q[9]),
+        .D(Q),
+        .Q(\DEVICE_7SERIES.NO_BMM_INFO.SDP.WIDE_PRIM36_NO_ECC.ram [8]),
         .R(halt_i_reg));
   FDSE #(
     .INIT(1'b1)) 
     \gcc0.gc0.count_reg[0] 
        (.C(m_axi_mm2s_aclk),
         .CE(\GEN_FREE_RUN_MODE.frame_sync_i_reg ),
-        .D(\gcc0.gc0.count_reg[0]_i_1_n_7 ),
+        .D(plusOp__0[0]),
         .Q(p_12_out_0[0]),
         .S(halt_i_reg));
-  CARRY4 \gcc0.gc0.count_reg[0]_i_1 
-       (.CI(1'b0),
-        .CO({\gcc0.gc0.count_reg[0]_i_1_n_0 ,\gcc0.gc0.count_reg[0]_i_1_n_1 ,\gcc0.gc0.count_reg[0]_i_1_n_2 ,\gcc0.gc0.count_reg[0]_i_1_n_3 }),
-        .CYINIT(1'b0),
-        .DI({1'b0,1'b0,1'b0,1'b1}),
-        .O({\gcc0.gc0.count_reg[0]_i_1_n_4 ,\gcc0.gc0.count_reg[0]_i_1_n_5 ,\gcc0.gc0.count_reg[0]_i_1_n_6 ,\gcc0.gc0.count_reg[0]_i_1_n_7 }),
-        .S({p_12_out_0[3:1],\gcc0.gc0.count[0]_i_2_n_0 }));
-  FDRE #(
-    .INIT(1'b0)) 
-    \gcc0.gc0.count_reg[10] 
-       (.C(m_axi_mm2s_aclk),
-        .CE(\GEN_FREE_RUN_MODE.frame_sync_i_reg ),
-        .D(\gcc0.gc0.count_reg[8]_i_1_n_5 ),
-        .Q(p_12_out_0[10]),
-        .R(halt_i_reg));
-  FDRE #(
-    .INIT(1'b0)) 
-    \gcc0.gc0.count_reg[11] 
-       (.C(m_axi_mm2s_aclk),
-        .CE(\GEN_FREE_RUN_MODE.frame_sync_i_reg ),
-        .D(\gcc0.gc0.count_reg[8]_i_1_n_4 ),
-        .Q(p_12_out_0[11]),
-        .R(halt_i_reg));
-  FDRE #(
-    .INIT(1'b0)) 
-    \gcc0.gc0.count_reg[12] 
-       (.C(m_axi_mm2s_aclk),
-        .CE(\GEN_FREE_RUN_MODE.frame_sync_i_reg ),
-        .D(\gcc0.gc0.count_reg[12]_i_1_n_7 ),
-        .Q(p_12_out_0[12]),
-        .R(halt_i_reg));
-  CARRY4 \gcc0.gc0.count_reg[12]_i_1 
-       (.CI(\gcc0.gc0.count_reg[8]_i_1_n_0 ),
-        .CO({\NLW_gcc0.gc0.count_reg[12]_i_1_CO_UNCONNECTED [3:1],\gcc0.gc0.count_reg[12]_i_1_n_3 }),
-        .CYINIT(1'b0),
-        .DI({1'b0,1'b0,1'b0,1'b0}),
-        .O({\NLW_gcc0.gc0.count_reg[12]_i_1_O_UNCONNECTED [3:2],\gcc0.gc0.count_reg[12]_i_1_n_6 ,\gcc0.gc0.count_reg[12]_i_1_n_7 }),
-        .S({1'b0,1'b0,p_12_out_0[13:12]}));
-  FDRE #(
-    .INIT(1'b0)) 
-    \gcc0.gc0.count_reg[13] 
-       (.C(m_axi_mm2s_aclk),
-        .CE(\GEN_FREE_RUN_MODE.frame_sync_i_reg ),
-        .D(\gcc0.gc0.count_reg[12]_i_1_n_6 ),
-        .Q(p_12_out_0[13]),
-        .R(halt_i_reg));
   FDRE #(
     .INIT(1'b0)) 
     \gcc0.gc0.count_reg[1] 
        (.C(m_axi_mm2s_aclk),
         .CE(\GEN_FREE_RUN_MODE.frame_sync_i_reg ),
-        .D(\gcc0.gc0.count_reg[0]_i_1_n_6 ),
+        .D(plusOp__0[1]),
         .Q(p_12_out_0[1]),
         .R(halt_i_reg));
   FDRE #(
@@ -50872,7 +44261,7 @@ module system_axi_vdma_0_0_wr_bin_cntr
     \gcc0.gc0.count_reg[2] 
        (.C(m_axi_mm2s_aclk),
         .CE(\GEN_FREE_RUN_MODE.frame_sync_i_reg ),
-        .D(\gcc0.gc0.count_reg[0]_i_1_n_5 ),
+        .D(plusOp__0[2]),
         .Q(p_12_out_0[2]),
         .R(halt_i_reg));
   FDRE #(
@@ -50880,7 +44269,7 @@ module system_axi_vdma_0_0_wr_bin_cntr
     \gcc0.gc0.count_reg[3] 
        (.C(m_axi_mm2s_aclk),
         .CE(\GEN_FREE_RUN_MODE.frame_sync_i_reg ),
-        .D(\gcc0.gc0.count_reg[0]_i_1_n_4 ),
+        .D(plusOp__0[3]),
         .Q(p_12_out_0[3]),
         .R(halt_i_reg));
   FDRE #(
@@ -50888,22 +44277,15 @@ module system_axi_vdma_0_0_wr_bin_cntr
     \gcc0.gc0.count_reg[4] 
        (.C(m_axi_mm2s_aclk),
         .CE(\GEN_FREE_RUN_MODE.frame_sync_i_reg ),
-        .D(\gcc0.gc0.count_reg[4]_i_1_n_7 ),
+        .D(plusOp__0[4]),
         .Q(p_12_out_0[4]),
         .R(halt_i_reg));
-  CARRY4 \gcc0.gc0.count_reg[4]_i_1 
-       (.CI(\gcc0.gc0.count_reg[0]_i_1_n_0 ),
-        .CO({\gcc0.gc0.count_reg[4]_i_1_n_0 ,\gcc0.gc0.count_reg[4]_i_1_n_1 ,\gcc0.gc0.count_reg[4]_i_1_n_2 ,\gcc0.gc0.count_reg[4]_i_1_n_3 }),
-        .CYINIT(1'b0),
-        .DI({1'b0,1'b0,1'b0,1'b0}),
-        .O({\gcc0.gc0.count_reg[4]_i_1_n_4 ,\gcc0.gc0.count_reg[4]_i_1_n_5 ,\gcc0.gc0.count_reg[4]_i_1_n_6 ,\gcc0.gc0.count_reg[4]_i_1_n_7 }),
-        .S(p_12_out_0[7:4]));
   FDRE #(
     .INIT(1'b0)) 
     \gcc0.gc0.count_reg[5] 
        (.C(m_axi_mm2s_aclk),
         .CE(\GEN_FREE_RUN_MODE.frame_sync_i_reg ),
-        .D(\gcc0.gc0.count_reg[4]_i_1_n_6 ),
+        .D(plusOp__0[5]),
         .Q(p_12_out_0[5]),
         .R(halt_i_reg));
   FDRE #(
@@ -50911,7 +44293,7 @@ module system_axi_vdma_0_0_wr_bin_cntr
     \gcc0.gc0.count_reg[6] 
        (.C(m_axi_mm2s_aclk),
         .CE(\GEN_FREE_RUN_MODE.frame_sync_i_reg ),
-        .D(\gcc0.gc0.count_reg[4]_i_1_n_5 ),
+        .D(plusOp__0[6]),
         .Q(p_12_out_0[6]),
         .R(halt_i_reg));
   FDRE #(
@@ -50919,7 +44301,7 @@ module system_axi_vdma_0_0_wr_bin_cntr
     \gcc0.gc0.count_reg[7] 
        (.C(m_axi_mm2s_aclk),
         .CE(\GEN_FREE_RUN_MODE.frame_sync_i_reg ),
-        .D(\gcc0.gc0.count_reg[4]_i_1_n_4 ),
+        .D(plusOp__0[7]),
         .Q(p_12_out_0[7]),
         .R(halt_i_reg));
   FDRE #(
@@ -50927,366 +44309,243 @@ module system_axi_vdma_0_0_wr_bin_cntr
     \gcc0.gc0.count_reg[8] 
        (.C(m_axi_mm2s_aclk),
         .CE(\GEN_FREE_RUN_MODE.frame_sync_i_reg ),
-        .D(\gcc0.gc0.count_reg[8]_i_1_n_7 ),
-        .Q(p_12_out_0[8]),
-        .R(halt_i_reg));
-  CARRY4 \gcc0.gc0.count_reg[8]_i_1 
-       (.CI(\gcc0.gc0.count_reg[4]_i_1_n_0 ),
-        .CO({\gcc0.gc0.count_reg[8]_i_1_n_0 ,\gcc0.gc0.count_reg[8]_i_1_n_1 ,\gcc0.gc0.count_reg[8]_i_1_n_2 ,\gcc0.gc0.count_reg[8]_i_1_n_3 }),
-        .CYINIT(1'b0),
-        .DI({1'b0,1'b0,1'b0,1'b0}),
-        .O({\gcc0.gc0.count_reg[8]_i_1_n_4 ,\gcc0.gc0.count_reg[8]_i_1_n_5 ,\gcc0.gc0.count_reg[8]_i_1_n_6 ,\gcc0.gc0.count_reg[8]_i_1_n_7 }),
-        .S(p_12_out_0[11:8]));
-  FDRE #(
-    .INIT(1'b0)) 
-    \gcc0.gc0.count_reg[9] 
-       (.C(m_axi_mm2s_aclk),
-        .CE(\GEN_FREE_RUN_MODE.frame_sync_i_reg ),
-        .D(\gcc0.gc0.count_reg[8]_i_1_n_6 ),
-        .Q(p_12_out_0[9]),
+        .D(plusOp__0[8]),
+        .Q(Q),
         .R(halt_i_reg));
   LUT4 #(
     .INIT(16'h9009)) 
     \gmux.gm[0].gm1.m1_i_1 
-       (.I0(Q[0]),
-        .I1(\gc0.count_d1_reg[13] [0]),
-        .I2(Q[1]),
-        .I3(\gc0.count_d1_reg[13] [1]),
+       (.I0(\DEVICE_7SERIES.NO_BMM_INFO.SDP.WIDE_PRIM36_NO_ECC.ram [0]),
+        .I1(\gc0.count_d1_reg[7] [0]),
+        .I2(\DEVICE_7SERIES.NO_BMM_INFO.SDP.WIDE_PRIM36_NO_ECC.ram [1]),
+        .I3(\gc0.count_d1_reg[7] [1]),
         .O(v1_reg_0[0]));
   LUT4 #(
     .INIT(16'h9009)) 
     \gmux.gm[0].gm1.m1_i_1__0 
-       (.I0(Q[0]),
-        .I1(D[0]),
-        .I2(Q[1]),
-        .I3(D[1]),
+       (.I0(\DEVICE_7SERIES.NO_BMM_INFO.SDP.WIDE_PRIM36_NO_ECC.ram [0]),
+        .I1(\gc0.count_reg[7] [0]),
+        .I2(\DEVICE_7SERIES.NO_BMM_INFO.SDP.WIDE_PRIM36_NO_ECC.ram [1]),
+        .I3(\gc0.count_reg[7] [1]),
         .O(v1_reg[0]));
   LUT4 #(
     .INIT(16'h9009)) 
     \gmux.gm[0].gm1.m1_i_1__1 
        (.I0(p_12_out_0[0]),
-        .I1(\gc0.count_d1_reg[13] [0]),
+        .I1(\gc0.count_d1_reg[7] [0]),
         .I2(p_12_out_0[1]),
-        .I3(\gc0.count_d1_reg[13] [1]),
+        .I3(\gc0.count_d1_reg[7] [1]),
         .O(v1_reg_1[0]));
   LUT4 #(
     .INIT(16'h9009)) 
     \gmux.gm[0].gm1.m1_i_1__2 
-       (.I0(Q[0]),
-        .I1(\gc0.count_d1_reg[13] [0]),
-        .I2(Q[1]),
-        .I3(\gc0.count_d1_reg[13] [1]),
+       (.I0(\DEVICE_7SERIES.NO_BMM_INFO.SDP.WIDE_PRIM36_NO_ECC.ram [0]),
+        .I1(\gc0.count_d1_reg[7] [0]),
+        .I2(\DEVICE_7SERIES.NO_BMM_INFO.SDP.WIDE_PRIM36_NO_ECC.ram [1]),
+        .I3(\gc0.count_d1_reg[7] [1]),
         .O(ram_empty_i_reg));
   LUT4 #(
     .INIT(16'h9009)) 
     \gmux.gm[1].gms.ms_i_1 
-       (.I0(Q[2]),
-        .I1(\gc0.count_d1_reg[13] [2]),
-        .I2(Q[3]),
-        .I3(\gc0.count_d1_reg[13] [3]),
+       (.I0(\DEVICE_7SERIES.NO_BMM_INFO.SDP.WIDE_PRIM36_NO_ECC.ram [2]),
+        .I1(\gc0.count_d1_reg[7] [2]),
+        .I2(\DEVICE_7SERIES.NO_BMM_INFO.SDP.WIDE_PRIM36_NO_ECC.ram [3]),
+        .I3(\gc0.count_d1_reg[7] [3]),
         .O(v1_reg_0[1]));
   LUT4 #(
     .INIT(16'h9009)) 
     \gmux.gm[1].gms.ms_i_1__0 
-       (.I0(Q[2]),
-        .I1(D[2]),
-        .I2(Q[3]),
-        .I3(D[3]),
+       (.I0(\DEVICE_7SERIES.NO_BMM_INFO.SDP.WIDE_PRIM36_NO_ECC.ram [2]),
+        .I1(\gc0.count_reg[7] [2]),
+        .I2(\DEVICE_7SERIES.NO_BMM_INFO.SDP.WIDE_PRIM36_NO_ECC.ram [3]),
+        .I3(\gc0.count_reg[7] [3]),
         .O(v1_reg[1]));
   LUT4 #(
     .INIT(16'h9009)) 
     \gmux.gm[1].gms.ms_i_1__1 
        (.I0(p_12_out_0[2]),
-        .I1(\gc0.count_d1_reg[13] [2]),
+        .I1(\gc0.count_d1_reg[7] [2]),
         .I2(p_12_out_0[3]),
-        .I3(\gc0.count_d1_reg[13] [3]),
+        .I3(\gc0.count_d1_reg[7] [3]),
         .O(v1_reg_1[1]));
   LUT4 #(
     .INIT(16'h9009)) 
     \gmux.gm[1].gms.ms_i_1__2 
-       (.I0(Q[2]),
-        .I1(\gc0.count_d1_reg[13] [2]),
-        .I2(Q[3]),
-        .I3(\gc0.count_d1_reg[13] [3]),
+       (.I0(\DEVICE_7SERIES.NO_BMM_INFO.SDP.WIDE_PRIM36_NO_ECC.ram [2]),
+        .I1(\gc0.count_d1_reg[7] [2]),
+        .I2(\DEVICE_7SERIES.NO_BMM_INFO.SDP.WIDE_PRIM36_NO_ECC.ram [3]),
+        .I3(\gc0.count_d1_reg[7] [3]),
         .O(ram_empty_i_reg_0));
   LUT4 #(
     .INIT(16'h9009)) 
     \gmux.gm[2].gms.ms_i_1 
-       (.I0(Q[4]),
-        .I1(\gc0.count_d1_reg[13] [4]),
-        .I2(Q[5]),
-        .I3(\gc0.count_d1_reg[13] [5]),
+       (.I0(\DEVICE_7SERIES.NO_BMM_INFO.SDP.WIDE_PRIM36_NO_ECC.ram [4]),
+        .I1(\gc0.count_d1_reg[7] [4]),
+        .I2(\DEVICE_7SERIES.NO_BMM_INFO.SDP.WIDE_PRIM36_NO_ECC.ram [5]),
+        .I3(\gc0.count_d1_reg[7] [5]),
         .O(v1_reg_0[2]));
   LUT4 #(
     .INIT(16'h9009)) 
     \gmux.gm[2].gms.ms_i_1__0 
-       (.I0(Q[4]),
-        .I1(D[4]),
-        .I2(Q[5]),
-        .I3(D[5]),
+       (.I0(\DEVICE_7SERIES.NO_BMM_INFO.SDP.WIDE_PRIM36_NO_ECC.ram [4]),
+        .I1(\gc0.count_reg[7] [4]),
+        .I2(\DEVICE_7SERIES.NO_BMM_INFO.SDP.WIDE_PRIM36_NO_ECC.ram [5]),
+        .I3(\gc0.count_reg[7] [5]),
         .O(v1_reg[2]));
   LUT4 #(
     .INIT(16'h9009)) 
     \gmux.gm[2].gms.ms_i_1__1 
        (.I0(p_12_out_0[4]),
-        .I1(\gc0.count_d1_reg[13] [4]),
+        .I1(\gc0.count_d1_reg[7] [4]),
         .I2(p_12_out_0[5]),
-        .I3(\gc0.count_d1_reg[13] [5]),
+        .I3(\gc0.count_d1_reg[7] [5]),
         .O(v1_reg_1[2]));
   LUT4 #(
     .INIT(16'h9009)) 
     \gmux.gm[2].gms.ms_i_1__2 
-       (.I0(Q[4]),
-        .I1(\gc0.count_d1_reg[13] [4]),
-        .I2(Q[5]),
-        .I3(\gc0.count_d1_reg[13] [5]),
+       (.I0(\DEVICE_7SERIES.NO_BMM_INFO.SDP.WIDE_PRIM36_NO_ECC.ram [4]),
+        .I1(\gc0.count_d1_reg[7] [4]),
+        .I2(\DEVICE_7SERIES.NO_BMM_INFO.SDP.WIDE_PRIM36_NO_ECC.ram [5]),
+        .I3(\gc0.count_d1_reg[7] [5]),
         .O(ram_empty_i_reg_1));
   LUT4 #(
     .INIT(16'h9009)) 
     \gmux.gm[3].gms.ms_i_1 
-       (.I0(Q[6]),
-        .I1(\gc0.count_d1_reg[13] [6]),
-        .I2(Q[7]),
-        .I3(\gc0.count_d1_reg[13] [7]),
+       (.I0(\DEVICE_7SERIES.NO_BMM_INFO.SDP.WIDE_PRIM36_NO_ECC.ram [6]),
+        .I1(\gc0.count_d1_reg[7] [6]),
+        .I2(\DEVICE_7SERIES.NO_BMM_INFO.SDP.WIDE_PRIM36_NO_ECC.ram [7]),
+        .I3(\gc0.count_d1_reg[7] [7]),
         .O(v1_reg_0[3]));
   LUT4 #(
     .INIT(16'h9009)) 
     \gmux.gm[3].gms.ms_i_1__0 
-       (.I0(Q[6]),
-        .I1(D[6]),
-        .I2(Q[7]),
-        .I3(D[7]),
+       (.I0(\DEVICE_7SERIES.NO_BMM_INFO.SDP.WIDE_PRIM36_NO_ECC.ram [6]),
+        .I1(\gc0.count_reg[7] [6]),
+        .I2(\DEVICE_7SERIES.NO_BMM_INFO.SDP.WIDE_PRIM36_NO_ECC.ram [7]),
+        .I3(\gc0.count_reg[7] [7]),
         .O(v1_reg[3]));
   LUT4 #(
     .INIT(16'h9009)) 
     \gmux.gm[3].gms.ms_i_1__1 
        (.I0(p_12_out_0[6]),
-        .I1(\gc0.count_d1_reg[13] [6]),
+        .I1(\gc0.count_d1_reg[7] [6]),
         .I2(p_12_out_0[7]),
-        .I3(\gc0.count_d1_reg[13] [7]),
+        .I3(\gc0.count_d1_reg[7] [7]),
         .O(v1_reg_1[3]));
   LUT4 #(
     .INIT(16'h9009)) 
     \gmux.gm[3].gms.ms_i_1__2 
-       (.I0(Q[6]),
-        .I1(\gc0.count_d1_reg[13] [6]),
-        .I2(Q[7]),
-        .I3(\gc0.count_d1_reg[13] [7]),
+       (.I0(\DEVICE_7SERIES.NO_BMM_INFO.SDP.WIDE_PRIM36_NO_ECC.ram [6]),
+        .I1(\gc0.count_d1_reg[7] [6]),
+        .I2(\DEVICE_7SERIES.NO_BMM_INFO.SDP.WIDE_PRIM36_NO_ECC.ram [7]),
+        .I3(\gc0.count_d1_reg[7] [7]),
         .O(ram_empty_i_reg_2));
-  LUT4 #(
-    .INIT(16'h9009)) 
-    \gmux.gm[4].gms.ms_i_1 
-       (.I0(Q[8]),
-        .I1(\gc0.count_d1_reg[13] [8]),
-        .I2(Q[9]),
-        .I3(\gc0.count_d1_reg[13] [9]),
-        .O(v1_reg_0[4]));
-  LUT4 #(
-    .INIT(16'h9009)) 
-    \gmux.gm[4].gms.ms_i_1__0 
-       (.I0(Q[8]),
-        .I1(D[8]),
-        .I2(Q[9]),
-        .I3(D[9]),
-        .O(v1_reg[4]));
-  LUT4 #(
-    .INIT(16'h9009)) 
-    \gmux.gm[4].gms.ms_i_1__1 
-       (.I0(p_12_out_0[8]),
-        .I1(\gc0.count_d1_reg[13] [8]),
-        .I2(p_12_out_0[9]),
-        .I3(\gc0.count_d1_reg[13] [9]),
-        .O(v1_reg_1[4]));
-  LUT4 #(
-    .INIT(16'h9009)) 
-    \gmux.gm[4].gms.ms_i_1__2 
-       (.I0(Q[8]),
-        .I1(\gc0.count_d1_reg[13] [8]),
-        .I2(Q[9]),
-        .I3(\gc0.count_d1_reg[13] [9]),
-        .O(ram_empty_i_reg_3));
-  LUT4 #(
-    .INIT(16'h9009)) 
-    \gmux.gm[5].gms.ms_i_1 
-       (.I0(Q[10]),
-        .I1(\gc0.count_d1_reg[13] [10]),
-        .I2(Q[11]),
-        .I3(\gc0.count_d1_reg[13] [11]),
-        .O(v1_reg_0[5]));
-  LUT4 #(
-    .INIT(16'h9009)) 
-    \gmux.gm[5].gms.ms_i_1__0 
-       (.I0(Q[10]),
-        .I1(D[10]),
-        .I2(Q[11]),
-        .I3(D[11]),
-        .O(v1_reg[5]));
-  LUT4 #(
-    .INIT(16'h9009)) 
-    \gmux.gm[5].gms.ms_i_1__1 
-       (.I0(p_12_out_0[10]),
-        .I1(\gc0.count_d1_reg[13] [10]),
-        .I2(p_12_out_0[11]),
-        .I3(\gc0.count_d1_reg[13] [11]),
-        .O(v1_reg_1[5]));
-  LUT4 #(
-    .INIT(16'h9009)) 
-    \gmux.gm[5].gms.ms_i_1__2 
-       (.I0(Q[10]),
-        .I1(\gc0.count_d1_reg[13] [10]),
-        .I2(Q[11]),
-        .I3(\gc0.count_d1_reg[13] [11]),
-        .O(ram_empty_i_reg_4));
-  LUT4 #(
-    .INIT(16'h9009)) 
-    \gmux.gm[6].gms.ms_i_1 
-       (.I0(Q[12]),
-        .I1(\gc0.count_d1_reg[13] [12]),
-        .I2(Q[13]),
-        .I3(\gc0.count_d1_reg[13] [13]),
-        .O(v1_reg_0[6]));
-  LUT4 #(
-    .INIT(16'h9009)) 
-    \gmux.gm[6].gms.ms_i_1__0 
-       (.I0(Q[12]),
-        .I1(D[12]),
-        .I2(Q[13]),
-        .I3(D[13]),
-        .O(v1_reg[6]));
-  LUT4 #(
-    .INIT(16'h9009)) 
-    \gmux.gm[6].gms.ms_i_1__1 
-       (.I0(p_12_out_0[12]),
-        .I1(\gc0.count_d1_reg[13] [12]),
-        .I2(p_12_out_0[13]),
-        .I3(\gc0.count_d1_reg[13] [13]),
-        .O(v1_reg_1[6]));
-  LUT4 #(
-    .INIT(16'h9009)) 
-    \gmux.gm[6].gms.ms_i_1__2 
-       (.I0(Q[12]),
-        .I1(\gc0.count_d1_reg[13] [12]),
-        .I2(Q[13]),
-        .I3(\gc0.count_d1_reg[13] [13]),
-        .O(ram_empty_i_reg_5));
 endmodule
 
 (* ORIG_REF_NAME = "wr_logic" *) 
 module system_axi_vdma_0_0_wr_logic
    (ram_full_fb_i_reg,
     \GEN_LINEBUF_NO_SOF.GEN_LINEBUFFER.GEN_SOF.sof_flag_reg ,
-    ena_array,
-    Q,
     \GEN_LINEBUF_NO_SOF.GEN_LINEBUFFER.GEN_SOF.sof_flag_reg_0 ,
+    Q,
+    \DEVICE_7SERIES.NO_BMM_INFO.SDP.WIDE_PRIM36_NO_ECC.ram ,
     v1_reg,
     ram_empty_i_reg,
     ram_empty_i_reg_0,
     ram_empty_i_reg_1,
     ram_empty_i_reg_2,
-    ram_empty_i_reg_3,
-    ram_empty_i_reg_4,
-    ram_empty_i_reg_5,
-    \DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram ,
+    \gc0.count_d1_reg[8] ,
+    \gc0.count_d1_reg[8]_0 ,
     halt_i_reg,
-    \GEN_FREE_RUN_MODE.frame_sync_i_reg ,
     m_axi_mm2s_aclk,
-    \GEN_FREE_RUN_MODE.frame_sync_i_reg_0 ,
-    DIPADIP,
+    DIBDI,
     mm2s_halt,
     prmry_resetn_i_reg,
     dm2linebuf_mm2s_tvalid,
     p_27_out,
-    \gc0.count_d1_reg[13] ,
-    D,
-    p_7_out);
+    \gc0.count_d1_reg[7] ,
+    \gc0.count_reg[7] ,
+    \GEN_FREE_RUN_MODE.frame_sync_i_reg ,
+    E);
   output ram_full_fb_i_reg;
   output \GEN_LINEBUF_NO_SOF.GEN_LINEBUFFER.GEN_SOF.sof_flag_reg ;
-  output [2:0]ena_array;
-  output [13:0]Q;
   output \GEN_LINEBUF_NO_SOF.GEN_LINEBUFFER.GEN_SOF.sof_flag_reg_0 ;
-  output [6:0]v1_reg;
+  output [0:0]Q;
+  output [8:0]\DEVICE_7SERIES.NO_BMM_INFO.SDP.WIDE_PRIM36_NO_ECC.ram ;
+  output [3:0]v1_reg;
   output ram_empty_i_reg;
   output ram_empty_i_reg_0;
   output ram_empty_i_reg_1;
   output ram_empty_i_reg_2;
-  output ram_empty_i_reg_3;
-  output ram_empty_i_reg_4;
-  output ram_empty_i_reg_5;
-  output \DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram ;
+  input \gc0.count_d1_reg[8] ;
+  input \gc0.count_d1_reg[8]_0 ;
   input halt_i_reg;
-  input \GEN_FREE_RUN_MODE.frame_sync_i_reg ;
   input m_axi_mm2s_aclk;
-  input \GEN_FREE_RUN_MODE.frame_sync_i_reg_0 ;
-  input [0:0]DIPADIP;
+  input [0:0]DIBDI;
   input mm2s_halt;
   input prmry_resetn_i_reg;
   input dm2linebuf_mm2s_tvalid;
   input p_27_out;
-  input [13:0]\gc0.count_d1_reg[13] ;
-  input [13:0]D;
-  input p_7_out;
+  input [7:0]\gc0.count_d1_reg[7] ;
+  input [7:0]\gc0.count_reg[7] ;
+  input \GEN_FREE_RUN_MODE.frame_sync_i_reg ;
+  input [0:0]E;
 
-  wire [13:0]D;
-  wire \DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram ;
-  wire [0:0]DIPADIP;
+  wire [8:0]\DEVICE_7SERIES.NO_BMM_INFO.SDP.WIDE_PRIM36_NO_ECC.ram ;
+  wire [0:0]DIBDI;
+  wire [0:0]E;
   wire \GEN_FREE_RUN_MODE.frame_sync_i_reg ;
-  wire \GEN_FREE_RUN_MODE.frame_sync_i_reg_0 ;
   wire \GEN_LINEBUF_NO_SOF.GEN_LINEBUFFER.GEN_SOF.sof_flag_reg ;
   wire \GEN_LINEBUF_NO_SOF.GEN_LINEBUFFER.GEN_SOF.sof_flag_reg_0 ;
-  wire [13:0]Q;
-  wire [6:0]\c0/v1_reg ;
-  wire [6:0]\c1/v1_reg ;
+  wire [0:0]Q;
+  wire [3:0]\c0/v1_reg ;
+  wire [3:0]\c1/v1_reg ;
   wire dm2linebuf_mm2s_tvalid;
-  wire [2:0]ena_array;
-  wire [13:0]\gc0.count_d1_reg[13] ;
+  wire [7:0]\gc0.count_d1_reg[7] ;
+  wire \gc0.count_d1_reg[8] ;
+  wire \gc0.count_d1_reg[8]_0 ;
+  wire [7:0]\gc0.count_reg[7] ;
   wire halt_i_reg;
   wire m_axi_mm2s_aclk;
   wire mm2s_halt;
   wire p_27_out;
-  wire p_7_out;
   wire prmry_resetn_i_reg;
   wire ram_empty_i_reg;
   wire ram_empty_i_reg_0;
   wire ram_empty_i_reg_1;
   wire ram_empty_i_reg_2;
-  wire ram_empty_i_reg_3;
-  wire ram_empty_i_reg_4;
-  wire ram_empty_i_reg_5;
   wire ram_full_fb_i_reg;
-  wire [6:0]v1_reg;
+  wire [3:0]v1_reg;
 
   system_axi_vdma_0_0_wr_status_flags_ss \gwss.wsts 
-       (.DIPADIP(DIPADIP),
-        .\GEN_FREE_RUN_MODE.frame_sync_i_reg (\GEN_FREE_RUN_MODE.frame_sync_i_reg_0 ),
+       (.DIBDI(DIBDI),
+        .E(E),
+        .\GEN_FREE_RUN_MODE.frame_sync_i_reg (\GEN_FREE_RUN_MODE.frame_sync_i_reg ),
         .\GEN_LINEBUF_NO_SOF.GEN_LINEBUFFER.GEN_SOF.sof_flag_reg (\GEN_LINEBUF_NO_SOF.GEN_LINEBUFFER.GEN_SOF.sof_flag_reg ),
         .\GEN_LINEBUF_NO_SOF.GEN_LINEBUFFER.GEN_SOF.sof_flag_reg_0 (\GEN_LINEBUF_NO_SOF.GEN_LINEBUFFER.GEN_SOF.sof_flag_reg_0 ),
         .dm2linebuf_mm2s_tvalid(dm2linebuf_mm2s_tvalid),
+        .\gc0.count_d1_reg[8] (\gc0.count_d1_reg[8] ),
+        .\gc0.count_d1_reg[8]_0 (\gc0.count_d1_reg[8]_0 ),
         .halt_i_reg(halt_i_reg),
         .m_axi_mm2s_aclk(m_axi_mm2s_aclk),
         .mm2s_halt(mm2s_halt),
         .p_27_out(p_27_out),
-        .p_7_out(p_7_out),
         .prmry_resetn_i_reg(prmry_resetn_i_reg),
         .ram_full_fb_i_reg_0(ram_full_fb_i_reg),
         .v1_reg(\c0/v1_reg ),
         .v1_reg_0(\c1/v1_reg ));
   system_axi_vdma_0_0_wr_bin_cntr wpntr
-       (.D(D),
-        .\DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram (\DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram ),
+       (.\DEVICE_7SERIES.NO_BMM_INFO.SDP.WIDE_PRIM36_NO_ECC.ram (\DEVICE_7SERIES.NO_BMM_INFO.SDP.WIDE_PRIM36_NO_ECC.ram ),
         .\GEN_FREE_RUN_MODE.frame_sync_i_reg (\GEN_FREE_RUN_MODE.frame_sync_i_reg ),
-        .\GEN_FREE_RUN_MODE.frame_sync_i_reg_0 (\GEN_FREE_RUN_MODE.frame_sync_i_reg_0 ),
         .Q(Q),
-        .ena_array(ena_array),
-        .\gc0.count_d1_reg[13] (\gc0.count_d1_reg[13] ),
+        .\gc0.count_d1_reg[7] (\gc0.count_d1_reg[7] ),
+        .\gc0.count_reg[7] (\gc0.count_reg[7] ),
         .halt_i_reg(halt_i_reg),
         .m_axi_mm2s_aclk(m_axi_mm2s_aclk),
         .ram_empty_i_reg(ram_empty_i_reg),
         .ram_empty_i_reg_0(ram_empty_i_reg_0),
         .ram_empty_i_reg_1(ram_empty_i_reg_1),
         .ram_empty_i_reg_2(ram_empty_i_reg_2),
-        .ram_empty_i_reg_3(ram_empty_i_reg_3),
-        .ram_empty_i_reg_4(ram_empty_i_reg_4),
-        .ram_empty_i_reg_5(ram_empty_i_reg_5),
         .v1_reg(v1_reg),
         .v1_reg_0(\c0/v1_reg ),
         .v1_reg_1(\c1/v1_reg ));
@@ -51298,56 +44557,62 @@ module system_axi_vdma_0_0_wr_status_flags_ss
     \GEN_LINEBUF_NO_SOF.GEN_LINEBUFFER.GEN_SOF.sof_flag_reg ,
     \GEN_LINEBUF_NO_SOF.GEN_LINEBUFFER.GEN_SOF.sof_flag_reg_0 ,
     v1_reg,
+    \gc0.count_d1_reg[8] ,
     v1_reg_0,
+    \gc0.count_d1_reg[8]_0 ,
     halt_i_reg,
     m_axi_mm2s_aclk,
-    DIPADIP,
+    DIBDI,
     mm2s_halt,
     prmry_resetn_i_reg,
     dm2linebuf_mm2s_tvalid,
     p_27_out,
     \GEN_FREE_RUN_MODE.frame_sync_i_reg ,
-    p_7_out);
+    E);
   output ram_full_fb_i_reg_0;
   output \GEN_LINEBUF_NO_SOF.GEN_LINEBUFFER.GEN_SOF.sof_flag_reg ;
   output \GEN_LINEBUF_NO_SOF.GEN_LINEBUFFER.GEN_SOF.sof_flag_reg_0 ;
-  input [6:0]v1_reg;
-  input [6:0]v1_reg_0;
+  input [3:0]v1_reg;
+  input \gc0.count_d1_reg[8] ;
+  input [3:0]v1_reg_0;
+  input \gc0.count_d1_reg[8]_0 ;
   input halt_i_reg;
   input m_axi_mm2s_aclk;
-  input [0:0]DIPADIP;
+  input [0:0]DIBDI;
   input mm2s_halt;
   input prmry_resetn_i_reg;
   input dm2linebuf_mm2s_tvalid;
   input p_27_out;
   input \GEN_FREE_RUN_MODE.frame_sync_i_reg ;
-  input p_7_out;
+  input [0:0]E;
 
-  wire [0:0]DIPADIP;
+  wire [0:0]DIBDI;
+  wire [0:0]E;
   wire \GEN_FREE_RUN_MODE.frame_sync_i_reg ;
   wire \GEN_LINEBUF_NO_SOF.GEN_LINEBUFFER.GEN_SOF.sof_flag_reg_0 ;
   wire c0_n_0;
   wire comp1;
   wire dm2linebuf_mm2s_tvalid;
+  wire \gc0.count_d1_reg[8] ;
+  wire \gc0.count_d1_reg[8]_0 ;
   wire halt_i_reg;
   wire m_axi_mm2s_aclk;
   wire mm2s_halt;
   wire p_27_out;
-  wire p_7_out;
   wire prmry_resetn_i_reg;
   (* DONT_TOUCH *) wire ram_afull_fb;
   (* DONT_TOUCH *) wire ram_afull_i;
   (* DONT_TOUCH *) wire ram_full_fb_i;
   (* DONT_TOUCH *) wire ram_full_i;
-  wire [6:0]v1_reg;
-  wire [6:0]v1_reg_0;
+  wire [3:0]v1_reg;
+  wire [3:0]v1_reg_0;
 
   assign \GEN_LINEBUF_NO_SOF.GEN_LINEBUFFER.GEN_SOF.sof_flag_reg  = ram_full_i;
   assign ram_full_fb_i_reg_0 = ram_full_fb_i;
   LUT6 #(
     .INIT(64'h3030303020200020)) 
     \GEN_LINEBUF_NO_SOF.GEN_LINEBUFFER.GEN_SOF.sof_flag_i_1 
-       (.I0(DIPADIP),
+       (.I0(DIBDI),
         .I1(mm2s_halt),
         .I2(prmry_resetn_i_reg),
         .I3(dm2linebuf_mm2s_tvalid),
@@ -51355,14 +44620,16 @@ module system_axi_vdma_0_0_wr_status_flags_ss
         .I5(p_27_out),
         .O(\GEN_LINEBUF_NO_SOF.GEN_LINEBUFFER.GEN_SOF.sof_flag_reg_0 ));
   system_axi_vdma_0_0_compare c0
-       (.\GEN_FREE_RUN_MODE.frame_sync_i_reg (\GEN_FREE_RUN_MODE.frame_sync_i_reg ),
+       (.E(E),
+        .\GEN_FREE_RUN_MODE.frame_sync_i_reg (\GEN_FREE_RUN_MODE.frame_sync_i_reg ),
         .comp1(comp1),
-        .p_7_out(p_7_out),
+        .\gc0.count_d1_reg[8] (\gc0.count_d1_reg[8] ),
         .ram_full_fb_i_reg(c0_n_0),
         .ram_full_fb_i_reg_0(ram_full_fb_i),
         .v1_reg(v1_reg));
   system_axi_vdma_0_0_compare_14 c1
        (.comp1(comp1),
+        .\gc0.count_d1_reg[8] (\gc0.count_d1_reg[8]_0 ),
         .v1_reg_0(v1_reg_0));
   LUT1 #(
     .INIT(2'h2)) 

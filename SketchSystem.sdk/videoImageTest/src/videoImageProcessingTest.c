@@ -32,7 +32,7 @@
 int initIntrController(XScuGic *Intc);
 static int SetupVideoIntrSystem(XAxiVdma *AxiVdmaPtr, u16 ReadIntrId, XScuGic *Intc);
 
-char Buffer[FrameSize*4];
+char Buffer[FrameSize];
 
 int main(){
 	XScuGic Intc;
@@ -41,8 +41,7 @@ int main(){
 	imgProcess myImgProcess;
 	char *filteredImage;
 	char *filteredImage2;
-	char *filteredImage3;
-	filteredImage  = malloc(sizeof(char)*(imageSize));
+	filteredImage  = malloc(sizeof(char)*(imageSize) * 4);
 	filteredImage2 = malloc(sizeof(char)*(imageSize));
 
 	myImgProcess.imageDataPointer1 = imageDataA;
@@ -71,7 +70,7 @@ int main(){
 		xil_printf("DMA Receive Failed with Status0 %d\n",status);
 		return -1;
 	}
-    status=XAxiDma_SimpleTransfer(myImgProcess.DmaCtrlPointer,(u32)myImgProcess.imageDataPointer2, 4*1920,XAXIDMA_DMA_TO_DEVICE);
+    status=XAxiDma_SimpleTransfer(myImgProcess.DmaCtrlPointer,(u32)myImgProcess.imageDataPointer5, 4*1920,XAXIDMA_DMA_TO_DEVICE);
     if(status != XST_SUCCESS){
 		xil_printf("DMA Transfer Failed with Status0 %d\n",status);
 		return -1;
@@ -80,10 +79,8 @@ int main(){
     	//xil_printf("row = %d \r\n",myImgProcess.row);
     	//xil_printf("done = %d \r\n",myImgProcess.done);
     }
-
-    sleep(1);
-	filteredImage3 = malloc(sizeof(char)*(imageSize));
-	myImgProcess.filteredImageDataPointer3 = filteredImage3;
+    XScuGic_Disable(myImgProcess.IntrCtrlPointer,XPAR_FABRIC_SKETCHIP_1080P_0_O_INTR_INTR);
+    /*sleep(1);
     myImgProcess.row =4;
     status=XAxiDma_SimpleTransfer(myImgProcess.DmaCtrlPointer,(u32)myImgProcess.filteredImageDataPointer3,(1920*1080),XAXIDMA_DEVICE_TO_DMA);
     if(status != XST_SUCCESS){
@@ -99,7 +96,7 @@ int main(){
 	while(myImgProcess.done == 2){
 		//xil_printf("row2 = %d \r\n",myImgProcess.row);
 		//xil_printf("done = %d \r\n",myImgProcess.done);
-	}
+	}*/
 	//xil_printf("hh\r\n");
 	int Index;
 	int choice;
@@ -132,35 +129,37 @@ int main(){
 
     Addr1 = (u32)&(Buffer[0]);
 
-
+    //print("h1\r\n");
 	for(Index = 0; Index < myVDMA.MaxNumFrames; Index++) {
 		ReadCfg.FrameStoreStartAddr[Index] = Addr1;
+		// print("h1\r\n");
 		Addr1 +=  FrameSize;
 	}
-
+	//print("h2\r\n");
 	status = XAxiVdma_DmaSetBufferAddr(&myVDMA, XAXIVDMA_READ,ReadCfg.FrameStoreStartAddr);
 	if (status != XST_SUCCESS) {
 		xil_printf("Read channel set buffer address failed %d\r\n", status);
 		return XST_FAILURE;
 	}
-
+	//print("h3\r\n");
 	XAxiVdma_IntrEnable(&myVDMA, XAXIVDMA_IXR_COMPLETION_MASK, XAXIVDMA_READ);
 	SetupVideoIntrSystem(&myVDMA, XPAR_FABRIC_AXI_VDMA_0_MM2S_INTROUT_INTR,&Intc);
-
+	//print("h4\r\n");
 	status = XAxiVdma_DmaStart(&myVDMA,XAXIVDMA_READ);
 	if (status != XST_SUCCESS) {
 		if(status == XST_VDMA_MISMATCH_ERROR)
 			xil_printf("DMA Mismatch Error\r\n");
 		return XST_FAILURE;
 	}
-	//print("h\r\n");
+	//print("h5\r\n");
 	choice=0;
     while(1){
     	/*xil_printf("Enter your choice\n\r1.Original Image\n\r2.Sketched image\n\r");
     	xil_printf("3.Original Image\n\r4.Sketched image\n\r");
     	scanf("%d",&choice);*/
+    	//print("h\r\n");
     	sleep(1);
-    	if(choice<6)
+    	if(choice<10)
     		choice++;
     	else
     		choice=1;
@@ -175,26 +174,26 @@ int main(){
     		drawImage(HSize,VSize,imgHSize,imgVSize,(HSize-imgHSize)/2,(VSize-imgVSize)/2,1,imageDataC,Buffer);
 			break;
     	case 4:
-    		drawImage(HSize,VSize,imgHSize,imgVSize,(HSize-imgHSize)/2,(VSize-imgVSize)/2,1,filteredImage2,Buffer);
+    		drawImage(HSize,VSize,imgHSize,imgVSize,(HSize-imgHSize)/2,(VSize-imgVSize)/2,1,filteredImage + (imageSize),Buffer);
 			break;
     	case 5:
-    		drawImage(HSize,VSize,imgHSize,imgVSize,(HSize-imgHSize)/2,(VSize-imgVSize)/2,1,imageDataE,Buffer);
+    		drawImage(HSize,VSize,imgHSize,imgVSize,(HSize-imgHSize)/2,(VSize-imgVSize)/2,1,imageDataD,Buffer);
 			break;
     	case 6:
-    		drawImage(HSize,VSize,imgHSize,imgVSize,(HSize-imgHSize)/2,(VSize-imgVSize)/2,1,filteredImage3,Buffer);
+    		drawImage(HSize,VSize,imgHSize,imgVSize,(HSize-imgHSize)/2,(VSize-imgVSize)/2,1,filteredImage + (imageSize*2),Buffer);
 			break;
-    	/*case 7:
+    	case 7:
     		drawImage(HSize,VSize,imgHSize,imgVSize,(HSize-imgHSize)/2,(VSize-imgVSize)/2,1,imageDataE,Buffer);
 			break;
     	case 8:
-    		drawImage(HSize,VSize,imgHSize,imgVSize,(HSize-imgHSize)/2,(VSize-imgVSize)/2,1,filteredImage+(imageSize*3),Buffer);
+    		drawImage(HSize,VSize,imgHSize,imgVSize,(HSize-imgHSize)/2,(VSize-imgVSize)/2,1,filteredImage + (imageSize*3),Buffer);
 			break;
     	case 9:
     		drawImage(HSize,VSize,imgHSize,imgVSize,(HSize-imgHSize)/2,(VSize-imgVSize)/2,1,imageDataO,Buffer);
 			break;
     	case 10:
-    		drawImage(HSize,VSize,imgHSize,imgVSize,(HSize-imgHSize)/2,(VSize-imgVSize)/2,1,filteredImage+(imageSize*4),Buffer);
-			break;*/
+    		drawImage(HSize,VSize,imgHSize,imgVSize,(HSize-imgHSize)/2,(VSize-imgVSize)/2,1,filteredImage2,Buffer);
+			break;
 
     	default:
     		xil_printf("Wrong choice\r\n");
