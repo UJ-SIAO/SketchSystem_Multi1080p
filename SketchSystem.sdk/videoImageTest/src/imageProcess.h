@@ -12,6 +12,9 @@ typedef struct{
 	char *imageDataPointer3;
 	char *imageDataPointer4;
 	char *imageDataPointer5;
+	char *imageDataPointer6;
+	char *imageDataPointer7;
+	char *imageDataPointer8;
 	char *filteredImageDataPointer;
 	char *filteredImageDataPointer2;
 	XAxiDma  *DmaCtrlPointer;

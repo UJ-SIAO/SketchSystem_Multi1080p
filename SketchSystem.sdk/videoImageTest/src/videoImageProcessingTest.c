@@ -16,6 +16,8 @@
 #include "D.h"
 #include "E.h"
 #include "O.h"
+#include "R.h"
+#include "U.h"
 #include "sleep.h"
 
 #define HSize 1920
@@ -42,13 +44,15 @@ int main(){
 	char *filteredImage;
 	char *filteredImage2;
 	filteredImage  = malloc(sizeof(char)*(imageSize) * 4);
-	filteredImage2 = malloc(sizeof(char)*(imageSize));
+	filteredImage2 = malloc(sizeof(char)*(imageSize) * 4);
 
 	myImgProcess.imageDataPointer1 = imageDataA;
 	myImgProcess.imageDataPointer2 = imageDataC;
 	myImgProcess.imageDataPointer3 = imageDataD;
 	myImgProcess.imageDataPointer4 = imageDataE;
 	myImgProcess.imageDataPointer5 = imageDataO;
+	myImgProcess.imageDataPointer6 = imageDataR;
+	myImgProcess.imageDataPointer7 = imageDataU;
 	myImgProcess.imageHSize = imgHSize;
 	myImgProcess.imageVSize = imgVSize;
 	myImgProcess.filteredImageDataPointer  = filteredImage;
@@ -65,7 +69,7 @@ int main(){
 
     sleep(1);
     myImgProcess.row =4;
-    status=XAxiDma_SimpleTransfer(myImgProcess.DmaCtrlPointer,(u32)myImgProcess.filteredImageDataPointer2,(1920*1080),XAXIDMA_DEVICE_TO_DMA);
+    status=XAxiDma_SimpleTransfer(myImgProcess.DmaCtrlPointer,(u32)myImgProcess.filteredImageDataPointer2,(1920*1080*3),XAXIDMA_DEVICE_TO_DMA);
     if(status != XST_SUCCESS){
 		xil_printf("DMA Receive Failed with Status0 %d\n",status);
 		return -1;
@@ -79,7 +83,7 @@ int main(){
     	//xil_printf("row = %d \r\n",myImgProcess.row);
     	//xil_printf("done = %d \r\n",myImgProcess.done);
     }
-    XScuGic_Disable(myImgProcess.IntrCtrlPointer,XPAR_FABRIC_SKETCHIP_1080P_0_O_INTR_INTR);
+    //XScuGic_Disable(myImgProcess.IntrCtrlPointer,XPAR_FABRIC_SKETCHIP_1080P_0_O_INTR_INTR);
     /*sleep(1);
     myImgProcess.row =4;
     status=XAxiDma_SimpleTransfer(myImgProcess.DmaCtrlPointer,(u32)myImgProcess.filteredImageDataPointer3,(1920*1080),XAXIDMA_DEVICE_TO_DMA);
@@ -159,7 +163,7 @@ int main(){
     	scanf("%d",&choice);*/
     	//print("h\r\n");
     	sleep(1);
-    	if(choice<10)
+    	if(choice<14)
     		choice++;
     	else
     		choice=1;
@@ -194,6 +198,25 @@ int main(){
     	case 10:
     		drawImage(HSize,VSize,imgHSize,imgVSize,(HSize-imgHSize)/2,(VSize-imgVSize)/2,1,filteredImage2,Buffer);
 			break;
+    	case 11:
+    		drawImage(HSize,VSize,imgHSize,imgVSize,(HSize-imgHSize)/2,(VSize-imgVSize)/2,1,imageDataR,Buffer);
+			break;
+    	case 12:
+    		drawImage(HSize,VSize,imgHSize,imgVSize,(HSize-imgHSize)/2,(VSize-imgVSize)/2,1,filteredImage2+ (imageSize),Buffer);
+			break;
+    	case 13:
+    		drawImage(HSize,VSize,imgHSize,imgVSize,(HSize-imgHSize)/2,(VSize-imgVSize)/2,1,imageDataU,Buffer);
+			break;
+    	case 14:
+    		drawImage(HSize,VSize,imgHSize,imgVSize,(HSize-imgHSize)/2,(VSize-imgVSize)/2,1,filteredImage2+ (imageSize*2),Buffer);
+			break;
+    	/*case 15:
+    		drawImage(HSize,VSize,imgHSize,imgVSize,(HSize-imgHSize)/2,(VSize-imgVSize)/2,1,imageDataU,Buffer);
+			break;
+    	case 16:
+    		drawImage(HSize,VSize,imgHSize,imgVSize,(HSize-imgHSize)/2,(VSize-imgVSize)/2,1,filteredImage2+ (imageSize*3),Buffer);
+			break;*/
+
 
     	default:
     		xil_printf("Wrong choice\r\n");
