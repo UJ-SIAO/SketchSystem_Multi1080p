@@ -1,10 +1,10 @@
 -- Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2017.4 (win64) Build 2086221 Fri Dec 15 20:55:39 MST 2017
--- Date        : Sat Jun 19 21:12:58 2021
+-- Date        : Sat Jul 10 21:35:52 2021
 -- Host        : DESKTOP-RE08DTS running 64-bit major release  (build 9200)
 -- Command     : write_vhdl -force -mode synth_stub
---               d:/GitCode/SketchSystem/imageProcessingSystem.srcs/sources_1/bd/system/ip/system_axi_dma_0_0/system_axi_dma_0_0_stub.vhdl
+--               D:/GitCode/SketchSystem_Multi1080p/SketchSystem.srcs/sources_1/bd/system/ip/system_axi_dma_0_0/system_axi_dma_0_0_stub.vhdl
 -- Design      : system_axi_dma_0_0
 -- Purpose     : Stub declaration of top-level module interface
 -- Device      : xc7z020clg484-1

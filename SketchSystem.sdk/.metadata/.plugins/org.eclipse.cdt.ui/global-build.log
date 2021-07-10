@@ -8648,3 +8648,672 @@ make pre-build main-build
 a9-linaro-pre-build-step
 ' '
 make: Nothing to be done for `main-build'.
+19:14:41 **** Auto Build of configuration Debug for project videoImageTest ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/videoImageProcessingTest.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/videoImageProcessingTest.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../videoImageTest_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/videoImageProcessingTest.d" -MT"src/videoImageProcessingTest.o" -o "src/videoImageProcessingTest.o" "../src/videoImageProcessingTest.c"
+../src/videoImageProcessingTest.c: In function 'main':
+../src/videoImageProcessingTest.c:47:2: error: 'filteredImage1' undeclared (first use in this function)
+  filteredImage1 = malloc(sizeof(char)*(imageSize));
+  ^~~~~~~~~~~~~~
+../src/videoImageProcessingTest.c:47:2: note: each undeclared identifier is reported only once for each function it appears in
+make: *** [src/videoImageProcessingTest.o] Error 1
+19:18:18 **** Auto Build of configuration Debug for project videoImageTest ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/videoImageProcessingTest.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/videoImageProcessingTest.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../videoImageTest_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/videoImageProcessingTest.d" -MT"src/videoImageProcessingTest.o" -o "src/videoImageProcessingTest.o" "../src/videoImageProcessingTest.c"
+../src/videoImageProcessingTest.c: In function 'main':
+../src/videoImageProcessingTest.c:47:2: error: 'filteredImage1' undeclared (first use in this function)
+  filteredImage1 = malloc(sizeof(char)*(imageSize));
+  ^~~~~~~~~~~~~~
+../src/videoImageProcessingTest.c:47:2: note: each undeclared identifier is reported only once for each function it appears in
+make: *** [src/videoImageProcessingTest.o] Error 1
+19:19:22 **** Auto Build of configuration Debug for project videoImageTest ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/videoImageProcessingTest.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/videoImageProcessingTest.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../videoImageTest_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/videoImageProcessingTest.d" -MT"src/videoImageProcessingTest.o" -o "src/videoImageProcessingTest.o" "../src/videoImageProcessingTest.c"
+../src/videoImageProcessingTest.c: In function 'main':
+../src/videoImageProcessingTest.c:45:8: warning: variable 'filteredImage1' set but not used [-Wunused-but-set-variable]
+  char *filteredImage1;
+        ^~~~~~~~~~~~~~
+'Finished building: ../src/videoImageProcessingTest.c'
+' '
+'Building target: videoImageTest.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../videoImageTest_bsp/ps7_cortexa9_0/lib -o "videoImageTest.elf"  ./src/imageProcess.o ./src/videoImageProcessingTest.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: videoImageTest.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size videoImageTest.elf  |tee "videoImageTest.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  51080	14519156	39789688	54359924	33d7774	videoImageTest.elf
+'Finished building: videoImageTest.elf.size'
+' '
+19:22:14 **** Auto Build of configuration Debug for project videoImageTest ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/videoImageProcessingTest.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/videoImageProcessingTest.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../videoImageTest_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/videoImageProcessingTest.d" -MT"src/videoImageProcessingTest.o" -o "src/videoImageProcessingTest.o" "../src/videoImageProcessingTest.c"
+../src/videoImageProcessingTest.c: In function 'main':
+../src/videoImageProcessingTest.c:58:35: error: 'imageDataU' undeclared (first use in this function)
+  myImgProcess.imageDataPointer8 = imageDataU;
+                                   ^~~~~~~~~~
+../src/videoImageProcessingTest.c:58:35: note: each undeclared identifier is reported only once for each function it appears in
+../src/videoImageProcessingTest.c:175:87: error: 'imageDataA' undeclared (first use in this function)
+       drawImage(HSize,VSize,imgHSize,imgVSize,(HSize-imgHSize)/2,(VSize-imgVSize)/2,1,imageDataA,Buffer);
+                                                                                       ^~~~~~~~~~
+../src/videoImageProcessingTest.c:181:87: error: 'imageDataC' undeclared (first use in this function)
+       drawImage(HSize,VSize,imgHSize,imgVSize,(HSize-imgHSize)/2,(VSize-imgVSize)/2,1,imageDataC,Buffer);
+                                                                                       ^~~~~~~~~~
+../src/videoImageProcessingTest.c:187:87: error: 'imageDataD' undeclared (first use in this function)
+       drawImage(HSize,VSize,imgHSize,imgVSize,(HSize-imgHSize)/2,(VSize-imgVSize)/2,1,imageDataD,Buffer);
+                                                                                       ^~~~~~~~~~
+../src/videoImageProcessingTest.c:193:87: error: 'imageDataE' undeclared (first use in this function)
+       drawImage(HSize,VSize,imgHSize,imgVSize,(HSize-imgHSize)/2,(VSize-imgVSize)/2,1,imageDataE,Buffer);
+                                                                                       ^~~~~~~~~~
+../src/videoImageProcessingTest.c:199:87: error: 'imageDataO' undeclared (first use in this function)
+       drawImage(HSize,VSize,imgHSize,imgVSize,(HSize-imgHSize)/2,(VSize-imgVSize)/2,1,imageDataO,Buffer);
+                                                                                       ^~~~~~~~~~
+../src/videoImageProcessingTest.c:205:87: error: 'imageDataR' undeclared (first use in this function)
+       drawImage(HSize,VSize,imgHSize,imgVSize,(HSize-imgHSize)/2,(VSize-imgVSize)/2,1,imageDataR,Buffer);
+                                                                                       ^~~~~~~~~~
+../src/videoImageProcessingTest.c:45:8: warning: variable 'filteredImage1' set but not used [-Wunused-but-set-variable]
+  char *filteredImage1;
+        ^~~~~~~~~~~~~~
+make: *** [src/videoImageProcessingTest.o] Error 1
+19:22:40 **** Auto Build of configuration Debug for project videoImageTest ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/imageProcess.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/imageProcess.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../videoImageTest_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/imageProcess.d" -MT"src/imageProcess.o" -o "src/imageProcess.o" "../src/imageProcess.c"
+'Finished building: ../src/imageProcess.c'
+' '
+'Building file: ../src/videoImageProcessingTest.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/videoImageProcessingTest.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../videoImageTest_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/videoImageProcessingTest.d" -MT"src/videoImageProcessingTest.o" -o "src/videoImageProcessingTest.o" "../src/videoImageProcessingTest.c"
+../src/videoImageProcessingTest.c: In function 'main':
+../src/videoImageProcessingTest.c:58:35: error: 'imageDataU' undeclared (first use in this function)
+  myImgProcess.imageDataPointer8 = imageDataU;
+                                   ^~~~~~~~~~
+../src/videoImageProcessingTest.c:58:35: note: each undeclared identifier is reported only once for each function it appears in
+../src/videoImageProcessingTest.c:175:87: error: 'imageDataA' undeclared (first use in this function)
+       drawImage(HSize,VSize,imgHSize,imgVSize,(HSize-imgHSize)/2,(VSize-imgVSize)/2,1,imageDataA,Buffer);
+                                                                                       ^~~~~~~~~~
+../src/videoImageProcessingTest.c:181:87: error: 'imageDataC' undeclared (first use in this function)
+       drawImage(HSize,VSize,imgHSize,imgVSize,(HSize-imgHSize)/2,(VSize-imgVSize)/2,1,imageDataC,Buffer);
+                                                                                       ^~~~~~~~~~
+../src/videoImageProcessingTest.c:187:87: error: 'imageDataD' undeclared (first use in this function)
+       drawImage(HSize,VSize,imgHSize,imgVSize,(HSize-imgHSize)/2,(VSize-imgVSize)/2,1,imageDataD,Buffer);
+                                                                                       ^~~~~~~~~~
+../src/videoImageProcessingTest.c:193:87: error: 'imageDataE' undeclared (first use in this function)
+       drawImage(HSize,VSize,imgHSize,imgVSize,(HSize-imgHSize)/2,(VSize-imgVSize)/2,1,imageDataE,Buffer);
+                                                                                       ^~~~~~~~~~
+../src/videoImageProcessingTest.c:199:87: error: 'imageDataO' undeclared (first use in this function)
+       drawImage(HSize,VSize,imgHSize,imgVSize,(HSize-imgHSize)/2,(VSize-imgVSize)/2,1,imageDataO,Buffer);
+                                                                                       ^~~~~~~~~~
+../src/videoImageProcessingTest.c:205:87: error: 'imageDataR' undeclared (first use in this function)
+       drawImage(HSize,VSize,imgHSize,imgVSize,(HSize-imgHSize)/2,(VSize-imgVSize)/2,1,imageDataR,Buffer);
+                                                                                       ^~~~~~~~~~
+../src/videoImageProcessingTest.c:45:8: warning: variable 'filteredImage1' set but not used [-Wunused-but-set-variable]
+  char *filteredImage1;
+        ^~~~~~~~~~~~~~
+make: *** [src/videoImageProcessingTest.o] Error 1
+19:23:38 **** Auto Build of configuration Debug for project videoImageTest ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/videoImageProcessingTest.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/videoImageProcessingTest.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../videoImageTest_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/videoImageProcessingTest.d" -MT"src/videoImageProcessingTest.o" -o "src/videoImageProcessingTest.o" "../src/videoImageProcessingTest.c"
+../src/videoImageProcessingTest.c: In function 'main':
+../src/videoImageProcessingTest.c:58:35: error: 'imageDataU' undeclared (first use in this function)
+  myImgProcess.imageDataPointer8 = imageDataU;
+                                   ^~~~~~~~~~
+../src/videoImageProcessingTest.c:58:35: note: each undeclared identifier is reported only once for each function it appears in
+../src/videoImageProcessingTest.c:45:8: warning: variable 'filteredImage1' set but not used [-Wunused-but-set-variable]
+  char *filteredImage1;
+        ^~~~~~~~~~~~~~
+make: *** [src/videoImageProcessingTest.o] Error 1
+19:24:10 **** Auto Build of configuration Debug for project videoImageTest ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/videoImageProcessingTest.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/videoImageProcessingTest.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../videoImageTest_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/videoImageProcessingTest.d" -MT"src/videoImageProcessingTest.o" -o "src/videoImageProcessingTest.o" "../src/videoImageProcessingTest.c"
+../src/videoImageProcessingTest.c: In function 'main':
+../src/videoImageProcessingTest.c:45:8: warning: variable 'filteredImage1' set but not used [-Wunused-but-set-variable]
+  char *filteredImage1;
+        ^~~~~~~~~~~~~~
+'Finished building: ../src/videoImageProcessingTest.c'
+' '
+'Building target: videoImageTest.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../videoImageTest_bsp/ps7_cortexa9_0/lib -o "videoImageTest.elf"  ./src/imageProcess.o ./src/videoImageProcessingTest.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: videoImageTest.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size videoImageTest.elf  |tee "videoImageTest.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  51080	14519156	39789688	54359924	33d7774	videoImageTest.elf
+'Finished building: videoImageTest.elf.size'
+' '
+19:26:18 **** Incremental Build of configuration Debug for project videoImageTest ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Nothing to be done for `main-build'.
+19:27:26 **** Incremental Build of configuration Debug for project videoImageTest ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Nothing to be done for `main-build'.
+19:57:32 **** Auto Build of configuration Debug for project videoImageTest ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/imageProcess.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/imageProcess.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../videoImageTest_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/imageProcess.d" -MT"src/imageProcess.o" -o "src/imageProcess.o" "../src/imageProcess.c"
+'Finished building: ../src/imageProcess.c'
+' '
+'Building target: videoImageTest.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../videoImageTest_bsp/ps7_cortexa9_0/lib -o "videoImageTest.elf"  ./src/imageProcess.o ./src/videoImageProcessingTest.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: videoImageTest.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size videoImageTest.elf  |tee "videoImageTest.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  51080	14519156	39789688	54359924	33d7774	videoImageTest.elf
+'Finished building: videoImageTest.elf.size'
+' '
+19:57:45 **** Auto Build of configuration Debug for project videoImageTest ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/videoImageProcessingTest.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/videoImageProcessingTest.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../videoImageTest_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/videoImageProcessingTest.d" -MT"src/videoImageProcessingTest.o" -o "src/videoImageProcessingTest.o" "../src/videoImageProcessingTest.c"
+../src/videoImageProcessingTest.c: In function 'main':
+../src/videoImageProcessingTest.c:51:35: error: 'imageDataA' undeclared (first use in this function)
+  myImgProcess.imageDataPointer1 = imageDataA;
+                                   ^~~~~~~~~~
+../src/videoImageProcessingTest.c:51:35: note: each undeclared identifier is reported only once for each function it appears in
+../src/videoImageProcessingTest.c:52:35: error: 'imageDataC' undeclared (first use in this function)
+  myImgProcess.imageDataPointer2 = imageDataC;
+                                   ^~~~~~~~~~
+../src/videoImageProcessingTest.c:53:35: error: 'imageDataD' undeclared (first use in this function)
+  myImgProcess.imageDataPointer3 = imageDataD;
+                                   ^~~~~~~~~~
+../src/videoImageProcessingTest.c:54:35: error: 'imageDataE' undeclared (first use in this function)
+  myImgProcess.imageDataPointer4 = imageDataE;
+                                   ^~~~~~~~~~
+../src/videoImageProcessingTest.c:56:35: error: 'imageDataR' undeclared (first use in this function)
+  myImgProcess.imageDataPointer6 = imageDataR;
+                                   ^~~~~~~~~~
+../src/videoImageProcessingTest.c:57:35: error: 'imageDataU' undeclared (first use in this function)
+  myImgProcess.imageDataPointer7 = imageDataU;
+                                   ^~~~~~~~~~
+../src/videoImageProcessingTest.c:45:8: warning: variable 'filteredImage1' set but not used [-Wunused-but-set-variable]
+  char *filteredImage1;
+        ^~~~~~~~~~~~~~
+make: *** [src/videoImageProcessingTest.o] Error 1
+19:58:35 **** Incremental Build of configuration Debug for project videoImageTest ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/videoImageProcessingTest.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/videoImageProcessingTest.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../videoImageTest_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/videoImageProcessingTest.d" -MT"src/videoImageProcessingTest.o" -o "src/videoImageProcessingTest.o" "../src/videoImageProcessingTest.c"
+../src/videoImageProcessingTest.c: In function 'main':
+../src/videoImageProcessingTest.c:51:35: error: 'imageDataA' undeclared (first use in this function)
+  myImgProcess.imageDataPointer1 = imageDataA;
+                                   ^~~~~~~~~~
+../src/videoImageProcessingTest.c:51:35: note: each undeclared identifier is reported only once for each function it appears in
+../src/videoImageProcessingTest.c:52:35: error: 'imageDataC' undeclared (first use in this function)
+  myImgProcess.imageDataPointer2 = imageDataC;
+                                   ^~~~~~~~~~
+../src/videoImageProcessingTest.c:53:35: error: 'imageDataD' undeclared (first use in this function)
+  myImgProcess.imageDataPointer3 = imageDataD;
+                                   ^~~~~~~~~~
+../src/videoImageProcessingTest.c:54:35: error: 'imageDataE' undeclared (first use in this function)
+  myImgProcess.imageDataPointer4 = imageDataE;
+                                   ^~~~~~~~~~
+../src/videoImageProcessingTest.c:56:35: error: 'imageDataR' undeclared (first use in this function)
+  myImgProcess.imageDataPointer6 = imageDataR;
+                                   ^~~~~~~~~~
+../src/videoImageProcessingTest.c:57:35: error: 'imageDataU' undeclared (first use in this function)
+  myImgProcess.imageDataPointer7 = imageDataU;
+                                   ^~~~~~~~~~
+../src/videoImageProcessingTest.c:45:8: warning: variable 'filteredImage1' set but not used [-Wunused-but-set-variable]
+  char *filteredImage1;
+        ^~~~~~~~~~~~~~
+make: *** [src/videoImageProcessingTest.o] Error 1
+20:00:32 **** Auto Build of configuration Debug for project videoImageTest ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/videoImageProcessingTest.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/videoImageProcessingTest.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../videoImageTest_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/videoImageProcessingTest.d" -MT"src/videoImageProcessingTest.o" -o "src/videoImageProcessingTest.o" "../src/videoImageProcessingTest.c"
+../src/videoImageProcessingTest.c: In function 'main':
+../src/videoImageProcessingTest.c:182:87: error: 'imageDataX' undeclared (first use in this function)
+       drawImage(HSize,VSize,imgHSize,imgVSize,(HSize-imgHSize)/2,(VSize-imgVSize)/2,1,imageDataX,Buffer);
+                                                                                       ^~~~~~~~~~
+../src/videoImageProcessingTest.c:182:87: note: each undeclared identifier is reported only once for each function it appears in
+../src/videoImageProcessingTest.c:194:87: error: 'imageDataZ' undeclared (first use in this function)
+       drawImage(HSize,VSize,imgHSize,imgVSize,(HSize-imgHSize)/2,(VSize-imgVSize)/2,1,imageDataZ,Buffer);
+                                                                                       ^~~~~~~~~~
+../src/videoImageProcessingTest.c:200:87: error: 'imageDataZA' undeclared (first use in this function)
+       drawImage(HSize,VSize,imgHSize,imgVSize,(HSize-imgHSize)/2,(VSize-imgVSize)/2,1,imageDataZA,Buffer);
+                                                                                       ^~~~~~~~~~~
+../src/videoImageProcessingTest.c:206:87: error: 'imageDataZB' undeclared (first use in this function)
+       drawImage(HSize,VSize,imgHSize,imgVSize,(HSize-imgHSize)/2,(VSize-imgVSize)/2,1,imageDataZB,Buffer);
+                                                                                       ^~~~~~~~~~~
+../src/videoImageProcessingTest.c:212:87: error: 'imageDataZC' undeclared (first use in this function)
+       drawImage(HSize,VSize,imgHSize,imgVSize,(HSize-imgHSize)/2,(VSize-imgVSize)/2,1,imageDataZC,Buffer);
+                                                                                       ^~~~~~~~~~~
+../src/videoImageProcessingTest.c:46:8: warning: variable 'filteredImage1' set but not used [-Wunused-but-set-variable]
+  char *filteredImage1;
+        ^~~~~~~~~~~~~~
+make: *** [src/videoImageProcessingTest.o] Error 1
+20:01:34 **** Auto Build of configuration Debug for project videoImageTest ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/videoImageProcessingTest.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/videoImageProcessingTest.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../videoImageTest_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/videoImageProcessingTest.d" -MT"src/videoImageProcessingTest.o" -o "src/videoImageProcessingTest.o" "../src/videoImageProcessingTest.c"
+../src/videoImageProcessingTest.c: In function 'main':
+../src/videoImageProcessingTest.c:46:8: warning: variable 'filteredImage1' set but not used [-Wunused-but-set-variable]
+  char *filteredImage1;
+        ^~~~~~~~~~~~~~
+'Finished building: ../src/videoImageProcessingTest.c'
+' '
+'Building target: videoImageTest.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../videoImageTest_bsp/ps7_cortexa9_0/lib -o "videoImageTest.elf"  ./src/imageProcess.o ./src/videoImageProcessingTest.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: videoImageTest.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size videoImageTest.elf  |tee "videoImageTest.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  51272	16592756	39789688	56433716	35d1c34	videoImageTest.elf
+'Finished building: videoImageTest.elf.size'
+' '
+20:10:16 **** Incremental Build of configuration Debug for project videoImageTest ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Nothing to be done for `main-build'.
+20:12:21 **** Auto Build of configuration Debug for project videoImageTest ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/videoImageProcessingTest.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/videoImageProcessingTest.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../videoImageTest_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/videoImageProcessingTest.d" -MT"src/videoImageProcessingTest.o" -o "src/videoImageProcessingTest.o" "../src/videoImageProcessingTest.c"
+../src/videoImageProcessingTest.c: In function 'main':
+../src/videoImageProcessingTest.c:46:8: warning: variable 'filteredImage1' set but not used [-Wunused-but-set-variable]
+  char *filteredImage1;
+        ^~~~~~~~~~~~~~
+'Finished building: ../src/videoImageProcessingTest.c'
+' '
+'Building target: videoImageTest.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../videoImageTest_bsp/ps7_cortexa9_0/lib -o "videoImageTest.elf"  ./src/imageProcess.o ./src/videoImageProcessingTest.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: videoImageTest.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size videoImageTest.elf  |tee "videoImageTest.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  51272	16592756	39789688	56433716	35d1c34	videoImageTest.elf
+'Finished building: videoImageTest.elf.size'
+' '
+20:14:38 **** Incremental Build of configuration Debug for project videoImageTest ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Nothing to be done for `main-build'.
+21:17:05 **** Auto Build of project videoImageTest_bsp ****
+make -k all 
+"Running Make include in ps7_cortexa9_0/libsrc/axidma_v9_5/src"
+make -C ps7_cortexa9_0/libsrc/axidma_v9_5/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -Wall -Wextra"
+"Running Make include in ps7_cortexa9_0/libsrc/axivdma_v6_4/src"
+make -C ps7_cortexa9_0/libsrc/axivdma_v6_4/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -Wall -Wextra"
+"Running Make include in ps7_cortexa9_0/libsrc/coresightps_dcc_v1_4/src"
+make -C ps7_cortexa9_0/libsrc/coresightps_dcc_v1_4/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -Wall -Wextra"
+"Running Make include in ps7_cortexa9_0/libsrc/cpu_cortexa9_v2_5/src"
+make -C ps7_cortexa9_0/libsrc/cpu_cortexa9_v2_5/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -Wall -Wextra"
+"Running Make include in ps7_cortexa9_0/libsrc/ddrps_v1_0/src"
+make -C ps7_cortexa9_0/libsrc/ddrps_v1_0/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -Wall -Wextra"
+"Running Make include in ps7_cortexa9_0/libsrc/devcfg_v3_5/src"
+make -C ps7_cortexa9_0/libsrc/devcfg_v3_5/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -Wall -Wextra"
+"Running Make include in ps7_cortexa9_0/libsrc/dmaps_v2_3/src"
+make -C ps7_cortexa9_0/libsrc/dmaps_v2_3/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -Wall -Wextra"
+"Running Make include in ps7_cortexa9_0/libsrc/emacps_v3_6/src"
+make -C ps7_cortexa9_0/libsrc/emacps_v3_6/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -Wall -Wextra"
+"Running Make include in ps7_cortexa9_0/libsrc/gpiops_v3_3/src"
+make -C ps7_cortexa9_0/libsrc/gpiops_v3_3/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -Wall -Wextra"
+"Running Make include in ps7_cortexa9_0/libsrc/qspips_v3_4/src"
+make -C ps7_cortexa9_0/libsrc/qspips_v3_4/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -Wall -Wextra"
+"Running Make include in ps7_cortexa9_0/libsrc/scugic_v3_8/src"
+make -C ps7_cortexa9_0/libsrc/scugic_v3_8/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -Wall -Wextra"
+"Running Make include in ps7_cortexa9_0/libsrc/scutimer_v2_1/src"
+make -C ps7_cortexa9_0/libsrc/scutimer_v2_1/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -Wall -Wextra"
+"Running Make include in ps7_cortexa9_0/libsrc/scuwdt_v2_1/src"
+make -C ps7_cortexa9_0/libsrc/scuwdt_v2_1/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -Wall -Wextra"
+"Running Make include in ps7_cortexa9_0/libsrc/sdps_v3_3/src"
+make -C ps7_cortexa9_0/libsrc/sdps_v3_3/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -Wall -Wextra"
+"Running Make include in ps7_cortexa9_0/libsrc/standalone_v6_5/src"
+make -C ps7_cortexa9_0/libsrc/standalone_v6_5/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -Wall -Wextra"
+"Running Make include in ps7_cortexa9_0/libsrc/ttcps_v3_5/src"
+make -C ps7_cortexa9_0/libsrc/ttcps_v3_5/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -Wall -Wextra"
+"Running Make include in ps7_cortexa9_0/libsrc/uartps_v3_5/src"
+make -C ps7_cortexa9_0/libsrc/uartps_v3_5/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -Wall -Wextra"
+"Running Make include in ps7_cortexa9_0/libsrc/usbps_v2_4/src"
+make -C ps7_cortexa9_0/libsrc/usbps_v2_4/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -Wall -Wextra"
+"Running Make include in ps7_cortexa9_0/libsrc/xadcps_v2_2/src"
+make -C ps7_cortexa9_0/libsrc/xadcps_v2_2/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -Wall -Wextra"
+"Running Make libs in ps7_cortexa9_0/libsrc/axidma_v9_5/src"
+make -C ps7_cortexa9_0/libsrc/axidma_v9_5/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -Wall -Wextra"
+"Compiling axidma"
+arm-none-eabi-ar: creating ../../../lib/libxil.a
+"Running Make libs in ps7_cortexa9_0/libsrc/axivdma_v6_4/src"
+make -C ps7_cortexa9_0/libsrc/axivdma_v6_4/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -Wall -Wextra"
+"Compiling axivdma"
+"Running Make libs in ps7_cortexa9_0/libsrc/coresightps_dcc_v1_4/src"
+make -C ps7_cortexa9_0/libsrc/coresightps_dcc_v1_4/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -Wall -Wextra"
+"Compiling coresightps_dcc"
+"Running Make libs in ps7_cortexa9_0/libsrc/cpu_cortexa9_v2_5/src"
+make -C ps7_cortexa9_0/libsrc/cpu_cortexa9_v2_5/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -Wall -Wextra"
+"Compiling cpu_cortexa9"
+"Running Make libs in ps7_cortexa9_0/libsrc/ddrps_v1_0/src"
+make -C ps7_cortexa9_0/libsrc/ddrps_v1_0/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -Wall -Wextra"
+"Compiling ddrps"
+"Running Make libs in ps7_cortexa9_0/libsrc/devcfg_v3_5/src"
+make -C ps7_cortexa9_0/libsrc/devcfg_v3_5/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -Wall -Wextra"
+"Compiling devcfg"
+"Running Make libs in ps7_cortexa9_0/libsrc/dmaps_v2_3/src"
+make -C ps7_cortexa9_0/libsrc/dmaps_v2_3/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -Wall -Wextra"
+"Compiling dmaps"
+"Running Make libs in ps7_cortexa9_0/libsrc/emacps_v3_6/src"
+make -C ps7_cortexa9_0/libsrc/emacps_v3_6/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -Wall -Wextra"
+"Compiling emacps"
+"Running Make libs in ps7_cortexa9_0/libsrc/gpiops_v3_3/src"
+make -C ps7_cortexa9_0/libsrc/gpiops_v3_3/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -Wall -Wextra"
+"Compiling gpiops"
+"Running Make libs in ps7_cortexa9_0/libsrc/qspips_v3_4/src"
+make -C ps7_cortexa9_0/libsrc/qspips_v3_4/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -Wall -Wextra"
+"Compiling qspips"
+"Running Make libs in ps7_cortexa9_0/libsrc/scugic_v3_8/src"
+make -C ps7_cortexa9_0/libsrc/scugic_v3_8/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -Wall -Wextra"
+"Compiling scugic"
+"Running Make libs in ps7_cortexa9_0/libsrc/scutimer_v2_1/src"
+make -C ps7_cortexa9_0/libsrc/scutimer_v2_1/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -Wall -Wextra"
+"Compiling scutimer"
+"Running Make libs in ps7_cortexa9_0/libsrc/scuwdt_v2_1/src"
+make -C ps7_cortexa9_0/libsrc/scuwdt_v2_1/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -Wall -Wextra"
+"Compiling scuwdt"
+"Running Make libs in ps7_cortexa9_0/libsrc/sdps_v3_3/src"
+make -C ps7_cortexa9_0/libsrc/sdps_v3_3/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -Wall -Wextra"
+"Compiling sdps"
+"Running Make libs in ps7_cortexa9_0/libsrc/standalone_v6_5/src"
+make -C ps7_cortexa9_0/libsrc/standalone_v6_5/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -Wall -Wextra"
+"Compiling standalone"
+"Running Make libs in ps7_cortexa9_0/libsrc/ttcps_v3_5/src"
+make -C ps7_cortexa9_0/libsrc/ttcps_v3_5/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -Wall -Wextra"
+"Compiling ttcps"
+"Running Make libs in ps7_cortexa9_0/libsrc/uartps_v3_5/src"
+make -C ps7_cortexa9_0/libsrc/uartps_v3_5/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -Wall -Wextra"
+"Compiling uartps"
+"Running Make libs in ps7_cortexa9_0/libsrc/usbps_v2_4/src"
+make -C ps7_cortexa9_0/libsrc/usbps_v2_4/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -Wall -Wextra"
+"Compiling usbps"
+"Running Make libs in ps7_cortexa9_0/libsrc/xadcps_v2_2/src"
+make -C ps7_cortexa9_0/libsrc/xadcps_v2_2/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -Wall -Wextra"
+"Compiling xadcps"
+'Finished building libraries'
+21:17:43 **** Auto Build of configuration Debug for project videoImageTest ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/imageProcess.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/imageProcess.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../videoImageTest_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/imageProcess.d" -MT"src/imageProcess.o" -o "src/imageProcess.o" "../src/imageProcess.c"
+'Finished building: ../src/imageProcess.c'
+' '
+'Building file: ../src/videoImageProcessingTest.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/videoImageProcessingTest.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../videoImageTest_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/videoImageProcessingTest.d" -MT"src/videoImageProcessingTest.o" -o "src/videoImageProcessingTest.o" "../src/videoImageProcessingTest.c"
+../src/videoImageProcessingTest.c: In function 'main':
+../src/videoImageProcessingTest.c:46:8: warning: variable 'filteredImage1' set but not used [-Wunused-but-set-variable]
+  char *filteredImage1;
+        ^~~~~~~~~~~~~~
+'Finished building: ../src/videoImageProcessingTest.c'
+' '
+'Building target: videoImageTest.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../videoImageTest_bsp/ps7_cortexa9_0/lib -o "videoImageTest.elf"  ./src/imageProcess.o ./src/videoImageProcessingTest.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: videoImageTest.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size videoImageTest.elf  |tee "videoImageTest.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  51272	16592756	39789688	56433716	35d1c34	videoImageTest.elf
+'Finished building: videoImageTest.elf.size'
+' '
+21:23:00 **** Incremental Build of configuration Debug for project videoImageTest ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Nothing to be done for `main-build'.
+21:25:05 **** Auto Build of configuration Debug for project videoImageTest ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/imageProcess.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/imageProcess.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../videoImageTest_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/imageProcess.d" -MT"src/imageProcess.o" -o "src/imageProcess.o" "../src/imageProcess.c"
+'Finished building: ../src/imageProcess.c'
+' '
+'Building target: videoImageTest.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../videoImageTest_bsp/ps7_cortexa9_0/lib -o "videoImageTest.elf"  ./src/imageProcess.o ./src/videoImageProcessingTest.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: videoImageTest.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size videoImageTest.elf  |tee "videoImageTest.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  51636	16592756	39789688	56434080	35d1da0	videoImageTest.elf
+'Finished building: videoImageTest.elf.size'
+' '
+21:25:18 **** Incremental Build of configuration Debug for project videoImageTest ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Nothing to be done for `main-build'.
+21:26:35 **** Auto Build of configuration Debug for project videoImageTest ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/imageProcess.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/imageProcess.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../videoImageTest_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/imageProcess.d" -MT"src/imageProcess.o" -o "src/imageProcess.o" "../src/imageProcess.c"
+../src/imageProcess.c: In function 'imageProcISR':
+../src/imageProcess.c:215:15: warning: unknown escape sequence: '\R'
+    xil_printf("row1 = %d \R\n",((imgProcess*)CallBackRef)->row);
+               ^~~~~~~~~~~~~~~~
+'Finished building: ../src/imageProcess.c'
+' '
+'Building target: videoImageTest.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../videoImageTest_bsp/ps7_cortexa9_0/lib -o "videoImageTest.elf"  ./src/imageProcess.o ./src/videoImageProcessingTest.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: videoImageTest.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size videoImageTest.elf  |tee "videoImageTest.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  51640	16592756	39789688	56434084	35d1da4	videoImageTest.elf
+'Finished building: videoImageTest.elf.size'
+' '
+21:50:25 **** Auto Build of configuration Debug for project videoImageTest ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/imageProcess.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/imageProcess.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../videoImageTest_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/imageProcess.d" -MT"src/imageProcess.o" -o "src/imageProcess.o" "../src/imageProcess.c"
+In file included from ../src/imageProcess.c:8:0:
+../src/imageProcess.h:4:23: fatal error: xil_types.h: No such file or directory
+ #include "xil_types.h"
+                       ^
+compilation terminated.
+make: *** [src/imageProcess.o] Error 1
+21:50:33 **** Auto Build of project videoImageTest_bsp ****
+make -k all 
+"Running Make include in ps7_cortexa9_0/libsrc/axidma_v9_5/src"
+make -C ps7_cortexa9_0/libsrc/axidma_v9_5/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -Wall -Wextra"
+"Running Make include in ps7_cortexa9_0/libsrc/axivdma_v6_4/src"
+make -C ps7_cortexa9_0/libsrc/axivdma_v6_4/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -Wall -Wextra"
+"Running Make include in ps7_cortexa9_0/libsrc/coresightps_dcc_v1_4/src"
+make -C ps7_cortexa9_0/libsrc/coresightps_dcc_v1_4/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -Wall -Wextra"
+"Running Make include in ps7_cortexa9_0/libsrc/cpu_cortexa9_v2_5/src"
+make -C ps7_cortexa9_0/libsrc/cpu_cortexa9_v2_5/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -Wall -Wextra"
+"Running Make include in ps7_cortexa9_0/libsrc/ddrps_v1_0/src"
+make -C ps7_cortexa9_0/libsrc/ddrps_v1_0/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -Wall -Wextra"
+"Running Make include in ps7_cortexa9_0/libsrc/devcfg_v3_5/src"
+make -C ps7_cortexa9_0/libsrc/devcfg_v3_5/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -Wall -Wextra"
+"Running Make include in ps7_cortexa9_0/libsrc/dmaps_v2_3/src"
+make -C ps7_cortexa9_0/libsrc/dmaps_v2_3/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -Wall -Wextra"
+"Running Make include in ps7_cortexa9_0/libsrc/emacps_v3_6/src"
+make -C ps7_cortexa9_0/libsrc/emacps_v3_6/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -Wall -Wextra"
+"Running Make include in ps7_cortexa9_0/libsrc/gpiops_v3_3/src"
+make -C ps7_cortexa9_0/libsrc/gpiops_v3_3/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -Wall -Wextra"
+"Running Make include in ps7_cortexa9_0/libsrc/qspips_v3_4/src"
+make -C ps7_cortexa9_0/libsrc/qspips_v3_4/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -Wall -Wextra"
+"Running Make include in ps7_cortexa9_0/libsrc/scugic_v3_8/src"
+make -C ps7_cortexa9_0/libsrc/scugic_v3_8/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -Wall -Wextra"
+"Running Make include in ps7_cortexa9_0/libsrc/scutimer_v2_1/src"
+make -C ps7_cortexa9_0/libsrc/scutimer_v2_1/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -Wall -Wextra"
+"Running Make include in ps7_cortexa9_0/libsrc/scuwdt_v2_1/src"
+make -C ps7_cortexa9_0/libsrc/scuwdt_v2_1/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -Wall -Wextra"
+"Running Make include in ps7_cortexa9_0/libsrc/sdps_v3_3/src"
+make -C ps7_cortexa9_0/libsrc/sdps_v3_3/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -Wall -Wextra"
+"Running Make include in ps7_cortexa9_0/libsrc/standalone_v6_5/src"
+make -C ps7_cortexa9_0/libsrc/standalone_v6_5/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -Wall -Wextra"
+"Running Make include in ps7_cortexa9_0/libsrc/ttcps_v3_5/src"
+make -C ps7_cortexa9_0/libsrc/ttcps_v3_5/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -Wall -Wextra"
+"Running Make include in ps7_cortexa9_0/libsrc/uartps_v3_5/src"
+make -C ps7_cortexa9_0/libsrc/uartps_v3_5/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -Wall -Wextra"
+"Running Make include in ps7_cortexa9_0/libsrc/usbps_v2_4/src"
+make -C ps7_cortexa9_0/libsrc/usbps_v2_4/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -Wall -Wextra"
+"Running Make include in ps7_cortexa9_0/libsrc/xadcps_v2_2/src"
+make -C ps7_cortexa9_0/libsrc/xadcps_v2_2/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -Wall -Wextra"
+"Running Make libs in ps7_cortexa9_0/libsrc/axidma_v9_5/src"
+make -C ps7_cortexa9_0/libsrc/axidma_v9_5/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -Wall -Wextra"
+"Compiling axidma"
+arm-none-eabi-ar: creating ../../../lib/libxil.a
+"Running Make libs in ps7_cortexa9_0/libsrc/axivdma_v6_4/src"
+make -C ps7_cortexa9_0/libsrc/axivdma_v6_4/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -Wall -Wextra"
+"Compiling axivdma"
+"Running Make libs in ps7_cortexa9_0/libsrc/coresightps_dcc_v1_4/src"
+make -C ps7_cortexa9_0/libsrc/coresightps_dcc_v1_4/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -Wall -Wextra"
+"Compiling coresightps_dcc"
+"Running Make libs in ps7_cortexa9_0/libsrc/cpu_cortexa9_v2_5/src"
+make -C ps7_cortexa9_0/libsrc/cpu_cortexa9_v2_5/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -Wall -Wextra"
+"Compiling cpu_cortexa9"
+"Running Make libs in ps7_cortexa9_0/libsrc/ddrps_v1_0/src"
+make -C ps7_cortexa9_0/libsrc/ddrps_v1_0/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -Wall -Wextra"
+"Compiling ddrps"
+"Running Make libs in ps7_cortexa9_0/libsrc/devcfg_v3_5/src"
+make -C ps7_cortexa9_0/libsrc/devcfg_v3_5/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -Wall -Wextra"
+"Compiling devcfg"
+"Running Make libs in ps7_cortexa9_0/libsrc/dmaps_v2_3/src"
+make -C ps7_cortexa9_0/libsrc/dmaps_v2_3/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -Wall -Wextra"
+"Compiling dmaps"
+"Running Make libs in ps7_cortexa9_0/libsrc/emacps_v3_6/src"
+make -C ps7_cortexa9_0/libsrc/emacps_v3_6/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -Wall -Wextra"
+"Compiling emacps"
+"Running Make libs in ps7_cortexa9_0/libsrc/gpiops_v3_3/src"
+make -C ps7_cortexa9_0/libsrc/gpiops_v3_3/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -Wall -Wextra"
+"Compiling gpiops"
+"Running Make libs in ps7_cortexa9_0/libsrc/qspips_v3_4/src"
+make -C ps7_cortexa9_0/libsrc/qspips_v3_4/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -Wall -Wextra"
+"Compiling qspips"
+"Running Make libs in ps7_cortexa9_0/libsrc/scugic_v3_8/src"
+make -C ps7_cortexa9_0/libsrc/scugic_v3_8/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -Wall -Wextra"
+"Compiling scugic"
+"Running Make libs in ps7_cortexa9_0/libsrc/scutimer_v2_1/src"
+make -C ps7_cortexa9_0/libsrc/scutimer_v2_1/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -Wall -Wextra"
+"Compiling scutimer"
+"Running Make libs in ps7_cortexa9_0/libsrc/scuwdt_v2_1/src"
+make -C ps7_cortexa9_0/libsrc/scuwdt_v2_1/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -Wall -Wextra"
+"Compiling scuwdt"
+"Running Make libs in ps7_cortexa9_0/libsrc/sdps_v3_3/src"
+make -C ps7_cortexa9_0/libsrc/sdps_v3_3/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -Wall -Wextra"
+"Compiling sdps"
+"Running Make libs in ps7_cortexa9_0/libsrc/standalone_v6_5/src"
+make -C ps7_cortexa9_0/libsrc/standalone_v6_5/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -Wall -Wextra"
+"Compiling standalone"
+"Running Make libs in ps7_cortexa9_0/libsrc/ttcps_v3_5/src"
+make -C ps7_cortexa9_0/libsrc/ttcps_v3_5/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -Wall -Wextra"
+"Compiling ttcps"
+"Running Make libs in ps7_cortexa9_0/libsrc/uartps_v3_5/src"
+make -C ps7_cortexa9_0/libsrc/uartps_v3_5/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -Wall -Wextra"
+"Compiling uartps"
+"Running Make libs in ps7_cortexa9_0/libsrc/usbps_v2_4/src"
+make -C ps7_cortexa9_0/libsrc/usbps_v2_4/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -Wall -Wextra"
+"Compiling usbps"
+"Running Make libs in ps7_cortexa9_0/libsrc/xadcps_v2_2/src"
+make -C ps7_cortexa9_0/libsrc/xadcps_v2_2/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -Wall -Wextra"
+"Compiling xadcps"
+'Finished building libraries'
+21:51:10 **** Auto Build of configuration Debug for project videoImageTest ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/imageProcess.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/imageProcess.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../videoImageTest_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/imageProcess.d" -MT"src/imageProcess.o" -o "src/imageProcess.o" "../src/imageProcess.c"
+'Finished building: ../src/imageProcess.c'
+' '
+'Building file: ../src/videoImageProcessingTest.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/videoImageProcessingTest.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../videoImageTest_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/videoImageProcessingTest.d" -MT"src/videoImageProcessingTest.o" -o "src/videoImageProcessingTest.o" "../src/videoImageProcessingTest.c"
+../src/videoImageProcessingTest.c: In function 'main':
+../src/videoImageProcessingTest.c:46:8: warning: variable 'filteredImage1' set but not used [-Wunused-but-set-variable]
+  char *filteredImage1;
+        ^~~~~~~~~~~~~~
+'Finished building: ../src/videoImageProcessingTest.c'
+' '
+'Building target: videoImageTest.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../videoImageTest_bsp/ps7_cortexa9_0/lib -o "videoImageTest.elf"  ./src/imageProcess.o ./src/videoImageProcessingTest.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: videoImageTest.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size videoImageTest.elf  |tee "videoImageTest.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  51624	16592756	39789688	56434068	35d1d94	videoImageTest.elf
+'Finished building: videoImageTest.elf.size'
+' '
+21:53:15 **** Incremental Build of configuration Debug for project videoImageTest ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Nothing to be done for `main-build'.
