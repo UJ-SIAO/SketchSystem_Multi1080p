@@ -1,10 +1,10 @@
 -- Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2017.4 (win64) Build 2086221 Fri Dec 15 20:55:39 MST 2017
--- Date        : Tue Jun 29 19:30:52 2021
+-- Date        : Sun Jul 11 20:04:25 2021
 -- Host        : DESKTOP-RE08DTS running 64-bit major release  (build 9200)
 -- Command     : write_vhdl -force -mode synth_stub
---               D:/GitCode/SketchSystem_1080p/sketchSystem1080.srcs/sources_1/bd/system/ip/system_SketchIP_1080p_0_0/system_SketchIP_1080p_0_0_stub.vhdl
+--               D:/GitCode/SketchSystem_Multi1080p/SketchSystem.srcs/sources_1/bd/system/ip/system_SketchIP_1080p_0_0/system_SketchIP_1080p_0_0_stub.vhdl
 -- Design      : system_SketchIP_1080p_0_0
 -- Purpose     : Stub declaration of top-level module interface
 -- Device      : xc7z020clg484-1

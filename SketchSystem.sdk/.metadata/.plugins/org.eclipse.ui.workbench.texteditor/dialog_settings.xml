@@ -2,20 +2,20 @@
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="isRegEx"/>
-		<item value="MA" key="selection"/>
+		<item value="length" key="selection"/>
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
-			<item value="MA"/>
-			<item value="MAX"/>
-			<item value="XPAR_AXI_VDMA_0_NUM_FSTORES"/>
-			<item value="MaxFrameStoreNum"/>
-			<item value="XAxiVdma_ConfigTable"/>
-			<item value="VDMA"/>
-			<item value="ReadCallBack"/>
-			<item value="DMA Receive Failed with Status"/>
+			<item value="LENGTH"/>
+			<item value=": Length Register "/>
+			<item value="BUF"/>
+			<item value="LENG"/>
+			<item value="Length"/>
+			<item value="Length Register "/>
+			<item value="SIZE"/>
+			<item value="BUST"/>
 		</list>
 		<list key="replacehistory">
 		</list>

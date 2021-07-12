@@ -154,8 +154,12 @@ static void dmaReceiveISR(void *CallBackRef){
 		((imgProcess*)CallBackRef)->done =3;
 
 	//((imgProcess*)CallBackRef)->done++;
-	xil_printf("done = %d \r\n",((imgProcess*)CallBackRef)->done);
-	resetDMA(XPAR_AXI_DMA_0_BASEADDR);
+	xil_printf("done = %d  remain = %d \r\n",((imgProcess*)CallBackRef)->done,XAxiDma_ReadReg(XPAR_AXI_DMA_0_BASEADDR,0x10));
+	//resetDMA(XPAR_AXI_DMA_0_BASEADDR);
+	XAxiDma_Reset((XAxiDma *)((imgProcess*)CallBackRef)->DmaCtrlPointer);
+	while(!XAxiDma_ResetIsDone((XAxiDma *)((imgProcess*)CallBackRef)->DmaCtrlPointer)){
+
+	}
 	XAxiDma_IntrEnable((XAxiDma *)(((imgProcess*)CallBackRef)->DmaCtrlPointer), XAXIDMA_IRQ_IOC_MASK, XAXIDMA_DEVICE_TO_DMA);
 
     //sleep(1);

@@ -2,10 +2,10 @@
 <Root MajorVersion="0" MinorVersion="33">
   <CompositeFile CompositeFileTopName="bd_44e3" CanBeSetAsTop="true" CanDisplayChildGraph="true">
     <Description>Composite Fileset</Description>
-    <Generation Name="SYNTHESIS" State="STALE" Timestamp="1625925380"/>
-    <Generation Name="IMPLEMENTATION" State="STALE" Timestamp="1625925365"/>
-    <Generation Name="SIMULATION" State="STALE" Timestamp="1625925380"/>
-    <Generation Name="HW_HANDOFF" State="STALE" Timestamp="1625925365"/>
+    <Generation Name="SYNTHESIS" State="GENERATED" Timestamp="1626097811"/>
+    <Generation Name="IMPLEMENTATION" State="GENERATED" Timestamp="1626097811"/>
+    <Generation Name="SIMULATION" State="GENERATED" Timestamp="1626097811"/>
+    <Generation Name="HW_HANDOFF" State="GENERATED" Timestamp="1626097811"/>
     <FileCollection Name="SOURCES" Type="SOURCES">
       <File Name="synth\bd_44e3.v" Type="Verilog">
         <Properties IsEditable="false" IsVisible="true" Timestamp="0" IsTrackable="false" IsStatusTracked="false"/>
@@ -17,21 +17,6 @@
         <Properties IsEditable="false" IsVisible="true" Timestamp="0" IsTrackable="false" IsStatusTracked="false"/>
         <Library Name="xil_defaultlib"/>
         <UsedIn Val="SIMULATION"/>
-      </File>
-      <File Name="hw_handoff\system_axi_smc_0.hwh" Type="HwHandoff">
-        <Properties IsEditable="false" IsVisible="true" Timestamp="0" IsTrackable="false" IsStatusTracked="false"/>
-        <Library Name="xil_defaultlib"/>
-        <UsedIn Val="HW_HANDOFF"/>
-      </File>
-      <File Name="hw_handoff\system_axi_smc_0_bd.tcl">
-        <Properties IsEditable="false" IsVisible="true" Timestamp="0" IsTrackable="false" IsStatusTracked="false"/>
-        <Library Name="xil_defaultlib"/>
-        <UsedIn Val="HW_HANDOFF"/>
-      </File>
-      <File Name="synth\system_axi_smc_0.hwdef">
-        <Properties IsEditable="false" IsVisible="true" Timestamp="0" IsTrackable="false" IsStatusTracked="false"/>
-        <Library Name="xil_defaultlib"/>
-        <UsedIn Val="HW_HANDOFF"/>
       </File>
       <File Name="ip\ip_12\bd_44e3_s00a2s_0.xci" Type="IP">
         <Instance HierarchyPath="s00_axi2sc"/>
@@ -368,6 +353,21 @@
         <UsedIn Val="SYNTHESIS"/>
         <UsedIn Val="IMPLEMENTATION"/>
         <UsedIn Val="SIMULATION"/>
+      </File>
+      <File Name="hw_handoff\system_axi_smc_0.hwh" Type="HwHandoff">
+        <Properties IsEditable="false" IsVisible="true" Timestamp="0" IsTrackable="false" IsStatusTracked="false"/>
+        <Library Name="xil_defaultlib"/>
+        <UsedIn Val="HW_HANDOFF"/>
+      </File>
+      <File Name="hw_handoff\system_axi_smc_0_bd.tcl">
+        <Properties IsEditable="false" IsVisible="true" Timestamp="0" IsTrackable="false" IsStatusTracked="false"/>
+        <Library Name="xil_defaultlib"/>
+        <UsedIn Val="HW_HANDOFF"/>
+      </File>
+      <File Name="synth\system_axi_smc_0.hwdef">
+        <Properties IsEditable="false" IsVisible="true" Timestamp="0" IsTrackable="false" IsStatusTracked="false"/>
+        <Library Name="xil_defaultlib"/>
+        <UsedIn Val="HW_HANDOFF"/>
       </File>
     </FileCollection>
   </CompositeFile>

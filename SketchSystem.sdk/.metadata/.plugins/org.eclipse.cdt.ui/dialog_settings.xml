@@ -17,6 +17,9 @@
 		<item value="false" key="caseSensitive"/>
 		<item value="227191" key="searchFlags"/>
 		<list key="previousPatterns">
+			<item value="LengthRegister"/>
+			<item value="XPAR_AXI_DMA_0_MM2S_BURST_SIZE"/>
+			<item value="c_mm2s_burst_size"/>
 			<item value="XPAR_AXI_VDMA_0_NUM_FSTORES"/>
 			<item value="XAxiVdma_ConfigTable"/>
 		</list>

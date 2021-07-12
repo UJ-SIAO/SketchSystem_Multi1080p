@@ -75,7 +75,7 @@ int main(){
     myImgProcess.row =4;
     status=XAxiDma_SimpleTransfer(myImgProcess.DmaCtrlPointer,(u32)myImgProcess.filteredImageDataPointer2,(1920*1080*4),XAXIDMA_DEVICE_TO_DMA);
     if(status != XST_SUCCESS){
-		xil_printf("DMA Receive Failed with Status0 %d\n",status);
+		xil_printf("DMA Receive Failed with Status %d\n",status);
 		return -1;
 	}
     status=XAxiDma_SimpleTransfer(myImgProcess.DmaCtrlPointer,(u32)myImgProcess.imageDataPointer5, 4*1920,XAXIDMA_DMA_TO_DEVICE);
