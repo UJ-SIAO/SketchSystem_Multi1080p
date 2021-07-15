@@ -46,7 +46,7 @@ int main(){
 	char *filteredImage1;
 	char *filteredImage2;
 	filteredImage  = malloc(sizeof(char)*(imageSize) * 4);
-	filteredImage1 = malloc(sizeof(char)*(imageSize));
+	//filteredImage1 = malloc(sizeof(char)*(imageSize));
 	filteredImage2 = malloc(sizeof(char)*(imageSize) * 4);
 	//Y¡BW¡B
 	myImgProcess.imageDataPointer1 = imageDataA;
