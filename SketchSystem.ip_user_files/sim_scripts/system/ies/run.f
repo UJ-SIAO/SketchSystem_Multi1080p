@@ -239,12 +239,50 @@
 -makelib ies_lib/xil_defaultlib \
   "../../../bd/system/ip/system_xbar_0/sim/system_xbar_0.v" \
   "../../../bd/system/sim/system.v" \
-  "../../../bd/system/ip/system_SketchIP_1080p_0_0/sources_1/ip/outputBuffer/sim/outputBuffer.v" \
-  "../../../bd/system/ipshared/759b/sources_1/new/conv1.v" \
-  "../../../bd/system/ipshared/759b/sources_1/new/imageControl.v" \
-  "../../../bd/system/ipshared/759b/sources_1/new/lineBuffer.v" \
-  "../../../bd/system/ipshared/759b/sources_1/new/imageProcessTop.v" \
-  "../../../bd/system/ip/system_SketchIP_1080p_0_0/sim/system_SketchIP_1080p_0_0.v" \
+  "../../../bd/system/ip/system_SketchIP_1080p_0_1/sources_1/ip/outputBuffer/sim/outputBuffer.v" \
+-endlib
+-makelib ies_lib/xbip_utils_v3_0_8 \
+  "../../../../SketchSystem.srcs/sources_1/bd/system/ip/system_SketchIP_1080p_0_1/sources_1/ip/div_gen_0/hdl/xbip_utils_v3_0_vh_rfs.vhd" \
+-endlib
+-makelib ies_lib/axi_utils_v2_0_4 \
+  "../../../../SketchSystem.srcs/sources_1/bd/system/ip/system_SketchIP_1080p_0_1/sources_1/ip/div_gen_0/hdl/axi_utils_v2_0_vh_rfs.vhd" \
+-endlib
+-makelib ies_lib/xbip_pipe_v3_0_4 \
+  "../../../../SketchSystem.srcs/sources_1/bd/system/ip/system_SketchIP_1080p_0_1/sources_1/ip/div_gen_0/hdl/xbip_pipe_v3_0_vh_rfs.vhd" \
+-endlib
+-makelib ies_lib/xbip_dsp48_wrapper_v3_0_4 \
+  "../../../../SketchSystem.srcs/sources_1/bd/system/ip/system_SketchIP_1080p_0_1/sources_1/ip/div_gen_0/hdl/xbip_dsp48_wrapper_v3_0_vh_rfs.vhd" \
+-endlib
+-makelib ies_lib/xbip_dsp48_addsub_v3_0_4 \
+  "../../../../SketchSystem.srcs/sources_1/bd/system/ip/system_SketchIP_1080p_0_1/sources_1/ip/div_gen_0/hdl/xbip_dsp48_addsub_v3_0_vh_rfs.vhd" \
+-endlib
+-makelib ies_lib/xbip_bram18k_v3_0_4 \
+  "../../../../SketchSystem.srcs/sources_1/bd/system/ip/system_SketchIP_1080p_0_1/sources_1/ip/div_gen_0/hdl/xbip_bram18k_v3_0_vh_rfs.vhd" \
+-endlib
+-makelib ies_lib/mult_gen_v12_0_13 \
+  "../../../../SketchSystem.srcs/sources_1/bd/system/ip/system_SketchIP_1080p_0_1/sources_1/ip/div_gen_0/hdl/mult_gen_v12_0_vh_rfs.vhd" \
+-endlib
+-makelib ies_lib/floating_point_v7_0_14 \
+  "../../../../SketchSystem.srcs/sources_1/bd/system/ip/system_SketchIP_1080p_0_1/sources_1/ip/div_gen_0/hdl/floating_point_v7_0_vh_rfs.vhd" \
+-endlib
+-makelib ies_lib/xbip_dsp48_mult_v3_0_4 \
+  "../../../../SketchSystem.srcs/sources_1/bd/system/ip/system_SketchIP_1080p_0_1/sources_1/ip/div_gen_0/hdl/xbip_dsp48_mult_v3_0_vh_rfs.vhd" \
+-endlib
+-makelib ies_lib/xbip_dsp48_multadd_v3_0_4 \
+  "../../../../SketchSystem.srcs/sources_1/bd/system/ip/system_SketchIP_1080p_0_1/sources_1/ip/div_gen_0/hdl/xbip_dsp48_multadd_v3_0_vh_rfs.vhd" \
+-endlib
+-makelib ies_lib/div_gen_v5_1_12 \
+  "../../../../SketchSystem.srcs/sources_1/bd/system/ip/system_SketchIP_1080p_0_1/sources_1/ip/div_gen_0/hdl/div_gen_v5_1_vh_rfs.vhd" \
+-endlib
+-makelib ies_lib/xil_defaultlib \
+  "../../../bd/system/ip/system_SketchIP_1080p_0_1/sources_1/ip/div_gen_0/sim/div_gen_0.vhd" \
+-endlib
+-makelib ies_lib/xil_defaultlib \
+  "../../../bd/system/ipshared/4290/sources_1/new/conv1.v" \
+  "../../../bd/system/ipshared/4290/sources_1/new/imageControl.v" \
+  "../../../bd/system/ipshared/4290/sources_1/new/lineBuffer.v" \
+  "../../../bd/system/ipshared/4290/sources_1/new/imageProcessTop.v" \
+  "../../../bd/system/ip/system_SketchIP_1080p_0_1/sim/system_SketchIP_1080p_0_1.v" \
 -endlib
 -makelib ies_lib/axi_clock_converter_v2_1_14 \
   "../../../../SketchSystem.srcs/sources_1/bd/system/ipshared/445f/hdl/axi_clock_converter_v2_1_vl_rfs.v" \

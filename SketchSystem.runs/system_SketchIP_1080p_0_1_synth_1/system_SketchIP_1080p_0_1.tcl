@@ -32,8 +32,9 @@ set_property board_part em.avnet.com:zed:part0:1.3 [current_project]
 set_property ip_repo_paths d:/GitCode/Sketch_IP_1080p [current_project]
 set_property ip_output_repo d:/GitCode/SketchSystem_Multi1080p/SketchSystem.cache/ip [current_project]
 set_property ip_cache_permissions {read write} [current_project]
-read_ip -quiet d:/GitCode/SketchSystem_Multi1080p/SketchSystem.srcs/sources_1/bd/system/ip/system_SketchIP_1080p_0_1/system_SketchIP_1080p_0_1.xci
+read_ip -quiet D:/GitCode/SketchSystem_Multi1080p/SketchSystem.srcs/sources_1/bd/system/ip/system_SketchIP_1080p_0_1/system_SketchIP_1080p_0_1.xci
 set_property used_in_implementation false [get_files -all d:/GitCode/SketchSystem_Multi1080p/SketchSystem.srcs/sources_1/bd/system/ip/system_SketchIP_1080p_0_1/sources_1/ip/outputBuffer/outputBuffer.xdc]
+set_property used_in_implementation false [get_files -all d:/GitCode/SketchSystem_Multi1080p/SketchSystem.srcs/sources_1/bd/system/ip/system_SketchIP_1080p_0_1/constrs_1/new/sketchConstraints.xdc]
 
 # Mark all dcp files as not used in implementation to prevent them from being
 # stitched into the results of this synthesis run. Any black boxes in the
@@ -85,32 +86,32 @@ write_checkpoint -force -noxdef system_SketchIP_1080p_0_1.dcp
 create_report "system_SketchIP_1080p_0_1_synth_1_synth_report_utilization_0" "report_utilization -file system_SketchIP_1080p_0_1_utilization_synth.rpt -pb system_SketchIP_1080p_0_1_utilization_synth.pb"
 
 if { [catch {
-  file copy -force D:/GitCode/SketchSystem_Multi1080p/SketchSystem.runs/system_SketchIP_1080p_0_1_synth_1/system_SketchIP_1080p_0_1.dcp d:/GitCode/SketchSystem_Multi1080p/SketchSystem.srcs/sources_1/bd/system/ip/system_SketchIP_1080p_0_1/system_SketchIP_1080p_0_1.dcp
+  file copy -force D:/GitCode/SketchSystem_Multi1080p/SketchSystem.runs/system_SketchIP_1080p_0_1_synth_1/system_SketchIP_1080p_0_1.dcp D:/GitCode/SketchSystem_Multi1080p/SketchSystem.srcs/sources_1/bd/system/ip/system_SketchIP_1080p_0_1/system_SketchIP_1080p_0_1.dcp
 } _RESULT ] } { 
   send_msg_id runtcl-3 error "ERROR: Unable to successfully create or copy the sub-design checkpoint file."
   error "ERROR: Unable to successfully create or copy the sub-design checkpoint file."
 }
 
 if { [catch {
-  write_verilog -force -mode synth_stub d:/GitCode/SketchSystem_Multi1080p/SketchSystem.srcs/sources_1/bd/system/ip/system_SketchIP_1080p_0_1/system_SketchIP_1080p_0_1_stub.v
+  write_verilog -force -mode synth_stub D:/GitCode/SketchSystem_Multi1080p/SketchSystem.srcs/sources_1/bd/system/ip/system_SketchIP_1080p_0_1/system_SketchIP_1080p_0_1_stub.v
 } _RESULT ] } { 
   puts "CRITICAL WARNING: Unable to successfully create a Verilog synthesis stub for the sub-design. This may lead to errors in top level synthesis of the design. Error reported: $_RESULT"
 }
 
 if { [catch {
-  write_vhdl -force -mode synth_stub d:/GitCode/SketchSystem_Multi1080p/SketchSystem.srcs/sources_1/bd/system/ip/system_SketchIP_1080p_0_1/system_SketchIP_1080p_0_1_stub.vhdl
+  write_vhdl -force -mode synth_stub D:/GitCode/SketchSystem_Multi1080p/SketchSystem.srcs/sources_1/bd/system/ip/system_SketchIP_1080p_0_1/system_SketchIP_1080p_0_1_stub.vhdl
 } _RESULT ] } { 
   puts "CRITICAL WARNING: Unable to successfully create a VHDL synthesis stub for the sub-design. This may lead to errors in top level synthesis of the design. Error reported: $_RESULT"
 }
 
 if { [catch {
-  write_verilog -force -mode funcsim d:/GitCode/SketchSystem_Multi1080p/SketchSystem.srcs/sources_1/bd/system/ip/system_SketchIP_1080p_0_1/system_SketchIP_1080p_0_1_sim_netlist.v
+  write_verilog -force -mode funcsim D:/GitCode/SketchSystem_Multi1080p/SketchSystem.srcs/sources_1/bd/system/ip/system_SketchIP_1080p_0_1/system_SketchIP_1080p_0_1_sim_netlist.v
 } _RESULT ] } { 
   puts "CRITICAL WARNING: Unable to successfully create the Verilog functional simulation sub-design file. Post-Synthesis Functional Simulation with this file may not be possible or may give incorrect results. Error reported: $_RESULT"
 }
 
 if { [catch {
-  write_vhdl -force -mode funcsim d:/GitCode/SketchSystem_Multi1080p/SketchSystem.srcs/sources_1/bd/system/ip/system_SketchIP_1080p_0_1/system_SketchIP_1080p_0_1_sim_netlist.vhdl
+  write_vhdl -force -mode funcsim D:/GitCode/SketchSystem_Multi1080p/SketchSystem.srcs/sources_1/bd/system/ip/system_SketchIP_1080p_0_1/system_SketchIP_1080p_0_1_sim_netlist.vhdl
 } _RESULT ] } { 
   puts "CRITICAL WARNING: Unable to successfully create the VHDL functional simulation sub-design file. Post-Synthesis Functional Simulation with this file may not be possible or may give incorrect results. Error reported: $_RESULT"
 }
@@ -120,32 +121,32 @@ if { [catch {
 
 
 if { [catch {
-  file copy -force D:/GitCode/SketchSystem_Multi1080p/SketchSystem.runs/system_SketchIP_1080p_0_1_synth_1/system_SketchIP_1080p_0_1.dcp d:/GitCode/SketchSystem_Multi1080p/SketchSystem.srcs/sources_1/bd/system/ip/system_SketchIP_1080p_0_1/system_SketchIP_1080p_0_1.dcp
+  file copy -force D:/GitCode/SketchSystem_Multi1080p/SketchSystem.runs/system_SketchIP_1080p_0_1_synth_1/system_SketchIP_1080p_0_1.dcp D:/GitCode/SketchSystem_Multi1080p/SketchSystem.srcs/sources_1/bd/system/ip/system_SketchIP_1080p_0_1/system_SketchIP_1080p_0_1.dcp
 } _RESULT ] } { 
   send_msg_id runtcl-3 error "ERROR: Unable to successfully create or copy the sub-design checkpoint file."
   error "ERROR: Unable to successfully create or copy the sub-design checkpoint file."
 }
 
 if { [catch {
-  file rename -force D:/GitCode/SketchSystem_Multi1080p/SketchSystem.runs/system_SketchIP_1080p_0_1_synth_1/system_SketchIP_1080p_0_1_stub.v d:/GitCode/SketchSystem_Multi1080p/SketchSystem.srcs/sources_1/bd/system/ip/system_SketchIP_1080p_0_1/system_SketchIP_1080p_0_1_stub.v
+  file rename -force D:/GitCode/SketchSystem_Multi1080p/SketchSystem.runs/system_SketchIP_1080p_0_1_synth_1/system_SketchIP_1080p_0_1_stub.v D:/GitCode/SketchSystem_Multi1080p/SketchSystem.srcs/sources_1/bd/system/ip/system_SketchIP_1080p_0_1/system_SketchIP_1080p_0_1_stub.v
 } _RESULT ] } { 
   puts "CRITICAL WARNING: Unable to successfully create a Verilog synthesis stub for the sub-design. This may lead to errors in top level synthesis of the design. Error reported: $_RESULT"
 }
 
 if { [catch {
-  file rename -force D:/GitCode/SketchSystem_Multi1080p/SketchSystem.runs/system_SketchIP_1080p_0_1_synth_1/system_SketchIP_1080p_0_1_stub.vhdl d:/GitCode/SketchSystem_Multi1080p/SketchSystem.srcs/sources_1/bd/system/ip/system_SketchIP_1080p_0_1/system_SketchIP_1080p_0_1_stub.vhdl
+  file rename -force D:/GitCode/SketchSystem_Multi1080p/SketchSystem.runs/system_SketchIP_1080p_0_1_synth_1/system_SketchIP_1080p_0_1_stub.vhdl D:/GitCode/SketchSystem_Multi1080p/SketchSystem.srcs/sources_1/bd/system/ip/system_SketchIP_1080p_0_1/system_SketchIP_1080p_0_1_stub.vhdl
 } _RESULT ] } { 
   puts "CRITICAL WARNING: Unable to successfully create a VHDL synthesis stub for the sub-design. This may lead to errors in top level synthesis of the design. Error reported: $_RESULT"
 }
 
 if { [catch {
-  file rename -force D:/GitCode/SketchSystem_Multi1080p/SketchSystem.runs/system_SketchIP_1080p_0_1_synth_1/system_SketchIP_1080p_0_1_sim_netlist.v d:/GitCode/SketchSystem_Multi1080p/SketchSystem.srcs/sources_1/bd/system/ip/system_SketchIP_1080p_0_1/system_SketchIP_1080p_0_1_sim_netlist.v
+  file rename -force D:/GitCode/SketchSystem_Multi1080p/SketchSystem.runs/system_SketchIP_1080p_0_1_synth_1/system_SketchIP_1080p_0_1_sim_netlist.v D:/GitCode/SketchSystem_Multi1080p/SketchSystem.srcs/sources_1/bd/system/ip/system_SketchIP_1080p_0_1/system_SketchIP_1080p_0_1_sim_netlist.v
 } _RESULT ] } { 
   puts "CRITICAL WARNING: Unable to successfully create the Verilog functional simulation sub-design file. Post-Synthesis Functional Simulation with this file may not be possible or may give incorrect results. Error reported: $_RESULT"
 }
 
 if { [catch {
-  file rename -force D:/GitCode/SketchSystem_Multi1080p/SketchSystem.runs/system_SketchIP_1080p_0_1_synth_1/system_SketchIP_1080p_0_1_sim_netlist.vhdl d:/GitCode/SketchSystem_Multi1080p/SketchSystem.srcs/sources_1/bd/system/ip/system_SketchIP_1080p_0_1/system_SketchIP_1080p_0_1_sim_netlist.vhdl
+  file rename -force D:/GitCode/SketchSystem_Multi1080p/SketchSystem.runs/system_SketchIP_1080p_0_1_synth_1/system_SketchIP_1080p_0_1_sim_netlist.vhdl D:/GitCode/SketchSystem_Multi1080p/SketchSystem.srcs/sources_1/bd/system/ip/system_SketchIP_1080p_0_1/system_SketchIP_1080p_0_1_sim_netlist.vhdl
 } _RESULT ] } { 
   puts "CRITICAL WARNING: Unable to successfully create the VHDL functional simulation sub-design file. Post-Synthesis Functional Simulation with this file may not be possible or may give incorrect results. Error reported: $_RESULT"
 }
@@ -154,12 +155,12 @@ if { [catch {
 
 if {[file isdir D:/GitCode/SketchSystem_Multi1080p/SketchSystem.ip_user_files/ip/system_SketchIP_1080p_0_1]} {
   catch { 
-    file copy -force d:/GitCode/SketchSystem_Multi1080p/SketchSystem.srcs/sources_1/bd/system/ip/system_SketchIP_1080p_0_1/system_SketchIP_1080p_0_1_stub.v D:/GitCode/SketchSystem_Multi1080p/SketchSystem.ip_user_files/ip/system_SketchIP_1080p_0_1
+    file copy -force D:/GitCode/SketchSystem_Multi1080p/SketchSystem.srcs/sources_1/bd/system/ip/system_SketchIP_1080p_0_1/system_SketchIP_1080p_0_1_stub.v D:/GitCode/SketchSystem_Multi1080p/SketchSystem.ip_user_files/ip/system_SketchIP_1080p_0_1
   }
 }
 
 if {[file isdir D:/GitCode/SketchSystem_Multi1080p/SketchSystem.ip_user_files/ip/system_SketchIP_1080p_0_1]} {
   catch { 
-    file copy -force d:/GitCode/SketchSystem_Multi1080p/SketchSystem.srcs/sources_1/bd/system/ip/system_SketchIP_1080p_0_1/system_SketchIP_1080p_0_1_stub.vhdl D:/GitCode/SketchSystem_Multi1080p/SketchSystem.ip_user_files/ip/system_SketchIP_1080p_0_1
+    file copy -force D:/GitCode/SketchSystem_Multi1080p/SketchSystem.srcs/sources_1/bd/system/ip/system_SketchIP_1080p_0_1/system_SketchIP_1080p_0_1_stub.vhdl D:/GitCode/SketchSystem_Multi1080p/SketchSystem.ip_user_files/ip/system_SketchIP_1080p_0_1
   }
 }

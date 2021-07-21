@@ -2,10 +2,10 @@
 # Vivado v2017.4 (64-bit)
 # SW Build 2086221 on Fri Dec 15 20:55:39 MST 2017
 # IP Build 2085800 on Fri Dec 15 22:25:07 MST 2017
-# Start of session at: Thu Jul  1 19:10:26 2021
-# Process ID: 14280
+# Start of session at: Wed Jul 21 21:51:45 2021
+# Process ID: 3696
 # Current directory: D:/GitCode/SketchSystem_Multi1080p
-# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent13448 D:\GitCode\SketchSystem_Multi1080p\SketchSystem.xpr
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent4524 D:\GitCode\SketchSystem_Multi1080p\SketchSystem.xpr
 # Log file: D:/GitCode/SketchSystem_Multi1080p/vivado.log
 # Journal file: D:/GitCode/SketchSystem_Multi1080p\vivado.jou
 #-----------------------------------------------------------
@@ -16,30 +16,113 @@ Finished scanning sources
 INFO: [IP_Flow 19-234] Refreshing IP repositories
 INFO: [IP_Flow 19-1700] Loaded user IP repository 'd:/GitCode/Sketch_IP_1080p'.
 INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/Xilinx/Vivado/2017.4/data/ip'.
-open_project: Time (s): cpu = 00:00:31 ; elapsed = 00:00:21 . Memory (MB): peak = 878.711 ; gain = 217.156
+open_project: Time (s): cpu = 00:00:34 ; elapsed = 00:00:37 . Memory (MB): peak = 884.180 ; gain = 216.504
 update_compile_order -fileset sources_1
-launch_sdk -workspace D:/GitCode/SketchSystem_Multi1080p/SketchSystem.sdk -hwspec D:/GitCode/SketchSystem_Multi1080p/SketchSystem.sdk/system_wrapper.hdf
-INFO: [Vivado 12-393] Launching SDK...
-INFO: [Vivado 12-417] Running xsdk -workspace D:/GitCode/SketchSystem_Multi1080p/SketchSystem.sdk -hwspec D:/GitCode/SketchSystem_Multi1080p/SketchSystem.sdk/system_wrapper.hdf
-INFO: [Vivado 12-3157] SDK launch initiated. Please check console for any further messages.
-file copy -force D:/GitCode/SketchSystem_Multi1080p/SketchSystem.runs/impl_1/system_wrapper.sysdef D:/GitCode/SketchSystem_Multi1080p/SketchSystem.sdk/system_wrapper.hdf
+open_bd_design {D:/GitCode/SketchSystem_Multi1080p/SketchSystem.srcs/sources_1/bd/system/system.bd}
+Adding cell -- xilinx.com:ip:processing_system7:5.5 - processing_system7_0
+Adding cell -- xilinx.com:ip:axi_dma:7.1 - axi_dma_0
+Adding cell -- xilinx.com:ip:axis_dwidth_converter:1.1 - axis_dwidth_converter_0
+Adding cell -- xilinx.com:ip:proc_sys_reset:5.0 - rst_ps7_0_100M
+Adding cell -- xilinx.com:ip:clk_wiz:5.4 - clk_wiz_0
+Adding cell -- xilinx.com:ip:smartconnect:1.0 - axi_smc
+Adding cell -- xilinx.com:ip:v_tc:6.1 - v_tc_0
+Adding cell -- xilinx.com:ip:xlconstant:1.1 - xlconstant_0
+Adding cell -- xilinx.com:ip:v_axi4s_vid_out:4.0 - v_axi4s_vid_out_0
+Adding cell -- xilinx.com:module_ref:mux:1.0 - mux_0
+Adding cell -- xilinx.com:ip:xlslice:1.0 - xlslice_0
+Adding cell -- xilinx.com:ip:xlslice:1.0 - xlslice_1
+Adding cell -- xilinx.com:ip:xlslice:1.0 - xlslice_2
+Adding cell -- xilinx.com:ip:axi_vdma:6.3 - axi_vdma_0
+Adding cell -- xilinx.com:ip:proc_sys_reset:5.0 - rst_clk_wiz_0_148M
+Adding cell -- xilinx.com:ip:xlconcat:2.1 - xlconcat_0
+Adding cell -- xilinx.com:user:SketchIP_1080p:1.4 - SketchIP_1080p_0
+WARNING: [BD 41-1731] Type mismatch between connected pins: /rst_ps7_0_100M/peripheral_aresetn(rst) and /SketchIP_1080p_0/axi_reset_n(undef)
+Adding cell -- xilinx.com:ip:axi_crossbar:2.1 - xbar
+Adding cell -- xilinx.com:ip:axi_clock_converter:2.1 - auto_cc
+Adding cell -- xilinx.com:ip:axi_protocol_converter:2.1 - auto_pc
+Successfully read diagram <system> from BD file <D:/GitCode/SketchSystem_Multi1080p/SketchSystem.srcs/sources_1/bd/system/system.bd>
+open_bd_design: Time (s): cpu = 00:00:14 ; elapsed = 00:00:12 . Memory (MB): peak = 971.832 ; gain = 86.242
+update_ip_catalog -rebuild -scan_changes
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'd:/GitCode/Sketch_IP_1080p'.
+report_ip_status -name ip_status
+upgrade_ip -vlnv xilinx.com:user:SketchIP_1080p:1.5 [get_ips  system_SketchIP_1080p_0_1] -log ip_upgrade.log
+Upgrading 'D:/GitCode/SketchSystem_Multi1080p/SketchSystem.srcs/sources_1/bd/system/system.bd'
+INFO: [IP_Flow 19-1972] Upgraded system_SketchIP_1080p_0_1 from SketchIP_1080p 1.4 to SketchIP_1080p 1.5
+WARNING: [BD 41-1731] Type mismatch between connected pins: /rst_ps7_0_100M/peripheral_aresetn(rst) and /SketchIP_1080p_0_upgraded_ipi/axi_reset_n(undef)
+Wrote  : <D:/GitCode/SketchSystem_Multi1080p/SketchSystem.srcs/sources_1/bd/system/system.bd> 
+Wrote  : <D:/GitCode/SketchSystem_Multi1080p/SketchSystem.srcs/sources_1/bd/system/ui/bd_c954508f.ui> 
+INFO: [Coretcl 2-1525] Wrote upgrade log to 'D:/GitCode/SketchSystem_Multi1080p/ip_upgrade.log'.
+upgrade_ip: Time (s): cpu = 00:00:07 ; elapsed = 00:00:06 . Memory (MB): peak = 1016.273 ; gain = 5.313
+export_ip_user_files -of_objects [get_ips system_SketchIP_1080p_0_1] -no_script -sync -force -quiet
+generate_target all [get_files  D:/GitCode/SketchSystem_Multi1080p/SketchSystem.srcs/sources_1/bd/system/system.bd]
+INFO: [Ipptcl 7-1463] No Compatible Board Interface found. Board Tab not created in customize GUI
+INFO: [Ipptcl 7-1463] No Compatible Board Interface found. Board Tab not created in customize GUI
+INFO: [Ipptcl 7-1463] No Compatible Board Interface found. Board Tab not created in customize GUI
+xit::source_ipfile: Time (s): cpu = 00:00:13 ; elapsed = 00:00:09 . Memory (MB): peak = 1107.777 ; gain = 69.223
+CRITICAL WARNING: [xilinx.com:ip:axi_dma:7.1-9] /axi_dma_0
+                   ########################################################### 
+                   Interface connected to S_AXIS_S2MM does not have TLAST port
+                   ###########################################################
+CRITICAL WARNING: [xilinx.com:ip:axi_dma:7.1-9] /axi_dma_0
+                   ########################################################### 
+                   Interface connected to S_AXIS_S2MM does not have TLAST port
+                   ###########################################################
+Wrote  : <D:/GitCode/SketchSystem_Multi1080p/SketchSystem.srcs/sources_1/bd/system/system.bd> 
+VHDL Output written to : D:/GitCode/SketchSystem_Multi1080p/SketchSystem.srcs/sources_1/bd/system/synth/system.v
+VHDL Output written to : D:/GitCode/SketchSystem_Multi1080p/SketchSystem.srcs/sources_1/bd/system/sim/system.v
+VHDL Output written to : D:/GitCode/SketchSystem_Multi1080p/SketchSystem.srcs/sources_1/bd/system/hdl/system_wrapper.v
+INFO: [BD 41-1029] Generation completed for the IP Integrator block processing_system7_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block axi_dma_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block axis_dwidth_converter_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block rst_ps7_0_100M .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block clk_wiz_0 .
+Exporting to file d:/GitCode/SketchSystem_Multi1080p/SketchSystem.srcs/sources_1/bd/system/ip/system_axi_smc_0/bd_0/hw_handoff/system_axi_smc_0.hwh
+Generated Block Design Tcl file d:/GitCode/SketchSystem_Multi1080p/SketchSystem.srcs/sources_1/bd/system/ip/system_axi_smc_0/bd_0/hw_handoff/system_axi_smc_0_bd.tcl
+Generated Hardware Definition File d:/GitCode/SketchSystem_Multi1080p/SketchSystem.srcs/sources_1/bd/system/ip/system_axi_smc_0/bd_0/synth/system_axi_smc_0.hwdef
+INFO: [BD 41-1029] Generation completed for the IP Integrator block axi_smc .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block v_tc_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block xlconstant_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block v_axi4s_vid_out_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block mux_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block xlslice_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block xlslice_1 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block xlslice_2 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block axi_vdma_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block rst_clk_wiz_0_148M .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block xlconcat_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block ps7_0_axi_periph/xbar .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block SketchIP_1080p_0 .
+WARNING: [IP_Flow 19-4994] Overwriting existing constraint file 'd:/GitCode/SketchSystem_Multi1080p/SketchSystem.srcs/sources_1/bd/system/ip/system_auto_cc_0/system_auto_cc_0_ooc.xdc'
+INFO: [BD 41-1029] Generation completed for the IP Integrator block ps7_0_axi_periph/m01_couplers/auto_cc .
+WARNING: [IP_Flow 19-4994] Overwriting existing constraint file 'd:/GitCode/SketchSystem_Multi1080p/SketchSystem.srcs/sources_1/bd/system/ip/system_auto_pc_0/system_auto_pc_0_ooc.xdc'
+INFO: [BD 41-1029] Generation completed for the IP Integrator block ps7_0_axi_periph/s00_couplers/auto_pc .
+Exporting to file D:/GitCode/SketchSystem_Multi1080p/SketchSystem.srcs/sources_1/bd/system/hw_handoff/system.hwh
+Generated Block Design Tcl file D:/GitCode/SketchSystem_Multi1080p/SketchSystem.srcs/sources_1/bd/system/hw_handoff/system_bd.tcl
+Generated Hardware Definition File D:/GitCode/SketchSystem_Multi1080p/SketchSystem.srcs/sources_1/bd/system/synth/system.hwdef
+generate_target: Time (s): cpu = 00:00:51 ; elapsed = 00:00:53 . Memory (MB): peak = 1337.168 ; gain = 320.895
+catch { config_ip_cache -export [get_ips -all system_SketchIP_1080p_0_1] }
+catch { config_ip_cache -export [get_ips -all system_auto_cc_0] }
+INFO: [IP_Flow 19-4993] Using cached IP synthesis design for IP system_auto_cc_0, cache-ID = 497bced554c09a48; cache size = 62.575 MB.
+catch { config_ip_cache -export [get_ips -all system_auto_pc_0] }
+INFO: [IP_Flow 19-4993] Using cached IP synthesis design for IP system_auto_pc_0, cache-ID = b483ac5f30e466e2; cache size = 62.575 MB.
+export_ip_user_files -of_objects [get_files D:/GitCode/SketchSystem_Multi1080p/SketchSystem.srcs/sources_1/bd/system/system.bd] -no_script -sync -force -quiet
+create_ip_run [get_files -of_objects [get_fileset sources_1] D:/GitCode/SketchSystem_Multi1080p/SketchSystem.srcs/sources_1/bd/system/system.bd]
+launch_runs -jobs 4 system_SketchIP_1080p_0_1_synth_1
+[Wed Jul 21 21:58:29 2021] Launched system_SketchIP_1080p_0_1_synth_1...
+Run output will be captured here: D:/GitCode/SketchSystem_Multi1080p/SketchSystem.runs/system_SketchIP_1080p_0_1_synth_1/runme.log
+export_simulation -of_objects [get_files D:/GitCode/SketchSystem_Multi1080p/SketchSystem.srcs/sources_1/bd/system/system.bd] -directory D:/GitCode/SketchSystem_Multi1080p/SketchSystem.ip_user_files/sim_scripts -ip_user_files_dir D:/GitCode/SketchSystem_Multi1080p/SketchSystem.ip_user_files -ipstatic_source_dir D:/GitCode/SketchSystem_Multi1080p/SketchSystem.ip_user_files/ipstatic -lib_map_path [list {modelsim=D:/GitCode/SketchSystem_Multi1080p/SketchSystem.cache/compile_simlib/modelsim} {questa=D:/GitCode/SketchSystem_Multi1080p/SketchSystem.cache/compile_simlib/questa} {riviera=D:/GitCode/SketchSystem_Multi1080p/SketchSystem.cache/compile_simlib/riviera} {activehdl=D:/GitCode/SketchSystem_Multi1080p/SketchSystem.cache/compile_simlib/activehdl}] -use_ip_compiled_libs -force -quiet
+report_ip_status -name ip_status 
+reset_run synth_1
+WARNING: [Vivado 12-1017] Problems encountered:
+1. Failed to delete one or more files in run directory D:/GitCode/SketchSystem_Multi1080p/SketchSystem.runs/synth_1
 
-launch_sdk -workspace D:/GitCode/SketchSystem_Multi1080p/SketchSystem.sdk -hwspec D:/GitCode/SketchSystem_Multi1080p/SketchSystem.sdk/system_wrapper.hdf
-INFO: [Vivado 12-393] Launching SDK...
-INFO: [Vivado 12-417] Running xsdk -workspace D:/GitCode/SketchSystem_Multi1080p/SketchSystem.sdk -hwspec D:/GitCode/SketchSystem_Multi1080p/SketchSystem.sdk/system_wrapper.hdf
-INFO: [Vivado 12-3157] SDK launch initiated. Please check console for any further messages.
-file copy -force D:/GitCode/SketchSystem_Multi1080p/SketchSystem.runs/impl_1/system_wrapper.sysdef D:/GitCode/SketchSystem_Multi1080p/SketchSystem.sdk/system_wrapper.hdf
-
-launch_sdk -workspace D:/GitCode/SketchSystem_Multi1080p/SketchSystem.sdk -hwspec D:/GitCode/SketchSystem_Multi1080p/SketchSystem.sdk/system_wrapper.hdf
-INFO: [Vivado 12-393] Launching SDK...
-INFO: [Vivado 12-417] Running xsdk -workspace D:/GitCode/SketchSystem_Multi1080p/SketchSystem.sdk -hwspec D:/GitCode/SketchSystem_Multi1080p/SketchSystem.sdk/system_wrapper.hdf
-INFO: [Vivado 12-3157] SDK launch initiated. Please check console for any further messages.
-file mkdir D:/GitCode/SketchSystem_Multi1080p/SketchSystem.sdk
-file copy -force D:/GitCode/SketchSystem_Multi1080p/SketchSystem.runs/impl_1/system_wrapper.sysdef D:/GitCode/SketchSystem_Multi1080p/SketchSystem.sdk/system_wrapper.hdf
-
-launch_sdk -workspace D:/GitCode/SketchSystem_Multi1080p/SketchSystem.sdk -hwspec D:/GitCode/SketchSystem_Multi1080p/SketchSystem.sdk/system_wrapper.hdf
-INFO: [Vivado 12-393] Launching SDK...
-INFO: [Vivado 12-417] Running xsdk -workspace D:/GitCode/SketchSystem_Multi1080p/SketchSystem.sdk -hwspec D:/GitCode/SketchSystem_Multi1080p/SketchSystem.sdk/system_wrapper.hdf
-INFO: [Vivado 12-3157] SDK launch initiated. Please check console for any further messages.
+launch_runs impl_1 -to_step write_bitstream -jobs 4
+[Wed Jul 21 21:59:18 2021] Launched system_SketchIP_1080p_0_1_synth_1, synth_1...
+Run output will be captured here:
+system_SketchIP_1080p_0_1_synth_1: D:/GitCode/SketchSystem_Multi1080p/SketchSystem.runs/system_SketchIP_1080p_0_1_synth_1/runme.log
+synth_1: D:/GitCode/SketchSystem_Multi1080p/SketchSystem.runs/synth_1/runme.log
+[Wed Jul 21 21:59:18 2021] Launched impl_1...
+Run output will be captured here: D:/GitCode/SketchSystem_Multi1080p/SketchSystem.runs/impl_1/runme.log
 exit
-INFO: [Common 17-206] Exiting Vivado at Thu Jul  1 20:46:11 2021...
+INFO: [Common 17-206] Exiting Vivado at Wed Jul 21 22:13:53 2021...

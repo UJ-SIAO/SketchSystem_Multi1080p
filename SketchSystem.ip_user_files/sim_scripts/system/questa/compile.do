@@ -34,6 +34,17 @@ vlib questa_lib/msim/generic_baseblocks_v2_1_0
 vlib questa_lib/msim/axi_register_slice_v2_1_15
 vlib questa_lib/msim/axi_data_fifo_v2_1_14
 vlib questa_lib/msim/axi_crossbar_v2_1_16
+vlib questa_lib/msim/xbip_utils_v3_0_8
+vlib questa_lib/msim/axi_utils_v2_0_4
+vlib questa_lib/msim/xbip_pipe_v3_0_4
+vlib questa_lib/msim/xbip_dsp48_wrapper_v3_0_4
+vlib questa_lib/msim/xbip_dsp48_addsub_v3_0_4
+vlib questa_lib/msim/xbip_bram18k_v3_0_4
+vlib questa_lib/msim/mult_gen_v12_0_13
+vlib questa_lib/msim/floating_point_v7_0_14
+vlib questa_lib/msim/xbip_dsp48_mult_v3_0_4
+vlib questa_lib/msim/xbip_dsp48_multadd_v3_0_4
+vlib questa_lib/msim/div_gen_v5_1_12
 vlib questa_lib/msim/axi_clock_converter_v2_1_14
 vlib questa_lib/msim/axi_protocol_converter_v2_1_15
 
@@ -70,6 +81,17 @@ vmap generic_baseblocks_v2_1_0 questa_lib/msim/generic_baseblocks_v2_1_0
 vmap axi_register_slice_v2_1_15 questa_lib/msim/axi_register_slice_v2_1_15
 vmap axi_data_fifo_v2_1_14 questa_lib/msim/axi_data_fifo_v2_1_14
 vmap axi_crossbar_v2_1_16 questa_lib/msim/axi_crossbar_v2_1_16
+vmap xbip_utils_v3_0_8 questa_lib/msim/xbip_utils_v3_0_8
+vmap axi_utils_v2_0_4 questa_lib/msim/axi_utils_v2_0_4
+vmap xbip_pipe_v3_0_4 questa_lib/msim/xbip_pipe_v3_0_4
+vmap xbip_dsp48_wrapper_v3_0_4 questa_lib/msim/xbip_dsp48_wrapper_v3_0_4
+vmap xbip_dsp48_addsub_v3_0_4 questa_lib/msim/xbip_dsp48_addsub_v3_0_4
+vmap xbip_bram18k_v3_0_4 questa_lib/msim/xbip_bram18k_v3_0_4
+vmap mult_gen_v12_0_13 questa_lib/msim/mult_gen_v12_0_13
+vmap floating_point_v7_0_14 questa_lib/msim/floating_point_v7_0_14
+vmap xbip_dsp48_mult_v3_0_4 questa_lib/msim/xbip_dsp48_mult_v3_0_4
+vmap xbip_dsp48_multadd_v3_0_4 questa_lib/msim/xbip_dsp48_multadd_v3_0_4
+vmap div_gen_v5_1_12 questa_lib/msim/div_gen_v5_1_12
 vmap axi_clock_converter_v2_1_14 questa_lib/msim/axi_clock_converter_v2_1_14
 vmap axi_protocol_converter_v2_1_15 questa_lib/msim/axi_protocol_converter_v2_1_15
 
@@ -314,12 +336,50 @@ vlog -work axi_crossbar_v2_1_16 -64 "+incdir+../../../../SketchSystem.srcs/sourc
 vlog -work xil_defaultlib -64 "+incdir+../../../../SketchSystem.srcs/sources_1/bd/system/ipshared/ec67/hdl" "+incdir+../../../../SketchSystem.srcs/sources_1/bd/system/ipshared/02c8/hdl/verilog" "+incdir+../../../../SketchSystem.srcs/sources_1/bd/system/ipshared/1313/hdl" "+incdir+../../../../SketchSystem.srcs/sources_1/bd/system/ipshared/0ab1/hdl" "+incdir+../../../../SketchSystem.srcs/sources_1/bd/system/ipshared/4868" "+incdir+../../../../SketchSystem.srcs/sources_1/bd/system/ipshared/e2dd/hdl/verilog" "+incdir+../../../../SketchSystem.srcs/sources_1/bd/system/ipshared/f8d8/hdl" "+incdir+C:/Xilinx/Vivado/2017.4/data/xilinx_vip/include" "+incdir+../../../../SketchSystem.srcs/sources_1/bd/system/ipshared/ec67/hdl" "+incdir+../../../../SketchSystem.srcs/sources_1/bd/system/ipshared/02c8/hdl/verilog" "+incdir+../../../../SketchSystem.srcs/sources_1/bd/system/ipshared/1313/hdl" "+incdir+../../../../SketchSystem.srcs/sources_1/bd/system/ipshared/0ab1/hdl" "+incdir+../../../../SketchSystem.srcs/sources_1/bd/system/ipshared/4868" "+incdir+../../../../SketchSystem.srcs/sources_1/bd/system/ipshared/e2dd/hdl/verilog" "+incdir+../../../../SketchSystem.srcs/sources_1/bd/system/ipshared/f8d8/hdl" "+incdir+C:/Xilinx/Vivado/2017.4/data/xilinx_vip/include" \
 "../../../bd/system/ip/system_xbar_0/sim/system_xbar_0.v" \
 "../../../bd/system/sim/system.v" \
-"../../../bd/system/ip/system_SketchIP_1080p_0_0/sources_1/ip/outputBuffer/sim/outputBuffer.v" \
-"../../../bd/system/ipshared/759b/sources_1/new/conv1.v" \
-"../../../bd/system/ipshared/759b/sources_1/new/imageControl.v" \
-"../../../bd/system/ipshared/759b/sources_1/new/lineBuffer.v" \
-"../../../bd/system/ipshared/759b/sources_1/new/imageProcessTop.v" \
-"../../../bd/system/ip/system_SketchIP_1080p_0_0/sim/system_SketchIP_1080p_0_0.v" \
+"../../../bd/system/ip/system_SketchIP_1080p_0_1/sources_1/ip/outputBuffer/sim/outputBuffer.v" \
+
+vcom -work xbip_utils_v3_0_8 -64 -93 \
+"../../../../SketchSystem.srcs/sources_1/bd/system/ip/system_SketchIP_1080p_0_1/sources_1/ip/div_gen_0/hdl/xbip_utils_v3_0_vh_rfs.vhd" \
+
+vcom -work axi_utils_v2_0_4 -64 -93 \
+"../../../../SketchSystem.srcs/sources_1/bd/system/ip/system_SketchIP_1080p_0_1/sources_1/ip/div_gen_0/hdl/axi_utils_v2_0_vh_rfs.vhd" \
+
+vcom -work xbip_pipe_v3_0_4 -64 -93 \
+"../../../../SketchSystem.srcs/sources_1/bd/system/ip/system_SketchIP_1080p_0_1/sources_1/ip/div_gen_0/hdl/xbip_pipe_v3_0_vh_rfs.vhd" \
+
+vcom -work xbip_dsp48_wrapper_v3_0_4 -64 -93 \
+"../../../../SketchSystem.srcs/sources_1/bd/system/ip/system_SketchIP_1080p_0_1/sources_1/ip/div_gen_0/hdl/xbip_dsp48_wrapper_v3_0_vh_rfs.vhd" \
+
+vcom -work xbip_dsp48_addsub_v3_0_4 -64 -93 \
+"../../../../SketchSystem.srcs/sources_1/bd/system/ip/system_SketchIP_1080p_0_1/sources_1/ip/div_gen_0/hdl/xbip_dsp48_addsub_v3_0_vh_rfs.vhd" \
+
+vcom -work xbip_bram18k_v3_0_4 -64 -93 \
+"../../../../SketchSystem.srcs/sources_1/bd/system/ip/system_SketchIP_1080p_0_1/sources_1/ip/div_gen_0/hdl/xbip_bram18k_v3_0_vh_rfs.vhd" \
+
+vcom -work mult_gen_v12_0_13 -64 -93 \
+"../../../../SketchSystem.srcs/sources_1/bd/system/ip/system_SketchIP_1080p_0_1/sources_1/ip/div_gen_0/hdl/mult_gen_v12_0_vh_rfs.vhd" \
+
+vcom -work floating_point_v7_0_14 -64 -93 \
+"../../../../SketchSystem.srcs/sources_1/bd/system/ip/system_SketchIP_1080p_0_1/sources_1/ip/div_gen_0/hdl/floating_point_v7_0_vh_rfs.vhd" \
+
+vcom -work xbip_dsp48_mult_v3_0_4 -64 -93 \
+"../../../../SketchSystem.srcs/sources_1/bd/system/ip/system_SketchIP_1080p_0_1/sources_1/ip/div_gen_0/hdl/xbip_dsp48_mult_v3_0_vh_rfs.vhd" \
+
+vcom -work xbip_dsp48_multadd_v3_0_4 -64 -93 \
+"../../../../SketchSystem.srcs/sources_1/bd/system/ip/system_SketchIP_1080p_0_1/sources_1/ip/div_gen_0/hdl/xbip_dsp48_multadd_v3_0_vh_rfs.vhd" \
+
+vcom -work div_gen_v5_1_12 -64 -93 \
+"../../../../SketchSystem.srcs/sources_1/bd/system/ip/system_SketchIP_1080p_0_1/sources_1/ip/div_gen_0/hdl/div_gen_v5_1_vh_rfs.vhd" \
+
+vcom -work xil_defaultlib -64 -93 \
+"../../../bd/system/ip/system_SketchIP_1080p_0_1/sources_1/ip/div_gen_0/sim/div_gen_0.vhd" \
+
+vlog -work xil_defaultlib -64 "+incdir+../../../../SketchSystem.srcs/sources_1/bd/system/ipshared/ec67/hdl" "+incdir+../../../../SketchSystem.srcs/sources_1/bd/system/ipshared/02c8/hdl/verilog" "+incdir+../../../../SketchSystem.srcs/sources_1/bd/system/ipshared/1313/hdl" "+incdir+../../../../SketchSystem.srcs/sources_1/bd/system/ipshared/0ab1/hdl" "+incdir+../../../../SketchSystem.srcs/sources_1/bd/system/ipshared/4868" "+incdir+../../../../SketchSystem.srcs/sources_1/bd/system/ipshared/e2dd/hdl/verilog" "+incdir+../../../../SketchSystem.srcs/sources_1/bd/system/ipshared/f8d8/hdl" "+incdir+C:/Xilinx/Vivado/2017.4/data/xilinx_vip/include" "+incdir+../../../../SketchSystem.srcs/sources_1/bd/system/ipshared/ec67/hdl" "+incdir+../../../../SketchSystem.srcs/sources_1/bd/system/ipshared/02c8/hdl/verilog" "+incdir+../../../../SketchSystem.srcs/sources_1/bd/system/ipshared/1313/hdl" "+incdir+../../../../SketchSystem.srcs/sources_1/bd/system/ipshared/0ab1/hdl" "+incdir+../../../../SketchSystem.srcs/sources_1/bd/system/ipshared/4868" "+incdir+../../../../SketchSystem.srcs/sources_1/bd/system/ipshared/e2dd/hdl/verilog" "+incdir+../../../../SketchSystem.srcs/sources_1/bd/system/ipshared/f8d8/hdl" "+incdir+C:/Xilinx/Vivado/2017.4/data/xilinx_vip/include" \
+"../../../bd/system/ipshared/4290/sources_1/new/conv1.v" \
+"../../../bd/system/ipshared/4290/sources_1/new/imageControl.v" \
+"../../../bd/system/ipshared/4290/sources_1/new/lineBuffer.v" \
+"../../../bd/system/ipshared/4290/sources_1/new/imageProcessTop.v" \
+"../../../bd/system/ip/system_SketchIP_1080p_0_1/sim/system_SketchIP_1080p_0_1.v" \
 
 vlog -work axi_clock_converter_v2_1_14 -64 "+incdir+../../../../SketchSystem.srcs/sources_1/bd/system/ipshared/ec67/hdl" "+incdir+../../../../SketchSystem.srcs/sources_1/bd/system/ipshared/02c8/hdl/verilog" "+incdir+../../../../SketchSystem.srcs/sources_1/bd/system/ipshared/1313/hdl" "+incdir+../../../../SketchSystem.srcs/sources_1/bd/system/ipshared/0ab1/hdl" "+incdir+../../../../SketchSystem.srcs/sources_1/bd/system/ipshared/4868" "+incdir+../../../../SketchSystem.srcs/sources_1/bd/system/ipshared/e2dd/hdl/verilog" "+incdir+../../../../SketchSystem.srcs/sources_1/bd/system/ipshared/f8d8/hdl" "+incdir+C:/Xilinx/Vivado/2017.4/data/xilinx_vip/include" "+incdir+../../../../SketchSystem.srcs/sources_1/bd/system/ipshared/ec67/hdl" "+incdir+../../../../SketchSystem.srcs/sources_1/bd/system/ipshared/02c8/hdl/verilog" "+incdir+../../../../SketchSystem.srcs/sources_1/bd/system/ipshared/1313/hdl" "+incdir+../../../../SketchSystem.srcs/sources_1/bd/system/ipshared/0ab1/hdl" "+incdir+../../../../SketchSystem.srcs/sources_1/bd/system/ipshared/4868" "+incdir+../../../../SketchSystem.srcs/sources_1/bd/system/ipshared/e2dd/hdl/verilog" "+incdir+../../../../SketchSystem.srcs/sources_1/bd/system/ipshared/f8d8/hdl" "+incdir+C:/Xilinx/Vivado/2017.4/data/xilinx_vip/include" \
 "../../../../SketchSystem.srcs/sources_1/bd/system/ipshared/445f/hdl/axi_clock_converter_v2_1_vl_rfs.v" \

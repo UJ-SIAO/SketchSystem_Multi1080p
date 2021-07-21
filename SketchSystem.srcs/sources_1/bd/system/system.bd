@@ -640,7 +640,7 @@
       </spirit:componentInstance>
       <spirit:componentInstance>
         <spirit:instanceName>SketchIP_1080p_0</spirit:instanceName>
-        <spirit:componentRef spirit:library="user" spirit:name="SketchIP_1080p" spirit:vendor="xilinx.com" spirit:version="1.4"/>
+        <spirit:componentRef spirit:library="user" spirit:name="SketchIP_1080p" spirit:vendor="xilinx.com" spirit:version="1.5"/>
         <spirit:configurableElementValues>
           <spirit:configurableElementValue spirit:referenceId="bd:xciName">system_SketchIP_1080p_0_1</spirit:configurableElementValue>
         </spirit:configurableElementValues>

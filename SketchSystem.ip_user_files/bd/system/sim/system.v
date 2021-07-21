@@ -1,7 +1,7 @@
 //Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2017.4 (win64) Build 2086221 Fri Dec 15 20:55:39 MST 2017
-//Date        : Sun Jul 11 20:00:30 2021
+//Date        : Wed Jul 21 21:57:58 2021
 //Host        : DESKTOP-RE08DTS running 64-bit major release  (build 9200)
 //Command     : generate_target system.bd
 //Design      : system
@@ -940,7 +940,7 @@ module system
   assign VGA_R[3:0] = xlslice_0_Dout;
   assign vid_hsync = v_axi4s_vid_out_0_vid_hsync;
   assign vid_vsync = v_axi4s_vid_out_0_vid_vsync;
-  system_SketchIP_1080p_0_0 SketchIP_1080p_0
+  system_SketchIP_1080p_0_1 SketchIP_1080p_0
        (.axi_clk(processing_system7_0_FCLK_CLK0),
         .axi_reset_n(rst_ps7_0_100M_peripheral_aresetn),
         .i_data(axi_dma_0_M_AXIS_MM2S_TDATA),

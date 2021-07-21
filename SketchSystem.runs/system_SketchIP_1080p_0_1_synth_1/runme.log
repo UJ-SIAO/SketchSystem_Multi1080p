@@ -14,37 +14,57 @@ Starting synth_design
 Attempting to get a license for feature 'Synthesis' and/or device 'xc7z020'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7z020'
 INFO: Launching helper process for spawning children vivado processes
-INFO: Helper process launched with PID 912 
+INFO: Helper process launched with PID 11004 
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:13 ; elapsed = 00:00:15 . Memory (MB): peak = 353.125 ; gain = 103.445
+Starting RTL Elaboration : Time (s): cpu = 00:00:15 ; elapsed = 00:00:18 . Memory (MB): peak = 355.461 ; gain = 104.977
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-638] synthesizing module 'system_SketchIP_1080p_0_1' [d:/GitCode/SketchSystem_Multi1080p/SketchSystem.srcs/sources_1/bd/system/ip/system_SketchIP_1080p_0_1/synth/system_SketchIP_1080p_0_1.v:57]
-INFO: [Synth 8-638] synthesizing module 'imageProcessTop' [d:/GitCode/SketchSystem_Multi1080p/SketchSystem.srcs/sources_1/bd/system/ipshared/c52d/sources_1/new/imageProcessTop.v:23]
-INFO: [Synth 8-638] synthesizing module 'imageControl' [d:/GitCode/SketchSystem_Multi1080p/SketchSystem.srcs/sources_1/bd/system/ipshared/c52d/sources_1/new/imageControl.v:23]
+INFO: [Synth 8-638] synthesizing module 'imageProcessTop' [d:/GitCode/SketchSystem_Multi1080p/SketchSystem.srcs/sources_1/bd/system/ipshared/4290/sources_1/new/imageProcessTop.v:23]
+INFO: [Synth 8-638] synthesizing module 'imageControl' [d:/GitCode/SketchSystem_Multi1080p/SketchSystem.srcs/sources_1/bd/system/ipshared/4290/sources_1/new/imageControl.v:23]
 	Parameter IDLE bound to: 0 - type: integer 
 	Parameter RD_BUFFER bound to: 1 - type: integer 
-INFO: [Synth 8-638] synthesizing module 'lineBuffer' [d:/GitCode/SketchSystem_Multi1080p/SketchSystem.srcs/sources_1/bd/system/ipshared/c52d/sources_1/new/lineBuffer.v:23]
-INFO: [Synth 8-256] done synthesizing module 'lineBuffer' (1#1) [d:/GitCode/SketchSystem_Multi1080p/SketchSystem.srcs/sources_1/bd/system/ipshared/c52d/sources_1/new/lineBuffer.v:23]
-INFO: [Synth 8-256] done synthesizing module 'imageControl' (2#1) [d:/GitCode/SketchSystem_Multi1080p/SketchSystem.srcs/sources_1/bd/system/ipshared/c52d/sources_1/new/imageControl.v:23]
-INFO: [Synth 8-638] synthesizing module 'conv1' [d:/GitCode/SketchSystem_Multi1080p/SketchSystem.srcs/sources_1/bd/system/ipshared/c52d/sources_1/new/conv1.v:23]
-WARNING: [Synth 8-6014] Unused sequential element multData3_reg[8] was removed.  [d:/GitCode/SketchSystem_Multi1080p/SketchSystem.srcs/sources_1/bd/system/ipshared/c52d/sources_1/new/conv1.v:122]
-WARNING: [Synth 8-6014] Unused sequential element multData3_reg[7] was removed.  [d:/GitCode/SketchSystem_Multi1080p/SketchSystem.srcs/sources_1/bd/system/ipshared/c52d/sources_1/new/conv1.v:122]
-WARNING: [Synth 8-6014] Unused sequential element multData3_reg[6] was removed.  [d:/GitCode/SketchSystem_Multi1080p/SketchSystem.srcs/sources_1/bd/system/ipshared/c52d/sources_1/new/conv1.v:122]
-WARNING: [Synth 8-6014] Unused sequential element multData3_reg[5] was removed.  [d:/GitCode/SketchSystem_Multi1080p/SketchSystem.srcs/sources_1/bd/system/ipshared/c52d/sources_1/new/conv1.v:122]
-WARNING: [Synth 8-6014] Unused sequential element multData3_reg[3] was removed.  [d:/GitCode/SketchSystem_Multi1080p/SketchSystem.srcs/sources_1/bd/system/ipshared/c52d/sources_1/new/conv1.v:122]
-WARNING: [Synth 8-6014] Unused sequential element multData3_reg[2] was removed.  [d:/GitCode/SketchSystem_Multi1080p/SketchSystem.srcs/sources_1/bd/system/ipshared/c52d/sources_1/new/conv1.v:122]
-WARNING: [Synth 8-6014] Unused sequential element multData3_reg[1] was removed.  [d:/GitCode/SketchSystem_Multi1080p/SketchSystem.srcs/sources_1/bd/system/ipshared/c52d/sources_1/new/conv1.v:122]
-WARNING: [Synth 8-6014] Unused sequential element multData3_reg[0] was removed.  [d:/GitCode/SketchSystem_Multi1080p/SketchSystem.srcs/sources_1/bd/system/ipshared/c52d/sources_1/new/conv1.v:122]
-WARNING: [Synth 8-3936] Found unconnected internal register 'curved_data_reg[8]' and it is trimmed from '16' to '8' bits. [d:/GitCode/SketchSystem_Multi1080p/SketchSystem.srcs/sources_1/bd/system/ipshared/c52d/sources_1/new/conv1.v:100]
-WARNING: [Synth 8-3936] Found unconnected internal register 'curved_data_reg[7]' and it is trimmed from '16' to '8' bits. [d:/GitCode/SketchSystem_Multi1080p/SketchSystem.srcs/sources_1/bd/system/ipshared/c52d/sources_1/new/conv1.v:100]
-WARNING: [Synth 8-3936] Found unconnected internal register 'curved_data_reg[6]' and it is trimmed from '16' to '8' bits. [d:/GitCode/SketchSystem_Multi1080p/SketchSystem.srcs/sources_1/bd/system/ipshared/c52d/sources_1/new/conv1.v:100]
-WARNING: [Synth 8-3936] Found unconnected internal register 'curved_data_reg[5]' and it is trimmed from '16' to '8' bits. [d:/GitCode/SketchSystem_Multi1080p/SketchSystem.srcs/sources_1/bd/system/ipshared/c52d/sources_1/new/conv1.v:100]
-WARNING: [Synth 8-3936] Found unconnected internal register 'curved_data_reg[4]' and it is trimmed from '16' to '8' bits. [d:/GitCode/SketchSystem_Multi1080p/SketchSystem.srcs/sources_1/bd/system/ipshared/c52d/sources_1/new/conv1.v:100]
-WARNING: [Synth 8-3936] Found unconnected internal register 'curved_data_reg[3]' and it is trimmed from '16' to '8' bits. [d:/GitCode/SketchSystem_Multi1080p/SketchSystem.srcs/sources_1/bd/system/ipshared/c52d/sources_1/new/conv1.v:100]
-WARNING: [Synth 8-3936] Found unconnected internal register 'curved_data_reg[2]' and it is trimmed from '16' to '8' bits. [d:/GitCode/SketchSystem_Multi1080p/SketchSystem.srcs/sources_1/bd/system/ipshared/c52d/sources_1/new/conv1.v:100]
-WARNING: [Synth 8-3936] Found unconnected internal register 'curved_data_reg[1]' and it is trimmed from '16' to '8' bits. [d:/GitCode/SketchSystem_Multi1080p/SketchSystem.srcs/sources_1/bd/system/ipshared/c52d/sources_1/new/conv1.v:100]
-WARNING: [Synth 8-3936] Found unconnected internal register 'curved_data_reg[0]' and it is trimmed from '16' to '8' bits. [d:/GitCode/SketchSystem_Multi1080p/SketchSystem.srcs/sources_1/bd/system/ipshared/c52d/sources_1/new/conv1.v:100]
-INFO: [Synth 8-256] done synthesizing module 'conv1' (3#1) [d:/GitCode/SketchSystem_Multi1080p/SketchSystem.srcs/sources_1/bd/system/ipshared/c52d/sources_1/new/conv1.v:23]
+INFO: [Synth 8-638] synthesizing module 'lineBuffer' [d:/GitCode/SketchSystem_Multi1080p/SketchSystem.srcs/sources_1/bd/system/ipshared/4290/sources_1/new/lineBuffer.v:23]
+INFO: [Synth 8-256] done synthesizing module 'lineBuffer' (1#1) [d:/GitCode/SketchSystem_Multi1080p/SketchSystem.srcs/sources_1/bd/system/ipshared/4290/sources_1/new/lineBuffer.v:23]
+INFO: [Synth 8-256] done synthesizing module 'imageControl' (2#1) [d:/GitCode/SketchSystem_Multi1080p/SketchSystem.srcs/sources_1/bd/system/ipshared/4290/sources_1/new/imageControl.v:23]
+INFO: [Synth 8-638] synthesizing module 'conv1' [d:/GitCode/SketchSystem_Multi1080p/SketchSystem.srcs/sources_1/bd/system/ipshared/4290/sources_1/new/conv1.v:23]
+INFO: [Synth 8-638] synthesizing module 'div_gen_0' [d:/GitCode/SketchSystem_Multi1080p/SketchSystem.srcs/sources_1/bd/system/ip/system_SketchIP_1080p_0_1/sources_1/ip/div_gen_0/synth/div_gen_0.vhd:71]
+	Parameter C_XDEVICEFAMILY bound to: zynq - type: string 
+	Parameter C_HAS_ARESETN bound to: 0 - type: integer 
+	Parameter C_HAS_ACLKEN bound to: 0 - type: integer 
+	Parameter C_LATENCY bound to: 18 - type: integer 
+	Parameter ALGORITHM_TYPE bound to: 1 - type: integer 
+	Parameter DIVISOR_WIDTH bound to: 8 - type: integer 
+	Parameter DIVIDEND_WIDTH bound to: 16 - type: integer 
+	Parameter SIGNED_B bound to: 0 - type: integer 
+	Parameter DIVCLK_SEL bound to: 1 - type: integer 
+	Parameter FRACTIONAL_B bound to: 0 - type: integer 
+	Parameter FRACTIONAL_WIDTH bound to: 8 - type: integer 
+	Parameter C_HAS_DIV_BY_ZERO bound to: 0 - type: integer 
+	Parameter C_THROTTLE_SCHEME bound to: 3 - type: integer 
+	Parameter C_TLAST_RESOLUTION bound to: 0 - type: integer 
+	Parameter C_HAS_S_AXIS_DIVISOR_TUSER bound to: 0 - type: integer 
+	Parameter C_HAS_S_AXIS_DIVISOR_TLAST bound to: 0 - type: integer 
+	Parameter C_S_AXIS_DIVISOR_TDATA_WIDTH bound to: 8 - type: integer 
+	Parameter C_S_AXIS_DIVISOR_TUSER_WIDTH bound to: 1 - type: integer 
+	Parameter C_HAS_S_AXIS_DIVIDEND_TUSER bound to: 0 - type: integer 
+	Parameter C_HAS_S_AXIS_DIVIDEND_TLAST bound to: 0 - type: integer 
+	Parameter C_S_AXIS_DIVIDEND_TDATA_WIDTH bound to: 16 - type: integer 
+	Parameter C_S_AXIS_DIVIDEND_TUSER_WIDTH bound to: 1 - type: integer 
+	Parameter C_M_AXIS_DOUT_TDATA_WIDTH bound to: 24 - type: integer 
+	Parameter C_M_AXIS_DOUT_TUSER_WIDTH bound to: 1 - type: integer 
+INFO: [Synth 8-3491] module 'div_gen_v5_1_12' declared at 'd:/GitCode/SketchSystem_Multi1080p/SketchSystem.srcs/sources_1/bd/system/ip/system_SketchIP_1080p_0_1/sources_1/ip/div_gen_0/hdl/div_gen_v5_1_vh_rfs.vhd:13849' bound to instance 'U0' of component 'div_gen_v5_1_12' [d:/GitCode/SketchSystem_Multi1080p/SketchSystem.srcs/sources_1/bd/system/ip/system_SketchIP_1080p_0_1/sources_1/ip/div_gen_0/synth/div_gen_0.vhd:143]
+INFO: [Synth 8-256] done synthesizing module 'div_gen_0' (12#1) [d:/GitCode/SketchSystem_Multi1080p/SketchSystem.srcs/sources_1/bd/system/ip/system_SketchIP_1080p_0_1/sources_1/ip/div_gen_0/synth/div_gen_0.vhd:71]
+WARNING: [Synth 8-3936] Found unconnected internal register 'curved_data_reg[8]' and it is trimmed from '16' to '8' bits. [d:/GitCode/SketchSystem_Multi1080p/SketchSystem.srcs/sources_1/bd/system/ipshared/4290/sources_1/new/conv1.v:140]
+WARNING: [Synth 8-3936] Found unconnected internal register 'curved_data_reg[7]' and it is trimmed from '16' to '8' bits. [d:/GitCode/SketchSystem_Multi1080p/SketchSystem.srcs/sources_1/bd/system/ipshared/4290/sources_1/new/conv1.v:140]
+WARNING: [Synth 8-3936] Found unconnected internal register 'curved_data_reg[6]' and it is trimmed from '16' to '8' bits. [d:/GitCode/SketchSystem_Multi1080p/SketchSystem.srcs/sources_1/bd/system/ipshared/4290/sources_1/new/conv1.v:140]
+WARNING: [Synth 8-3936] Found unconnected internal register 'curved_data_reg[5]' and it is trimmed from '16' to '8' bits. [d:/GitCode/SketchSystem_Multi1080p/SketchSystem.srcs/sources_1/bd/system/ipshared/4290/sources_1/new/conv1.v:140]
+WARNING: [Synth 8-3936] Found unconnected internal register 'multData1_s6_reg' and it is trimmed from '16' to '8' bits. [d:/GitCode/SketchSystem_Multi1080p/SketchSystem.srcs/sources_1/bd/system/ipshared/4290/sources_1/new/conv1.v:214]
+WARNING: [Synth 8-3936] Found unconnected internal register 'curved_data_reg[4]' and it is trimmed from '16' to '8' bits. [d:/GitCode/SketchSystem_Multi1080p/SketchSystem.srcs/sources_1/bd/system/ipshared/4290/sources_1/new/conv1.v:140]
+WARNING: [Synth 8-3936] Found unconnected internal register 'curved_data_reg[3]' and it is trimmed from '16' to '8' bits. [d:/GitCode/SketchSystem_Multi1080p/SketchSystem.srcs/sources_1/bd/system/ipshared/4290/sources_1/new/conv1.v:140]
+WARNING: [Synth 8-3936] Found unconnected internal register 'curved_data_reg[2]' and it is trimmed from '16' to '8' bits. [d:/GitCode/SketchSystem_Multi1080p/SketchSystem.srcs/sources_1/bd/system/ipshared/4290/sources_1/new/conv1.v:140]
+WARNING: [Synth 8-3936] Found unconnected internal register 'curved_data_reg[1]' and it is trimmed from '16' to '8' bits. [d:/GitCode/SketchSystem_Multi1080p/SketchSystem.srcs/sources_1/bd/system/ipshared/4290/sources_1/new/conv1.v:140]
+WARNING: [Synth 8-3936] Found unconnected internal register 'curved_data_reg[0]' and it is trimmed from '16' to '8' bits. [d:/GitCode/SketchSystem_Multi1080p/SketchSystem.srcs/sources_1/bd/system/ipshared/4290/sources_1/new/conv1.v:140]
+INFO: [Synth 8-256] done synthesizing module 'conv1' (13#1) [d:/GitCode/SketchSystem_Multi1080p/SketchSystem.srcs/sources_1/bd/system/ipshared/4290/sources_1/new/conv1.v:23]
 INFO: [Synth 8-638] synthesizing module 'outputBuffer' [d:/GitCode/SketchSystem_Multi1080p/SketchSystem.srcs/sources_1/bd/system/ip/system_SketchIP_1080p_0_1/sources_1/ip/outputBuffer/synth/outputBuffer.vhd:75]
 	Parameter C_COMMON_CLOCK bound to: 1 - type: integer 
 	Parameter C_SELECT_XPM bound to: 0 - type: integer 
@@ -251,10 +271,10 @@ INFO: [Synth 8-638] synthesizing module 'outputBuffer' [d:/GitCode/SketchSystem_
 INFO: [Synth 8-3491] module 'fifo_generator_v13_2_1' declared at 'd:/GitCode/SketchSystem_Multi1080p/SketchSystem.srcs/sources_1/bd/system/ip/system_SketchIP_1080p_0_1/sources_1/ip/outputBuffer/hdl/fifo_generator_v13_2_vhsyn_rfs.vhd:38483' bound to instance 'U0' of component 'fifo_generator_v13_2_1' [d:/GitCode/SketchSystem_Multi1080p/SketchSystem.srcs/sources_1/bd/system/ip/system_SketchIP_1080p_0_1/sources_1/ip/outputBuffer/synth/outputBuffer.vhd:547]
 INFO: [Synth 8-638] synthesizing module 'xpm_cdc_sync_rst' [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/hdl/xpm_cdc.sv:1045]
 INFO: [Synth 8-5534] Detected attribute (* ASYNC_REG = "TRUE" *) [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/hdl/xpm_cdc.sv:1097]
-INFO: [Synth 8-256] done synthesizing module 'xpm_cdc_sync_rst' (4#1) [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/hdl/xpm_cdc.sv:1045]
-INFO: [Synth 8-256] done synthesizing module 'outputBuffer' (30#1) [d:/GitCode/SketchSystem_Multi1080p/SketchSystem.srcs/sources_1/bd/system/ip/system_SketchIP_1080p_0_1/sources_1/ip/outputBuffer/synth/outputBuffer.vhd:75]
-INFO: [Synth 8-256] done synthesizing module 'imageProcessTop' (31#1) [d:/GitCode/SketchSystem_Multi1080p/SketchSystem.srcs/sources_1/bd/system/ipshared/c52d/sources_1/new/imageProcessTop.v:23]
-INFO: [Synth 8-256] done synthesizing module 'system_SketchIP_1080p_0_1' (32#1) [d:/GitCode/SketchSystem_Multi1080p/SketchSystem.srcs/sources_1/bd/system/ip/system_SketchIP_1080p_0_1/synth/system_SketchIP_1080p_0_1.v:57]
+INFO: [Synth 8-256] done synthesizing module 'xpm_cdc_sync_rst' (14#1) [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/hdl/xpm_cdc.sv:1045]
+INFO: [Synth 8-256] done synthesizing module 'outputBuffer' (40#1) [d:/GitCode/SketchSystem_Multi1080p/SketchSystem.srcs/sources_1/bd/system/ip/system_SketchIP_1080p_0_1/sources_1/ip/outputBuffer/synth/outputBuffer.vhd:75]
+INFO: [Synth 8-256] done synthesizing module 'imageProcessTop' (41#1) [d:/GitCode/SketchSystem_Multi1080p/SketchSystem.srcs/sources_1/bd/system/ipshared/4290/sources_1/new/imageProcessTop.v:23]
+INFO: [Synth 8-256] done synthesizing module 'system_SketchIP_1080p_0_1' (42#1) [d:/GitCode/SketchSystem_Multi1080p/SketchSystem.srcs/sources_1/bd/system/ip/system_SketchIP_1080p_0_1/synth/system_SketchIP_1080p_0_1.v:57]
 WARNING: [Synth 8-3331] design wr_pf_ss has unconnected port PROG_FULL_THRESH[5]
 WARNING: [Synth 8-3331] design wr_pf_ss has unconnected port PROG_FULL_THRESH[4]
 WARNING: [Synth 8-3331] design wr_pf_ss has unconnected port PROG_FULL_THRESH[3]
@@ -357,7 +377,7 @@ WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper has unconnected port DIN
 WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper has unconnected port DINB[33]
 INFO: [Common 17-14] Message 'Synth 8-3331' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:01:44 ; elapsed = 00:01:51 . Memory (MB): peak = 634.480 ; gain = 384.801
+Finished RTL Elaboration : Time (s): cpu = 00:01:50 ; elapsed = 00:01:57 . Memory (MB): peak = 694.266 ; gain = 443.781
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -367,9 +387,9 @@ Report Check Netlist:
 |1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
 +------+------------------+-------+---------+-------+------------------+
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:01:44 ; elapsed = 00:01:51 . Memory (MB): peak = 634.480 ; gain = 384.801
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:01:51 ; elapsed = 00:01:57 . Memory (MB): peak = 694.266 ; gain = 443.781
 ---------------------------------------------------------------------------------
-INFO: [Netlist 29-17] Analyzing 1 Unisim elements for replacement
+INFO: [Netlist 29-17] Analyzing 307 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Device 21-403] Loading part xc7z020clg484-1
 INFO: [Project 1-570] Preparing netlist for logic optimization
@@ -378,6 +398,8 @@ Processing XDC Constraints
 Initializing timing engine
 Parsing XDC File [d:/GitCode/SketchSystem_Multi1080p/SketchSystem.srcs/sources_1/bd/system/ip/system_SketchIP_1080p_0_1/sources_1/ip/outputBuffer/outputBuffer.xdc] for cell 'inst/OB/U0'
 Finished Parsing XDC File [d:/GitCode/SketchSystem_Multi1080p/SketchSystem.srcs/sources_1/bd/system/ip/system_SketchIP_1080p_0_1/sources_1/ip/outputBuffer/outputBuffer.xdc] for cell 'inst/OB/U0'
+Parsing XDC File [d:/GitCode/SketchSystem_Multi1080p/SketchSystem.srcs/sources_1/bd/system/ip/system_SketchIP_1080p_0_1/constrs_1/new/sketchConstraints.xdc] for cell 'inst'
+Finished Parsing XDC File [d:/GitCode/SketchSystem_Multi1080p/SketchSystem.srcs/sources_1/bd/system/ip/system_SketchIP_1080p_0_1/constrs_1/new/sketchConstraints.xdc] for cell 'inst'
 Parsing XDC File [D:/GitCode/SketchSystem_Multi1080p/SketchSystem.runs/system_SketchIP_1080p_0_1_synth_1/dont_touch.xdc]
 Finished Parsing XDC File [D:/GitCode/SketchSystem_Multi1080p/SketchSystem.runs/system_SketchIP_1080p_0_1_synth_1/dont_touch.xdc]
 INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [D:/GitCode/SketchSystem_Multi1080p/SketchSystem.runs/system_SketchIP_1080p_0_1_synth_1/dont_touch.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/system_SketchIP_1080p_0_1_propImpl.xdc].
@@ -389,44 +411,37 @@ Completed Processing XDC Constraints
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.052 . Memory (MB): peak = 772.133 ; gain = 0.000
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.049 . Memory (MB): peak = 792.461 ; gain = 0.000
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:02:02 ; elapsed = 00:02:11 . Memory (MB): peak = 772.133 ; gain = 522.453
+Finished Constraint Validation : Time (s): cpu = 00:02:12 ; elapsed = 00:02:26 . Memory (MB): peak = 792.461 ; gain = 541.977
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7z020clg484-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:02:02 ; elapsed = 00:02:11 . Memory (MB): peak = 772.133 ; gain = 522.453
+Finished Loading Part and Timing Information : Time (s): cpu = 00:02:12 ; elapsed = 00:02:26 . Memory (MB): peak = 792.461 ; gain = 541.977
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
 ---------------------------------------------------------------------------------
-Applied set_property DONT_TOUCH = true for inst/OB/U0. (constraint file  D:/GitCode/SketchSystem_Multi1080p/SketchSystem.runs/system_SketchIP_1080p_0_1_synth_1/dont_touch.xdc, line 11).
+Applied set_property DONT_TOUCH = true for inst/OB/U0. (constraint file  D:/GitCode/SketchSystem_Multi1080p/SketchSystem.runs/system_SketchIP_1080p_0_1_synth_1/dont_touch.xdc, line 14).
+Applied set_property DONT_TOUCH = true for inst. (constraint file  D:/GitCode/SketchSystem_Multi1080p/SketchSystem.runs/system_SketchIP_1080p_0_1_synth_1/dont_touch.xdc, line 18).
 Applied set_property DONT_TOUCH = true for inst/OB. (constraint file  auto generated constraint, line ).
 Applied set_property DONT_TOUCH = true for inst/OB/U0/inst_fifo_gen/\gaxis_fifo.gaxisf.axisf /\grf.rf /rstblk/\ngwrdrst.grst.g7serrst.gsckt_wrst.xpm_cdc_sync_rst_inst_wrst . (constraint file  auto generated constraint, line ).
+Applied set_property DONT_TOUCH = true for inst/conv1/div1. (constraint file  auto generated constraint, line ).
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:02:02 ; elapsed = 00:02:11 . Memory (MB): peak = 772.133 ; gain = 522.453
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:02:12 ; elapsed = 00:02:26 . Memory (MB): peak = 792.461 ; gain = 541.977
 ---------------------------------------------------------------------------------
-WARNING: [Synth 8-6014] Unused sequential element wrPntr_reg was removed.  [d:/GitCode/SketchSystem_Multi1080p/SketchSystem.srcs/sources_1/bd/system/ipshared/c52d/sources_1/new/lineBuffer.v:44]
-WARNING: [Synth 8-6014] Unused sequential element rdPntr_reg was removed.  [d:/GitCode/SketchSystem_Multi1080p/SketchSystem.srcs/sources_1/bd/system/ipshared/c52d/sources_1/new/lineBuffer.v:50]
-INFO: [Synth 8-4471] merging register 'rdState_reg' into 'rd_line_buffer_reg' [d:/GitCode/SketchSystem_Multi1080p/SketchSystem.srcs/sources_1/bd/system/ipshared/c52d/sources_1/new/imageControl.v:71]
-WARNING: [Synth 8-6014] Unused sequential element rdState_reg was removed.  [d:/GitCode/SketchSystem_Multi1080p/SketchSystem.srcs/sources_1/bd/system/ipshared/c52d/sources_1/new/imageControl.v:71]
-INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [d:/GitCode/SketchSystem_Multi1080p/SketchSystem.srcs/sources_1/bd/system/ipshared/c52d/sources_1/new/imageControl.v:60]
+WARNING: [Synth 8-6014] Unused sequential element wrPntr_reg was removed.  [d:/GitCode/SketchSystem_Multi1080p/SketchSystem.srcs/sources_1/bd/system/ipshared/4290/sources_1/new/lineBuffer.v:44]
+WARNING: [Synth 8-6014] Unused sequential element rdPntr_reg was removed.  [d:/GitCode/SketchSystem_Multi1080p/SketchSystem.srcs/sources_1/bd/system/ipshared/4290/sources_1/new/lineBuffer.v:50]
+INFO: [Synth 8-4471] merging register 'rdState_reg' into 'rd_line_buffer_reg' [d:/GitCode/SketchSystem_Multi1080p/SketchSystem.srcs/sources_1/bd/system/ipshared/4290/sources_1/new/imageControl.v:71]
+WARNING: [Synth 8-6014] Unused sequential element rdState_reg was removed.  [d:/GitCode/SketchSystem_Multi1080p/SketchSystem.srcs/sources_1/bd/system/ipshared/4290/sources_1/new/imageControl.v:71]
+INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [d:/GitCode/SketchSystem_Multi1080p/SketchSystem.srcs/sources_1/bd/system/ipshared/4290/sources_1/new/imageControl.v:60]
 INFO: [Synth 8-5546] ROM "rdState" won't be mapped to RAM because it is too sparse
-WARNING: [Synth 8-6014] Unused sequential element i_pixel_data_light_s1_threshold_reg[8] was removed.  [d:/GitCode/SketchSystem_Multi1080p/SketchSystem.srcs/sources_1/bd/system/ipshared/c52d/sources_1/new/conv1.v:89]
-WARNING: [Synth 8-6014] Unused sequential element i_pixel_data_light_s1_threshold_reg[7] was removed.  [d:/GitCode/SketchSystem_Multi1080p/SketchSystem.srcs/sources_1/bd/system/ipshared/c52d/sources_1/new/conv1.v:89]
-WARNING: [Synth 8-6014] Unused sequential element i_pixel_data_light_s1_threshold_reg[6] was removed.  [d:/GitCode/SketchSystem_Multi1080p/SketchSystem.srcs/sources_1/bd/system/ipshared/c52d/sources_1/new/conv1.v:89]
-WARNING: [Synth 8-6014] Unused sequential element i_pixel_data_light_s1_threshold_reg[5] was removed.  [d:/GitCode/SketchSystem_Multi1080p/SketchSystem.srcs/sources_1/bd/system/ipshared/c52d/sources_1/new/conv1.v:89]
-WARNING: [Synth 8-6014] Unused sequential element i_pixel_data_light_s1_threshold_reg[4] was removed.  [d:/GitCode/SketchSystem_Multi1080p/SketchSystem.srcs/sources_1/bd/system/ipshared/c52d/sources_1/new/conv1.v:89]
-WARNING: [Synth 8-6014] Unused sequential element i_pixel_data_light_s1_threshold_reg[3] was removed.  [d:/GitCode/SketchSystem_Multi1080p/SketchSystem.srcs/sources_1/bd/system/ipshared/c52d/sources_1/new/conv1.v:89]
-WARNING: [Synth 8-6014] Unused sequential element i_pixel_data_light_s1_threshold_reg[2] was removed.  [d:/GitCode/SketchSystem_Multi1080p/SketchSystem.srcs/sources_1/bd/system/ipshared/c52d/sources_1/new/conv1.v:89]
-WARNING: [Synth 8-6014] Unused sequential element i_pixel_data_light_s1_threshold_reg[1] was removed.  [d:/GitCode/SketchSystem_Multi1080p/SketchSystem.srcs/sources_1/bd/system/ipshared/c52d/sources_1/new/conv1.v:89]
-WARNING: [Synth 8-6014] Unused sequential element i_pixel_data_light_s1_threshold_reg[0] was removed.  [d:/GitCode/SketchSystem_Multi1080p/SketchSystem.srcs/sources_1/bd/system/ipshared/c52d/sources_1/new/conv1.v:89]
 INFO: [Synth 8-5544] ROM "leaving_empty_fwft" won't be mapped to Block RAM because address size (2) smaller than threshold (5)
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:02:03 ; elapsed = 00:02:12 . Memory (MB): peak = 772.133 ; gain = 522.453
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:02:14 ; elapsed = 00:02:28 . Memory (MB): peak = 792.461 ; gain = 541.977
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -437,160 +452,12 @@ Report RTL Partitions:
 ---------------------------------------------------------------------------------
 Start RTL Component Statistics 
 ---------------------------------------------------------------------------------
-Detailed RTL Component Info : 
-+---Adders : 
-	   2 Input     13 Bit       Adders := 1     
-	   2 Input     11 Bit       Adders := 18    
-	   2 Input      8 Bit       Adders := 9     
-	   2 Input      7 Bit       Adders := 1     
-	   2 Input      6 Bit       Adders := 2     
-	   2 Input      2 Bit       Adders := 2     
-+---XORs : 
-	   2 Input      1 Bit         XORs := 26    
-+---Registers : 
-	               16 Bit    Registers := 2     
-	               13 Bit    Registers := 1     
-	               12 Bit    Registers := 1     
-	               11 Bit    Registers := 10    
-	               10 Bit    Registers := 1     
-	                9 Bit    Registers := 11    
-	                8 Bit    Registers := 80    
-	                7 Bit    Registers := 1     
-	                6 Bit    Registers := 4     
-	                5 Bit    Registers := 3     
-	                4 Bit    Registers := 1     
-	                2 Bit    Registers := 3     
-	                1 Bit    Registers := 39    
-+---Muxes : 
-	   4 Input     72 Bit        Muxes := 1     
-	   2 Input     13 Bit        Muxes := 1     
-	   2 Input     11 Bit        Muxes := 3     
-	   2 Input     10 Bit        Muxes := 1     
-	   2 Input      9 Bit        Muxes := 2     
-	   2 Input      8 Bit        Muxes := 4     
-	   4 Input      4 Bit        Muxes := 1     
-	   2 Input      2 Bit        Muxes := 5     
-	   5 Input      2 Bit        Muxes := 1     
-	   2 Input      1 Bit        Muxes := 17    
-	   3 Input      1 Bit        Muxes := 2     
-	   4 Input      1 Bit        Muxes := 2     
 ---------------------------------------------------------------------------------
 Finished RTL Component Statistics 
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start RTL Hierarchical Component Statistics 
 ---------------------------------------------------------------------------------
-Hierarchical RTL Component report 
-Module lineBuffer 
-Detailed RTL Component Info : 
-+---Adders : 
-	   2 Input     11 Bit       Adders := 4     
-+---Registers : 
-	               11 Bit    Registers := 2     
-Module imageControl 
-Detailed RTL Component Info : 
-+---Adders : 
-	   2 Input     13 Bit       Adders := 1     
-	   2 Input     11 Bit       Adders := 2     
-	   2 Input      2 Bit       Adders := 2     
-+---Registers : 
-	               13 Bit    Registers := 1     
-	               11 Bit    Registers := 2     
-	                2 Bit    Registers := 2     
-	                1 Bit    Registers := 2     
-+---Muxes : 
-	   4 Input     72 Bit        Muxes := 1     
-	   2 Input     13 Bit        Muxes := 1     
-	   2 Input     11 Bit        Muxes := 2     
-	   4 Input      4 Bit        Muxes := 1     
-	   2 Input      2 Bit        Muxes := 1     
-	   2 Input      1 Bit        Muxes := 7     
-	   3 Input      1 Bit        Muxes := 1     
-Module conv1 
-Detailed RTL Component Info : 
-+---Adders : 
-	   2 Input      8 Bit       Adders := 9     
-+---Registers : 
-	               16 Bit    Registers := 2     
-	               12 Bit    Registers := 1     
-	               10 Bit    Registers := 1     
-	                9 Bit    Registers := 11    
-	                8 Bit    Registers := 79    
-	                1 Bit    Registers := 13    
-+---Muxes : 
-	   2 Input     11 Bit        Muxes := 1     
-	   2 Input     10 Bit        Muxes := 1     
-	   2 Input      9 Bit        Muxes := 2     
-	   2 Input      8 Bit        Muxes := 4     
-	   2 Input      1 Bit        Muxes := 1     
-Module xpm_cdc_sync_rst 
-Detailed RTL Component Info : 
-+---Registers : 
-	                5 Bit    Registers := 1     
-Module reset_blk_ramfifo 
-Detailed RTL Component Info : 
-+---Registers : 
-	                4 Bit    Registers := 1     
-	                1 Bit    Registers := 3     
-Module blk_mem_gen_prim_width 
-Detailed RTL Component Info : 
-+---XORs : 
-	   2 Input      1 Bit         XORs := 2     
-+---Registers : 
-	                5 Bit    Registers := 2     
-	                1 Bit    Registers := 8     
-Module memory 
-Detailed RTL Component Info : 
-+---Registers : 
-	                8 Bit    Registers := 1     
-Module rd_bin_cntr 
-Detailed RTL Component Info : 
-+---Adders : 
-	   2 Input      6 Bit       Adders := 1     
-+---Registers : 
-	                6 Bit    Registers := 2     
-Module compare 
-Detailed RTL Component Info : 
-+---XORs : 
-	   2 Input      1 Bit         XORs := 6     
-Module rd_status_flags_ss 
-Detailed RTL Component Info : 
-+---Registers : 
-	                1 Bit    Registers := 2     
-+---Muxes : 
-	   2 Input      1 Bit        Muxes := 1     
-Module rd_fwft 
-Detailed RTL Component Info : 
-+---Registers : 
-	                2 Bit    Registers := 1     
-	                1 Bit    Registers := 6     
-+---Muxes : 
-	   2 Input      2 Bit        Muxes := 4     
-	   5 Input      2 Bit        Muxes := 1     
-	   3 Input      1 Bit        Muxes := 1     
-	   2 Input      1 Bit        Muxes := 5     
-	   4 Input      1 Bit        Muxes := 2     
-Module wr_bin_cntr 
-Detailed RTL Component Info : 
-+---Adders : 
-	   2 Input      6 Bit       Adders := 1     
-+---Registers : 
-	                6 Bit    Registers := 2     
-Module wr_status_flags_ss 
-Detailed RTL Component Info : 
-+---Registers : 
-	                1 Bit    Registers := 2     
-+---Muxes : 
-	   2 Input      1 Bit        Muxes := 1     
-Module wr_pf_ss 
-Detailed RTL Component Info : 
-+---Adders : 
-	   2 Input      7 Bit       Adders := 1     
-+---Registers : 
-	                7 Bit    Registers := 1     
-	                1 Bit    Registers := 3     
-+---Muxes : 
-	   2 Input      1 Bit        Muxes := 2     
 ---------------------------------------------------------------------------------
 Finished RTL Hierarchical Component Statistics
 ---------------------------------------------------------------------------------
@@ -606,47 +473,31 @@ Finished Part Resource Summary
 ---------------------------------------------------------------------------------
 Start Cross Boundary and Area Optimization
 ---------------------------------------------------------------------------------
-INFO: [Synth 8-5546] ROM "inst/IC/rdState" won't be mapped to RAM because it is too sparse
-WARNING: [Synth 8-6014] Unused sequential element inst/IC/lB0/rdPntr_reg was removed.  [d:/GitCode/SketchSystem_Multi1080p/SketchSystem.srcs/sources_1/bd/system/ipshared/c52d/sources_1/new/lineBuffer.v:50]
-WARNING: [Synth 8-6014] Unused sequential element inst/IC/lB0/wrPntr_reg was removed.  [d:/GitCode/SketchSystem_Multi1080p/SketchSystem.srcs/sources_1/bd/system/ipshared/c52d/sources_1/new/lineBuffer.v:44]
-WARNING: [Synth 8-6014] Unused sequential element inst/IC/lB1/rdPntr_reg was removed.  [d:/GitCode/SketchSystem_Multi1080p/SketchSystem.srcs/sources_1/bd/system/ipshared/c52d/sources_1/new/lineBuffer.v:50]
-WARNING: [Synth 8-6014] Unused sequential element inst/IC/lB1/wrPntr_reg was removed.  [d:/GitCode/SketchSystem_Multi1080p/SketchSystem.srcs/sources_1/bd/system/ipshared/c52d/sources_1/new/lineBuffer.v:44]
-WARNING: [Synth 8-6014] Unused sequential element inst/IC/lB2/rdPntr_reg was removed.  [d:/GitCode/SketchSystem_Multi1080p/SketchSystem.srcs/sources_1/bd/system/ipshared/c52d/sources_1/new/lineBuffer.v:50]
-WARNING: [Synth 8-6014] Unused sequential element inst/IC/lB2/wrPntr_reg was removed.  [d:/GitCode/SketchSystem_Multi1080p/SketchSystem.srcs/sources_1/bd/system/ipshared/c52d/sources_1/new/lineBuffer.v:44]
-WARNING: [Synth 8-6014] Unused sequential element inst/IC/lB3/rdPntr_reg was removed.  [d:/GitCode/SketchSystem_Multi1080p/SketchSystem.srcs/sources_1/bd/system/ipshared/c52d/sources_1/new/lineBuffer.v:50]
-WARNING: [Synth 8-6014] Unused sequential element inst/IC/lB3/wrPntr_reg was removed.  [d:/GitCode/SketchSystem_Multi1080p/SketchSystem.srcs/sources_1/bd/system/ipshared/c52d/sources_1/new/lineBuffer.v:44]
-INFO: [Synth 8-3886] merging instance 'inst/conv1/i_pixel_data_light_s1_threshold_reg[8][0]' (FD) to 'inst/conv1/i_pixel_data_light_s2_reg[8][0]'
-INFO: [Synth 8-3886] merging instance 'inst/conv1/i_pixel_data_light_s1_threshold_reg[8][1]' (FD) to 'inst/conv1/i_pixel_data_light_s2_reg[8][1]'
-INFO: [Synth 8-3886] merging instance 'inst/conv1/i_pixel_data_light_s1_threshold_reg[5][0]' (FD) to 'inst/conv1/i_pixel_data_light_s2_reg[5][0]'
-INFO: [Synth 8-3886] merging instance 'inst/conv1/i_pixel_data_light_s1_threshold_reg[5][1]' (FD) to 'inst/conv1/i_pixel_data_light_s2_reg[5][1]'
-INFO: [Synth 8-3886] merging instance 'inst/conv1/i_pixel_data_light_s1_threshold_reg[6][0]' (FD) to 'inst/conv1/i_pixel_data_light_s2_reg[6][0]'
-INFO: [Synth 8-3886] merging instance 'inst/conv1/i_pixel_data_light_s1_threshold_reg[6][1]' (FD) to 'inst/conv1/i_pixel_data_light_s2_reg[6][1]'
-INFO: [Synth 8-3886] merging instance 'inst/conv1/i_pixel_data_light_s1_threshold_reg[7][0]' (FD) to 'inst/conv1/i_pixel_data_light_s2_reg[7][0]'
-INFO: [Synth 8-3886] merging instance 'inst/conv1/i_pixel_data_light_s1_threshold_reg[7][1]' (FD) to 'inst/conv1/i_pixel_data_light_s2_reg[7][1]'
-INFO: [Synth 8-3886] merging instance 'inst/conv1/i_pixel_data_light_s1_threshold_reg[0][0]' (FD) to 'inst/conv1/i_pixel_data_light_s2_reg[0][0]'
-INFO: [Synth 8-3886] merging instance 'inst/conv1/i_pixel_data_light_s1_threshold_reg[0][1]' (FD) to 'inst/conv1/i_pixel_data_light_s2_reg[0][1]'
-INFO: [Synth 8-3886] merging instance 'inst/conv1/i_pixel_data_light_s1_threshold_reg[1][0]' (FD) to 'inst/conv1/i_pixel_data_light_s2_reg[1][0]'
-INFO: [Synth 8-3886] merging instance 'inst/conv1/i_pixel_data_light_s1_threshold_reg[1][1]' (FD) to 'inst/conv1/i_pixel_data_light_s2_reg[1][1]'
-INFO: [Synth 8-3886] merging instance 'inst/conv1/i_pixel_data_light_s1_threshold_reg[2][0]' (FD) to 'inst/conv1/i_pixel_data_light_s2_reg[2][0]'
-INFO: [Synth 8-3886] merging instance 'inst/conv1/i_pixel_data_light_s1_threshold_reg[2][1]' (FD) to 'inst/conv1/i_pixel_data_light_s2_reg[2][1]'
-INFO: [Synth 8-3886] merging instance 'inst/conv1/i_pixel_data_light_s1_threshold_reg[3][0]' (FD) to 'inst/conv1/i_pixel_data_light_s2_reg[3][0]'
-INFO: [Synth 8-3886] merging instance 'inst/conv1/i_pixel_data_light_s1_threshold_reg[3][1]' (FD) to 'inst/conv1/i_pixel_data_light_s2_reg[3][1]'
-INFO: [Synth 8-3886] merging instance 'inst/conv1/i_pixel_data_light_s1_threshold_reg[4][0]' (FD) to 'inst/conv1/i_pixel_data_light_s2_reg[4][0]'
-INFO: [Synth 8-3886] merging instance 'inst/conv1/i_pixel_data_light_s1_threshold_reg[4][1]' (FD) to 'inst/conv1/i_pixel_data_light_s2_reg[4][1]'
-INFO: [Synth 8-3886] merging instance 'inst/conv1/compared_data_reg[7][8]' (FD) to 'inst/conv1/dodge_data_s1_reg[7]'
-INFO: [Synth 8-3886] merging instance 'inst/conv1/dodge_data_s1_reg[0]' (FD) to 'inst/conv1/dodge_data_s1_reg[7]'
-INFO: [Synth 8-3886] merging instance 'inst/conv1/dodge_data_s1_reg[1]' (FD) to 'inst/conv1/dodge_data_s1_reg[7]'
-INFO: [Synth 8-3886] merging instance 'inst/conv1/dodge_data_s1_reg[2]' (FD) to 'inst/conv1/dodge_data_s1_reg[7]'
-INFO: [Synth 8-3886] merging instance 'inst/conv1/dodge_data_s1_reg[3]' (FD) to 'inst/conv1/dodge_data_s1_reg[7]'
-INFO: [Synth 8-3886] merging instance 'inst/conv1/dodge_data_s1_reg[4]' (FD) to 'inst/conv1/dodge_data_s1_reg[7]'
-INFO: [Synth 8-3886] merging instance 'inst/conv1/dodge_data_s1_reg[5]' (FD) to 'inst/conv1/dodge_data_s1_reg[7]'
-INFO: [Synth 8-3886] merging instance 'inst/conv1/dodge_data_s1_reg[6]' (FD) to 'inst/conv1/dodge_data_s1_reg[7]'
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\inst/conv1 /\dodge_data_s1_reg[7] )
-WARNING: [Synth 8-3332] Sequential element (compared_data_reg[8][11]) is unused and will be removed from module conv1.
-WARNING: [Synth 8-3332] Sequential element (compared_data_reg[8][10]) is unused and will be removed from module conv1.
-WARNING: [Synth 8-3332] Sequential element (compared_data_reg[8][9]) is unused and will be removed from module conv1.
-WARNING: [Synth 8-3332] Sequential element (compared_data_reg[8][8]) is unused and will be removed from module conv1.
-WARNING: [Synth 8-3332] Sequential element (dodge_data_s1_reg[7]) is unused and will be removed from module conv1.
+INFO: [Synth 8-5546] ROM "IC/rdState" won't be mapped to RAM because it is too sparse
+WARNING: [Synth 8-6014] Unused sequential element IC/lB0/rdPntr_reg was removed.  [d:/GitCode/SketchSystem_Multi1080p/SketchSystem.srcs/sources_1/bd/system/ipshared/4290/sources_1/new/lineBuffer.v:50]
+WARNING: [Synth 8-6014] Unused sequential element IC/lB0/wrPntr_reg was removed.  [d:/GitCode/SketchSystem_Multi1080p/SketchSystem.srcs/sources_1/bd/system/ipshared/4290/sources_1/new/lineBuffer.v:44]
+WARNING: [Synth 8-6014] Unused sequential element IC/lB1/rdPntr_reg was removed.  [d:/GitCode/SketchSystem_Multi1080p/SketchSystem.srcs/sources_1/bd/system/ipshared/4290/sources_1/new/lineBuffer.v:50]
+WARNING: [Synth 8-6014] Unused sequential element IC/lB1/wrPntr_reg was removed.  [d:/GitCode/SketchSystem_Multi1080p/SketchSystem.srcs/sources_1/bd/system/ipshared/4290/sources_1/new/lineBuffer.v:44]
+WARNING: [Synth 8-6014] Unused sequential element IC/lB2/rdPntr_reg was removed.  [d:/GitCode/SketchSystem_Multi1080p/SketchSystem.srcs/sources_1/bd/system/ipshared/4290/sources_1/new/lineBuffer.v:50]
+WARNING: [Synth 8-6014] Unused sequential element IC/lB2/wrPntr_reg was removed.  [d:/GitCode/SketchSystem_Multi1080p/SketchSystem.srcs/sources_1/bd/system/ipshared/4290/sources_1/new/lineBuffer.v:44]
+WARNING: [Synth 8-6014] Unused sequential element IC/lB3/rdPntr_reg was removed.  [d:/GitCode/SketchSystem_Multi1080p/SketchSystem.srcs/sources_1/bd/system/ipshared/4290/sources_1/new/lineBuffer.v:50]
+WARNING: [Synth 8-6014] Unused sequential element IC/lB3/wrPntr_reg was removed.  [d:/GitCode/SketchSystem_Multi1080p/SketchSystem.srcs/sources_1/bd/system/ipshared/4290/sources_1/new/lineBuffer.v:44]
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (inst/\conv1/dodge_data_s1_reg[0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (inst/\conv1/dodge_data_s1_reg[1] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (inst/\conv1/dodge_data_s1_reg[2] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (inst/\conv1/dodge_data_s1_reg[3] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (inst/\conv1/dodge_data_s1_reg[4] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (inst/\conv1/dodge_data_s1_reg[5] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (inst/\conv1/dodge_data_s1_reg[6] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (inst/\conv1/dodge_data_s1_reg[7] )
+WARNING: [Synth 8-3332] Sequential element (conv1/dodge_data_s1_reg[7]) is unused and will be removed from module imageProcessTop.
+WARNING: [Synth 8-3332] Sequential element (conv1/dodge_data_s1_reg[6]) is unused and will be removed from module imageProcessTop.
+WARNING: [Synth 8-3332] Sequential element (conv1/dodge_data_s1_reg[5]) is unused and will be removed from module imageProcessTop.
+WARNING: [Synth 8-3332] Sequential element (conv1/dodge_data_s1_reg[4]) is unused and will be removed from module imageProcessTop.
+WARNING: [Synth 8-3332] Sequential element (conv1/dodge_data_s1_reg[3]) is unused and will be removed from module imageProcessTop.
+WARNING: [Synth 8-3332] Sequential element (conv1/dodge_data_s1_reg[2]) is unused and will be removed from module imageProcessTop.
+WARNING: [Synth 8-3332] Sequential element (conv1/dodge_data_s1_reg[1]) is unused and will be removed from module imageProcessTop.
+WARNING: [Synth 8-3332] Sequential element (conv1/dodge_data_s1_reg[0]) is unused and will be removed from module imageProcessTop.
 WARNING: [Synth 8-3332] Sequential element (inst_fifo_gen/gaxis_fifo.gaxisf.axisf/grf.rf/gntv_or_sync_fifo.gl0.wr/gwss.gpf.wrpf/gdiff.gcry_1_sym.diff_pntr_pad_reg[0]) is unused and will be removed from module fifo_generator_v13_2_1.
 INFO: [Synth 8-3886] merging instance 'inst/OB/U0/inst_fifo_gen/gaxis_fifo.gaxisf.axisf/grf.rf/gntv_or_sync_fifo.mem/gbm.gbmg.gbmga.ngecc.bmg/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/SAFETY_CKT_GEN.RSTA_SHFT_REG_reg[0]' (FDS) to 'inst/OB/U0/inst_fifo_gen/gaxis_fifo.gaxisf.axisf/grf.rf/gntv_or_sync_fifo.mem/gbm.gbmg.gbmga.ngecc.bmg/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/SAFETY_CKT_GEN.RSTB_SHFT_REG_reg[0]'
 INFO: [Synth 8-3886] merging instance 'inst/OB/U0/inst_fifo_gen/gaxis_fifo.gaxisf.axisf/grf.rf/gntv_or_sync_fifo.mem/gbm.gbmg.gbmga.ngecc.bmg/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/SAFETY_CKT_GEN.RSTA_SHFT_REG_reg[1]' (FD) to 'inst/OB/U0/inst_fifo_gen/gaxis_fifo.gaxisf.axisf/grf.rf/gntv_or_sync_fifo.mem/gbm.gbmg.gbmga.ngecc.bmg/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/SAFETY_CKT_GEN.RSTB_SHFT_REG_reg[1]'
@@ -654,25 +505,7 @@ INFO: [Synth 8-3886] merging instance 'inst/OB/U0/inst_fifo_gen/gaxis_fifo.gaxis
 INFO: [Synth 8-3886] merging instance 'inst/OB/U0/inst_fifo_gen/gaxis_fifo.gaxisf.axisf/grf.rf/gntv_or_sync_fifo.mem/gbm.gbmg.gbmga.ngecc.bmg/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/SAFETY_CKT_GEN.RSTA_SHFT_REG_reg[3]' (FD) to 'inst/OB/U0/inst_fifo_gen/gaxis_fifo.gaxisf.axisf/grf.rf/gntv_or_sync_fifo.mem/gbm.gbmg.gbmga.ngecc.bmg/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/SAFETY_CKT_GEN.RSTB_SHFT_REG_reg[3]'
 INFO: [Synth 8-3886] merging instance 'inst/OB/U0/inst_fifo_gen/gaxis_fifo.gaxisf.axisf/grf.rf/gntv_or_sync_fifo.mem/gbm.gbmg.gbmga.ngecc.bmg/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/SAFETY_CKT_GEN.RSTA_SHFT_REG_reg[4]' (FD) to 'inst/OB/U0/inst_fifo_gen/gaxis_fifo.gaxisf.axisf/grf.rf/gntv_or_sync_fifo.mem/gbm.gbmg.gbmga.ngecc.bmg/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/SAFETY_CKT_GEN.RSTB_SHFT_REG_reg[4]'
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:02:19 ; elapsed = 00:02:30 . Memory (MB): peak = 772.133 ; gain = 522.453
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Start ROM, RAM, DSP and Shift Register Reporting
----------------------------------------------------------------------------------
-
-Distributed RAM: Preliminary Mapping  Report (see note below)
-+--------------------------+----------------------+-----------+----------------------+--------------------------------+
-|Module Name               | RTL Object           | Inference | Size (Depth x Width) | Primitives                     | 
-+--------------------------+----------------------+-----------+----------------------+--------------------------------+
-|system_SketchIP_1080p_0_1 | inst/IC/lB3/line_reg | Implied   | 2 K x 8              | RAM64X1D x 180  RAM64M x 180   | 
-|system_SketchIP_1080p_0_1 | inst/IC/lB0/line_reg | Implied   | 2 K x 8              | RAM64X1D x 180  RAM64M x 180   | 
-|system_SketchIP_1080p_0_1 | inst/IC/lB1/line_reg | Implied   | 2 K x 8              | RAM64X1D x 180  RAM64M x 180   | 
-|system_SketchIP_1080p_0_1 | inst/IC/lB2/line_reg | Implied   | 2 K x 8              | RAM64X1D x 180  RAM64M x 180   | 
-+--------------------------+----------------------+-----------+----------------------+--------------------------------+
-
-Note: The table above is a preliminary report that shows the Distributed RAMs at the current stage of the synthesis flow. Some Distributed RAMs may be reimplemented as non Distributed RAM primitives later in the synthesis flow. Multiple instantiated RAMs are reported only once.
----------------------------------------------------------------------------------
-Finished ROM, RAM, DSP and Shift Register Reporting
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:02:26 ; elapsed = 00:02:42 . Memory (MB): peak = 792.461 ; gain = 541.977
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -684,30 +517,13 @@ Report RTL Partitions:
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:02:31 ; elapsed = 00:02:44 . Memory (MB): peak = 788.574 ; gain = 538.895
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:02:38 ; elapsed = 00:02:55 . Memory (MB): peak = 804.223 ; gain = 553.738
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:02:32 ; elapsed = 00:02:44 . Memory (MB): peak = 793.867 ; gain = 544.188
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Start ROM, RAM, DSP and Shift Register Reporting
----------------------------------------------------------------------------------
-
-Distributed RAM: Final Mapping  Report
-+--------------------------+----------------------+-----------+----------------------+--------------------------------+
-|Module Name               | RTL Object           | Inference | Size (Depth x Width) | Primitives                     | 
-+--------------------------+----------------------+-----------+----------------------+--------------------------------+
-|system_SketchIP_1080p_0_1 | inst/IC/lB3/line_reg | Implied   | 2 K x 8              | RAM64X1D x 180  RAM64M x 180   | 
-|system_SketchIP_1080p_0_1 | inst/IC/lB0/line_reg | Implied   | 2 K x 8              | RAM64X1D x 180  RAM64M x 180   | 
-|system_SketchIP_1080p_0_1 | inst/IC/lB1/line_reg | Implied   | 2 K x 8              | RAM64X1D x 180  RAM64M x 180   | 
-|system_SketchIP_1080p_0_1 | inst/IC/lB2/line_reg | Implied   | 2 K x 8              | RAM64X1D x 180  RAM64M x 180   | 
-+--------------------------+----------------------+-----------+----------------------+--------------------------------+
-
----------------------------------------------------------------------------------
-Finished ROM, RAM, DSP and Shift Register Reporting
+Finished Timing Optimization : Time (s): cpu = 00:02:44 ; elapsed = 00:03:02 . Memory (MB): peak = 887.785 ; gain = 637.301
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -718,55 +534,11 @@ Report RTL Partitions:
 ---------------------------------------------------------------------------------
 Start Technology Mapping
 ---------------------------------------------------------------------------------
-INFO: [Synth 8-3886] merging instance 'inst/IC/lB3/rdPntr_reg_rep[5]' (FDRE) to 'inst/IC/lB3/rdPntr_reg[5]'
-INFO: [Synth 8-3886] merging instance 'inst/IC/lB3/rdPntr_reg_rep[4]' (FDRE) to 'inst/IC/lB3/rdPntr_reg[4]'
-INFO: [Synth 8-3886] merging instance 'inst/IC/lB3/rdPntr_reg_rep[3]' (FDRE) to 'inst/IC/lB3/rdPntr_reg[3]'
-INFO: [Synth 8-3886] merging instance 'inst/IC/lB3/rdPntr_reg_rep[2]' (FDRE) to 'inst/IC/lB3/rdPntr_reg[2]'
-INFO: [Synth 8-3886] merging instance 'inst/IC/lB3/rdPntr_reg_rep[1]' (FDRE) to 'inst/IC/lB3/rdPntr_reg[1]'
-INFO: [Synth 8-3886] merging instance 'inst/IC/lB3/rdPntr_reg_rep[0]' (FDRE) to 'inst/IC/lB3/rdPntr_reg[0]'
-INFO: [Synth 8-3886] merging instance 'inst/IC/lB1/rdPntr_reg_rep[5]' (FDRE) to 'inst/IC/lB1/rdPntr_reg[5]'
-INFO: [Synth 8-3886] merging instance 'inst/IC/lB1/rdPntr_reg_rep[4]' (FDRE) to 'inst/IC/lB1/rdPntr_reg[4]'
-INFO: [Synth 8-3886] merging instance 'inst/IC/lB1/rdPntr_reg_rep[3]' (FDRE) to 'inst/IC/lB1/rdPntr_reg[3]'
-INFO: [Synth 8-3886] merging instance 'inst/IC/lB1/rdPntr_reg_rep[2]' (FDRE) to 'inst/IC/lB1/rdPntr_reg[2]'
-INFO: [Synth 8-3886] merging instance 'inst/IC/lB1/rdPntr_reg_rep[1]' (FDRE) to 'inst/IC/lB1/rdPntr_reg[1]'
-INFO: [Synth 8-3886] merging instance 'inst/IC/lB1/rdPntr_reg_rep[0]' (FDRE) to 'inst/IC/lB1/rdPntr_reg[0]'
-INFO: [Synth 8-3886] merging instance 'inst/IC/lB0/rdPntr_reg_rep[5]' (FDRE) to 'inst/IC/lB0/rdPntr_reg[5]'
-INFO: [Synth 8-3886] merging instance 'inst/IC/lB0/rdPntr_reg_rep[4]' (FDRE) to 'inst/IC/lB0/rdPntr_reg[4]'
-INFO: [Synth 8-3886] merging instance 'inst/IC/lB0/rdPntr_reg_rep[3]' (FDRE) to 'inst/IC/lB0/rdPntr_reg[3]'
-INFO: [Synth 8-3886] merging instance 'inst/IC/lB0/rdPntr_reg_rep[2]' (FDRE) to 'inst/IC/lB0/rdPntr_reg[2]'
-INFO: [Synth 8-3886] merging instance 'inst/IC/lB0/rdPntr_reg_rep[1]' (FDRE) to 'inst/IC/lB0/rdPntr_reg[1]'
-INFO: [Synth 8-3886] merging instance 'inst/IC/lB0/rdPntr_reg_rep[0]' (FDRE) to 'inst/IC/lB0/rdPntr_reg[0]'
-INFO: [Synth 8-3886] merging instance 'inst/IC/lB2/rdPntr_reg_rep[5]' (FDRE) to 'inst/IC/lB2/rdPntr_reg[5]'
-INFO: [Synth 8-3886] merging instance 'inst/IC/lB2/rdPntr_reg_rep[4]' (FDRE) to 'inst/IC/lB2/rdPntr_reg[4]'
-INFO: [Synth 8-3886] merging instance 'inst/IC/lB2/rdPntr_reg_rep[3]' (FDRE) to 'inst/IC/lB2/rdPntr_reg[3]'
-INFO: [Synth 8-3886] merging instance 'inst/IC/lB2/rdPntr_reg_rep[2]' (FDRE) to 'inst/IC/lB2/rdPntr_reg[2]'
-INFO: [Synth 8-3886] merging instance 'inst/IC/lB2/rdPntr_reg_rep[1]' (FDRE) to 'inst/IC/lB2/rdPntr_reg[1]'
-INFO: [Synth 8-3886] merging instance 'inst/IC/lB2/rdPntr_reg_rep[0]' (FDRE) to 'inst/IC/lB2/rdPntr_reg[0]'
-INFO: [Synth 8-3886] merging instance 'inst/IC/lB3/rdPntr_reg_rep[6]' (FDRE) to 'inst/IC/lB3/rdPntr_reg[6]'
-INFO: [Synth 8-3886] merging instance 'inst/IC/lB3/rdPntr_reg_rep[7]' (FDRE) to 'inst/IC/lB3/rdPntr_reg[7]'
-INFO: [Synth 8-3886] merging instance 'inst/IC/lB3/rdPntr_reg_rep[8]' (FDRE) to 'inst/IC/lB3/rdPntr_reg[8]'
-INFO: [Synth 8-3886] merging instance 'inst/IC/lB3/rdPntr_reg_rep[9]' (FDRE) to 'inst/IC/lB3/rdPntr_reg[9]'
-INFO: [Synth 8-3886] merging instance 'inst/IC/lB3/rdPntr_reg_rep[10]' (FDRE) to 'inst/IC/lB3/rdPntr_reg[10]'
-INFO: [Synth 8-3886] merging instance 'inst/IC/lB1/rdPntr_reg_rep[6]' (FDRE) to 'inst/IC/lB1/rdPntr_reg[6]'
-INFO: [Synth 8-3886] merging instance 'inst/IC/lB1/rdPntr_reg_rep[7]' (FDRE) to 'inst/IC/lB1/rdPntr_reg[7]'
-INFO: [Synth 8-3886] merging instance 'inst/IC/lB1/rdPntr_reg_rep[8]' (FDRE) to 'inst/IC/lB1/rdPntr_reg[8]'
-INFO: [Synth 8-3886] merging instance 'inst/IC/lB1/rdPntr_reg_rep[9]' (FDRE) to 'inst/IC/lB1/rdPntr_reg[9]'
-INFO: [Synth 8-3886] merging instance 'inst/IC/lB1/rdPntr_reg_rep[10]' (FDRE) to 'inst/IC/lB1/rdPntr_reg[10]'
-INFO: [Synth 8-3886] merging instance 'inst/IC/lB0/rdPntr_reg_rep[6]' (FDRE) to 'inst/IC/lB0/rdPntr_reg[6]'
-INFO: [Synth 8-3886] merging instance 'inst/IC/lB0/rdPntr_reg_rep[7]' (FDRE) to 'inst/IC/lB0/rdPntr_reg[7]'
-INFO: [Synth 8-3886] merging instance 'inst/IC/lB0/rdPntr_reg_rep[8]' (FDRE) to 'inst/IC/lB0/rdPntr_reg[8]'
-INFO: [Synth 8-3886] merging instance 'inst/IC/lB0/rdPntr_reg_rep[9]' (FDRE) to 'inst/IC/lB0/rdPntr_reg[9]'
-INFO: [Synth 8-3886] merging instance 'inst/IC/lB0/rdPntr_reg_rep[10]' (FDRE) to 'inst/IC/lB0/rdPntr_reg[10]'
-INFO: [Synth 8-3886] merging instance 'inst/IC/lB2/rdPntr_reg_rep[6]' (FDRE) to 'inst/IC/lB2/rdPntr_reg[6]'
-INFO: [Synth 8-3886] merging instance 'inst/IC/lB2/rdPntr_reg_rep[7]' (FDRE) to 'inst/IC/lB2/rdPntr_reg[7]'
-INFO: [Synth 8-3886] merging instance 'inst/IC/lB2/rdPntr_reg_rep[8]' (FDRE) to 'inst/IC/lB2/rdPntr_reg[8]'
-INFO: [Synth 8-3886] merging instance 'inst/IC/lB2/rdPntr_reg_rep[9]' (FDRE) to 'inst/IC/lB2/rdPntr_reg[9]'
-INFO: [Synth 8-3886] merging instance 'inst/IC/lB2/rdPntr_reg_rep[10]' (FDRE) to 'inst/IC/lB2/rdPntr_reg[10]'
 INFO: [Synth 8-3886] merging instance 'inst/OB/U0/inst_fifo_gen/gaxis_fifo.gaxisf.axisf/grf.rf/gntv_or_sync_fifo.mem/gbm.gbmg.gbmga.ngecc.bmg/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/SAFETY_CKT_GEN.POR_A_reg' (FD) to 'inst/OB/U0/inst_fifo_gen/gaxis_fifo.gaxisf.axisf/grf.rf/gntv_or_sync_fifo.mem/gbm.gbmg.gbmga.ngecc.bmg/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/SAFETY_CKT_GEN.POR_B_reg'
 INFO: [Synth 8-3886] merging instance 'inst/OB/U0/inst_fifo_gen/gaxis_fifo.gaxisf.axisf/grf.rf/gntv_or_sync_fifo.mem/gbm.gbmg.gbmga.ngecc.bmg/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/SAFETY_CKT_GEN.ENA_NO_REG.ENA_dly_reg' (FD) to 'inst/OB/U0/inst_fifo_gen/gaxis_fifo.gaxisf.axisf/grf.rf/gntv_or_sync_fifo.mem/gbm.gbmg.gbmga.ngecc.bmg/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/SAFETY_CKT_GEN.ENB_NO_REG.ENB_dly_reg'
 INFO: [Synth 8-3886] merging instance 'inst/OB/U0/inst_fifo_gen/gaxis_fifo.gaxisf.axisf/grf.rf/gntv_or_sync_fifo.mem/gbm.gbmg.gbmga.ngecc.bmg/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/SAFETY_CKT_GEN.ENA_NO_REG.ENA_dly_D_reg' (FD) to 'inst/OB/U0/inst_fifo_gen/gaxis_fifo.gaxisf.axisf/grf.rf/gntv_or_sync_fifo.mem/gbm.gbmg.gbmga.ngecc.bmg/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/SAFETY_CKT_GEN.ENB_NO_REG.ENB_dly_D_reg'
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:02:36 ; elapsed = 00:02:49 . Memory (MB): peak = 931.570 ; gain = 681.891
+Finished Technology Mapping : Time (s): cpu = 00:02:49 ; elapsed = 00:03:07 . Memory (MB): peak = 917.016 ; gain = 666.531
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -790,7 +562,7 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:02:38 ; elapsed = 00:02:51 . Memory (MB): peak = 931.570 ; gain = 681.891
+Finished IO Insertion : Time (s): cpu = 00:02:51 ; elapsed = 00:03:10 . Memory (MB): peak = 917.016 ; gain = 666.531
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -803,7 +575,7 @@ Report Check Netlist:
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:02:38 ; elapsed = 00:02:51 . Memory (MB): peak = 931.570 ; gain = 681.891
+Finished Renaming Generated Instances : Time (s): cpu = 00:02:51 ; elapsed = 00:03:10 . Memory (MB): peak = 917.016 ; gain = 666.531
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -815,42 +587,25 @@ Report RTL Partitions:
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:02:39 ; elapsed = 00:02:52 . Memory (MB): peak = 931.570 ; gain = 681.891
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:02:53 ; elapsed = 00:03:11 . Memory (MB): peak = 917.016 ; gain = 666.531
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:02:39 ; elapsed = 00:02:52 . Memory (MB): peak = 931.570 ; gain = 681.891
+Finished Renaming Generated Ports : Time (s): cpu = 00:02:53 ; elapsed = 00:03:11 . Memory (MB): peak = 917.016 ; gain = 666.531
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:02:39 ; elapsed = 00:02:52 . Memory (MB): peak = 931.570 ; gain = 681.891
+Finished Handling Custom Attributes : Time (s): cpu = 00:02:53 ; elapsed = 00:03:12 . Memory (MB): peak = 917.016 ; gain = 666.531
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:02:39 ; elapsed = 00:02:52 . Memory (MB): peak = 931.570 ; gain = 681.891
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Start ROM, RAM, DSP and Shift Register Reporting
----------------------------------------------------------------------------------
-
-Static Shift Register Report:
-+--------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------+-------+--------------+--------------------+-------------------+--------+---------+
-|Module Name               | RTL Name                                                                                                                                                                                                          | Length | Width | Reset Signal | Pull out first Reg | Pull out last Reg | SRL16E | SRLC32E | 
-+--------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------+-------+--------------+--------------------+-------------------+--------+---------+
-|fifo_generator_v13_2_1    | inst_fifo_gen/gaxis_fifo.gaxisf.axisf/grf.rf/gntv_or_sync_fifo.mem/gbm.gbmg.gbmga.ngecc.bmg/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/SAFETY_CKT_GEN.RSTB_SHFT_REG_reg[4] | 4      | 1     | NO           | NO                 | YES               | 1      | 0       | 
-|system_SketchIP_1080p_0_1 | inst/conv1/multData1_s5_reg[7]                                                                                                                                                                                    | 5      | 8     | NO           | NO                 | YES               | 8      | 0       | 
-|system_SketchIP_1080p_0_1 | inst/conv1/lonely_data_reg[2][7]                                                                                                                                                                                  | 4      | 8     | NO           | NO                 | YES               | 8      | 0       | 
-|system_SketchIP_1080p_0_1 | inst/conv1/o_convolved_data_valid_reg                                                                                                                                                                             | 13     | 1     | NO           | NO                 | YES               | 1      | 0       | 
-+--------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------+-------+--------------+--------------------+-------------------+--------+---------+
-
----------------------------------------------------------------------------------
-Finished ROM, RAM, DSP and Shift Register Reporting
+Finished Renaming Generated Nets : Time (s): cpu = 00:02:53 ; elapsed = 00:03:12 . Memory (MB): peak = 917.016 ; gain = 666.531
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -866,84 +621,51 @@ Report Cell Usage:
 +------+---------+------+
 |      |Cell     |Count |
 +------+---------+------+
-|1     |CARRY4   |   283|
-|2     |LUT1     |   354|
-|3     |LUT2     |   501|
-|4     |LUT3     |   921|
-|5     |LUT4     |   298|
-|6     |LUT5     |   667|
-|7     |LUT6     |  1035|
-|8     |MUXF7    |   224|
-|9     |MUXF8    |    64|
-|10    |RAM64M   |   720|
-|11    |RAM64X1D |   720|
-|12    |RAMB18E1 |     1|
-|13    |SRL16E   |    18|
-|14    |FDRE     |   850|
-|15    |FDSE     |    93|
+|1     |CARRY4   |    40|
+|2     |LUT1     |   178|
+|3     |LUT2     |   137|
+|4     |LUT3     |   660|
+|5     |LUT4     |   186|
+|6     |LUT5     |   500|
+|7     |LUT6     |  1086|
+|8     |MUXCY    |   153|
+|9     |MUXF7    |   212|
+|10    |MUXF8    |    48|
+|11    |RAM64M   |   720|
+|12    |RAM64X1D |   720|
+|13    |RAMB18E1 |     1|
+|14    |SRL16E   |    19|
+|15    |XORCY    |   153|
+|16    |FDRE     |  1421|
+|17    |FDSE     |    93|
 +------+---------+------+
-
-Report Instance Areas: 
-+------+-------------------------------------------------------------------------------+-----------------------------+------+
-|      |Instance                                                                       |Module                       |Cells |
-+------+-------------------------------------------------------------------------------+-----------------------------+------+
-|1     |top                                                                            |                             |  6749|
-|2     |  inst                                                                         |imageProcessTop              |  5786|
-|3     |    OB                                                                         |outputBuffer                 |   124|
-|4     |      U0                                                                       |fifo_generator_v13_2_1       |   124|
-|5     |        inst_fifo_gen                                                          |fifo_generator_v13_2_1_synth |   124|
-|6     |          \gaxis_fifo.gaxisf.axisf                                             |fifo_generator_top           |   124|
-|7     |            \grf.rf                                                            |fifo_generator_ramfifo       |   124|
-|8     |              \gntv_or_sync_fifo.gl0.rd                                        |rd_logic                     |    38|
-|9     |                \gr1.gr1_int.rfwft                                             |rd_fwft                      |    18|
-|10    |                \grss.rsts                                                     |rd_status_flags_ss           |     2|
-|11    |                rpntr                                                          |rd_bin_cntr                  |    18|
-|12    |              \gntv_or_sync_fifo.gl0.wr                                        |wr_logic                     |    54|
-|13    |                \gwss.gpf.wrpf                                                 |wr_pf_ss                     |    13|
-|14    |                \gwss.wsts                                                     |wr_status_flags_ss           |     6|
-|15    |                wpntr                                                          |wr_bin_cntr                  |    35|
-|16    |              \gntv_or_sync_fifo.mem                                           |memory                       |    17|
-|17    |                \gbm.gbmg.gbmga.ngecc.bmg                                      |blk_mem_gen_v8_4_1           |     9|
-|18    |                  inst_blk_mem_gen                                             |blk_mem_gen_v8_4_1_synth     |     9|
-|19    |                    \gnbram.gnativebmg.native_blk_mem_gen                      |blk_mem_gen_top              |     9|
-|20    |                      \valid.cstr                                              |blk_mem_gen_generic_cstr     |     9|
-|21    |                        \ramloop[0].ram.r                                      |blk_mem_gen_prim_width       |     9|
-|22    |                          \prim_noinit.ram                                     |blk_mem_gen_prim_wrapper     |     2|
-|23    |              rstblk                                                           |reset_blk_ramfifo            |    15|
-|24    |                \ngwrdrst.grst.g7serrst.gsckt_wrst.xpm_cdc_sync_rst_inst_wrst  |xpm_cdc_sync_rst             |     5|
-|25    |    IC                                                                         |imageControl                 |  4103|
-|26    |      lB0                                                                      |lineBuffer                   |  1014|
-|27    |      lB1                                                                      |lineBuffer_0                 |  1013|
-|28    |      lB2                                                                      |lineBuffer_1                 |   945|
-|29    |      lB3                                                                      |lineBuffer_2                 |  1015|
-|30    |    conv1                                                                      |conv1                        |  1558|
-+------+-------------------------------------------------------------------------------+-----------------------------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:02:39 ; elapsed = 00:02:52 . Memory (MB): peak = 931.570 ; gain = 681.891
+Finished Writing Synthesis Report : Time (s): cpu = 00:02:53 ; elapsed = 00:03:12 . Memory (MB): peak = 917.016 ; gain = 666.531
 ---------------------------------------------------------------------------------
-Synthesis finished with 0 errors, 0 critical warnings and 500 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:46 ; elapsed = 00:02:42 . Memory (MB): peak = 931.570 ; gain = 544.238
-Synthesis Optimization Complete : Time (s): cpu = 00:02:39 ; elapsed = 00:02:52 . Memory (MB): peak = 931.570 ; gain = 681.891
+Synthesis finished with 0 errors, 0 critical warnings and 501 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:52 ; elapsed = 00:02:58 . Memory (MB): peak = 917.016 ; gain = 568.336
+Synthesis Optimization Complete : Time (s): cpu = 00:02:53 ; elapsed = 00:03:12 . Memory (MB): peak = 917.016 ; gain = 666.531
 INFO: [Project 1-571] Translating synthesized netlist
-INFO: [Netlist 29-17] Analyzing 2012 Unisim elements for replacement
-INFO: [Netlist 29-28] Unisim Transformation completed in 1 CPU seconds
+INFO: [Netlist 29-17] Analyzing 2047 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 2 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_sync_rst.tcl] for cell 'inst/OB/U0/inst_fifo_gen/gaxis_fifo.gaxisf.axisf/grf.rf/rstblk/ngwrdrst.grst.g7serrst.gsckt_wrst.xpm_cdc_sync_rst_inst_wrst'
 Finished Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_sync_rst.tcl] for cell 'inst/OB/U0/inst_fifo_gen/gaxis_fifo.gaxisf.axisf/grf.rf/rstblk/ngwrdrst.grst.g7serrst.gsckt_wrst.xpm_cdc_sync_rst_inst_wrst'
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
 INFO: [Project 1-111] Unisim Transformation Summary:
-  A total of 1440 instances were transformed.
+  A total of 1491 instances were transformed.
+  (MUXCY,XORCY) => CARRY4: 51 instances
   RAM64M => RAM64M (RAMD64E, RAMD64E, RAMD64E, RAMD64E): 720 instances
   RAM64X1D => RAM64X1D (RAMD64E, RAMD64E): 720 instances
 
 INFO: [Common 17-83] Releasing license: Synthesis
-115 Infos, 143 Warnings, 0 Critical Warnings and 0 Errors encountered.
+55 Infos, 130 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:02:45 ; elapsed = 00:02:59 . Memory (MB): peak = 931.570 ; gain = 693.414
+synth_design: Time (s): cpu = 00:03:01 ; elapsed = 00:03:22 . Memory (MB): peak = 917.016 ; gain = 678.027
 INFO: [Common 17-1381] The checkpoint 'D:/GitCode/SketchSystem_Multi1080p/SketchSystem.runs/system_SketchIP_1080p_0_1_synth_1/system_SketchIP_1080p_0_1.dcp' has been generated.
 INFO: [Coretcl 2-1482] Added synthesis output to IP cache for IP d:/GitCode/SketchSystem_Multi1080p/SketchSystem.srcs/sources_1/bd/system/ip/system_SketchIP_1080p_0_1/system_SketchIP_1080p_0_1.xci
-INFO: [Coretcl 2-1174] Renamed 29 cell refs.
+INFO: [Coretcl 2-1174] Renamed 187 cell refs.
 INFO: [Common 17-1381] The checkpoint 'D:/GitCode/SketchSystem_Multi1080p/SketchSystem.runs/system_SketchIP_1080p_0_1_synth_1/system_SketchIP_1080p_0_1.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_utilization -file system_SketchIP_1080p_0_1_utilization_synth.rpt -pb system_SketchIP_1080p_0_1_utilization_synth.pb
-report_utilization: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.206 . Memory (MB): peak = 931.570 ; gain = 0.000
-INFO: [Common 17-206] Exiting Vivado at Wed Jul 14 21:01:15 2021...
+report_utilization: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.198 . Memory (MB): peak = 917.016 ; gain = 0.000
+INFO: [Common 17-206] Exiting Vivado at Wed Jul 21 22:03:04 2021...

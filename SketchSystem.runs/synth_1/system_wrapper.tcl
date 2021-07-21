@@ -90,6 +90,7 @@ set_property used_in_implementation false [get_files -all d:/GitCode/SketchSyste
 set_property used_in_implementation false [get_files -all d:/GitCode/SketchSystem_Multi1080p/SketchSystem.srcs/sources_1/bd/system/ip/system_rst_clk_wiz_0_148M_0/system_rst_clk_wiz_0_148M_0_ooc.xdc]
 set_property used_in_implementation false [get_files -all d:/GitCode/SketchSystem_Multi1080p/SketchSystem.srcs/sources_1/bd/system/ip/system_xbar_0/system_xbar_0_ooc.xdc]
 set_property used_in_implementation false [get_files -all d:/GitCode/SketchSystem_Multi1080p/SketchSystem.srcs/sources_1/bd/system/ip/system_SketchIP_1080p_0_1/sources_1/ip/outputBuffer/outputBuffer.xdc]
+set_property used_in_implementation false [get_files -all d:/GitCode/SketchSystem_Multi1080p/SketchSystem.srcs/sources_1/bd/system/ip/system_SketchIP_1080p_0_1/constrs_1/new/sketchConstraints.xdc]
 set_property used_in_synthesis false [get_files -all d:/GitCode/SketchSystem_Multi1080p/SketchSystem.srcs/sources_1/bd/system/ip/system_auto_cc_0/system_auto_cc_0_clocks.xdc]
 set_property used_in_implementation false [get_files -all d:/GitCode/SketchSystem_Multi1080p/SketchSystem.srcs/sources_1/bd/system/ip/system_auto_cc_0/system_auto_cc_0_clocks.xdc]
 set_property used_in_implementation false [get_files -all d:/GitCode/SketchSystem_Multi1080p/SketchSystem.srcs/sources_1/bd/system/ip/system_auto_cc_0/system_auto_cc_0_ooc.xdc]
