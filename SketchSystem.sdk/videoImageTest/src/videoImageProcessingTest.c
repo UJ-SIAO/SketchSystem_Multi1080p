@@ -27,7 +27,7 @@
 
 #define imgHSize 1920
 #define imgVSize 1080
-#define imageSize imgHSize*imgVSize
+#define imageSize 1920*1080
 
 
 //char imageData[] = {
@@ -206,19 +206,19 @@ int main(){
     		drawImage(HSize,VSize,imgHSize,imgVSize,(HSize-imgHSize)/2,(VSize-imgVSize)/2,1,imageDataR,Buffer);
 			break;
     	case 12:
-    		drawImage(HSize,VSize,imgHSize,imgVSize,(HSize-imgHSize)/2,(VSize-imgVSize)/2,1,filteredImage2+ (imageSize),Buffer);
+    		drawImage(HSize,VSize,imgHSize,imgVSize,(HSize-imgHSize)/2,(VSize-imgVSize)/2,1,filteredImage2+ (imageSize)-5,Buffer);
 			break;
     	case 13:
     		drawImage(HSize,VSize,imgHSize,imgVSize,(HSize-imgHSize)/2,(VSize-imgVSize)/2,1,imageDataU,Buffer);
 			break;
     	case 14:
-    		drawImage(HSize,VSize,imgHSize,imgVSize,(HSize-imgHSize)/2,(VSize-imgVSize)/2,1,filteredImage2+ (imageSize*2),Buffer);
+    		drawImage(HSize,VSize,imgHSize,imgVSize,(HSize-imgHSize)/2,(VSize-imgVSize)/2,1,filteredImage2+ (imageSize*2)-5,Buffer);
 			break;
     	case 15:
     		drawImage(HSize,VSize,imgHSize,imgVSize,(HSize-imgHSize)/2,(VSize-imgVSize)/2,1,imageDataW,Buffer);
 			break;
     	case 16:
-    		drawImage(HSize,VSize,imgHSize,imgVSize,(HSize-imgHSize)/2,(VSize-imgVSize)/2,1,filteredImage2+ (imageSize*3),Buffer);
+    		drawImage(HSize,VSize,imgHSize,imgVSize,(HSize-imgHSize)/2,(VSize-imgVSize)/2,1,filteredImage2+ (imageSize*3)-5,Buffer);
 			break;
 
 
