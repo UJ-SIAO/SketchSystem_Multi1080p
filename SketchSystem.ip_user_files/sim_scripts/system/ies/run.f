@@ -1,10 +1,10 @@
 -makelib ies_lib/xil_defaultlib -sv \
-  "C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/hdl/xpm_cdc.sv" \
-  "C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_fifo/hdl/xpm_fifo.sv" \
-  "C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_memory/hdl/xpm_memory.sv" \
+  "D:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/hdl/xpm_cdc.sv" \
+  "D:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_fifo/hdl/xpm_fifo.sv" \
+  "D:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_memory/hdl/xpm_memory.sv" \
 -endlib
 -makelib ies_lib/xpm \
-  "C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_VCOMP.vhd" \
+  "D:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_VCOMP.vhd" \
 -endlib
 -makelib ies_lib/axi_infrastructure_v1_1_0 \
   "../../../../SketchSystem.srcs/sources_1/bd/system/ipshared/ec67/hdl/axi_infrastructure_v1_1_vl_rfs.v" \
@@ -278,10 +278,10 @@
   "../../../bd/system/ip/system_SketchIP_1080p_0_1/sources_1/ip/div_gen_0/sim/div_gen_0.vhd" \
 -endlib
 -makelib ies_lib/xil_defaultlib \
-  "../../../bd/system/ipshared/521a/sources_1/new/conv1.v" \
-  "../../../bd/system/ipshared/521a/sources_1/new/imageControl.v" \
-  "../../../bd/system/ipshared/521a/sources_1/new/lineBuffer.v" \
-  "../../../bd/system/ipshared/521a/sources_1/new/imageProcessTop.v" \
+  "../../../bd/system/ipshared/38e0/sources_1/new/conv1.v" \
+  "../../../bd/system/ipshared/38e0/sources_1/new/imageControl.v" \
+  "../../../bd/system/ipshared/38e0/sources_1/new/lineBuffer.v" \
+  "../../../bd/system/ipshared/38e0/sources_1/new/imageProcessTop.v" \
   "../../../bd/system/ip/system_SketchIP_1080p_0_1/sim/system_SketchIP_1080p_0_1.v" \
 -endlib
 -makelib ies_lib/axi_clock_converter_v2_1_14 \

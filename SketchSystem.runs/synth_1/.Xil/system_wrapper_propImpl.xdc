@@ -1,4 +1,4 @@
-set_property SRC_FILE_INFO {cfile:D:/GitCode/SketchSystem_Multi1080p/SketchSystem.srcs/constrs_1/new/system.xdc rfile:../../../SketchSystem.srcs/constrs_1/new/system.xdc id:1} [current_design]
+set_property SRC_FILE_INFO {cfile:D:/Project/SketchSystem_Multi1080p/SketchSystem.srcs/constrs_1/new/system.xdc rfile:../../../SketchSystem.srcs/constrs_1/new/system.xdc id:1} [current_design]
 set_property src_info {type:XDC file:1 line:1 export:INPUT save:INPUT read:READ} [current_design]
 set_property PACKAGE_PIN Y21 [get_ports {VGA_B[0]}]
 set_property src_info {type:XDC file:1 line:2 export:INPUT save:INPUT read:READ} [current_design]

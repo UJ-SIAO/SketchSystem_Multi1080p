@@ -47,8 +47,8 @@
 // DO NOT MODIFY THIS FILE.
 
 
-// IP VLNV: xilinx.com:user:SketchIP_1080p:1.7
-// IP Revision: 12
+// IP VLNV: xilinx.com:user:SketchIP_1080p:1.8
+// IP Revision: 13
 
 `timescale 1ns/1ps
 
